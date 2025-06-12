@@ -1,0 +1,59 @@
+## Ignore build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+*.log
+
+## Ignore Visual Studio temporary files
+.vs/
+*.user
+*.suo
+*.cache
+*.pdb
+*.dbmdl
+*.dbmdl.*
+*.VC.db
+
+## Ignore Rider and ReSharper
+.idea/
+*.sln.iml
+_ReSharper*/
+*.DotSettings.user
+
+## Ignore test results
+TestResults/
+
+## Ignore publish output
+publish/
+*.Publish.xml
+
+## Ignore NuGet packages
+packages/
+*.nupkg
+project.lock.json
+project.assets.json
+*.snupkg
+.nuget/
+
+## Ignore Web-specific files (if ASP.NET)
+node_modules/
+bower_components/
+wwwroot/lib/
+
+## Ignore VS Code settings (if used)
+.vscode/
+
+## Ignore environment or config files
+.env
+*.config.user
+secrets.json
+
+## Ignore crash reports, debug files
+*.bak
+*.tmp
+*.swp
+*.orig
+
+## Ignore generated files
+Generated_Code/
+GeneratedFiles/
