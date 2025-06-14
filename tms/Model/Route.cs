@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace tms.Model
 {
     public class Route
     {
+        [Key]
         public string RouteID { get; set; }
         public string StartPoint { get; set; }
         public string EndPoint { get; set; }

@@ -9,6 +9,7 @@ namespace tms.Forms
         public FormMain()
         {
             InitializeComponent();
+            this.Size = new Size(1400, 700);   
         }
 
         // Dynamically load forms into Panel2
@@ -31,8 +32,14 @@ namespace tms.Forms
             loadFormIntoPanel(new FormStaff());
         }
 
-        // Toggle sidebar width
-  
+        private void btn_formRoute_Click(object sender, EventArgs e)
+        {
+            loadFormIntoPanel(new FormRoute());
+        }
+        private void btn_formVehicle_Click(object sender, EventArgs e)
+        {
+            loadFormIntoPanel(new FormVehicle());
+        }
 
 
     }

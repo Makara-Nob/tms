@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             splitContainer1 = new SplitContainer();
+            btn_vehicleForm = new Button();
+            btn_routeForm = new Button();
             pictureSidebarBoxToggle = new PictureBox();
             btn_formStaff = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -46,6 +48,8 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.BackColor = SystemColors.HighlightText;
+            splitContainer1.Panel1.Controls.Add(btn_vehicleForm);
+            splitContainer1.Panel1.Controls.Add(btn_routeForm);
             splitContainer1.Panel1.Controls.Add(pictureSidebarBoxToggle);
             splitContainer1.Panel1.Controls.Add(btn_formStaff);
             splitContainer1.Panel1.Cursor = Cursors.Cross;
@@ -54,6 +58,20 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = SystemColors.AppWorkspace;
+            // 
+            // btn_vehicleForm
+            // 
+            resources.ApplyResources(btn_vehicleForm, "btn_vehicleForm");
+            btn_vehicleForm.Name = "btn_vehicleForm";
+            btn_vehicleForm.UseVisualStyleBackColor = true;
+            btn_vehicleForm.Click += btn_formVehicle_Click;
+            // 
+            // btn_routeForm
+            // 
+            resources.ApplyResources(btn_routeForm, "btn_routeForm");
+            btn_routeForm.Name = "btn_routeForm";
+            btn_routeForm.UseVisualStyleBackColor = true;
+            btn_routeForm.Click += btn_formRoute_Click;
             // 
             // pictureSidebarBoxToggle
             // 
@@ -86,5 +104,7 @@
         private SplitContainer splitContainer1;
         private Button btn_formStaff;
         private PictureBox pictureSidebarBoxToggle;
+        private Button btn_routeForm;
+        private Button btn_vehicleForm;
     }
 }

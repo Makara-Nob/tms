@@ -6,7 +6,13 @@ namespace tms.Data
 {
     public class AppDbContext: DbContext
     {
-    
+
+        public DbSet<Staff> Staffs { get; set; }
+        public DbSet<Route> Routes { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
+
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
         public AppDbContext() { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -17,8 +23,23 @@ namespace tms.Data
                                   );
             }
         }
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-        public DbSet<Staff> Staffs { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Staff>();
+            modelBuilder.Entity<Route>();
+            modelBuilder.Entity<Vehicle>();
+
+
+            Console.WriteLine("Entities tracked by EF:");
+            foreach (var entity in modelBuilder.Model.GetEntityTypes())
+            {
+                Console.WriteLine($"- {entity.Name}");
+            }
+        }
+
        
     }
 
