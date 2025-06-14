@@ -129,6 +129,60 @@
   <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="btn_seatForm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_seatForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 419</value>
+  </data>
+  <data name="btn_seatForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>303, 45</value>
+  </data>
+  <data name="btn_seatForm.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btn_seatForm.Text" xml:space="preserve">
+    <value>Seat</value>
+  </data>
+  <data name="&gt;&gt;btn_seatForm.Name" xml:space="preserve">
+    <value>btn_seatForm</value>
+  </data>
+  <data name="&gt;&gt;btn_seatForm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_seatForm.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;btn_seatForm.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btn_deliveryForm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_deliveryForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 352</value>
+  </data>
+  <data name="btn_deliveryForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>303, 45</value>
+  </data>
+  <data name="btn_deliveryForm.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btn_deliveryForm.Text" xml:space="preserve">
+    <value>Delivery</value>
+  </data>
+  <data name="&gt;&gt;btn_deliveryForm.Name" xml:space="preserve">
+    <value>btn_deliveryForm</value>
+  </data>
+  <data name="&gt;&gt;btn_deliveryForm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_deliveryForm.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;btn_deliveryForm.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="btn_vehicleForm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -154,7 +208,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;btn_vehicleForm.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="btn_routeForm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -181,7 +235,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;btn_routeForm.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="pictureSidebarBoxToggle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -363,7 +417,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;pictureSidebarBoxToggle.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="btn_formStaff.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 138</value>
@@ -387,7 +441,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;btn_formStaff.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="splitContainer1.Panel1.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>

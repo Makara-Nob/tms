@@ -1,5 +1,7 @@
 ﻿
+using Delivery_info.Model;
 using Microsoft.EntityFrameworkCore;
+using Seat_info.Model;
 using tms.Model;
 
 namespace tms.Data
@@ -10,6 +12,8 @@ namespace tms.Data
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<Route> Routes { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<Delivery> Deliveries { get; set; }
+        public DbSet<Seat> Seats { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 

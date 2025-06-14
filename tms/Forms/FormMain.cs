@@ -9,6 +9,7 @@ namespace tms.Forms
         public FormMain()
         {
             InitializeComponent();
+            wire();
             this.Size = new Size(1400, 700);   
         }
 
@@ -26,6 +27,15 @@ namespace tms.Forms
             form.Show();
         }
 
+        private void wire()
+        {
+            btn_formStaff.Click += btn_formStaff_Click;
+            btn_routeForm.Click += btn_formRoute_Click;
+            btn_vehicleForm.Click += btn_formVehicle_Click;
+            btn_deliveryForm.Click += btn_formDelivery_Click;
+            btn_seatForm.Click += btn_formSeat_Click;
+        }
+
         // Handle navigation button click
         private void btn_formStaff_Click(object sender, EventArgs e)
         {
@@ -41,6 +51,15 @@ namespace tms.Forms
             loadFormIntoPanel(new FormVehicle());
         }
 
+        private void btn_formDelivery_Click(object sender, EventArgs e)
+        {
+            loadFormIntoPanel(new FormDelivery());
+        }
+
+        private void btn_formSeat_Click(object sender, EventArgs e)
+        {
+            loadFormIntoPanel(new FormSeat());
+        }
 
     }
 }
