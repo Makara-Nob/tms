@@ -16,7 +16,7 @@ namespace Staff_info
         {
             InitializeComponent();
             InitCheckBox();
-            InitializeDbContext();  
+            InitializeDbContext();
             LoadStaff();
         }
         private void InitializeDbContext()
@@ -39,7 +39,7 @@ namespace Staff_info
         private void LoadStaff()
         {
             var staffLIst = _context?.Staffs.ToList();
-            Dgv_staff.DataSource = staffLIst; 
+            Dgv_staff.DataSource = staffLIst;
         }
 
         private void InitCheckBox()

@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Staff_info;
 using Staff_info.Data;
 using Staff_info.Model;
 using System.Configuration;
+using tms.Forms;
 
-namespace Staff_info
+namespace tms
 {
     internal static class Program
     {
