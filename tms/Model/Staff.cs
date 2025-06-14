@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace Staff_info.Model
+using System.ComponentModel.DataAnnotations;
+
+namespace tms.Model
 {
     public class Staff
     {
+        [Key]
         public int StaffId { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }

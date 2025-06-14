@@ -1,8 +1,8 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
-using Staff_info.Model;
+using tms.Model;
 
-namespace Staff_info.Data
+namespace tms.Data
 {
     public class AppDbContext: DbContext
     {
@@ -19,6 +19,7 @@ namespace Staff_info.Data
         }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
         public DbSet<Staff> Staffs { get; set; }
+       
     }
 
 }

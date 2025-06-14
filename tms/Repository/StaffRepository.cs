@@ -1,5 +1,6 @@
-﻿using Staff_info.Data;
-using Staff_info.Model;
+﻿
+using tms.Data;
+using tms.Model;
 
 namespace Staff_info.Repository
 {
