@@ -1,11 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using Staff_info.Data;
-using Staff_info.Model;
-using Staff_info.Repository;
+using tms.Data;
+using tms.Model;
 using System.Configuration;
-using System.Xml.Linq;
 
-namespace Staff_info
+namespace tms
 {
     public partial class FormStaff : Form
     {
@@ -16,7 +14,7 @@ namespace Staff_info
         {
             InitializeComponent();
             InitCheckBox();
-            InitializeDbContext();  
+            InitializeDbContext();
             LoadStaff();
         }
         private void InitializeDbContext()
@@ -39,7 +37,7 @@ namespace Staff_info
         private void LoadStaff()
         {
             var staffLIst = _context?.Staffs.ToList();
-            Dgv_staff.DataSource = staffLIst; 
+            Dgv_staff.DataSource = staffLIst;
         }
 
         private void InitCheckBox()
@@ -86,10 +84,10 @@ namespace Staff_info
         private void btnSearch_Click(object sender, EventArgs e)
         {
             var keyword = textBox_searchStaff.Text.Trim();
-            var repo = new StaffRepository();
-            var result = repo.Search(keyword);
+            //var repo = new StaffRepository();
+            //var result = repo.Search(keyword);
 
-            Dgv_staff.DataSource = result;
+            //Dgv_staff.DataSource = result;
         }
 
         private void Dgv_staff_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -184,5 +182,9 @@ namespace Staff_info
             }
         }
 
+        private void Dgv_staff_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

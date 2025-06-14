@@ -1,4 +1,4 @@
-﻿namespace Staff_info
+﻿namespace tms
 {
     partial class FormStaff
     {
@@ -51,15 +51,17 @@
             label2 = new Label();
             label1 = new Label();
             groupBox2 = new GroupBox();
+            btn_search = new Button();
             Dgv_staff = new DataGridView();
             textBox_searchStaff = new TextBox();
-            button_addStaff = new Button();
+            ActionBtnGroup = new GroupBox();
             btn_editStaff = new Button();
+            button_addStaff = new Button();
             btn_clear = new Button();
-            btn_search = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Dgv_staff).BeginInit();
+            ActionBtnGroup.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -89,7 +91,7 @@
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(726, 638);
+            groupBox1.Size = new Size(595, 638);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Information";
@@ -99,7 +101,7 @@
             textBox_salary.Location = new Point(232, 512);
             textBox_salary.Margin = new Padding(4);
             textBox_salary.Name = "textBox_salary";
-            textBox_salary.Size = new Size(406, 31);
+            textBox_salary.Size = new Size(324, 31);
             textBox_salary.TabIndex = 21;
             // 
             // textBox_hiredDate
@@ -107,15 +109,15 @@
             textBox_hiredDate.Location = new Point(232, 455);
             textBox_hiredDate.Margin = new Padding(4);
             textBox_hiredDate.Name = "textBox_hiredDate";
-            textBox_hiredDate.Size = new Size(406, 31);
+            textBox_hiredDate.Size = new Size(324, 31);
             textBox_hiredDate.TabIndex = 20;
             // 
             // textBox_ct_phoneNumber
             // 
-            textBox_ct_phoneNumber.Location = new Point(232, 392);
+            textBox_ct_phoneNumber.Location = new Point(232, 396);
             textBox_ct_phoneNumber.Margin = new Padding(4);
             textBox_ct_phoneNumber.Name = "textBox_ct_phoneNumber";
-            textBox_ct_phoneNumber.Size = new Size(406, 31);
+            textBox_ct_phoneNumber.Size = new Size(324, 31);
             textBox_ct_phoneNumber.TabIndex = 19;
             // 
             // textBox_ps_phoneNumber
@@ -123,7 +125,7 @@
             textBox_ps_phoneNumber.Location = new Point(232, 339);
             textBox_ps_phoneNumber.Margin = new Padding(4);
             textBox_ps_phoneNumber.Name = "textBox_ps_phoneNumber";
-            textBox_ps_phoneNumber.Size = new Size(406, 31);
+            textBox_ps_phoneNumber.Size = new Size(324, 31);
             textBox_ps_phoneNumber.TabIndex = 17;
             // 
             // textBox_birthDate
@@ -131,7 +133,7 @@
             textBox_birthDate.Location = new Point(232, 220);
             textBox_birthDate.Margin = new Padding(4);
             textBox_birthDate.Name = "textBox_birthDate";
-            textBox_birthDate.Size = new Size(406, 31);
+            textBox_birthDate.Size = new Size(324, 31);
             textBox_birthDate.TabIndex = 16;
             // 
             // textBox_address
@@ -139,7 +141,7 @@
             textBox_address.Location = new Point(232, 285);
             textBox_address.Margin = new Padding(4);
             textBox_address.Name = "textBox_address";
-            textBox_address.Size = new Size(406, 31);
+            textBox_address.Size = new Size(324, 31);
             textBox_address.TabIndex = 15;
             // 
             // textBox_gender
@@ -147,7 +149,7 @@
             textBox_gender.Location = new Point(232, 164);
             textBox_gender.Margin = new Padding(4);
             textBox_gender.Name = "textBox_gender";
-            textBox_gender.Size = new Size(406, 31);
+            textBox_gender.Size = new Size(324, 31);
             textBox_gender.TabIndex = 14;
             // 
             // textBox_staffName
@@ -155,7 +157,7 @@
             textBox_staffName.Location = new Point(232, 109);
             textBox_staffName.Margin = new Padding(4);
             textBox_staffName.Name = "textBox_staffName";
-            textBox_staffName.Size = new Size(406, 31);
+            textBox_staffName.Size = new Size(324, 31);
             textBox_staffName.TabIndex = 13;
             // 
             // textBox_StaffId
@@ -163,7 +165,7 @@
             textBox_StaffId.Location = new Point(232, 50);
             textBox_StaffId.Margin = new Padding(4);
             textBox_StaffId.Name = "textBox_StaffId";
-            textBox_StaffId.Size = new Size(406, 31);
+            textBox_StaffId.Size = new Size(324, 31);
             textBox_StaffId.TabIndex = 12;
             // 
             // chkIsStopWorking
@@ -293,74 +295,14 @@
             groupBox2.Controls.Add(btn_search);
             groupBox2.Controls.Add(Dgv_staff);
             groupBox2.Controls.Add(textBox_searchStaff);
-            groupBox2.Location = new Point(796, 41);
+            groupBox2.Location = new Point(659, 41);
             groupBox2.Margin = new Padding(4);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(4);
-            groupBox2.Size = new Size(935, 546);
+            groupBox2.Size = new Size(723, 543);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Search:";
-            // 
-            // Dgv_staff
-            // 
-            Dgv_staff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            Dgv_staff.Location = new Point(21, 128);
-            Dgv_staff.Margin = new Padding(4);
-            Dgv_staff.Name = "Dgv_staff";
-            Dgv_staff.RowHeadersWidth = 51;
-            Dgv_staff.Size = new Size(895, 389);
-            Dgv_staff.TabIndex = 1;
-            Dgv_staff.CellClick += Dgv_staff_CellClick;
-            // 
-            // textBox_searchStaff
-            // 
-            textBox_searchStaff.Location = new Point(21, 50);
-            textBox_searchStaff.Margin = new Padding(4);
-            textBox_searchStaff.Multiline = true;
-            textBox_searchStaff.Name = "textBox_searchStaff";
-            textBox_searchStaff.Size = new Size(487, 49);
-            textBox_searchStaff.TabIndex = 0;
-            // 
-            // button_addStaff
-            // 
-            button_addStaff.BackColor = SystemColors.Highlight;
-            button_addStaff.ForeColor = Color.White;
-            button_addStaff.Location = new Point(796, 607);
-            button_addStaff.Margin = new Padding(4);
-            button_addStaff.Name = "button_addStaff";
-            button_addStaff.Size = new Size(183, 56);
-            button_addStaff.TabIndex = 2;
-            button_addStaff.TabStop = false;
-            button_addStaff.Text = "Add";
-            button_addStaff.UseVisualStyleBackColor = false;
-            button_addStaff.Click += btnAddStaff_Click;
-            // 
-            // btn_editStaff
-            // 
-            btn_editStaff.BackColor = SystemColors.Highlight;
-            btn_editStaff.ForeColor = Color.White;
-            btn_editStaff.Location = new Point(1030, 607);
-            btn_editStaff.Margin = new Padding(4);
-            btn_editStaff.Name = "btn_editStaff";
-            btn_editStaff.Size = new Size(183, 56);
-            btn_editStaff.TabIndex = 3;
-            btn_editStaff.Text = "Edit";
-            btn_editStaff.UseVisualStyleBackColor = false;
-            btn_editStaff.Click += btnEditStaff_Click;
-            // 
-            // btn_clear
-            // 
-            btn_clear.BackColor = SystemColors.Highlight;
-            btn_clear.ForeColor = Color.White;
-            btn_clear.Location = new Point(1261, 607);
-            btn_clear.Margin = new Padding(4);
-            btn_clear.Name = "btn_clear";
-            btn_clear.Size = new Size(183, 56);
-            btn_clear.TabIndex = 4;
-            btn_clear.Text = "Clear";
-            btn_clear.UseVisualStyleBackColor = false;
-            btn_clear.Click += btnClear_Click;
             // 
             // btn_search
             // 
@@ -376,14 +318,85 @@
             btn_search.UseVisualStyleBackColor = false;
             btn_search.Click += btnSearch_Click;
             // 
+            // Dgv_staff
+            // 
+            Dgv_staff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Dgv_staff.Location = new Point(21, 109);
+            Dgv_staff.Margin = new Padding(4);
+            Dgv_staff.Name = "Dgv_staff";
+            Dgv_staff.RowHeadersWidth = 51;
+            Dgv_staff.Size = new Size(678, 415);
+            Dgv_staff.TabIndex = 1;
+            Dgv_staff.CellClick += Dgv_staff_CellClick;
+            Dgv_staff.CellContentClick += Dgv_staff_CellContentClick;
+            // 
+            // textBox_searchStaff
+            // 
+            textBox_searchStaff.Location = new Point(21, 50);
+            textBox_searchStaff.Margin = new Padding(4);
+            textBox_searchStaff.Multiline = true;
+            textBox_searchStaff.Name = "textBox_searchStaff";
+            textBox_searchStaff.Size = new Size(487, 49);
+            textBox_searchStaff.TabIndex = 0;
+            // 
+            // ActionBtnGroup
+            // 
+            ActionBtnGroup.Controls.Add(btn_clear);
+            ActionBtnGroup.Controls.Add(button_addStaff);
+            ActionBtnGroup.Controls.Add(btn_editStaff);
+            ActionBtnGroup.Location = new Point(659, 591);
+            ActionBtnGroup.Name = "ActionBtnGroup";
+            ActionBtnGroup.Size = new Size(723, 88);
+            ActionBtnGroup.TabIndex = 22;
+            ActionBtnGroup.TabStop = false;
+            ActionBtnGroup.Text = "Action";
+            // 
+            // btn_editStaff
+            // 
+            btn_editStaff.BackColor = SystemColors.Highlight;
+            btn_editStaff.ForeColor = Color.White;
+            btn_editStaff.Location = new Point(242, 25);
+            btn_editStaff.Margin = new Padding(4);
+            btn_editStaff.Name = "btn_editStaff";
+            btn_editStaff.Size = new Size(183, 56);
+            btn_editStaff.TabIndex = 3;
+            btn_editStaff.Text = "Edit";
+            btn_editStaff.UseVisualStyleBackColor = false;
+            btn_editStaff.Click += btnEditStaff_Click;
+            // 
+            // button_addStaff
+            // 
+            button_addStaff.BackColor = SystemColors.Highlight;
+            button_addStaff.ForeColor = Color.White;
+            button_addStaff.Location = new Point(21, 25);
+            button_addStaff.Margin = new Padding(4);
+            button_addStaff.Name = "button_addStaff";
+            button_addStaff.Size = new Size(183, 56);
+            button_addStaff.TabIndex = 2;
+            button_addStaff.TabStop = false;
+            button_addStaff.Text = "Add";
+            button_addStaff.UseVisualStyleBackColor = false;
+            button_addStaff.Click += btnAddStaff_Click;
+            // 
+            // btn_clear
+            // 
+            btn_clear.BackColor = SystemColors.Highlight;
+            btn_clear.ForeColor = Color.White;
+            btn_clear.Location = new Point(454, 25);
+            btn_clear.Margin = new Padding(4);
+            btn_clear.Name = "btn_clear";
+            btn_clear.Size = new Size(183, 56);
+            btn_clear.TabIndex = 4;
+            btn_clear.Text = "Clear";
+            btn_clear.UseVisualStyleBackColor = false;
+            btn_clear.Click += btnClear_Click;
+            // 
             // FormStaff
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1757, 785);
-            Controls.Add(btn_clear);
-            Controls.Add(btn_editStaff);
-            Controls.Add(button_addStaff);
+            ClientSize = new Size(1409, 706);
+            Controls.Add(ActionBtnGroup);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Margin = new Padding(4);
@@ -394,6 +407,7 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Dgv_staff).EndInit();
+            ActionBtnGroup.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -423,10 +437,11 @@
         private GroupBox groupBox2;
         private DataGridView Dgv_staff;
         private TextBox textBox_searchStaff;
-        private Button button_addStaff;
         private CheckBox chkIsWorking;
-        private Button btn_editStaff;
-        private Button btn_clear;
         private Button btn_search;
+        private GroupBox ActionBtnGroup;
+        private Button btn_clear;
+        private Button button_addStaff;
+        private Button btn_editStaff;
     }
 }
