@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Staff_info.Data;
-using Staff_info.Model;
+using tms.Data;
+using tms.Model;
 using System.Configuration;
+using tms.Forms;
 
-namespace Staff_info
+namespace tms
 {
     internal static class Program
     {
@@ -55,7 +56,8 @@ namespace Staff_info
 
             Console.WriteLine("✅ Test complete.");
             Console.ReadLine();
-            Application.Run(new FormStaff());
+
+            Application.Run(new FormMain());
         }
     }
 }
