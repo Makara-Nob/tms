@@ -55,7 +55,6 @@ namespace Staff_info
 
             Console.WriteLine("✅ Test complete.");
             Console.ReadLine();
-            ApplicationConfiguration.Initialize();
             Application.Run(new FormStaff());
         }
     }
