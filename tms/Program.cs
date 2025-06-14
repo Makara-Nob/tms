@@ -2,6 +2,7 @@
 using Staff_info.Data;
 using Staff_info.Model;
 using System.Configuration;
+using tms.Forms;
 
 namespace Staff_info
 {
@@ -11,6 +12,7 @@ namespace Staff_info
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
+        [Obsolete]
         static void Main()
         {
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
@@ -56,7 +58,8 @@ namespace Staff_info
             Console.WriteLine("✅ Test complete.");
             Console.ReadLine();
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormStaff());
+            //Application.Run(new FormStaff());
+            Application.Run(new FormSeat()); // Assuming you want to run the FormSeat instead of FormStaff
         }
     }
 }
