@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using Staff_info.Data;
+using tms.Data;
 using Seat_info.Model;
 
 
@@ -33,34 +33,28 @@ namespace tms.Forms
         {
             using var context = new AppDbContext();
             var seats = (from s in context.Seats
-                         join v in context.Vehicles on s.VehivleId equals v.VehicleId
+                         join v in context.Vehicles on s.VehicleID equals v.VehicleID  // Both strings
                          select new
                          {
                              s.SeatId,
-                             v.VehicleType,
-                             v.PlateNumber,
-                             s.VehivleId,
-                             s.SeatNumber,
                              s.SeatType,
+                             v.VehicleID,
+                             v.Type,
+                             v.LicensePlate,
+                             s.SeatNumber,
                              s.seatStatus
                          }).ToList();
 
             tableSeat.DataSource = seats;
-
-            // Optionally hide columns if not needed
-            // tableSeat.Columns["SeatId"].Visible = false;
-            // tableSeat.Columns["VehivleId"].Visible = false;
         }
 
         [Obsolete]
         private void LoadVehicles()
         {
             using var context = new AppDbContext();
-            var vehicles = context.Vehicles.ToList();
-            vehicleId.DataSource = vehicles;
-            vehicleId.DisplayMember = "VehicleType";
-            vehicleId.ValueMember = "VehicleId";
-            vehicleId.SelectedIndex = -1;
+            vehicleId.DisplayMember = "Type";  // What to show
+            vehicleId.ValueMember = "VehicleID";  // Must match your Vehicle model (string)
+            vehicleId.DataSource = context.Vehicles.ToList();
         }
 
         [Obsolete]
@@ -82,7 +76,7 @@ namespace tms.Forms
 
             var newSeat = new Seat
             {
-                VehivleId = (int)vehicleId.SelectedValue,
+                VehicleID = vehicleId.SelectedValue.ToString(),
                 SeatNumber = seatNumber.Text.Trim(),
                 SeatType = seatType.SelectedItem?.ToString(),
                 seatStatus = seatStatus.SelectedItem?.ToString()
@@ -100,35 +94,49 @@ namespace tms.Forms
         private void updateBtn_Click(object sender, EventArgs e)
         {
             using var context = new AppDbContext();
-            if (selectedSeatId == -1 || vehicleId.SelectedIndex == -1 || string.IsNullOrWhiteSpace(seatNumber.Text) || seatType.SelectedIndex == 0 || seatStatus.SelectedIndex == 0)
+
+            // Validation checks
+            if (selectedSeatId == -1 ||
+                vehicleId.SelectedIndex == -1 ||
+                string.IsNullOrWhiteSpace(seatNumber.Text) ||
+                seatType.SelectedIndex == 0 ||
+                seatStatus.SelectedIndex == 0)
             {
                 MessageBox.Show("Please select a seat and fill all fields correctly.");
                 return;
             }
-            if (vehicleId.SelectedValue == null)
+
+            if (!int.TryParse(selectedSeatId.ToString(), out int seatId))
             {
-                MessageBox.Show("Please select a valid vehicle.");
+                MessageBox.Show("Invalid seat ID format");
                 return;
             }
-            var seatToUpdate = context.Seats.Find(selectedSeatId);
+
+            var seatToUpdate = context.Seats.Find(seatId);
             if (seatToUpdate == null)
             {
                 MessageBox.Show("Seat not found.");
                 return;
             }
 
-            // Update the seat properties with the new values from the form
-            seatToUpdate.VehivleId = (int)vehicleId.SelectedValue;
-            seatToUpdate.SeatNumber = seatNumber.Text.Trim();
-            seatToUpdate.SeatType = seatType.SelectedItem?.ToString();
-            seatToUpdate.seatStatus = seatStatus.SelectedItem?.ToString();
+            try
+            {
+                // Convert SelectedValue to string (matches Vehicle model)
+                seatToUpdate.VehicleID = vehicleId.SelectedValue?.ToString();
 
-            context.Seats.Update(seatToUpdate);
-            context.SaveChanges();
+                seatToUpdate.SeatNumber = seatNumber.Text.Trim();
+                seatToUpdate.SeatType = seatType.SelectedItem?.ToString();
+                seatToUpdate.seatStatus = seatStatus.SelectedItem?.ToString();
 
-            LoadSeats();
-            ClearForm();
-            MessageBox.Show("Seat updated successfully.");
+                context.SaveChanges();
+                LoadSeats();
+                ClearForm();
+                MessageBox.Show("Seat updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating seat: {ex.Message}");
+            }
         }
 
 
@@ -166,9 +174,9 @@ namespace tms.Forms
                 seatNumber.Text = row.Cells["SeatNumber"].Value?.ToString() ?? "";
 
                 // Set vehicle ComboBox by value
-                if (row.Cells["VehivleId"].Value != null)
+                if (row.Cells["VehicleID"].Value != null)
                 {
-                    int vehicleIdValue = Convert.ToInt32(row.Cells["VehivleId"].Value);
+                    var vehicleIdValue = row.Cells["VehicleID"].Value?.ToString();
                     vehicleId.SelectedValue = vehicleIdValue;
                 }
                 else
@@ -274,6 +282,11 @@ namespace tms.Forms
             seatStatus.Items.Add("Unavailable");
             seatStatus.Items.Add("Booked");
             seatStatus.SelectedIndex = 0; // No selection by default
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

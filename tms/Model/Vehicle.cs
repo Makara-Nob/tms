@@ -1,17 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Vehicle_info.Model
+namespace tms.Model
 {
     public class Vehicle
     {
-        public int VehicleId { get; set; }
-        public string? PlateNumber { get; set; }
-        public string? VehicleType { get; set; }
-        public int Capacity { get; set; }
-        public string? Status { get; set; }
+        public string VehicleID { get; set; }
+        public string Type { get; set; }
+        public int? Capacity { get; set; }
+        public string LicensePlate { get; set; }
+        public string RouteID { get; set; }
+        public string Status { get; set; }
+        public DateTime? MaintenanceDate { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
+
+        public Vehicle()
+        {
+            VehicleID = string.Empty;
+            Type = string.Empty;
+            LicensePlate = string.Empty;
+            RouteID = string.Empty;
+            Status = string.Empty;
+            CreatedDate = DateTime.Now;
+            ModifiedDate = DateTime.Now;
+        }
     }
 }

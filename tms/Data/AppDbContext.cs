@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Staff_info.Model;
+using tms.Model;
 using Seat_info.Model;
-using Vehicle_info.Model;
+using Delivery_info.Model;
 
-namespace Staff_info.Data
+namespace tms.Data
 {
     public class AppDbContext : DbContext
     {
@@ -22,6 +22,9 @@ namespace Staff_info.Data
         public DbSet<Seat> Seats { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Staff> Staffs { get; set; }
+
+        public DbSet<Delivery> Deliveries { get; set; }
+
     }
 
 }

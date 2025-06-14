@@ -1,5 +1,5 @@
 ﻿using Seat_info.Model;
-using Staff_info.Data;
+using tms.Data;
 
 namespace Seat_info.Repository
 {

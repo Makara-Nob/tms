@@ -1,5 +1,5 @@
-﻿using Vehicle_info.Model;
-using Staff_info.Data;
+﻿using tms.Data;
+using tms.Model;
 
 namespace Vehicle_info.Repository
 {
@@ -28,7 +28,7 @@ namespace Vehicle_info.Repository
         public void DeleteVehicle(int id)
         {
             using var context = new AppDbContext();
-            var vehicleToDelete = context.Vehicles.FirstOrDefault(v => v.VehicleId == id);
+            var vehicleToDelete = context.Vehicles.FirstOrDefault(v => v.VehicleID == id.ToString());
 
             if (vehicleToDelete != null)
             {

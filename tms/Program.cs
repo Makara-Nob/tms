@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Staff_info.Data;
-using Staff_info.Model;
+using Microsoft.EntityFrameworkCore;
+using tms.Data;
+using tms.Model;
 using System.Configuration;
 using tms.Forms;
 
-namespace Staff_info
+namespace tms
 {
     internal static class Program
     {
@@ -17,15 +17,15 @@ namespace Staff_info
         {
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
             optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["AppDbContext"].ConnectionString);
-
             using var context = new AppDbContext(optionsBuilder.Options);
+            
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             using (var dbContext = new AppDbContext(optionsBuilder.Options))
             {
                 // Ensure DB is created
                 dbContext.Database.EnsureCreated();
-
+                
                 // Insert a sample staff (if not exists)
                 if (!dbContext.Staffs.Any())
                 {
@@ -41,12 +41,11 @@ namespace Staff_info
                         Salary = 1200.50m,
                         IsStopWorking = false
                     };
-
                     dbContext.Staffs.Add(newStaff);
                     dbContext.SaveChanges();
                     Console.WriteLine("✅ Inserted sample staff.");
                 }
-
+                
                 // Read staff
                 var allStaff = dbContext.Staffs.ToList();
                 foreach (var staff in allStaff)
@@ -54,12 +53,11 @@ namespace Staff_info
                     Console.WriteLine($"👤 {staff.Name} - {staff.Gender} - ${staff.Salary}");
                 }
             }
-
+            
             Console.WriteLine("✅ Test complete.");
             Console.ReadLine();
-            ApplicationConfiguration.Initialize();
-            //Application.Run(new FormStaff());
-            Application.Run(new FormSeat()); // Assuming you want to run the FormSeat instead of FormStaff
+
+            Application.Run(new FormMain());
         }
     }
 }

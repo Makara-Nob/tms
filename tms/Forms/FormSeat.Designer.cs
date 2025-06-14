@@ -317,8 +317,9 @@
             panel2.Padding = new Padding(20);
             panel2.Size = new Size(1000, 750);
             panel2.TabIndex = 7;
+            panel2.Paint += panel2_Paint;
             // 
-            // Form1
+            // FormSeat
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -327,7 +328,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Name = "Form1";
+            Name = "FormSeat";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Seat Management System";
             ((System.ComponentModel.ISupportInitialize)tableSeat).EndInit();
