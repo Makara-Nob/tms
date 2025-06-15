@@ -13,11 +13,11 @@ namespace Staff_info.Repository
             return context.Staffs.ToList();
         }
 
-        public void Add(Staff staff)
+        public bool Add(Staff staff)
         {
             using var context = new AppDbContext();
             context.Staffs.Add(staff);
-            context.SaveChanges();
+            return context.SaveChanges() > 0;
         }
 
         public List<Staff> Search(string keyword)
@@ -34,11 +34,11 @@ namespace Staff_info.Repository
                 .ToList();
         }
     
-        public void Update(Staff staff)
+        public bool Update(Staff staff)
         {
             using var context = new AppDbContext();
             context.Staffs.Update(staff);
-            context.SaveChanges();
+            return context.SaveChanges() > 0;
         }
 
         public void Delete(int staffId)

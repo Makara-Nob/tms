@@ -1,7 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using Staff_info;
+﻿
 using tms.Forms;
 
 namespace tms
@@ -11,15 +8,17 @@ namespace tms
         public FormMain()
         {
             InitializeComponent();
-            WireEvents();
+            wire();
+            this.Size = new Size(1400, 700);   
         }
 
         private void WireEvents()
         {
-            btn_formStaff.Click += btn_formStaff_Click;
-            btnRouteInfo.Click += BtnRouteInfo_Click;
-            btnVehicleInfo.Click += BtnVehicleInfo_Click;
-            btnExit.Click += BtnExit_Click;
+            lbStaff.Click += btn_formStaff_Click;
+            lbRoute.Click += btn_formRoute_Click;
+            lbVehicle.Click += btn_formVehicle_Click;
+            lbDelivery.Click += btn_formDelivery_Click;
+            lbSeat.Click += btn_formSeat_Click;
         }
 
         private void loadFormIntoPanel(Form form)
@@ -35,52 +34,40 @@ namespace tms
             form.Show();
         }
 
+        private void wire()
+        {
+            lbStaff.Click += btn_formStaff_Click;
+            lbVehicle.Click += btn_formVehicle_Click;
+            lbRoute.Click += btn_formRoute_Click;
+            lbDelivery.Click += btn_formDelivery_Click;
+            lbSeat.Click += btn_formSeat_Click;
+        }
+
+        // Handle navigation button click
         private void btn_formStaff_Click(object sender, EventArgs e)
         {
             loadFormIntoPanel(new FormStaff());
         }
 
-        private void loadFormIntoPanel(FormStaff formStaff)
+        private void btn_formRoute_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            loadFormIntoPanel(new FormRoute());
+        }
+        private void btn_formVehicle_Click(object sender, EventArgs e)
+        {
+            loadFormIntoPanel(new FormVehicle());
         }
 
-        private void BtnRouteInfo_Click(object sender, EventArgs e)
+        private void btn_formDelivery_Click(object sender, EventArgs e)
         {
-            loadFormIntoPanel(new RouteInformationForm());
+            loadFormIntoPanel(new FormDelivery());
         }
 
-        private void BtnVehicleInfo_Click(object sender, EventArgs e)
+        private void btn_formSeat_Click(object sender, EventArgs e)
         {
-            loadFormIntoPanel(new VehicleInformationForm());
+            loadFormIntoPanel(new FormSeat());
         }
 
-        private void BtnExit_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to exit?",
-                "Confirm Exit",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-            // Optional: Add custom painting code here if needed
-        }
-
-        private void splitContainer1_Panel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
     }
 }
