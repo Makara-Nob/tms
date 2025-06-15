@@ -1,4 +1,4 @@
-namespace tms
+﻿namespace tms
 {
     partial class FormStaff
     {
@@ -350,7 +350,7 @@ namespace tms
             btn_editStaff.Location = new Point(242, 25);
             btn_editStaff.Margin = new Padding(4);
             btn_editStaff.Name = "btn_editStaff";
-            btn_editStaff.Size = new Size(183, 56);
+            btn_editStaff.Size = new Size(128, 34);
             btn_editStaff.TabIndex = 3;
             btn_editStaff.Text = "Edit";
             btn_editStaff.UseVisualStyleBackColor = false;
