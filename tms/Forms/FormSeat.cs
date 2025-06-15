@@ -288,5 +288,10 @@ namespace tms.Forms
         {
 
         }
+
+        private void tableSeat_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

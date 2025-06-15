@@ -20,27 +20,30 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             splitContainer1 = new SplitContainer();
+            pictureBox6 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            load_formPassenger = new Label();
+            lbSeat = new Label();
             pictureBox4 = new PictureBox();
             lbDelivery = new Label();
             pictureBox3 = new PictureBox();
             lbRoute = new Label();
             pictureBox2 = new PictureBox();
             lbVehicle = new Label();
+            pictureBox7 = new PictureBox();
             pictureBox1 = new PictureBox();
             lbStaff = new Label();
             imageList1 = new ImageList(components);
-            pictureBox5 = new PictureBox();
-            lbSeat = new Label();
-            pictureBox6 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // splitContainer1
@@ -53,6 +56,7 @@
             splitContainer1.Panel1.BackColor = SystemColors.HighlightText;
             splitContainer1.Panel1.Controls.Add(pictureBox6);
             splitContainer1.Panel1.Controls.Add(pictureBox5);
+            splitContainer1.Panel1.Controls.Add(load_formPassenger);
             splitContainer1.Panel1.Controls.Add(lbSeat);
             splitContainer1.Panel1.Controls.Add(pictureBox4);
             splitContainer1.Panel1.Controls.Add(lbDelivery);
@@ -60,14 +64,37 @@
             splitContainer1.Panel1.Controls.Add(lbRoute);
             splitContainer1.Panel1.Controls.Add(pictureBox2);
             splitContainer1.Panel1.Controls.Add(lbVehicle);
+            splitContainer1.Panel1.Controls.Add(pictureBox7);
             splitContainer1.Panel1.Controls.Add(pictureBox1);
             splitContainer1.Panel1.Controls.Add(lbStaff);
             splitContainer1.Panel1.Cursor = Cursors.Cross;
-            resources.ApplyResources(splitContainer1.Panel1, "splitContainer1.Panel1");
             // 
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = SystemColors.Control;
+            // 
+            // pictureBox6
+            // 
+            resources.ApplyResources(pictureBox6, "pictureBox6");
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            resources.ApplyResources(pictureBox5, "pictureBox5");
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.TabStop = false;
+            // 
+            // load_formPassenger
+            // 
+            resources.ApplyResources(load_formPassenger, "load_formPassenger");
+            load_formPassenger.Name = "load_formPassenger";
+            load_formPassenger.Click += load_formPassenger_Click;
+            // 
+            // lbSeat
+            // 
+            resources.ApplyResources(lbSeat, "lbSeat");
+            lbSeat.Name = "lbSeat";
             // 
             // pictureBox4
             // 
@@ -102,6 +129,13 @@
             resources.ApplyResources(lbVehicle, "lbVehicle");
             lbVehicle.Name = "lbVehicle";
             // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = Properties.Resources.staffIcon;
+            resources.ApplyResources(pictureBox7, "pictureBox7");
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.TabStop = false;
+            // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.staffIcon;
@@ -120,23 +154,6 @@
             resources.ApplyResources(imageList1, "imageList1");
             imageList1.TransparentColor = Color.Transparent;
             // 
-            // pictureBox5
-            // 
-            resources.ApplyResources(pictureBox5, "pictureBox5");
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.TabStop = false;
-            // 
-            // lbSeat
-            // 
-            resources.ApplyResources(lbSeat, "lbSeat");
-            lbSeat.Name = "lbSeat";
-            // 
-            // pictureBox6
-            // 
-            resources.ApplyResources(pictureBox6, "pictureBox6");
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.TabStop = false;
-            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
@@ -146,12 +163,13 @@
             splitContainer1.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
 
         }
@@ -171,5 +189,7 @@
         private PictureBox pictureBox5;
         private Label lbSeat;
         private PictureBox pictureBox6;
+        private Label load_formPassenger;
+        private PictureBox pictureBox7;
     }
 }

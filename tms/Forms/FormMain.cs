@@ -9,7 +9,7 @@ namespace tms
         {
             InitializeComponent();
             wire();
-            this.Size = new Size(1400, 700);   
+            this.Size = new Size(1400, 700);
         }
 
         private void WireEvents()
@@ -68,6 +68,9 @@ namespace tms
             loadFormIntoPanel(new FormSeat());
         }
 
-        
+        private void load_formPassenger_Click(object sender, EventArgs e)
+        {
+            loadFormIntoPanel(new FormPassenger());
+        }
     }
 }
