@@ -1,16 +1,9 @@
-﻿namespace tms.Forms
+﻿namespace tms
 {
     partial class FormMain
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,20 +15,18 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             splitContainer1 = new SplitContainer();
-            pictureSidebarBoxToggle = new PictureBox();
+            lblTitle = new Label();
             btn_formStaff = new Button();
+            btnRouteInfo = new Button();
+            btnVehicleInfo = new Button();
+            btnExit = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureSidebarBoxToggle).BeginInit();
             SuspendLayout();
             // 
             // splitContainer1
@@ -45,46 +36,68 @@
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.BackColor = SystemColors.HighlightText;
-            splitContainer1.Panel1.Controls.Add(pictureSidebarBoxToggle);
+            splitContainer1.Panel1.BackColor = Color.White;
+            splitContainer1.Panel1.Controls.Add(lblTitle);
             splitContainer1.Panel1.Controls.Add(btn_formStaff);
-            splitContainer1.Panel1.Cursor = Cursors.Cross;
-            resources.ApplyResources(splitContainer1.Panel1, "splitContainer1.Panel1");
+            splitContainer1.Panel1.Controls.Add(btnRouteInfo);
+            splitContainer1.Panel1.Controls.Add(btnVehicleInfo);
+            splitContainer1.Panel1.Controls.Add(btnExit);
+            splitContainer1.Panel1.Paint += splitContainer1_Panel1_Paint_1;
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.BackColor = SystemColors.AppWorkspace;
+            splitContainer1.Panel2.BackColor = SystemColors.Control;
+            splitContainer1.Panel2.Paint += splitContainer1_Panel2_Paint;
             // 
-            // pictureSidebarBoxToggle
+            // lblTitle
             // 
-            resources.ApplyResources(pictureSidebarBoxToggle, "pictureSidebarBoxToggle");
-            pictureSidebarBoxToggle.Name = "pictureSidebarBoxToggle";
-            pictureSidebarBoxToggle.TabStop = false;
+            resources.ApplyResources(lblTitle, "lblTitle");
+            lblTitle.ForeColor = Color.Black;
+            lblTitle.Name = "lblTitle";
             // 
             // btn_formStaff
             // 
+            btn_formStaff.ForeColor = Color.Black;
             resources.ApplyResources(btn_formStaff, "btn_formStaff");
             btn_formStaff.Name = "btn_formStaff";
-            btn_formStaff.UseVisualStyleBackColor = true;
-            btn_formStaff.Click += btn_formStaff_Click;
+            // 
+            // btnRouteInfo
+            // 
+            btnRouteInfo.ForeColor = Color.Black;
+            resources.ApplyResources(btnRouteInfo, "btnRouteInfo");
+            btnRouteInfo.Name = "btnRouteInfo";
+            // 
+            // btnVehicleInfo
+            // 
+            btnVehicleInfo.ForeColor = Color.Black;
+            resources.ApplyResources(btnVehicleInfo, "btnVehicleInfo");
+            btnVehicleInfo.Name = "btnVehicleInfo";
+            // 
+            // btnExit
+            // 
+            btnExit.ForeColor = Color.Black;
+            resources.ApplyResources(btnExit, "btnExit");
+            btnExit.Name = "btnExit";
             // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
-            AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(splitContainer1);
             Name = "FormMain";
             splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureSidebarBoxToggle).EndInit();
             ResumeLayout(false);
+
         }
 
         #endregion
 
-        private SplitContainer splitContainer1;
-        private Button btn_formStaff;
-        private PictureBox pictureSidebarBoxToggle;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btn_formStaff;
+        private System.Windows.Forms.Button btnRouteInfo;
+        private System.Windows.Forms.Button btnVehicleInfo;
+        private System.Windows.Forms.Button btnExit;
     }
 }
