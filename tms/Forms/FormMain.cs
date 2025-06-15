@@ -29,11 +29,11 @@ namespace tms.Forms
 
         private void wire()
         {
-            btn_formStaff.Click += btn_formStaff_Click;
-            btn_routeForm.Click += btn_formRoute_Click;
-            btn_vehicleForm.Click += btn_formVehicle_Click;
-            btn_deliveryForm.Click += btn_formDelivery_Click;
-            btn_seatForm.Click += btn_formSeat_Click;
+            lbStaff.Click += btn_formStaff_Click;
+            lbVehicle.Click += btn_formVehicle_Click;
+            lbRoute.Click += btn_formRoute_Click;
+            lbDelivery.Click += btn_formDelivery_Click;
+            lbSeat.Click += btn_formSeat_Click;
         }
 
         // Handle navigation button click
