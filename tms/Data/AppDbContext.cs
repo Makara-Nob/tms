@@ -1,6 +1,7 @@
 ﻿
 using Delivery_info.Model;
 using Microsoft.EntityFrameworkCore;
+using Passenger_info.Model;
 using Seat_info.Model;
 using tms.Model;
 
@@ -15,6 +16,8 @@ namespace tms.Data
         public DbSet<Delivery> Deliveries { get; set; }
         public DbSet<Seat> Seats { get; set; }
 
+        public DbSet<Passenger> Passengers { get; set; }
+
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public AppDbContext() { }
@@ -23,7 +26,7 @@ namespace tms.Data
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(
-                                  "Server=ACER\\SQLEXPRESS01;Database=tms;Trusted_Connection=True;Encrypt=False;"
+                                  "Server=STEELBEAST;Database=tms;Trusted_Connection=True;Encrypt=False;"
                                   );
             }
         }
@@ -35,7 +38,6 @@ namespace tms.Data
             modelBuilder.Entity<Staff>();
             modelBuilder.Entity<Route>();
             modelBuilder.Entity<Vehicle>();
-
 
             Console.WriteLine("Entities tracked by EF:");
             foreach (var entity in modelBuilder.Model.GetEntityTypes())

@@ -59,7 +59,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(64, 64, 64);
-            label1.Location = new Point(20, 20);
+            label1.Location = new Point(23, 24);
             label1.Name = "label1";
             label1.Size = new Size(74, 17);
             label1.TabIndex = 0;
@@ -68,10 +68,10 @@
             // deliveryId
             // 
             deliveryId.BorderStyle = BorderStyle.FixedSingle;
-            deliveryId.Font = new Font("Segoe UI", 13F);
+            deliveryId.Font = new Font("Segoe UI", 11F);
             deliveryId.Location = new Point(140, 20);
             deliveryId.Name = "deliveryId";
-            deliveryId.Size = new Size(823, 31);
+            deliveryId.Size = new Size(337, 27);
             deliveryId.TabIndex = 1;
             deliveryId.TextChanged += deliveryId_TextChanged;
             // 
@@ -80,7 +80,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(64, 64, 64);
-            label2.Location = new Point(20, 66);
+            label2.Location = new Point(515, 24);
             label2.Name = "label2";
             label2.Size = new Size(60, 17);
             label2.TabIndex = 0;
@@ -89,10 +89,10 @@
             // orderId
             // 
             orderId.BorderStyle = BorderStyle.FixedSingle;
-            orderId.Font = new Font("Segoe UI", 13F);
-            orderId.Location = new Point(140, 66);
+            orderId.Font = new Font("Segoe UI", 11F);
+            orderId.Location = new Point(626, 20);
             orderId.Name = "orderId";
-            orderId.Size = new Size(823, 31);
+            orderId.Size = new Size(337, 27);
             orderId.TabIndex = 1;
             orderId.TextChanged += orderId_TextChanged;
             // 
@@ -101,7 +101,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(64, 64, 64);
-            label3.Location = new Point(20, 111);
+            label3.Location = new Point(20, 71);
             label3.Name = "label3";
             label3.Size = new Size(84, 17);
             label3.TabIndex = 0;
@@ -110,10 +110,10 @@
             // customerId
             // 
             customerId.BorderStyle = BorderStyle.FixedSingle;
-            customerId.Font = new Font("Segoe UI", 13F);
-            customerId.Location = new Point(140, 111);
+            customerId.Font = new Font("Segoe UI", 11F);
+            customerId.Location = new Point(140, 67);
             customerId.Name = "customerId";
-            customerId.Size = new Size(823, 31);
+            customerId.Size = new Size(337, 27);
             customerId.TabIndex = 1;
             customerId.TextChanged += customerId_TextChanged;
             // 
@@ -122,7 +122,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(64, 64, 64);
-            label4.Location = new Point(20, 159);
+            label4.Location = new Point(515, 71);
             label4.Name = "label4";
             label4.Size = new Size(75, 17);
             label4.TabIndex = 0;
@@ -131,10 +131,10 @@
             // orderType
             // 
             orderType.BorderStyle = BorderStyle.FixedSingle;
-            orderType.Font = new Font("Segoe UI", 13F);
-            orderType.Location = new Point(140, 159);
+            orderType.Font = new Font("Segoe UI", 11F);
+            orderType.Location = new Point(626, 67);
             orderType.Name = "orderType";
-            orderType.Size = new Size(823, 31);
+            orderType.Size = new Size(337, 27);
             orderType.TabIndex = 1;
             orderType.TextChanged += orderType_TextChanged;
             // 
@@ -143,7 +143,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(64, 64, 64);
-            label5.Location = new Point(20, 209);
+            label5.Location = new Point(22, 122);
             label5.Name = "label5";
             label5.Size = new Size(75, 17);
             label5.TabIndex = 0;
@@ -152,10 +152,10 @@
             // orderDate
             // 
             orderDate.BorderStyle = BorderStyle.FixedSingle;
-            orderDate.Font = new Font("Segoe UI", 13F);
-            orderDate.Location = new Point(140, 209);
+            orderDate.Font = new Font("Segoe UI", 11F);
+            orderDate.Location = new Point(140, 118);
             orderDate.Name = "orderDate";
-            orderDate.Size = new Size(823, 31);
+            orderDate.Size = new Size(337, 27);
             orderDate.TabIndex = 1;
             orderDate.TextChanged += orderDate_TextChanged;
             // 
@@ -164,7 +164,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(64, 64, 64);
-            label6.Location = new Point(20, 255);
+            label6.Location = new Point(515, 122);
             label6.Name = "label6";
             label6.Size = new Size(99, 17);
             label6.TabIndex = 0;
@@ -173,11 +173,11 @@
             // deliveryStatus
             // 
             deliveryStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-            deliveryStatus.Font = new Font("Segoe UI", 13F);
+            deliveryStatus.Font = new Font("Segoe UI", 11F);
             deliveryStatus.FormattingEnabled = true;
-            deliveryStatus.Location = new Point(140, 255);
+            deliveryStatus.Location = new Point(626, 117);
             deliveryStatus.Name = "deliveryStatus";
-            deliveryStatus.Size = new Size(823, 31);
+            deliveryStatus.Size = new Size(337, 28);
             deliveryStatus.TabIndex = 2;
             deliveryStatus.SelectedIndexChanged += deliveryStatus_SelectedIndexChanged;
             // 
@@ -188,7 +188,7 @@
             updateBtn.FlatStyle = FlatStyle.Flat;
             updateBtn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             updateBtn.ForeColor = Color.White;
-            updateBtn.Location = new Point(729, 307);
+            updateBtn.Location = new Point(733, 170);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(100, 35);
             updateBtn.TabIndex = 3;
@@ -203,7 +203,7 @@
             logoutBtn.FlatStyle = FlatStyle.Flat;
             logoutBtn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             logoutBtn.ForeColor = Color.White;
-            logoutBtn.Location = new Point(863, 307);
+            logoutBtn.Location = new Point(863, 170);
             logoutBtn.Name = "logoutBtn";
             logoutBtn.Size = new Size(100, 35);
             logoutBtn.TabIndex = 3;
@@ -242,7 +242,7 @@
             tableDelivery.DefaultCellStyle = dataGridViewCellStyle2;
             tableDelivery.EnableHeadersVisualStyles = false;
             tableDelivery.GridColor = Color.FromArgb(224, 224, 224);
-            tableDelivery.Location = new Point(20, 367);
+            tableDelivery.Location = new Point(23, 224);
             tableDelivery.Name = "tableDelivery";
             tableDelivery.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -258,7 +258,7 @@
             tableDelivery.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             tableDelivery.Size = new Size(943, 353);
             tableDelivery.TabIndex = 4;
-            this.tableDelivery.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableDelivery_CellClick);
+            tableDelivery.CellClick += tableDelivery_CellClick;
             // 
             // panelHeader
             // 
@@ -303,7 +303,7 @@
             panelForm.Location = new Point(0, 60);
             panelForm.Name = "panelForm";
             panelForm.Padding = new Padding(20);
-            panelForm.Size = new Size(989, 740);
+            panelForm.Size = new Size(989, 585);
             panelForm.TabIndex = 6;
             // 
             // FormDelivery
@@ -311,7 +311,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(240, 240, 240);
-            ClientSize = new Size(989, 800);
+            ClientSize = new Size(989, 645);
             Controls.Add(panelForm);
             Controls.Add(panelHeader);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);

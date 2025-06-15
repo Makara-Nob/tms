@@ -58,11 +58,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(64, 64, 64);
-            label1.Location = new Point(32, 24);
+            label1.Location = new Point(32, 15);
             label1.Name = "label1";
-            label1.Size = new Size(126, 21);
+            label1.Size = new Size(119, 20);
             label1.TabIndex = 0;
             label1.Text = "Vehicle Number";
             // 
@@ -71,7 +71,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(64, 64, 64);
-            label2.Location = new Point(59, 127);
+            label2.Location = new Point(52, 72);
             label2.Name = "label2";
             label2.Size = new Size(99, 20);
             label2.TabIndex = 0;
@@ -82,7 +82,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(64, 64, 64);
-            label3.Location = new Point(84, 178);
+            label3.Location = new Point(545, 72);
             label3.Name = "label3";
             label3.Size = new Size(74, 20);
             label3.TabIndex = 0;
@@ -93,7 +93,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(64, 64, 64);
-            label4.Location = new Point(75, 229);
+            label4.Location = new Point(68, 128);
             label4.Name = "label4";
             label4.Size = new Size(83, 20);
             label4.TabIndex = 0;
@@ -102,20 +102,20 @@
             // seatId
             // 
             seatId.BorderStyle = BorderStyle.FixedSingle;
-            seatId.Font = new Font("Segoe UI", 13F);
-            seatId.Location = new Point(195, 74);
+            seatId.Font = new Font("Segoe UI", 11F);
+            seatId.Location = new Point(631, 13);
             seatId.Name = "seatId";
-            seatId.Size = new Size(762, 31);
+            seatId.Size = new Size(346, 27);
             seatId.TabIndex = 1;
             seatId.TextChanged += seatId_TextChanged;
             // 
             // seatNumber
             // 
             seatNumber.BorderStyle = BorderStyle.FixedSingle;
-            seatNumber.Font = new Font("Segoe UI", 13F);
-            seatNumber.Location = new Point(195, 123);
+            seatNumber.Font = new Font("Segoe UI", 11F);
+            seatNumber.Location = new Point(171, 70);
             seatNumber.Name = "seatNumber";
-            seatNumber.Size = new Size(762, 31);
+            seatNumber.Size = new Size(346, 27);
             seatNumber.TabIndex = 1;
             seatNumber.TextChanged += seatNumber_TextChanged;
             // 
@@ -124,7 +124,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(64, 64, 64);
-            label5.Location = new Point(101, 78);
+            label5.Location = new Point(562, 15);
             label5.Name = "label5";
             label5.Size = new Size(57, 20);
             label5.TabIndex = 0;
@@ -133,11 +133,11 @@
             // seatStatus
             // 
             seatStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-            seatStatus.Font = new Font("Segoe UI", 13F);
+            seatStatus.Font = new Font("Segoe UI", 11F);
             seatStatus.FormattingEnabled = true;
-            seatStatus.Location = new Point(195, 224);
+            seatStatus.Location = new Point(171, 125);
             seatStatus.Name = "seatStatus";
-            seatStatus.Size = new Size(762, 31);
+            seatStatus.Size = new Size(806, 28);
             seatStatus.TabIndex = 2;
             seatStatus.SelectedIndexChanged += seatStatus_SelectedIndexChanged;
             // 
@@ -146,11 +146,11 @@
             addBtn.BackColor = Color.FromArgb(0, 122, 204);
             addBtn.FlatAppearance.BorderSize = 0;
             addBtn.FlatStyle = FlatStyle.Flat;
-            addBtn.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            addBtn.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
             addBtn.ForeColor = Color.White;
-            addBtn.Location = new Point(32, 293);
+            addBtn.Location = new Point(57, 178);
             addBtn.Name = "addBtn";
-            addBtn.Size = new Size(148, 42);
+            addBtn.Size = new Size(123, 37);
             addBtn.TabIndex = 3;
             addBtn.Text = "Add";
             addBtn.UseVisualStyleBackColor = false;
@@ -161,11 +161,11 @@
             updateBtn.BackColor = Color.FromArgb(0, 122, 204);
             updateBtn.FlatAppearance.BorderSize = 0;
             updateBtn.FlatStyle = FlatStyle.Flat;
-            updateBtn.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            updateBtn.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
             updateBtn.ForeColor = Color.White;
-            updateBtn.Location = new Point(296, 293);
+            updateBtn.Location = new Point(321, 178);
             updateBtn.Name = "updateBtn";
-            updateBtn.Size = new Size(148, 42);
+            updateBtn.Size = new Size(123, 37);
             updateBtn.TabIndex = 3;
             updateBtn.Text = "Update";
             updateBtn.UseVisualStyleBackColor = false;
@@ -176,11 +176,11 @@
             deleteBtn.BackColor = Color.FromArgb(229, 57, 53);
             deleteBtn.FlatAppearance.BorderSize = 0;
             deleteBtn.FlatStyle = FlatStyle.Flat;
-            deleteBtn.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            deleteBtn.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
             deleteBtn.ForeColor = Color.White;
-            deleteBtn.Location = new Point(562, 293);
+            deleteBtn.Location = new Point(587, 178);
             deleteBtn.Name = "deleteBtn";
-            deleteBtn.Size = new Size(145, 42);
+            deleteBtn.Size = new Size(120, 37);
             deleteBtn.TabIndex = 3;
             deleteBtn.Text = "Delete";
             deleteBtn.UseVisualStyleBackColor = false;
@@ -191,11 +191,11 @@
             logoutBtn.BackColor = Color.FromArgb(64, 64, 64);
             logoutBtn.FlatAppearance.BorderSize = 0;
             logoutBtn.FlatStyle = FlatStyle.Flat;
-            logoutBtn.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold);
+            logoutBtn.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
             logoutBtn.ForeColor = Color.White;
-            logoutBtn.Location = new Point(812, 293);
+            logoutBtn.Location = new Point(837, 178);
             logoutBtn.Name = "logoutBtn";
-            logoutBtn.Size = new Size(145, 42);
+            logoutBtn.Size = new Size(120, 37);
             logoutBtn.TabIndex = 3;
             logoutBtn.Text = "Logout";
             logoutBtn.UseVisualStyleBackColor = false;
@@ -232,7 +232,7 @@
             tableSeat.DefaultCellStyle = dataGridViewCellStyle2;
             tableSeat.EnableHeadersVisualStyles = false;
             tableSeat.GridColor = Color.FromArgb(224, 224, 224);
-            tableSeat.Location = new Point(32, 370);
+            tableSeat.Location = new Point(32, 241);
             tableSeat.Name = "tableSeat";
             tableSeat.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -246,29 +246,30 @@
             tableSeat.RowHeadersVisible = false;
             tableSeat.RowTemplate.Height = 35;
             tableSeat.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tableSeat.Size = new Size(925, 365);
+            tableSeat.Size = new Size(945, 322);
             tableSeat.TabIndex = 4;
             tableSeat.CellClick += tableSeat_CellClick;
+            tableSeat.CellContentClick += tableSeat_CellContentClick;
             // 
             // seatType
             // 
             seatType.DropDownStyle = ComboBoxStyle.DropDownList;
-            seatType.Font = new Font("Segoe UI", 13F);
+            seatType.Font = new Font("Segoe UI", 11F);
             seatType.FormattingEnabled = true;
-            seatType.Location = new Point(195, 173);
+            seatType.Location = new Point(631, 69);
             seatType.Name = "seatType";
-            seatType.Size = new Size(762, 31);
+            seatType.Size = new Size(346, 28);
             seatType.TabIndex = 5;
             seatType.SelectedIndexChanged += seatType_SelectedIndexChanged;
             // 
             // vehicleId
             // 
             vehicleId.DropDownStyle = ComboBoxStyle.DropDownList;
-            vehicleId.Font = new Font("Segoe UI", 13F);
+            vehicleId.Font = new Font("Segoe UI", 11F);
             vehicleId.FormattingEnabled = true;
-            vehicleId.Location = new Point(195, 20);
+            vehicleId.Location = new Point(171, 12);
             vehicleId.Name = "vehicleId";
-            vehicleId.Size = new Size(762, 31);
+            vehicleId.Size = new Size(346, 28);
             vehicleId.TabIndex = 5;
             vehicleId.SelectedIndexChanged += vehicleId_SelectedIndexChanged;
             // 
@@ -315,7 +316,7 @@
             panel2.Location = new Point(0, 60);
             panel2.Name = "panel2";
             panel2.Padding = new Padding(20);
-            panel2.Size = new Size(1000, 750);
+            panel2.Size = new Size(1000, 578);
             panel2.TabIndex = 7;
             panel2.Paint += panel2_Paint;
             // 
@@ -324,7 +325,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(240, 240, 240);
-            ClientSize = new Size(1000, 810);
+            ClientSize = new Size(1000, 638);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
