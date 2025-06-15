@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Staff_info;
-using Staff_info.Data;
-using Staff_info.Model;
+using tms.Data;
+using tms.Model;
 using System.Configuration;
 using tms.Forms;
 
@@ -57,8 +56,8 @@ namespace tms
 
             Console.WriteLine("✅ Test complete.");
             Console.ReadLine();
-            ApplicationConfiguration.Initialize();
-            Application.Run(new FormStaff());
+
+            Application.Run(new FormMain());
         }
     }
 }
