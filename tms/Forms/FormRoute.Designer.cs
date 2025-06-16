@@ -61,7 +61,7 @@
             // 
             txtSearch.Location = new Point(16, 43);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(261, 31);
+            txtSearch.Size = new Size(261, 23);
             txtSearch.TabIndex = 1;
             txtSearch.TextChanged += TxtSearch_TextChanged;
             // 
@@ -79,7 +79,7 @@
             // 
             txtRouteID.Location = new Point(193, 37);
             txtRouteID.Name = "txtRouteID";
-            txtRouteID.Size = new Size(398, 31);
+            txtRouteID.Size = new Size(398, 23);
             txtRouteID.TabIndex = 4;
             // 
             // lblStartPoint
@@ -96,7 +96,7 @@
             // 
             txtStartPoint.Location = new Point(193, 79);
             txtStartPoint.Name = "txtStartPoint";
-            txtStartPoint.Size = new Size(398, 31);
+            txtStartPoint.Size = new Size(398, 23);
             txtStartPoint.TabIndex = 6;
             // 
             // lblEndPoint
@@ -113,7 +113,7 @@
             // 
             txtEndPoint.Location = new Point(193, 125);
             txtEndPoint.Name = "txtEndPoint";
-            txtEndPoint.Size = new Size(398, 31);
+            txtEndPoint.Size = new Size(398, 23);
             txtEndPoint.TabIndex = 8;
             txtEndPoint.TextChanged += txtEndPoint_TextChanged;
             // 
@@ -121,7 +121,7 @@
             // 
             txtDistance.Location = new Point(193, 216);
             txtDistance.Name = "txtDistance";
-            txtDistance.Size = new Size(398, 31);
+            txtDistance.Size = new Size(398, 23);
             txtDistance.TabIndex = 10;
             txtDistance.TextChanged += txtDistance_TextChanged;
             // 
@@ -139,7 +139,7 @@
             // 
             txtEstimatedTime.Location = new Point(193, 173);
             txtEstimatedTime.Name = "txtEstimatedTime";
-            txtEstimatedTime.Size = new Size(398, 31);
+            txtEstimatedTime.Size = new Size(398, 23);
             txtEstimatedTime.TabIndex = 12;
             // 
             // lblVehicleAssigned
@@ -156,7 +156,7 @@
             // 
             cmbVehicleAssigned.Location = new Point(193, 262);
             cmbVehicleAssigned.Name = "cmbVehicleAssigned";
-            cmbVehicleAssigned.Size = new Size(398, 33);
+            cmbVehicleAssigned.Size = new Size(398, 23);
             cmbVehicleAssigned.TabIndex = 14;
             // 
             // lblPriority
@@ -174,7 +174,7 @@
             cmbPriority.Items.AddRange(new object[] { "Low", "Medium", "High", "Critical" });
             cmbPriority.Location = new Point(193, 310);
             cmbPriority.Name = "cmbPriority";
-            cmbPriority.Size = new Size(398, 33);
+            cmbPriority.Size = new Size(398, 23);
             cmbPriority.TabIndex = 16;
             // 
             // chkAvoidTolls
@@ -245,6 +245,7 @@
             gbRoute3.TabIndex = 23;
             gbRoute3.TabStop = false;
             gbRoute3.Text = "Action";
+            gbRoute3.Enter += gbRoute3_Enter;
             // 
             // lblDistance
             // 
@@ -296,10 +297,10 @@
             // 
             // lstRoutes
             // 
-            lstRoutes.ItemHeight = 25;
+            lstRoutes.ItemHeight = 15;
             lstRoutes.Location = new Point(16, 89);
             lstRoutes.Name = "lstRoutes";
-            lstRoutes.Size = new Size(261, 429);
+            lstRoutes.Size = new Size(261, 424);
             lstRoutes.TabIndex = 2;
             // 
             // FormRoute

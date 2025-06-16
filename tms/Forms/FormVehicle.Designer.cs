@@ -49,15 +49,15 @@
             // 
             txtSearch.Location = new Point(24, 46);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(369, 31);
+            txtSearch.Size = new Size(369, 23);
             txtSearch.TabIndex = 1;
             // 
             // lstVehicles
             // 
-            lstVehicles.ItemHeight = 25;
+            lstVehicles.ItemHeight = 15;
             lstVehicles.Location = new Point(24, 92);
             lstVehicles.Name = "lstVehicles";
-            lstVehicles.Size = new Size(369, 404);
+            lstVehicles.Size = new Size(369, 394);
             lstVehicles.TabIndex = 2;
             // 
             // lblVehicleID
@@ -74,7 +74,7 @@
             // 
             txtVehicleID.Location = new Point(169, 50);
             txtVehicleID.Name = "txtVehicleID";
-            txtVehicleID.Size = new Size(364, 31);
+            txtVehicleID.Size = new Size(364, 23);
             txtVehicleID.TabIndex = 4;
             // 
             // lblType
@@ -91,7 +91,7 @@
             // 
             cmbType.Location = new Point(169, 93);
             cmbType.Name = "cmbType";
-            cmbType.Size = new Size(364, 33);
+            cmbType.Size = new Size(364, 23);
             cmbType.TabIndex = 6;
             // 
             // lblCapacity
@@ -108,7 +108,7 @@
             // 
             txtCapacity.Location = new Point(169, 133);
             txtCapacity.Name = "txtCapacity";
-            txtCapacity.Size = new Size(364, 31);
+            txtCapacity.Size = new Size(364, 23);
             txtCapacity.TabIndex = 8;
             // 
             // lblLicensePlate
@@ -125,7 +125,7 @@
             // 
             txtLicensePlate.Location = new Point(169, 173);
             txtLicensePlate.Name = "txtLicensePlate";
-            txtLicensePlate.Size = new Size(364, 31);
+            txtLicensePlate.Size = new Size(364, 23);
             txtLicensePlate.TabIndex = 10;
             // 
             // lblRouteID
@@ -142,7 +142,7 @@
             // 
             cmbRouteID.Location = new Point(169, 216);
             cmbRouteID.Name = "cmbRouteID";
-            cmbRouteID.Size = new Size(364, 33);
+            cmbRouteID.Size = new Size(364, 23);
             cmbRouteID.TabIndex = 12;
             // 
             // lblStatus
@@ -159,7 +159,7 @@
             // 
             cmbStatus.Location = new Point(169, 269);
             cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(364, 33);
+            cmbStatus.Size = new Size(364, 23);
             cmbStatus.TabIndex = 14;
             // 
             // lblMaintenanceDate
@@ -176,7 +176,7 @@
             // 
             dtpMaintenanceDate.Location = new Point(169, 324);
             dtpMaintenanceDate.Name = "dtpMaintenanceDate";
-            dtpMaintenanceDate.Size = new Size(364, 31);
+            dtpMaintenanceDate.Size = new Size(364, 23);
             dtpMaintenanceDate.TabIndex = 16;
             // 
             // btnInsert
@@ -278,6 +278,7 @@
             Name = "FormVehicle";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Vehicle's Information";
+            Load += FormVehicle_Load;
             groupBoxVehicle.ResumeLayout(false);
             gbVehicle1.ResumeLayout(false);
             gbVehicle1.PerformLayout();

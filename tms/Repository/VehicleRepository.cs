@@ -38,7 +38,7 @@ namespace tms.Repository
         public bool Add(Vehicle vehicle)
         {
             using var context = new AppDbContext();
-            context.Vehicles.Add(vehicle); // make sure this is the correct DbSet name
+            context.Vehicles.Add(vehicle);
             return context.SaveChanges() > 0;
         }
 

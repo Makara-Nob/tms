@@ -257,6 +257,9 @@ namespace tms.Forms
             }
         }
 
-     
+        private void FormVehicle_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
