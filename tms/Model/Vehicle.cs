@@ -1,9 +1,12 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace tms.Model
 {
     public class Vehicle
     {
+        [Key]
         public string VehicleID { get; set; }
         public string Type { get; set; }
         public int? Capacity { get; set; }
@@ -13,6 +16,9 @@ namespace tms.Model
         public DateTime? MaintenanceDate { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
+
+        [ForeignKey("RouteID")]
+        public Route? Route { get; set; }
 
         public Vehicle()
         {
