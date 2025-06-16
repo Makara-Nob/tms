@@ -15,6 +15,7 @@ namespace tms.DataSeed
             SeedRoutes(context);
             SeedVehicles(context);
             SeedStaff(context);
+            SeedTickets(context);
 
             // Display seeded data
             DisplayDatabaseContent(context);
@@ -65,6 +66,21 @@ namespace tms.DataSeed
             }
         }
 
+        private static void SeedTickets(AppDbContext context)
+        {
+            if (!context.Tickets.Any())
+            {
+                var sampleTickets = SampleDataProvider.GetSampleTickets();
+                context.Tickets.AddRange(sampleTickets);
+                context.SaveChanges();
+                Console.WriteLine("✅ Inserted sample tickets.");
+            }
+            else
+            {
+                Console.WriteLine("ℹ️  Tickets already exist, skipping seed.");
+            }
+        }
+
         private static void DisplayDatabaseContent(AppDbContext context)
         {
             Console.WriteLine("\n📊 DATABASE CONTENT:");
@@ -93,12 +109,21 @@ namespace tms.DataSeed
             {
                 Console.WriteLine($"   👤 {staff.Name} - {staff.Gender} - ${staff.Salary} - {(staff.IsStopWorking ? "Inactive" : "Active")}");
             }
+
+            // Display tickets
+            var allTickets = context.Tickets.OrderBy(t => t.SupplierDate).ToList();
+            Console.WriteLine($"\n🎫 TICKETS ({allTickets.Count}):");
+            foreach (var ticket in allTickets)
+            {
+                Console.WriteLine($"   {ticket.TicketID}: {ticket.SupplierName} - {ticket.SupplierDate:yyyy-MM-dd} - {ticket.CustomerPosition}");
+            }
         }
 
         public static void ClearAllData(AppDbContext context)
         {
             Console.WriteLine("🗑️  Clearing all data...");
 
+            context.Tickets.RemoveRange(context.Tickets);
             context.Vehicles.RemoveRange(context.Vehicles);
             context.Routes.RemoveRange(context.Routes);
             context.Staffs.RemoveRange(context.Staffs);

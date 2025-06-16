@@ -14,7 +14,11 @@ namespace tms.Data
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
         public DbSet<Seat> Seats { get; set; }
+<<<<<<< HEAD
         public DbSet<Order> Orders { get; set; }
+=======
+        public DbSet<Ticket> Tickets { get; set; }
+>>>>>>> 5b16d2444c064654196a51e6a1309b2147e2e364
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -36,7 +40,57 @@ namespace tms.Data
             modelBuilder.Entity<Staff>();
             modelBuilder.Entity<Route>();
             modelBuilder.Entity<Vehicle>();
+<<<<<<< HEAD
             modelBuilder.Entity<Order>();
+=======
+            modelBuilder.Entity<Ticket>(
+                entity =>
+                {
+                    entity.HasKey(t => t.TicketID);
+
+                    entity.Property(t => t.TicketID)
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    entity.Property(t => t.SupplierID)
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    entity.Property(t => t.SupplierName)
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    entity.Property(t => t.SupplierDate)
+                        .IsRequired()
+                        .HasColumnType("datetime2");
+
+                    entity.Property(t => t.CustomerPosition)
+                        .HasMaxLength(200);
+
+                    entity.Property(t => t.CustomerAddress)
+                        .HasMaxLength(500);
+
+                    entity.Property(t => t.CreatedDate)
+                        .IsRequired()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    entity.Property(t => t.ModifiedDate)
+                        .IsRequired()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    entity.HasIndex(t => t.SupplierID)
+                        .HasDatabaseName("IX_Tickets_SupplierID");
+
+                    entity.HasIndex(t => t.SupplierDate)
+                        .HasDatabaseName("IX_Tickets_SupplierDate");
+
+                    entity.HasIndex(t => t.CreatedDate)
+                        .HasDatabaseName("IX_Tickets_CreatedDate");
+                }
+                );
+>>>>>>> 5b16d2444c064654196a51e6a1309b2147e2e364
 
 
             Console.WriteLine("Entities tracked by EF:");

@@ -245,5 +245,10 @@ namespace tms.Forms
         private void txtDistance_TextChanged(object sender, EventArgs e) { }
         private void lblSearch_Click(object sender, EventArgs e) { }
         private void txtEndPoint_TextChanged(object sender, EventArgs e) { }
+
+        private void gbRoute3_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

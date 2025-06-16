@@ -20,6 +20,10 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             splitContainer1 = new SplitContainer();
+            pictureBox6 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            lbTicket = new Label();
+            lbSeat = new Label();
             pictureBox4 = new PictureBox();
             lbDelivery = new Label();
             pictureBox3 = new PictureBox();
@@ -29,18 +33,15 @@
             pictureBox1 = new PictureBox();
             lbStaff = new Label();
             imageList1 = new ImageList(components);
-            pictureBox5 = new PictureBox();
-            lbSeat = new Label();
-            pictureBox6 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // splitContainer1
@@ -53,6 +54,7 @@
             splitContainer1.Panel1.BackColor = SystemColors.HighlightText;
             splitContainer1.Panel1.Controls.Add(pictureBox6);
             splitContainer1.Panel1.Controls.Add(pictureBox5);
+            splitContainer1.Panel1.Controls.Add(lbTicket);
             splitContainer1.Panel1.Controls.Add(lbSeat);
             splitContainer1.Panel1.Controls.Add(pictureBox4);
             splitContainer1.Panel1.Controls.Add(lbDelivery);
@@ -63,11 +65,34 @@
             splitContainer1.Panel1.Controls.Add(pictureBox1);
             splitContainer1.Panel1.Controls.Add(lbStaff);
             splitContainer1.Panel1.Cursor = Cursors.Cross;
-            resources.ApplyResources(splitContainer1.Panel1, "splitContainer1.Panel1");
             // 
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = SystemColors.Control;
+            splitContainer1.Panel2.Paint += splitContainer1_Panel2_Paint;
+            // 
+            // pictureBox6
+            // 
+            resources.ApplyResources(pictureBox6, "pictureBox6");
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            resources.ApplyResources(pictureBox5, "pictureBox5");
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.TabStop = false;
+            // 
+            // lbTicket
+            // 
+            resources.ApplyResources(lbTicket, "lbTicket");
+            lbTicket.Name = "lbTicket";
+            lbTicket.Click += label1_Click;
+            // 
+            // lbSeat
+            // 
+            resources.ApplyResources(lbSeat, "lbSeat");
+            lbSeat.Name = "lbSeat";
             // 
             // pictureBox4
             // 
@@ -120,23 +145,6 @@
             resources.ApplyResources(imageList1, "imageList1");
             imageList1.TransparentColor = Color.Transparent;
             // 
-            // pictureBox5
-            // 
-            resources.ApplyResources(pictureBox5, "pictureBox5");
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.TabStop = false;
-            // 
-            // lbSeat
-            // 
-            resources.ApplyResources(lbSeat, "lbSeat");
-            lbSeat.Name = "lbSeat";
-            // 
-            // pictureBox6
-            // 
-            resources.ApplyResources(pictureBox6, "pictureBox6");
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.TabStop = false;
-            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
@@ -146,12 +154,12 @@
             splitContainer1.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
 
         }
@@ -171,5 +179,6 @@
         private PictureBox pictureBox5;
         private Label lbSeat;
         private PictureBox pictureBox6;
+        private Label lbTicket;
     }
 }

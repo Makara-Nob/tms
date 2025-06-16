@@ -9,7 +9,7 @@ namespace tms
         {
             InitializeComponent();
             wire();
-            this.Size = new Size(1400, 700);   
+            this.Size = new Size(1400, 700);
         }
 
         private void WireEvents()
@@ -19,6 +19,7 @@ namespace tms
             lbVehicle.Click += btn_formVehicle_Click;
             lbDelivery.Click += btn_formDelivery_Click;
             lbSeat.Click += btn_formSeat_Click;
+            lbTicket.Click += btn_formTicket_Click;
         }
 
         private void loadFormIntoPanel(Form form)
@@ -41,6 +42,7 @@ namespace tms
             lbRoute.Click += btn_formRoute_Click;
             lbDelivery.Click += btn_formDelivery_Click;
             lbSeat.Click += btn_formSeat_Click;
+            lbTicket.Click += btn_formTicket_Click;
         }
 
         // Handle navigation button click
@@ -67,7 +69,19 @@ namespace tms
         {
             loadFormIntoPanel(new FormSeat());
         }
+        private void btn_formTicket_Click(object sender, EventArgs e)
+        {
+            loadFormIntoPanel(new FormTicket());
+        }
 
-        
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
