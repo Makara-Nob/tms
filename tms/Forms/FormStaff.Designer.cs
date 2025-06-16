@@ -29,13 +29,11 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            dt_birthdate = new DateTimePicker();
             textBox_salary = new TextBox();
-            textBox_hiredDate = new TextBox();
             textBox_ct_phoneNumber = new TextBox();
             textBox_ps_phoneNumber = new TextBox();
-            textBox_birthDate = new TextBox();
             textBox_address = new TextBox();
-            textBox_gender = new TextBox();
             textBox_staffName = new TextBox();
             textBox_StaffId = new TextBox();
             chkIsStopWorking = new CheckBox();
@@ -57,6 +55,11 @@
             btn_clear = new Button();
             button_addStaff = new Button();
             btn_editStaff = new Button();
+            dt_hiredDate = new DateTimePicker();
+            lbPosition = new Label();
+            txt_postion = new TextBox();
+            chk_Female = new CheckBox();
+            chk_Male = new CheckBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Dgv_staff).BeginInit();
@@ -65,13 +68,16 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(chk_Female);
+            groupBox1.Controls.Add(chk_Male);
+            groupBox1.Controls.Add(txt_postion);
+            groupBox1.Controls.Add(lbPosition);
+            groupBox1.Controls.Add(dt_hiredDate);
+            groupBox1.Controls.Add(dt_birthdate);
             groupBox1.Controls.Add(textBox_salary);
-            groupBox1.Controls.Add(textBox_hiredDate);
             groupBox1.Controls.Add(textBox_ct_phoneNumber);
             groupBox1.Controls.Add(textBox_ps_phoneNumber);
-            groupBox1.Controls.Add(textBox_birthDate);
             groupBox1.Controls.Add(textBox_address);
-            groupBox1.Controls.Add(textBox_gender);
             groupBox1.Controls.Add(textBox_staffName);
             groupBox1.Controls.Add(textBox_StaffId);
             groupBox1.Controls.Add(chkIsStopWorking);
@@ -90,10 +96,17 @@
             groupBox1.Margin = new Padding(6, 7, 6, 7);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(6, 7, 6, 7);
-            groupBox1.Size = new Size(491, 588);
+            groupBox1.Size = new Size(491, 642);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Information";
+            // 
+            // dt_birthdate
+            // 
+            dt_birthdate.Location = new Point(182, 217);
+            dt_birthdate.Name = "dt_birthdate";
+            dt_birthdate.Size = new Size(257, 31);
+            dt_birthdate.TabIndex = 22;
             // 
             // textBox_salary
             // 
@@ -102,14 +115,6 @@
             textBox_salary.Name = "textBox_salary";
             textBox_salary.Size = new Size(254, 31);
             textBox_salary.TabIndex = 21;
-            // 
-            // textBox_hiredDate
-            // 
-            textBox_hiredDate.Location = new Point(185, 430);
-            textBox_hiredDate.Margin = new Padding(6, 7, 6, 7);
-            textBox_hiredDate.Name = "textBox_hiredDate";
-            textBox_hiredDate.Size = new Size(254, 31);
-            textBox_hiredDate.TabIndex = 20;
             // 
             // textBox_ct_phoneNumber
             // 
@@ -127,14 +132,6 @@
             textBox_ps_phoneNumber.Size = new Size(254, 31);
             textBox_ps_phoneNumber.TabIndex = 17;
             // 
-            // textBox_birthDate
-            // 
-            textBox_birthDate.Location = new Point(185, 217);
-            textBox_birthDate.Margin = new Padding(6, 7, 6, 7);
-            textBox_birthDate.Name = "textBox_birthDate";
-            textBox_birthDate.Size = new Size(254, 31);
-            textBox_birthDate.TabIndex = 16;
-            // 
             // textBox_address
             // 
             textBox_address.Location = new Point(185, 274);
@@ -142,14 +139,6 @@
             textBox_address.Name = "textBox_address";
             textBox_address.Size = new Size(254, 31);
             textBox_address.TabIndex = 15;
-            // 
-            // textBox_gender
-            // 
-            textBox_gender.Location = new Point(185, 160);
-            textBox_gender.Margin = new Padding(6, 7, 6, 7);
-            textBox_gender.Name = "textBox_gender";
-            textBox_gender.Size = new Size(254, 31);
-            textBox_gender.TabIndex = 14;
             // 
             // textBox_staffName
             // 
@@ -170,7 +159,7 @@
             // chkIsStopWorking
             // 
             chkIsStopWorking.AutoSize = true;
-            chkIsStopWorking.Location = new Point(301, 539);
+            chkIsStopWorking.Location = new Point(304, 588);
             chkIsStopWorking.Margin = new Padding(6, 7, 6, 7);
             chkIsStopWorking.Name = "chkIsStopWorking";
             chkIsStopWorking.Size = new Size(119, 29);
@@ -181,7 +170,7 @@
             // chkIsWorking
             // 
             chkIsWorking.AutoSize = true;
-            chkIsWorking.Location = new Point(185, 539);
+            chkIsWorking.Location = new Point(185, 588);
             chkIsWorking.Margin = new Padding(6, 7, 6, 7);
             chkIsWorking.Name = "chkIsWorking";
             chkIsWorking.Size = new Size(80, 29);
@@ -202,7 +191,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(10, 539);
+            label9.Location = new Point(8, 588);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(64, 25);
@@ -297,19 +286,20 @@
             groupBox2.Margin = new Padding(6, 7, 6, 7);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(6, 7, 6, 7);
-            groupBox2.Size = new Size(849, 747);
+            groupBox2.Size = new Size(849, 790);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Search:";
             // 
             // Dgv_staff
             // 
+            Dgv_staff.BackgroundColor = SystemColors.HighlightText;
             Dgv_staff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             Dgv_staff.Location = new Point(30, 109);
             Dgv_staff.Margin = new Padding(6, 7, 6, 7);
             Dgv_staff.Name = "Dgv_staff";
             Dgv_staff.RowHeadersWidth = 51;
-            Dgv_staff.Size = new Size(795, 610);
+            Dgv_staff.Size = new Size(795, 652);
             Dgv_staff.TabIndex = 1;
             Dgv_staff.CellClick += Dgv_staff_CellClick;
             Dgv_staff.CellContentClick += Dgv_staff_CellClick;
@@ -328,7 +318,7 @@
             ActionBtnGroup.Controls.Add(btn_clear);
             ActionBtnGroup.Controls.Add(button_addStaff);
             ActionBtnGroup.Controls.Add(btn_editStaff);
-            ActionBtnGroup.Location = new Point(39, 665);
+            ActionBtnGroup.Location = new Point(39, 707);
             ActionBtnGroup.Margin = new Padding(4, 5, 4, 5);
             ActionBtnGroup.Name = "ActionBtnGroup";
             ActionBtnGroup.Padding = new Padding(4, 5, 4, 5);
@@ -377,12 +367,59 @@
             btn_editStaff.UseVisualStyleBackColor = false;
             btn_editStaff.Click += btnEditStaff_Click;
             // 
+            // dt_hiredDate
+            // 
+            dt_hiredDate.Location = new Point(182, 436);
+            dt_hiredDate.Name = "dt_hiredDate";
+            dt_hiredDate.Size = new Size(257, 31);
+            dt_hiredDate.TabIndex = 23;
+            // 
+            // lbPosition
+            // 
+            lbPosition.AutoSize = true;
+            lbPosition.Location = new Point(10, 539);
+            lbPosition.Margin = new Padding(4, 0, 4, 0);
+            lbPosition.Name = "lbPosition";
+            lbPosition.Size = new Size(79, 25);
+            lbPosition.TabIndex = 24;
+            lbPosition.Text = "Position:";
+            // 
+            // txt_postion
+            // 
+            txt_postion.Location = new Point(182, 536);
+            txt_postion.Margin = new Padding(6, 7, 6, 7);
+            txt_postion.Name = "txt_postion";
+            txt_postion.Size = new Size(254, 31);
+            txt_postion.TabIndex = 25;
+            // 
+            // chk_Female
+            // 
+            chk_Female.AutoSize = true;
+            chk_Female.Location = new Point(304, 160);
+            chk_Female.Margin = new Padding(6, 7, 6, 7);
+            chk_Female.Name = "chk_Female";
+            chk_Female.Size = new Size(94, 29);
+            chk_Female.TabIndex = 27;
+            chk_Female.Text = "Female";
+            chk_Female.UseVisualStyleBackColor = true;
+            // 
+            // chk_Male
+            // 
+            chk_Male.AutoSize = true;
+            chk_Male.Location = new Point(185, 160);
+            chk_Male.Margin = new Padding(6, 7, 6, 7);
+            chk_Male.Name = "chk_Male";
+            chk_Male.Size = new Size(76, 29);
+            chk_Male.TabIndex = 26;
+            chk_Male.Text = "Male";
+            chk_Male.UseVisualStyleBackColor = true;
+            // 
             // FormStaff
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1434, 805);
+            ClientSize = new Size(1434, 901);
             Controls.Add(ActionBtnGroup);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -409,17 +446,14 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private TextBox textBox_gender;
         private TextBox textBox_staffName;
         private TextBox textBox_StaffId;
         private CheckBox chkIsStopWorking;
         private Label label10;
         private Label label9;
         private TextBox textBox_salary;
-        private TextBox textBox_hiredDate;
         private TextBox textBox_ct_phoneNumber;
         private TextBox textBox_ps_phoneNumber;
-        private TextBox textBox_birthDate;
         private TextBox textBox_address;
         private GroupBox groupBox2;
         private DataGridView Dgv_staff;
@@ -429,5 +463,11 @@
         private Button btn_clear;
         private Button button_addStaff;
         private Button btn_editStaff;
+        private DateTimePicker dt_birthdate;
+        private DateTimePicker dt_hiredDate;
+        private CheckBox chk_Female;
+        private CheckBox chk_Male;
+        private TextBox txt_postion;
+        private Label lbPosition;
     }
 }

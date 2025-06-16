@@ -53,18 +53,22 @@ namespace tms.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PassengerID"));
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Gender")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("IsActive")
                         .HasColumnType("int");
 
                     b.Property<string>("PassengerName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PersonalNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PassengerID");
@@ -97,6 +101,39 @@ namespace tms.Migrations
                     b.ToTable("Seats");
                 });
 
+            modelBuilder.Entity("tms.Model.Booking", b =>
+                {
+                    b.Property<int>("BookingID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingID"));
+
+                    b.Property<DateTime>("BookingDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SeatNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StaffID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("TripID")
+                        .HasColumnType("int");
+
+                    b.HasKey("BookingID");
+
+                    b.HasIndex("StaffID");
+
+                    b.ToTable("Bookings");
+                });
+
             modelBuilder.Entity("tms.Model.Route", b =>
                 {
                     b.Property<string>("RouteID")
@@ -109,7 +146,8 @@ namespace tms.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal?>("DistanceKm")
-                        .HasColumnType("decimal(18,2)");
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<bool>("EnableWeatherAlerts")
                         .HasColumnType("bit");
@@ -143,19 +181,15 @@ namespace tms.Migrations
 
             modelBuilder.Entity("tms.Model.Staff", b =>
                 {
-                    b.Property<int>("StaffId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StaffId"));
+                    b.Property<string>("StaffId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BirthDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Contact_PhoneNumber")
                         .IsRequired()
@@ -165,9 +199,8 @@ namespace tms.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Hired_Date")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Hired_Date")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("IsStopWorking")
                         .HasColumnType("bit");
@@ -181,11 +214,52 @@ namespace tms.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Salary")
-                        .HasColumnType("decimal(18,2)");
+                        .HasPrecision(12, 2)
+                        .HasColumnType("decimal(12,2)");
+
+                    b.Property<string>("position")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("StaffId");
 
                     b.ToTable("Staffs");
+                });
+
+            modelBuilder.Entity("tms.Model.Trip", b =>
+                {
+                    b.Property<string>("TripId")
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("TripID");
+
+                    b.Property<DateTime>("DepatureTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DriverId")
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("DriverID");
+
+                    b.Property<string>("RouteId")
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("RouteID");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("status");
+
+                    b.Property<string>("VehicleId")
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("VehicleID");
+
+                    b.HasKey("TripId");
+
+                    b.HasIndex("DriverId");
+
+                    b.HasIndex("RouteId");
+
+                    b.HasIndex("VehicleId");
+
+                    b.ToTable("Trips");
                 });
 
             modelBuilder.Entity("tms.Model.Vehicle", b =>
@@ -226,6 +300,38 @@ namespace tms.Migrations
                     b.HasIndex("RouteID");
 
                     b.ToTable("Vehicles");
+                });
+
+            modelBuilder.Entity("tms.Model.Booking", b =>
+                {
+                    b.HasOne("tms.Model.Staff", "Staff")
+                        .WithMany()
+                        .HasForeignKey("StaffID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Staff");
+                });
+
+            modelBuilder.Entity("tms.Model.Trip", b =>
+                {
+                    b.HasOne("tms.Model.Staff", "Driver")
+                        .WithMany()
+                        .HasForeignKey("DriverId");
+
+                    b.HasOne("tms.Model.Route", "Route")
+                        .WithMany()
+                        .HasForeignKey("RouteId");
+
+                    b.HasOne("tms.Model.Vehicle", "Vehicle")
+                        .WithMany()
+                        .HasForeignKey("VehicleId");
+
+                    b.Navigation("Driver");
+
+                    b.Navigation("Route");
+
+                    b.Navigation("Vehicle");
                 });
 
             modelBuilder.Entity("tms.Model.Vehicle", b =>

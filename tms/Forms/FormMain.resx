@@ -125,13 +125,265 @@
   <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lbBooking.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbBooking.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 13pt</value>
+  </data>
+  <data name="lbBooking.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbBooking.Location" type="System.Drawing.Point, System.Drawing">
+    <value>98, 114</value>
+  </data>
+  <data name="lbBooking.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 36</value>
+  </data>
+  <data name="lbBooking.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="lbBooking.Text" xml:space="preserve">
+    <value>Booking</value>
+  </data>
+  <data name="&gt;&gt;lbBooking.Name" xml:space="preserve">
+    <value>lbBooking</value>
+  </data>
+  <data name="&gt;&gt;lbBooking.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbBooking.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;lbBooking.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pictureBox8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        3etYtW/jEjEAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="pictureBox8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 110</value>
+  </data>
+  <data name="pictureBox8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 40</value>
+  </data>
+  <data name="pictureBox8.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="pictureBox8.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;pictureBox8.Name" xml:space="preserve">
+    <value>pictureBox8</value>
+  </data>
+  <data name="&gt;&gt;pictureBox8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox8.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;pictureBox8.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="pictureBox6.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
   <data name="pictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAxgAAAGxCAYAAADh8RBrAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAA/7JJREFUeF7s/bGPfE2bnod9NgzjNWAYhGjAgAN5BQuEIAsbMGAgBV+ykLUfHGyy
+        DAAACwwBP0AiyAAA/7JJREFUeF7s/bGPfE2bnod9NgzjNWAYhGjAgAN5BQuEIAsbMGAgBV+ykLUfHGyy
         yW6woLHJFxB0IDDyBg42FBMSEEBF1D/gTAmTVwkZyICCZeCAgIKNxEBgYFOB1nyN6ulnfvdc536qnqpz
         TnfPzAkuPOdUn57pPqeq+r66umd+9X/+v/1ffnVxcXFxcXFxcXFxcXEEm4aLi4uLi4uLi4uLi4tVNg0X
         FxcXFxcXFxcXFxerbBouLi4uLi4uLi4uLi5W2TRcXFxcXFxcXFxcXFyssmm4uLi4uLi4uLi4uLhYZdNw
@@ -1298,7 +1550,6 @@
   <data name="pictureBox6.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pictureBox6.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
@@ -1312,7 +1563,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;pictureBox6.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1404,7 +1655,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 498</value>
+    <value>17, 357</value>
   </data>
   <data name="pictureBox5.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 40</value>
@@ -1425,7 +1676,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;pictureBox5.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="load_formPassenger.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1437,10 +1688,10 @@
     <value>NoControl</value>
   </data>
   <data name="load_formPassenger.Location" type="System.Drawing.Point, System.Drawing">
-    <value>106, 599</value>
+    <value>97, 425</value>
   </data>
   <data name="load_formPassenger.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 25</value>
+    <value>131, 36</value>
   </data>
   <data name="load_formPassenger.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -1458,7 +1709,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;load_formPassenger.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="lbSeat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1470,10 +1721,10 @@
     <value>NoControl</value>
   </data>
   <data name="lbSeat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>122, 502</value>
+    <value>97, 361</value>
   </data>
   <data name="lbSeat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 25</value>
+    <value>65, 36</value>
   </data>
   <data name="lbSeat.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -1491,7 +1742,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lbSeat.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="pictureBox4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1715,7 +1966,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 417</value>
+    <value>16, 294</value>
   </data>
   <data name="pictureBox4.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 40</value>
@@ -1736,7 +1987,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;pictureBox4.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="lbDelivery.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1748,10 +1999,10 @@
     <value>NoControl</value>
   </data>
   <data name="lbDelivery.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 421</value>
+    <value>98, 298</value>
   </data>
   <data name="lbDelivery.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 25</value>
+    <value>107, 36</value>
   </data>
   <data name="lbDelivery.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -1769,7 +2020,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lbDelivery.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2027,7 +2278,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 335</value>
+    <value>16, 232</value>
   </data>
   <data name="pictureBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 40</value>
@@ -2048,40 +2299,40 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;pictureBox3.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
-  <data name="lbRoute.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lbTrip.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbRoute.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="lbTrip.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 13pt</value>
   </data>
-  <data name="lbRoute.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="lbTrip.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lbRoute.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 339</value>
+  <data name="lbTrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>98, 236</value>
   </data>
-  <data name="lbRoute.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 25</value>
+  <data name="lbTrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 36</value>
   </data>
-  <data name="lbRoute.TabIndex" type="System.Int32, mscorlib">
+  <data name="lbTrip.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="lbRoute.Text" xml:space="preserve">
-    <value>Route</value>
+  <data name="lbTrip.Text" xml:space="preserve">
+    <value>Trip</value>
   </data>
-  <data name="&gt;&gt;lbRoute.Name" xml:space="preserve">
-    <value>lbRoute</value>
+  <data name="&gt;&gt;lbTrip.Name" xml:space="preserve">
+    <value>lbTrip</value>
   </data>
-  <data name="&gt;&gt;lbRoute.Type" xml:space="preserve">
+  <data name="&gt;&gt;lbTrip.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbRoute.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lbTrip.Parent" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
   </data>
-  <data name="&gt;&gt;lbRoute.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;lbTrip.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2522,7 +2773,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 255</value>
+    <value>16, 170</value>
   </data>
   <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 40</value>
@@ -2543,7 +2794,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="lbVehicle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2555,10 +2806,10 @@
     <value>NoControl</value>
   </data>
   <data name="lbVehicle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 259</value>
+    <value>98, 174</value>
   </data>
   <data name="lbVehicle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 25</value>
+    <value>96, 36</value>
   </data>
   <data name="lbVehicle.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -2576,13 +2827,13 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lbVehicle.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="pictureBox7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="pictureBox7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 584</value>
+    <value>16, 421</value>
   </data>
   <data name="pictureBox7.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 40</value>
@@ -2603,10 +2854,10 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;pictureBox7.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 167</value>
+    <value>18, 487</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 40</value>
@@ -2627,7 +2878,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="lbStaff.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2636,10 +2887,10 @@
     <value>Segoe UI, 13pt</value>
   </data>
   <data name="lbStaff.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 171</value>
+    <value>97, 491</value>
   </data>
   <data name="lbStaff.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 25</value>
+    <value>66, 36</value>
   </data>
   <data name="lbStaff.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -2657,7 +2908,7 @@
     <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lbStaff.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel1.Name" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
@@ -2684,10 +2935,10 @@
     <value>1</value>
   </data>
   <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1200, 800</value>
+    <value>1455, 564</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>200</value>
+    <value>242</value>
   </data>
   <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2713,8 +2964,11 @@
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
+  </metadata>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1200, 800</value>
+    <value>1455, 564</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

@@ -15,8 +15,10 @@ namespace tms.Data
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
         public DbSet<Seat> Seats { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
 
         public DbSet<Passenger> Passengers { get; set; }
+        public DbSet<Trip> Trips { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -26,7 +28,7 @@ namespace tms.Data
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(
-                                  "Server=STEELBEAST;Database=tms;Trusted_Connection=True;Encrypt=False;"
+                                  "Server=ACER\\SQLEXPRESS01;Database=tms;Trusted_Connection=True;Encrypt=False;"
                                   );
             }
         }
@@ -34,6 +36,14 @@ namespace tms.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Route>()
+          .Property(r => r.DistanceKm)
+          .HasPrecision(10, 2); // Adjust precision as needed
+
+            modelBuilder.Entity<Staff>()
+                .Property(s => s.Salary)
+                .HasPrecision(12, 2); // Adjust precision as needed
 
             modelBuilder.Entity<Staff>();
             modelBuilder.Entity<Route>();

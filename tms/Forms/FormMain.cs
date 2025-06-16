@@ -11,14 +11,14 @@ namespace tms
             wire();
             this.Size = new Size(1400, 700);
         }
-
-        private void WireEvents()
+        private void wire()
         {
             lbStaff.Click += btn_formStaff_Click;
-            lbRoute.Click += btn_formRoute_Click;
             lbVehicle.Click += btn_formVehicle_Click;
+            lbTrip.Click += btn_formTrip_Click;
             lbDelivery.Click += btn_formDelivery_Click;
             lbSeat.Click += btn_formSeat_Click;
+            lbBooking.Click += load_formBooking_Click;
         }
 
         private void loadFormIntoPanel(Form form)
@@ -34,15 +34,6 @@ namespace tms
             form.Show();
         }
 
-        private void wire()
-        {
-            lbStaff.Click += btn_formStaff_Click;
-            lbVehicle.Click += btn_formVehicle_Click;
-            lbRoute.Click += btn_formRoute_Click;
-            lbDelivery.Click += btn_formDelivery_Click;
-            lbSeat.Click += btn_formSeat_Click;
-        }
-
         // Handle navigation button click
         private void btn_formStaff_Click(object sender, EventArgs e)
         {
@@ -52,6 +43,11 @@ namespace tms
         private void btn_formRoute_Click(object sender, EventArgs e)
         {
             loadFormIntoPanel(new FormRoute());
+        }
+
+        private void btn_formTrip_Click(object sender, EventArgs e)
+        {
+            loadFormIntoPanel(new FormTrip());
         }
         private void btn_formVehicle_Click(object sender, EventArgs e)
         {
@@ -71,6 +67,11 @@ namespace tms
         private void load_formPassenger_Click(object sender, EventArgs e)
         {
             loadFormIntoPanel(new FormPassenger());
+        }
+
+        private void load_formBooking_Click(object sender, EventArgs e)
+        {
+            loadFormIntoPanel(new FormBooking());
         }
     }
 }

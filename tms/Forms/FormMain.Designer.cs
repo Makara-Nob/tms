@@ -20,6 +20,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             splitContainer1 = new SplitContainer();
+            lbBooking = new Label();
+            pictureBox8 = new PictureBox();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
             load_formPassenger = new Label();
@@ -27,7 +29,7 @@
             pictureBox4 = new PictureBox();
             lbDelivery = new Label();
             pictureBox3 = new PictureBox();
-            lbRoute = new Label();
+            lbTrip = new Label();
             pictureBox2 = new PictureBox();
             lbVehicle = new Label();
             pictureBox7 = new PictureBox();
@@ -37,6 +39,7 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -54,6 +57,8 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.BackColor = SystemColors.HighlightText;
+            splitContainer1.Panel1.Controls.Add(lbBooking);
+            splitContainer1.Panel1.Controls.Add(pictureBox8);
             splitContainer1.Panel1.Controls.Add(pictureBox6);
             splitContainer1.Panel1.Controls.Add(pictureBox5);
             splitContainer1.Panel1.Controls.Add(load_formPassenger);
@@ -61,7 +66,7 @@
             splitContainer1.Panel1.Controls.Add(pictureBox4);
             splitContainer1.Panel1.Controls.Add(lbDelivery);
             splitContainer1.Panel1.Controls.Add(pictureBox3);
-            splitContainer1.Panel1.Controls.Add(lbRoute);
+            splitContainer1.Panel1.Controls.Add(lbTrip);
             splitContainer1.Panel1.Controls.Add(pictureBox2);
             splitContainer1.Panel1.Controls.Add(lbVehicle);
             splitContainer1.Panel1.Controls.Add(pictureBox7);
@@ -72,6 +77,17 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = SystemColors.Control;
+            // 
+            // lbBooking
+            // 
+            resources.ApplyResources(lbBooking, "lbBooking");
+            lbBooking.Name = "lbBooking";
+            // 
+            // pictureBox8
+            // 
+            resources.ApplyResources(pictureBox8, "pictureBox8");
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.TabStop = false;
             // 
             // pictureBox6
             // 
@@ -113,10 +129,10 @@
             pictureBox3.Name = "pictureBox3";
             pictureBox3.TabStop = false;
             // 
-            // lbRoute
+            // lbTrip
             // 
-            resources.ApplyResources(lbRoute, "lbRoute");
-            lbRoute.Name = "lbRoute";
+            resources.ApplyResources(lbTrip, "lbTrip");
+            lbTrip.Name = "lbTrip";
             // 
             // pictureBox2
             // 
@@ -163,6 +179,7 @@
             splitContainer1.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -183,7 +200,6 @@
         private PictureBox pictureBox2;
         private Label lbVehicle;
         private PictureBox pictureBox3;
-        private Label lbRoute;
         private PictureBox pictureBox4;
         private Label lbDelivery;
         private PictureBox pictureBox5;
@@ -191,5 +207,8 @@
         private PictureBox pictureBox6;
         private Label load_formPassenger;
         private PictureBox pictureBox7;
+        private Label lbBooking;
+        private PictureBox pictureBox8;
+        private Label lbTrip;
     }
 }

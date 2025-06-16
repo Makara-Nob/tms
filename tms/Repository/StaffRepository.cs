@@ -13,6 +13,16 @@ namespace Staff_info.Repository
             return context.Staffs.ToList();
         }
 
+        public List<Staff> GetDriverStaff()
+        {
+            using var context = new AppDbContext();
+
+            return context.Staffs
+             .Where(s => s.position.ToLower() == "driver")
+             .ToList();
+
+        }
+
         public bool Add(Staff staff)
         {
             using var context = new AppDbContext();
@@ -44,7 +54,7 @@ namespace Staff_info.Repository
         public void Delete(int staffId)
         {
             using var context = new AppDbContext();
-            var staff = context.Staffs.FirstOrDefault(s => s.StaffId == staffId);
+            var staff = context.Staffs.FirstOrDefault(s => s.StaffId.Equals(staffId));
             if (staff != null)
             {
                 context.Staffs.Remove(staff);

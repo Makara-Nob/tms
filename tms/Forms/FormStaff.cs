@@ -1,5 +1,6 @@
 using tms.Model;
 using Staff_info.Repository;
+using tms.Data;
 
 namespace tms
 {
@@ -7,7 +8,7 @@ namespace tms
     {
         private readonly StaffRepository _staffRepository;
         private List<Staff> allStaffs;
-        private int selectedStaffId = -1;
+        private string selectedStaffId = null;
 
         public FormStaff()
         {
@@ -43,8 +44,38 @@ namespace tms
                 if (chkIsStopWorking.Checked) chkIsWorking.Checked = false;
             };
 
+            chk_Male.CheckedChanged += (s, e) =>
+            {
+                if (chk_Male.Checked) chk_Female.Checked = false;
+            };
+
+            chk_Female.CheckedChanged += (s, e) =>
+            {
+                if (chk_Female.Checked) chk_Male.Checked = false;
+            };
+
             textBox_searchStaff.TextChanged += TxtSearch_TextChanged;
         }
+
+        public string GenerateNextStaffId()
+        {
+            using (var context = new AppDbContext())
+            {
+                var lastStaff = context.Staffs
+                    .OrderByDescending(s => s.StaffId)
+                    .FirstOrDefault();
+
+                if (lastStaff == null)
+                    return "ST-001";
+
+                string lastId = lastStaff.StaffId; // e.g. ST-005
+                int num = int.Parse(lastId.Substring(3)); // get 005 as integer
+                num++; // increment
+
+                return $"ST-{num.ToString("D3")}"; // format as ST-006
+            }
+        }
+
 
         private void btnAddStaff_Click(object sender, EventArgs e)
         {
@@ -52,15 +83,17 @@ namespace tms
             {
                 var staff = new Staff
                 {
+                    StaffId = GenerateNextStaffId(),   
                     Name = textBox_staffName.Text,
-                    Gender = textBox_gender.Text,
-                    BirthDate = textBox_birthDate.Text,
+                    Gender = chk_Male.Checked ? "Male" : (chk_Female.Checked ? "Female" : ""),
+                    BirthDate = dt_birthdate.Value,
                     Address = textBox_address.Text,
                     Personal_PhoneNumber = textBox_ps_phoneNumber.Text,
                     Contact_PhoneNumber = textBox_ct_phoneNumber.Text,
-                    Hired_Date = textBox_hiredDate.Text,
+                    Hired_Date = dt_hiredDate.Value,
                     Salary = decimal.Parse(textBox_salary.Text),
-                    IsStopWorking = chkIsStopWorking.Checked
+                    IsStopWorking = chkIsStopWorking.Checked,
+                    position = txt_postion.Text
                 };
 
                 _staffRepository.Add(staff);
@@ -97,6 +130,7 @@ namespace tms
 
         private void Dgv_staff_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex >= 0)
             {
                 var staff = Dgv_staff.Rows[e.RowIndex].DataBoundItem as Staff;
@@ -106,22 +140,24 @@ namespace tms
                     selectedStaffId = staff.StaffId;
 
                     textBox_staffName.Text = staff.Name;
-                    textBox_gender.Text = staff.Gender;
-                    textBox_birthDate.Text = staff.BirthDate;
-                    textBox_address.Text = staff.Address;
-                    textBox_ps_phoneNumber.Text = staff.Personal_PhoneNumber;
-                    textBox_ct_phoneNumber.Text = staff.Contact_PhoneNumber;
-                    textBox_hiredDate.Text = staff.Hired_Date;
+                    chk_Male.Checked = staff.Gender == "Male";
+                    chk_Female.Checked = staff.Gender == "Female";
+
+                    dt_birthdate.Value = staff.BirthDate;
+                    dt_hiredDate.Value = staff.Hired_Date;
+
+
                     textBox_salary.Text = staff.Salary.ToString();
                     chkIsStopWorking.Checked = staff.IsStopWorking;
                     chkIsWorking.Checked = !staff.IsStopWorking;
+                    txt_postion.Text = staff.position;
                 }
             }
         }
 
         private void btnEditStaff_Click(object sender, EventArgs e)
         {
-            if (selectedStaffId == -1)
+            if (selectedStaffId == null)
             {
                 MessageBox.Show("Please select a staff member to update.");
                 return;
@@ -133,14 +169,15 @@ namespace tms
                 {
                     StaffId = selectedStaffId,
                     Name = textBox_staffName.Text,
-                    Gender = textBox_gender.Text,
-                    BirthDate = textBox_birthDate.Text,
+                    Gender = chk_Male.Checked ? "Male" : (chk_Female.Checked ? "Female" : ""),
+                    BirthDate = dt_birthdate.Value,
                     Address = textBox_address.Text,
                     Personal_PhoneNumber = textBox_ps_phoneNumber.Text,
                     Contact_PhoneNumber = textBox_ct_phoneNumber.Text,
-                    Hired_Date = textBox_hiredDate.Text,
+                    Hired_Date = dt_hiredDate.Value,
                     Salary = decimal.Parse(textBox_salary.Text),
-                    IsStopWorking = chkIsStopWorking.Checked
+                    IsStopWorking = chkIsStopWorking.Checked,
+                    position = txt_postion.Text
                 };
 
                 bool success = _staffRepository.Update(updatedStaff);
@@ -170,17 +207,19 @@ namespace tms
         private void ClearForm()
         {
             textBox_staffName.Clear();
-            textBox_gender.Clear();
-            textBox_birthDate.Clear();
+            chk_Male.Checked = false;
+            chk_Female.Checked = false;
+            dt_birthdate.Value = DateTime.Now;
             textBox_address.Clear();
             textBox_ps_phoneNumber.Clear();
             textBox_ct_phoneNumber.Clear();
-            textBox_hiredDate.Clear();
+            dt_hiredDate.Value = DateTime.Now;
             textBox_salary.Clear();
             chkIsStopWorking.Checked = false;
             chkIsWorking.Checked = false;
+            txt_postion.Clear();
 
-            selectedStaffId = -1;
+            selectedStaffId = null;
             Dgv_staff.ClearSelection();
         }
     }
