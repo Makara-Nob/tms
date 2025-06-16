@@ -14,6 +14,7 @@ namespace tms.Data
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
         public DbSet<Seat> Seats { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -35,6 +36,7 @@ namespace tms.Data
             modelBuilder.Entity<Staff>();
             modelBuilder.Entity<Route>();
             modelBuilder.Entity<Vehicle>();
+            modelBuilder.Entity<Order>();
 
 
             Console.WriteLine("Entities tracked by EF:");
