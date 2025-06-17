@@ -12,8 +12,6 @@ namespace tms.Forms
         private StaffRepository driverRepository;   // Assuming you have these
         private RouteRepository routeRepository;
 
-
-
         public FormTrip()
         {
             tripRepository = new TripRepository();
@@ -36,8 +34,6 @@ namespace tms.Forms
             LoadData();                     // dgvTrips is ready
             AttachEventHandlers();          // Button/Combo events hook up
         }
-
-
 
         private void SetupLayout()
         {
