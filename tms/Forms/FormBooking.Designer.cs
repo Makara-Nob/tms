@@ -68,7 +68,7 @@
             gbBooking3.Controls.Add(dtgv_booking);
             gbBooking3.Location = new Point(23, 588);
             gbBooking3.Name = "gbBooking3";
-            gbBooking3.Size = new Size(1380, 273);
+            gbBooking3.Size = new Size(1380, 427);
             gbBooking3.TabIndex = 1;
             gbBooking3.TabStop = false;
             gbBooking3.Text = "Booking's Info";
@@ -89,9 +89,9 @@
             gbBooking1.Controls.Add(txtBox_Passenger);
             gbBooking1.Controls.Add(label1);
             gbBooking1.Controls.Add(groupBox4);
-            gbBooking1.Location = new Point(23, 300);
+            gbBooking1.Location = new Point(23, 334);
             gbBooking1.Name = "gbBooking1";
-            gbBooking1.Size = new Size(1380, 267);
+            gbBooking1.Size = new Size(1380, 292);
             gbBooking1.TabIndex = 2;
             gbBooking1.TabStop = false;
             gbBooking1.Text = "Passenger Info";
@@ -223,7 +223,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1432, 924);
+            ClientSize = new Size(1432, 1110);
             Controls.Add(groupBox1);
             Controls.Add(gbBooking1);
             Controls.Add(gbBooking3);

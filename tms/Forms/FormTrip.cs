@@ -161,14 +161,14 @@ namespace tms.Forms
 
         // Recursive method to get all controls inside a container (including nested ones)
         public IEnumerable<Control> GetAllControls(Control parent)
-{
-    foreach (Control c in parent.Controls)
-    {
-        yield return c;
-        foreach (var child in GetAllControls(c))
-            yield return child;
-    }
-}
+        {
+            foreach (Control c in parent.Controls)
+            {
+                yield return c;
+                foreach (var child in GetAllControls(c))
+                    yield return child;
+            }
+        }
 
 
 
@@ -231,7 +231,7 @@ namespace tms.Forms
             }
         }
 
-       
+
 
         private void InitializeStatusComboBox()
         {
@@ -308,7 +308,7 @@ namespace tms.Forms
             }
         }
 
-        
+
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
@@ -514,7 +514,7 @@ namespace tms.Forms
 
         private bool ValidateInput()
         {
-            
+
             if (cmbVehicle.SelectedValue == null || cmbVehicle.SelectedValue.ToString() == "")
             {
                 MessageBox.Show("Please select a vehicle.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -570,5 +570,7 @@ namespace tms.Forms
         {
 
         }
+
+      
     }
 }

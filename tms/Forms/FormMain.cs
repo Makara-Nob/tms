@@ -19,6 +19,7 @@ namespace tms
             lbDelivery.Click += btn_formDelivery_Click;
             lbSeat.Click += btn_formSeat_Click;
             lbBooking.Click += load_formBooking_Click;
+            lbTicket.Click += btn_formTicket_Click;
         }
 
         private void loadFormIntoPanel(Form form)
@@ -38,6 +39,11 @@ namespace tms
         private void btn_formStaff_Click(object sender, EventArgs e)
         {
             loadFormIntoPanel(new FormStaff());
+        }
+
+        private void btn_formTicket_Click(object sender, EventArgs e)
+        {
+            loadFormIntoPanel(new FormTicket());
         }
 
         private void btn_formRoute_Click(object sender, EventArgs e)
@@ -72,6 +78,11 @@ namespace tms
         private void load_formBooking_Click(object sender, EventArgs e)
         {
             loadFormIntoPanel(new FormBooking());
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

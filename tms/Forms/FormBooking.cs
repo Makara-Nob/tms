@@ -39,9 +39,6 @@ namespace tms.Forms
             }
         }
 
-
-
-
         private void WireGenderEvents()
         {
             chkMale.CheckedChanged += (s, e) =>

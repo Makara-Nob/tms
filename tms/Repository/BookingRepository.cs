@@ -12,7 +12,8 @@ namespace Booking_info.Repository
         public List<Booking> GetAll()
         {
             using var context = new AppDbContext();
-            return context.Bookings.ToList();
+            var result = context.Bookings.ToList();
+            return result ?? new List<Booking>(); 
         }
 
         public Booking? GetById(int bookingId)

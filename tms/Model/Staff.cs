@@ -11,6 +11,8 @@ namespace tms.Model
         public string Name { get; set; }
         public string Gender { get; set; }
         public DateTime BirthDate { get; set; }
+        public byte[]? Photo { get; set; }
+
         public string Address { get; set; }
         public string Personal_PhoneNumber { get; set; }
         public string Contact_PhoneNumber { get; set; }

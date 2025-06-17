@@ -20,6 +20,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             splitContainer1 = new SplitContainer();
+            pictureBox9 = new PictureBox();
+            lbTicket = new Label();
             lbBooking = new Label();
             pictureBox8 = new PictureBox();
             pictureBox6 = new PictureBox();
@@ -39,6 +41,7 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -57,6 +60,8 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.BackColor = SystemColors.HighlightText;
+            splitContainer1.Panel1.Controls.Add(pictureBox9);
+            splitContainer1.Panel1.Controls.Add(lbTicket);
             splitContainer1.Panel1.Controls.Add(lbBooking);
             splitContainer1.Panel1.Controls.Add(pictureBox8);
             splitContainer1.Panel1.Controls.Add(pictureBox6);
@@ -77,6 +82,17 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = SystemColors.Control;
+            // 
+            // pictureBox9
+            // 
+            resources.ApplyResources(pictureBox9, "pictureBox9");
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.TabStop = false;
+            // 
+            // lbTicket
+            // 
+            resources.ApplyResources(lbTicket, "lbTicket");
+            lbTicket.Name = "lbTicket";
             // 
             // lbBooking
             // 
@@ -175,10 +191,12 @@
             resources.ApplyResources(this, "$this");
             Controls.Add(splitContainer1);
             Name = "FormMain";
+            Load += FormMain_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
@@ -210,5 +228,7 @@
         private Label lbBooking;
         private PictureBox pictureBox8;
         private Label lbTrip;
+        private PictureBox pictureBox9;
+        private Label lbTicket;
     }
 }
