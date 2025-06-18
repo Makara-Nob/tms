@@ -20,40 +20,49 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             splitContainer1 = new SplitContainer();
-            pictureBox10 = new PictureBox();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            tableLayoutPanel3 = new TableLayoutPanel();
             lbLogout = new Label();
-            pictureBox9 = new PictureBox();
+            pictureBox10 = new PictureBox();
+            pictureBox6 = new PictureBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
             lbTicket = new Label();
             lbBooking = new Label();
-            pictureBox8 = new PictureBox();
-            pictureBox6 = new PictureBox();
-            pictureBox5 = new PictureBox();
             load_formPassenger = new Label();
-            lbSeat = new Label();
-            pictureBox4 = new PictureBox();
-            lbDelivery = new Label();
-            pictureBox3 = new PictureBox();
-            lbTrip = new Label();
+            pictureBox9 = new PictureBox();
+            pictureBox8 = new PictureBox();
             pictureBox2 = new PictureBox();
             lbVehicle = new Label();
-            pictureBox7 = new PictureBox();
-            pictureBox1 = new PictureBox();
             lbStaff = new Label();
+            pictureBox1 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            pictureBox7 = new PictureBox();
+            lbSeat = new Label();
+            lbTrip = new Label();
+            pictureBox4 = new PictureBox();
+            lbDelivery = new Label();
             imageList1 = new ImageList(components);
             sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
+            lbRoute = new Label();
+            pictureBox11 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
             SuspendLayout();
             // 
             // splitContainer1
@@ -64,30 +73,32 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.BackColor = SystemColors.HighlightText;
-            splitContainer1.Panel1.Controls.Add(pictureBox10);
-            splitContainer1.Panel1.Controls.Add(lbLogout);
-            splitContainer1.Panel1.Controls.Add(pictureBox9);
-            splitContainer1.Panel1.Controls.Add(lbTicket);
-            splitContainer1.Panel1.Controls.Add(lbBooking);
-            splitContainer1.Panel1.Controls.Add(pictureBox8);
-            splitContainer1.Panel1.Controls.Add(pictureBox6);
-            splitContainer1.Panel1.Controls.Add(pictureBox5);
-            splitContainer1.Panel1.Controls.Add(load_formPassenger);
-            splitContainer1.Panel1.Controls.Add(lbSeat);
-            splitContainer1.Panel1.Controls.Add(pictureBox4);
-            splitContainer1.Panel1.Controls.Add(lbDelivery);
-            splitContainer1.Panel1.Controls.Add(pictureBox3);
-            splitContainer1.Panel1.Controls.Add(lbTrip);
-            splitContainer1.Panel1.Controls.Add(pictureBox2);
-            splitContainer1.Panel1.Controls.Add(lbVehicle);
-            splitContainer1.Panel1.Controls.Add(pictureBox7);
-            splitContainer1.Panel1.Controls.Add(pictureBox1);
-            splitContainer1.Panel1.Controls.Add(lbStaff);
+            splitContainer1.Panel1.Controls.Add(tableLayoutPanel2);
             splitContainer1.Panel1.Cursor = Cursors.Cross;
             // 
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = SystemColors.Control;
+            // 
+            // tableLayoutPanel2
+            // 
+            resources.ApplyResources(tableLayoutPanel2, "tableLayoutPanel2");
+            tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 2);
+            tableLayoutPanel2.Controls.Add(pictureBox6, 0, 0);
+            tableLayoutPanel2.Controls.Add(tableLayoutPanel1, 0, 1);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            // 
+            // tableLayoutPanel3
+            // 
+            resources.ApplyResources(tableLayoutPanel3, "tableLayoutPanel3");
+            tableLayoutPanel3.Controls.Add(lbLogout, 1, 0);
+            tableLayoutPanel3.Controls.Add(pictureBox10, 0, 0);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            // 
+            // lbLogout
+            // 
+            resources.ApplyResources(lbLogout, "lbLogout");
+            lbLogout.Name = "lbLogout";
             // 
             // pictureBox10
             // 
@@ -95,16 +106,34 @@
             pictureBox10.Name = "pictureBox10";
             pictureBox10.TabStop = false;
             // 
-            // lbLogout
+            // pictureBox6
             // 
-            resources.ApplyResources(lbLogout, "lbLogout");
-            lbLogout.Name = "lbLogout";
+            resources.ApplyResources(pictureBox6, "pictureBox6");
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.TabStop = false;
             // 
-            // pictureBox9
+            // tableLayoutPanel1
             // 
-            resources.ApplyResources(pictureBox9, "pictureBox9");
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.TabStop = false;
+            resources.ApplyResources(tableLayoutPanel1, "tableLayoutPanel1");
+            tableLayoutPanel1.Controls.Add(lbTicket, 1, 8);
+            tableLayoutPanel1.Controls.Add(lbBooking, 1, 1);
+            tableLayoutPanel1.Controls.Add(load_formPassenger, 1, 6);
+            tableLayoutPanel1.Controls.Add(pictureBox9, 0, 8);
+            tableLayoutPanel1.Controls.Add(pictureBox8, 0, 1);
+            tableLayoutPanel1.Controls.Add(pictureBox2, 0, 2);
+            tableLayoutPanel1.Controls.Add(lbVehicle, 1, 2);
+            tableLayoutPanel1.Controls.Add(lbStaff, 1, 7);
+            tableLayoutPanel1.Controls.Add(pictureBox1, 0, 7);
+            tableLayoutPanel1.Controls.Add(pictureBox3, 0, 3);
+            tableLayoutPanel1.Controls.Add(pictureBox5, 0, 5);
+            tableLayoutPanel1.Controls.Add(pictureBox7, 0, 6);
+            tableLayoutPanel1.Controls.Add(lbSeat, 1, 5);
+            tableLayoutPanel1.Controls.Add(lbTrip, 1, 3);
+            tableLayoutPanel1.Controls.Add(pictureBox4, 0, 4);
+            tableLayoutPanel1.Controls.Add(lbDelivery, 1, 4);
+            tableLayoutPanel1.Controls.Add(lbRoute, 1, 9);
+            tableLayoutPanel1.Controls.Add(pictureBox11, 0, 9);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // lbTicket
             // 
@@ -116,56 +145,23 @@
             resources.ApplyResources(lbBooking, "lbBooking");
             lbBooking.Name = "lbBooking";
             // 
-            // pictureBox8
-            // 
-            resources.ApplyResources(pictureBox8, "pictureBox8");
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            resources.ApplyResources(pictureBox6, "pictureBox6");
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            resources.ApplyResources(pictureBox5, "pictureBox5");
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.TabStop = false;
-            // 
             // load_formPassenger
             // 
             resources.ApplyResources(load_formPassenger, "load_formPassenger");
             load_formPassenger.Name = "load_formPassenger";
             load_formPassenger.Click += load_formPassenger_Click;
             // 
-            // lbSeat
+            // pictureBox9
             // 
-            resources.ApplyResources(lbSeat, "lbSeat");
-            lbSeat.Name = "lbSeat";
+            resources.ApplyResources(pictureBox9, "pictureBox9");
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.TabStop = false;
             // 
-            // pictureBox4
+            // pictureBox8
             // 
-            resources.ApplyResources(pictureBox4, "pictureBox4");
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.TabStop = false;
-            // 
-            // lbDelivery
-            // 
-            resources.ApplyResources(lbDelivery, "lbDelivery");
-            lbDelivery.Name = "lbDelivery";
-            // 
-            // pictureBox3
-            // 
-            resources.ApplyResources(pictureBox3, "pictureBox3");
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.TabStop = false;
-            // 
-            // lbTrip
-            // 
-            resources.ApplyResources(lbTrip, "lbTrip");
-            lbTrip.Name = "lbTrip";
+            resources.ApplyResources(pictureBox8, "pictureBox8");
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -178,11 +174,10 @@
             resources.ApplyResources(lbVehicle, "lbVehicle");
             lbVehicle.Name = "lbVehicle";
             // 
-            // pictureBox7
+            // lbStaff
             // 
-            resources.ApplyResources(pictureBox7, "pictureBox7");
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.TabStop = false;
+            resources.ApplyResources(lbStaff, "lbStaff");
+            lbStaff.Name = "lbStaff";
             // 
             // pictureBox1
             // 
@@ -191,10 +186,44 @@
             pictureBox1.Name = "pictureBox1";
             pictureBox1.TabStop = false;
             // 
-            // lbStaff
+            // pictureBox3
             // 
-            resources.ApplyResources(lbStaff, "lbStaff");
-            lbStaff.Name = "lbStaff";
+            resources.ApplyResources(pictureBox3, "pictureBox3");
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            resources.ApplyResources(pictureBox5, "pictureBox5");
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            resources.ApplyResources(pictureBox7, "pictureBox7");
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.TabStop = false;
+            // 
+            // lbSeat
+            // 
+            resources.ApplyResources(lbSeat, "lbSeat");
+            lbSeat.Name = "lbSeat";
+            // 
+            // lbTrip
+            // 
+            resources.ApplyResources(lbTrip, "lbTrip");
+            lbTrip.Name = "lbTrip";
+            // 
+            // pictureBox4
+            // 
+            resources.ApplyResources(pictureBox4, "pictureBox4");
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.TabStop = false;
+            // 
+            // lbDelivery
+            // 
+            resources.ApplyResources(lbDelivery, "lbDelivery");
+            lbDelivery.Name = "lbDelivery";
             // 
             // imageList1
             // 
@@ -202,25 +231,41 @@
             resources.ApplyResources(imageList1, "imageList1");
             imageList1.TransparentColor = Color.Transparent;
             // 
+            // lbRoute
+            // 
+            resources.ApplyResources(lbRoute, "lbRoute");
+            lbRoute.Name = "lbRoute";
+            // 
+            // pictureBox11
+            // 
+            resources.ApplyResources(pictureBox11, "pictureBox11");
+            pictureBox11.Name = "pictureBox11";
+            pictureBox11.TabStop = false;
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
             Controls.Add(splitContainer1);
             Name = "FormMain";
             splitContainer1.Panel1.ResumeLayout(false);
-            splitContainer1.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
             ResumeLayout(false);
 
         }
@@ -247,7 +292,12 @@
         private PictureBox pictureBox9;
         private Label lbTicket;
         private PictureBox pictureBox10;
-        private Label lbLogout;
         private Microsoft.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
+        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel tableLayoutPanel2;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Label lbLogout;
+        private Label lbRoute;
+        private PictureBox pictureBox11;
     }
 }

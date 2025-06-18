@@ -20,6 +20,7 @@ namespace tms
             lbSeat.Click += btn_formSeat_Click;
             lbBooking.Click += load_formBooking_Click;
             lbTicket.Click += btn_formTicket_Click;
+            lbRoute.Click += btn_formRoute_Click;
             lbLogout.Click += BtnLogOut_Click;
         }
 
