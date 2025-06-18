@@ -68,7 +68,6 @@
             actionButtonPanel = new Panel();
             btnAdd = new Button();
             btnUpdate = new Button();
-            btnDelete = new Button();
             btnClear = new Button();
             btnSave = new Button();
             btnCancel = new Button();
@@ -555,7 +554,6 @@
             staffInfoTableLayout.SetColumnSpan(actionButtonPanel, 2);
             actionButtonPanel.Controls.Add(btnAdd);
             actionButtonPanel.Controls.Add(btnUpdate);
-            actionButtonPanel.Controls.Add(btnDelete);
             actionButtonPanel.Controls.Add(btnClear);
             actionButtonPanel.Controls.Add(btnSave);
             actionButtonPanel.Controls.Add(btnCancel);
@@ -596,21 +594,6 @@
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
             btnUpdate.Click += BtnEditStaff_Click;
-            // 
-            // btnDelete
-            // 
-            btnDelete.BackColor = Color.FromArgb(231, 76, 60);
-            btnDelete.FlatAppearance.BorderSize = 0;
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnDelete.ForeColor = Color.White;
-            btnDelete.Location = new Point(256, 6);
-            btnDelete.Margin = new Padding(4);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(112, 44);
-            btnDelete.TabIndex = 2;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = false;
             // 
             // btnClear
             // 
@@ -928,7 +911,6 @@
         private Panel actionButtonPanel;
         private Button btnAdd;
         private Button btnUpdate;
-        private Button btnDelete;
         private Button btnClear;
         private Button btnSave;
         private Button btnCancel;

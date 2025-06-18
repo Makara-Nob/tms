@@ -20,6 +20,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             splitContainer1 = new SplitContainer();
+            pictureBox10 = new PictureBox();
+            lbLogout = new Label();
             pictureBox9 = new PictureBox();
             lbTicket = new Label();
             lbBooking = new Label();
@@ -38,9 +40,11 @@
             pictureBox1 = new PictureBox();
             lbStaff = new Label();
             imageList1 = new ImageList(components);
+            sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -60,6 +64,8 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.BackColor = SystemColors.HighlightText;
+            splitContainer1.Panel1.Controls.Add(pictureBox10);
+            splitContainer1.Panel1.Controls.Add(lbLogout);
             splitContainer1.Panel1.Controls.Add(pictureBox9);
             splitContainer1.Panel1.Controls.Add(lbTicket);
             splitContainer1.Panel1.Controls.Add(lbBooking);
@@ -82,6 +88,17 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = SystemColors.Control;
+            // 
+            // pictureBox10
+            // 
+            resources.ApplyResources(pictureBox10, "pictureBox10");
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.TabStop = false;
+            // 
+            // lbLogout
+            // 
+            resources.ApplyResources(lbLogout, "lbLogout");
+            lbLogout.Name = "lbLogout";
             // 
             // pictureBox9
             // 
@@ -163,7 +180,6 @@
             // 
             // pictureBox7
             // 
-            pictureBox7.Image = Properties.Resources.staffIcon;
             resources.ApplyResources(pictureBox7, "pictureBox7");
             pictureBox7.Name = "pictureBox7";
             pictureBox7.TabStop = false;
@@ -191,11 +207,11 @@
             resources.ApplyResources(this, "$this");
             Controls.Add(splitContainer1);
             Name = "FormMain";
-            Load += FormMain_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
@@ -230,5 +246,8 @@
         private Label lbTrip;
         private PictureBox pictureBox9;
         private Label lbTicket;
+        private PictureBox pictureBox10;
+        private Label lbLogout;
+        private Microsoft.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
     }
 }

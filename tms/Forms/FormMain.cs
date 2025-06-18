@@ -9,7 +9,7 @@ namespace tms
         {
             InitializeComponent();
             wire();
-            this.Size = new Size(1400, 700);
+            this.Size = new Size(1400, 730);
         }
         private void wire()
         {
@@ -20,6 +20,7 @@ namespace tms
             lbSeat.Click += btn_formSeat_Click;
             lbBooking.Click += load_formBooking_Click;
             lbTicket.Click += btn_formTicket_Click;
+            lbLogout.Click += BtnLogOut_Click;
         }
 
         private void loadFormIntoPanel(Form form)
@@ -80,9 +81,15 @@ namespace tms
             loadFormIntoPanel(new FormBooking());
         }
 
-        private void FormMain_Load(object sender, EventArgs e)
+        private void BtnLogOut_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Staff_info.Repository
         {
             using var context = new AppDbContext();
 
-            return context.Staffs.ToList();
+            return context.Staffs.FromSqlRaw("EXEC GetAllStaff").ToList();
         }
 
         public List<Staff> GetDriverStaff()
@@ -23,8 +23,8 @@ namespace Staff_info.Repository
             return context.Staffs
              .Where(s => s.position.ToLower() == "driver")
              .ToList();
-
         }
+
         public bool Add(Staff staff)
         {
             using var context = new AppDbContext();
@@ -108,6 +108,6 @@ namespace Staff_info.Repository
                 .ToList();
         }
 
-     
+
     }
 }

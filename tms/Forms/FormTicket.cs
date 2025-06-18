@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using tms.Repository;
+﻿using tms.Repository;
 using tms.Model;
 
 namespace tms.Forms
@@ -29,10 +20,10 @@ namespace tms.Forms
         {
             btnNew.Click += BtnNew_Click;
             btnUpdate.Click += BtnUpdate_Click;
-            btnLogOut.Click += BtnLogOut_Click;
-
+            btnClear.Click += btnClear_Click;
             txtSearch.TextChanged += TxtSearch_TextChanged;
             IsTicket.SelectedIndexChanged += lstRoutes_SelectedIndexChanged;
+            
         }
 
         private void FormTicket_Load(object sender, EventArgs e)
@@ -51,11 +42,18 @@ namespace tms.Forms
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
+            // Otherwise, validate and create a new ticket
+            if (!ValidateForm())
+                return;
+
+            CreateNewTicket();
+            MessageBox.Show("New ticket created successfully!", "Success",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            RefreshTicketList();
             ClearForm();
-            isEditMode = false;
-            currentTicketId = string.Empty;
-            txtSupplierID.Focus();
         }
+
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
@@ -84,17 +82,6 @@ namespace tms.Forms
             {
                 MessageBox.Show($"Error saving ticket: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void BtnLogOut_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
             }
         }
 
@@ -143,21 +130,29 @@ namespace tms.Forms
         {
             txtSupplierID.Text = ticket.SupplierID;
             txtSupplierName.Text = ticket.SupplierName;
-            txtSupplierDate.Text = ticket.SupplierDate.ToString("yyyy-MM-dd");
+            dtSupplierDate.Value = ticket.SupplierDate;
             txtCustomerPosition.Text = ticket.CustomerPosition;
             txtCustomerAddress.Text = ticket.CustomerAddress;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+
         }
 
         private void ClearForm()
         {
             txtSupplierID.Clear();
             txtSupplierName.Clear();
-            txtSupplierDate.Clear();
+            dtSupplierDate.Value = DateTime.Now;
             txtCustomerPosition.Clear();
             txtCustomerAddress.Clear();
             currentTicketId = string.Empty;
             isEditMode = false;
         }
+
+
 
         private bool ValidateForm()
         {
@@ -174,22 +169,6 @@ namespace tms.Forms
                 MessageBox.Show("Supplier Name is required!", "Validation Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSupplierName.Focus();
-                return false;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtSupplierDate.Text))
-            {
-                MessageBox.Show("Supplier Date is required!", "Validation Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtSupplierDate.Focus();
-                return false;
-            }
-
-            if (!DateTime.TryParse(txtSupplierDate.Text, out _))
-            {
-                MessageBox.Show("Please enter a valid date format (YYYY-MM-DD)!", "Validation Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtSupplierDate.Focus();
                 return false;
             }
 
@@ -215,7 +194,7 @@ namespace tms.Forms
                 TicketID = GenerateTicketId(),
                 SupplierID = txtSupplierID.Text.Trim(),
                 SupplierName = txtSupplierName.Text.Trim(),
-                SupplierDate = DateTime.Parse(txtSupplierDate.Text),
+                SupplierDate = dtSupplierDate.Value,
                 CustomerPosition = txtCustomerPosition.Text.Trim(),
                 CustomerAddress = txtCustomerAddress.Text.Trim(),
                 CreatedDate = DateTime.Now,
@@ -236,7 +215,7 @@ namespace tms.Forms
             {
                 existingTicket.SupplierID = txtSupplierID.Text.Trim();
                 existingTicket.SupplierName = txtSupplierName.Text.Trim();
-                existingTicket.SupplierDate = DateTime.Parse(txtSupplierDate.Text);
+                existingTicket.SupplierDate = dtSupplierDate.Value;
                 existingTicket.CustomerPosition = txtCustomerPosition.Text.Trim();
                 existingTicket.CustomerAddress = txtCustomerAddress.Text.Trim();
                 existingTicket.ModifiedDate = DateTime.Now;
@@ -278,14 +257,6 @@ namespace tms.Forms
         private string GenerateTicketId()
         {
             return "TKT" + DateTime.Now.ToString("yyyyMMddHHmmss");
-        }
-
-        private void lblRouteID_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void gbRoute2_Enter(object sender, EventArgs e)
-        {   
         }
     }
 }
