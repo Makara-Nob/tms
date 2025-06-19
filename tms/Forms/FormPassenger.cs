@@ -1,15 +1,6 @@
-﻿using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Passenger_info.Model;
-using System;
-using System.Collections.Generic;
+﻿using Passenger_info.Model;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using tms.Repository;
 
 namespace tms.Forms
@@ -18,6 +9,10 @@ namespace tms.Forms
     {
         private readonly PassengerRepository _repository = new PassengerRepository();
         private BindingList<Passenger> _passengerList = new BindingList<Passenger>();
+        private static HashSet<string> existingPassengerIds = new HashSet<string>();
+
+        // Store current PassengerID when editing
+        private string currentPassengerID = null;
 
         public FormPassenger()
         {
@@ -36,6 +31,7 @@ namespace tms.Forms
             _passengerList = new BindingList<Passenger>(passengers);
             dataGridView1.DataSource = _passengerList;
         }
+
         private void ClearForm()
         {
             txtPassengerID.Clear();
@@ -44,19 +40,20 @@ namespace tms.Forms
             txtPersonal.Clear();
             txtEmail.Clear();
             cbInactive.Checked = false;
+            currentPassengerID = null;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            int.TryParse(txtPassengerID.Text, out int id);
             var passenger = new Passenger
             {
-                PassengerID = id,
+                // Use existing PassengerID if editing, otherwise generate new
+                PassengerID = currentPassengerID ?? GeneratePassengerID(),
                 PassengerName = txtPassengerName.Text.Trim(),
                 Gender = cbGender.Text.Trim(),
                 PersonalNumber = txtPersonal.Text.Trim(),
                 Email = txtEmail.Text.Trim(),
-                IsActive = cbInactive.Checked ? 1 : 0
+                IsActive = cbInactive.Checked ? 0 : 1 // Assuming 0 = inactive, 1 = active
             };
 
             if (string.IsNullOrWhiteSpace(passenger.PassengerName) || string.IsNullOrWhiteSpace(passenger.Gender))
@@ -65,13 +62,20 @@ namespace tms.Forms
                 return;
             }
 
-            if (id == 0)
-                _repository.AddPassenger(passenger);
-            else
-                _repository.UpdatePassenger(passenger);
+            try
+            {
+                if (currentPassengerID == null)
+                    _repository.AddPassenger(passenger);
+                else
+                    _repository.UpdatePassenger(passenger);
 
-            BindData();
-            ClearForm();
+                BindData();
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving passenger: {ex.Message}");
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -87,16 +91,15 @@ namespace tms.Forms
                 {
                     DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
 
-                    // Check if the row has data (not a new row)
                     if (!selectedRow.IsNewRow)
                     {
-                        txtPassengerID.Text = selectedRow.Cells["PassengerID"].Value?.ToString() ?? "";
+                        currentPassengerID = selectedRow.Cells["PassengerID"].Value?.ToString();
+                        txtPassengerID.Text = currentPassengerID;
                         txtPassengerName.Text = selectedRow.Cells["PassengerName"].Value?.ToString() ?? "";
                         cbGender.Text = selectedRow.Cells["Gender"].Value?.ToString() ?? "";
                         txtPersonal.Text = selectedRow.Cells["PersonalNumber"].Value?.ToString() ?? "";
                         txtEmail.Text = selectedRow.Cells["Email"].Value?.ToString() ?? "";
 
-                        // Handle the IsActive/Inactive checkbox (adjust based on your actual data)
                         if (selectedRow.Cells["IsActive"].Value != null)
                         {
                             cbInactive.Checked = Convert.ToInt32(selectedRow.Cells["IsActive"].Value) == 0;
@@ -112,6 +115,19 @@ namespace tms.Forms
             {
                 MessageBox.Show($"Error loading passenger data: {ex.Message}");
             }
+        }
+
+        private string GeneratePassengerID()
+        {
+            string passengerId;
+
+            do
+            {
+                passengerId = "PS:" + Guid.NewGuid().ToString("N").Substring(0, 8).ToUpper();
+            } while (existingPassengerIds.Contains(passengerId));
+
+            existingPassengerIds.Add(passengerId);
+            return passengerId;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -133,10 +149,21 @@ namespace tms.Forms
         {
             if (dataGridView1.CurrentRow != null)
             {
-                var id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["PassengerID"].Value);
-                _repository.DeletePassenger(id);
-                BindData();
-                ClearForm();
+                // Get PassengerID as string
+                var id = dataGridView1.CurrentRow.Cells["PassengerID"].Value?.ToString();
+                if (!string.IsNullOrEmpty(id))
+                {
+                    try
+                    {
+                        _repository.DeletePassenger(id);
+                        BindData();
+                        ClearForm();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error deleting passenger: {ex.Message}");
+                    }
+                }
             }
         }
 

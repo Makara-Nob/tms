@@ -15,6 +15,12 @@ namespace tms.Model
 
             public DateTime BookingDate { get; set; }
 
+
+            [MaxLength(20)]
+            public string PassengerContact { get; set; } 
+
+            [MaxLength(10)]
+            public string Gender { get; set; }
             public int SeatNumber { get; set; }
 
             [MaxLength(50)]

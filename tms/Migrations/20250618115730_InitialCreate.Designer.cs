@@ -12,7 +12,7 @@ using tms.Data;
 namespace tms.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250615182952_InitialCreate")]
+    [Migration("20250618115730_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -49,11 +49,8 @@ namespace tms.Migrations
 
             modelBuilder.Entity("Passenger_info.Model.Passenger", b =>
                 {
-                    b.Property<int>("PassengerID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PassengerID"));
+                    b.Property<string>("PassengerID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -216,6 +213,9 @@ namespace tms.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<decimal>("Salary")
                         .HasPrecision(12, 2)
                         .HasColumnType("decimal(12,2)");
@@ -229,14 +229,69 @@ namespace tms.Migrations
                     b.ToTable("Staffs");
                 });
 
+            modelBuilder.Entity("tms.Model.Ticket", b =>
+                {
+                    b.Property<string>("TicketID")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("CustomerAddress")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("CustomerPosition")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("SupplierDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SupplierID")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("SupplierName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("TicketID");
+
+                    b.HasIndex("CreatedDate")
+                        .HasDatabaseName("IX_Tickets_CreatedDate");
+
+                    b.HasIndex("SupplierDate")
+                        .HasDatabaseName("IX_Tickets_SupplierDate");
+
+                    b.HasIndex("SupplierID")
+                        .HasDatabaseName("IX_Tickets_SupplierID");
+
+                    b.ToTable("Tickets");
+                });
+
             modelBuilder.Entity("tms.Model.Trip", b =>
                 {
                     b.Property<string>("TripId")
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("TripID");
 
+                    b.Property<DateTime>("DepatureTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("DriverId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("DriverID");
 
@@ -244,12 +299,11 @@ namespace tms.Migrations
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("RouteID");
 
-                    b.Property<DateTime>("Status")
-                        .HasColumnType("datetime2")
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)")
                         .HasColumnName("status");
 
                     b.Property<string>("VehicleId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("VehicleID");
 
@@ -319,9 +373,7 @@ namespace tms.Migrations
                 {
                     b.HasOne("tms.Model.Staff", "Driver")
                         .WithMany()
-                        .HasForeignKey("DriverId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DriverId");
 
                     b.HasOne("tms.Model.Route", "Route")
                         .WithMany()
@@ -329,9 +381,7 @@ namespace tms.Migrations
 
                     b.HasOne("tms.Model.Vehicle", "Vehicle")
                         .WithMany()
-                        .HasForeignKey("VehicleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("VehicleId");
 
                     b.Navigation("Driver");
 

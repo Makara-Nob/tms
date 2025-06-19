@@ -4,7 +4,7 @@ namespace Passenger_info.Model
 {
     public class Passenger
     {
-        public int PassengerID { get; set; }
+        public string PassengerID { get; set; }
         public string PassengerName { get; set; }
         public string Gender { get; set; }
         public string PersonalNumber { get; set; }

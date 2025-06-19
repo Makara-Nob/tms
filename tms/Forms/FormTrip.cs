@@ -435,7 +435,7 @@ namespace tms.Forms
 
                 if (result == DialogResult.Yes)
                 {
-                    tripRepository.Delete(int.Parse(txtTripId.Text));
+                    tripRepository.Delete(txtTripId.Text);
                     MessageBox.Show("Trip deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadData();
                     ClearForm();

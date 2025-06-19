@@ -1,63 +1,87 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using tms.Data;
 using tms.Model;
 
-namespace Booking_info.Repository
+namespace tms.Repository
 {
     public class BookingRepository
     {
         public List<Booking> GetAll()
         {
             using var context = new AppDbContext();
-            var result = context.Bookings.ToList();
-            return result ?? new List<Booking>(); 
+            return context.Bookings
+                .FromSqlRaw("EXEC GetAllBookings")
+                .ToList();
         }
 
         public Booking? GetById(int bookingId)
         {
             using var context = new AppDbContext();
-            return context.Bookings.FirstOrDefault(b => b.BookingID == bookingId);
+            return context.Bookings
+                .FromSqlRaw("EXEC GetBookingById @BookingID",
+                    new SqlParameter("@BookingID", bookingId))
+                .AsEnumerable()
+                .FirstOrDefault();
         }
 
-        public bool Add(Booking booking)
+        public int Add(Booking booking)
         {
             using var context = new AppDbContext();
-            context.Bookings.Add(booking);
-            return context.SaveChanges() > 0;
+
+            var bookingIdParam = new SqlParameter
+            {
+                ParameterName = "@NewBookingID",
+                SqlDbType = System.Data.SqlDbType.Int,
+                Direction = System.Data.ParameterDirection.Output
+            };
+
+            context.Database.ExecuteSqlRaw(
+                "EXEC InsertBooking @BookingDate, @SeatNumber, @Status, @PassengerContact, @Gender, @StaffID, @TripID, @NewBookingID OUTPUT",
+                new SqlParameter("@BookingDate", booking.BookingDate),
+                new SqlParameter("@SeatNumber", booking.SeatNumber),
+                new SqlParameter("@Status", booking.Status ?? (object)DBNull.Value),
+                new SqlParameter("@PassengerContact", booking.PassengerContact ?? (object)DBNull.Value),
+                new SqlParameter("@Gender", booking.Gender ?? (object)DBNull.Value),
+                new SqlParameter("@StaffID", booking.StaffID ?? (object)DBNull.Value),
+                new SqlParameter("@TripID", booking.TripID),
+                bookingIdParam
+            );
+
+            return (int)bookingIdParam.Value;
         }
+
 
         public bool Update(Booking booking)
         {
             using var context = new AppDbContext();
-            context.Bookings.Update(booking);
-            return context.SaveChanges() > 0;
+
+            var result = context.Database.ExecuteSqlRaw(
+                "EXEC UpdateBooking @BookingID, @BookingDate, @SeatNumber, @Status, @PassengerContact, @Gender, @StaffID, @TripID",
+                new SqlParameter("@BookingID", booking.BookingID),
+                new SqlParameter("@BookingDate", booking.BookingDate),
+                new SqlParameter("@SeatNumber", booking.SeatNumber),
+                new SqlParameter("@Status", booking.Status ?? (object)DBNull.Value),
+                new SqlParameter("@PassengerContact", booking.PassengerContact ?? (object)DBNull.Value),
+                new SqlParameter("@Gender", booking.Gender ?? (object)DBNull.Value),
+                new SqlParameter("@StaffID", booking.StaffID ?? (object)DBNull.Value),
+                new SqlParameter("@TripID", booking.TripID)
+            );
+
+            return result > 0;
         }
 
-        public void Delete(int bookingId)
-        {
-            using var context = new AppDbContext();
-            var booking = context.Bookings.FirstOrDefault(b => b.BookingID == bookingId);
-            if (booking != null)
-            {
-                context.Bookings.Remove(booking);
-                context.SaveChanges();
-            }
-        }
 
-        // Optional search example – can adjust fields as needed
-        public List<Booking> Search(string keyword)
+        public bool Delete(int bookingId)
         {
             using var context = new AppDbContext();
 
-            return context.Bookings
-                .Where(b =>
-                    EF.Functions.Like(b.Status, $"%{keyword}%") ||
-                    EF.Functions.Like(b.SeatNumber.ToString(), $"%{keyword}%") ||
-                    EF.Functions.Like(b.BookingDate.ToString(), $"%{keyword}%"))
-                .ToList();
+            var result = context.Database.ExecuteSqlRaw(
+                "EXEC DeleteBooking @BookingID",
+                new SqlParameter("@BookingID", bookingId)
+            );
+
+            return result > 0;
         }
     }
 }

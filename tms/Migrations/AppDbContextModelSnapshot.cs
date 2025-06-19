@@ -46,11 +46,8 @@ namespace tms.Migrations
 
             modelBuilder.Entity("Passenger_info.Model.Passenger", b =>
                 {
-                    b.Property<int>("PassengerID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PassengerID"));
+                    b.Property<string>("PassengerID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -212,6 +209,9 @@ namespace tms.Migrations
                     b.Property<string>("Personal_PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<decimal>("Salary")
                         .HasPrecision(12, 2)
