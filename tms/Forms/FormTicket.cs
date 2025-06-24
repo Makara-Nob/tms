@@ -1,4 +1,13 @@
-﻿using tms.Repository;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using tms.Repository;
 using tms.Model;
 
 namespace tms.Forms
@@ -23,7 +32,7 @@ namespace tms.Forms
             btnClear.Click += btnClear_Click;
             txtSearch.TextChanged += TxtSearch_TextChanged;
             IsTicket.SelectedIndexChanged += lstRoutes_SelectedIndexChanged;
-            
+
         }
 
         private void FormTicket_Load(object sender, EventArgs e)
@@ -52,6 +61,9 @@ namespace tms.Forms
 
             RefreshTicketList();
             ClearForm();
+            isEditMode = false;
+            currentTicketId = string.Empty;
+            txtSupplierID.Focus();
         }
 
 
@@ -82,6 +94,17 @@ namespace tms.Forms
             {
                 MessageBox.Show($"Error saving ticket: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnLogOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
             }
         }
 
@@ -172,6 +195,22 @@ namespace tms.Forms
                 return false;
             }
 
+            if (string.IsNullOrWhiteSpace(txtSupplierDate.Text))
+            {
+                MessageBox.Show("Supplier Date is required!", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSupplierDate.Focus();
+                return false;
+            }
+
+            if (!DateTime.TryParse(txtSupplierDate.Text, out _))
+            {
+                MessageBox.Show("Please enter a valid date format (YYYY-MM-DD)!", "Validation Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSupplierDate.Focus();
+                return false;
+            }
+
             if (!isEditMode)
             {
                 var existingTicket = ticketRepository.GetBySupplierID(txtSupplierID.Text.Trim());
@@ -183,6 +222,7 @@ namespace tms.Forms
                     return false;
                 }
             }
+
             return true;
         }
 
@@ -256,6 +296,24 @@ namespace tms.Forms
         private string GenerateTicketId()
         {
             return "TKT" + DateTime.Now.ToString("yyyyMMddHHmmss");
+        }
+
+        private void lblRouteID_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void gbRoute2_Enter(object sender, EventArgs e)
+        {
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbRoute1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

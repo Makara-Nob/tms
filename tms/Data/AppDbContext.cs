@@ -1,9 +1,9 @@
 ﻿
 using Delivery_info.Model;
 using Microsoft.EntityFrameworkCore;
-using Passenger_info.Model;
 using Seat_info.Model;
 using tms.Model;
+using tms.projection;
 
 namespace tms.Data
 {
@@ -17,9 +17,14 @@ namespace tms.Data
         public DbSet<Seat> Seats { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
-        public DbSet<Passenger> Passengers { get; set; }
+        public DbSet<SeatTypeConfigurations> SeatTypeConfigurations { get; set; }
+        public DbSet<VehicleConfigurations> VehicleConfigurations { get; set; }
+        public DbSet<SeatExclusions> SeatExclusions { get; set; }
+
         public DbSet<Trip> Trips { get; set; }
+        public DbSet<TripDetail> TripDetail { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -49,6 +54,11 @@ namespace tms.Data
             modelBuilder.Entity<Staff>();
             modelBuilder.Entity<Route>();
             modelBuilder.Entity<Vehicle>();
+            modelBuilder.Entity<TripDetail>(entity =>
+            {
+                entity.HasNoKey();
+                entity.ToView(null);  // No table, used only for stored procedure results
+            });
             modelBuilder.Entity<Ticket>(
                 entity =>
                 {

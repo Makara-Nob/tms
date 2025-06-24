@@ -1,4 +1,6 @@
-﻿namespace tms
+﻿using System.Windows.Forms;
+
+namespace tms
 {
     partial class FormMain
     {
@@ -17,151 +19,96 @@
 
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             splitContainer1 = new SplitContainer();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            tableLayoutPanel3 = new TableLayoutPanel();
-            lbLogout = new Label();
-            pictureBox10 = new PictureBox();
-            pictureBox6 = new PictureBox();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            lbTicket = new Label();
-            lbBooking = new Label();
-            load_formPassenger = new Label();
-            pictureBox9 = new PictureBox();
-            pictureBox8 = new PictureBox();
+            headerPanel = new Panel();
             pictureBox2 = new PictureBox();
-            lbVehicle = new Label();
+            lbLogout = new Label();
+            dashboardCardsPanel = new Panel();
+            staffCard = new Panel();
+            iconStaff = new Label();
             lbStaff = new Label();
-            pictureBox1 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox5 = new PictureBox();
-            pictureBox7 = new PictureBox();
-            lbSeat = new Label();
+            tripCard = new Panel();
+            iconTrip = new Label();
             lbTrip = new Label();
-            pictureBox4 = new PictureBox();
+            bookingCard = new Panel();
+            iconBooking = new Label();
+            lbBooking = new Label();
+            deliveryCard = new Panel();
+            iconDelivery = new Label();
             lbDelivery = new Label();
-            imageList1 = new ImageList(components);
-            sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
+            activeTripsCard = new Panel();
+            routeCard = new Panel();
+            iconRoute = new Label();
             lbRoute = new Label();
-            pictureBox11 = new PictureBox();
+            vehicleCard = new Panel();
+            iconVehicle = new Label();
+            lbVehicle = new Label();
+            seatCard = new Panel();
+            iconSeat = new Label();
+            lbSeat = new Label();
+            ticketCard = new Panel();
+            iconTicket = new Label();
+            lbTicket = new Label();
+            revenueCard = new Panel();
+            pictureBox1 = new PictureBox();
+            mainPanel = new Panel();
+            sidebarPanel = new Panel();
+            contentPanel = new Panel();
+            passengerCard = new Panel();
+            iconPassenger = new Label();
+            load_formPassenger = new Label();
+            userProfilePanel = new Panel();
+            logoutButton = new Button();
+            userNameLabel = new Label();
+            statsPanel = new Panel();
+            totalVehiclesCard = new Panel();
+            totalBookingsCard = new Panel();
+            label1 = new Label();
+            lbOrder = new Label();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            headerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            dashboardCardsPanel.SuspendLayout();
+            staffCard.SuspendLayout();
+            tripCard.SuspendLayout();
+            bookingCard.SuspendLayout();
+            deliveryCard.SuspendLayout();
+            routeCard.SuspendLayout();
+            vehicleCard.SuspendLayout();
+            seatCard.SuspendLayout();
+            ticketCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
+            passengerCard.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
             // 
             resources.ApplyResources(splitContainer1, "splitContainer1");
+            splitContainer1.FixedPanel = FixedPanel.Panel1;
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.BackColor = SystemColors.HighlightText;
-            splitContainer1.Panel1.Controls.Add(tableLayoutPanel2);
-            splitContainer1.Panel1.Cursor = Cursors.Cross;
+            splitContainer1.Panel1.BackColor = Color.FromArgb(22, 28, 36);
+            splitContainer1.Panel1.Controls.Add(headerPanel);
+            splitContainer1.Panel1.Controls.Add(dashboardCardsPanel);
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.BackColor = SystemColors.Control;
+            splitContainer1.Panel2.BackColor = Color.FromArgb(15, 15, 23);
             // 
-            // tableLayoutPanel2
+            // headerPanel
             // 
-            resources.ApplyResources(tableLayoutPanel2, "tableLayoutPanel2");
-            tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 2);
-            tableLayoutPanel2.Controls.Add(pictureBox6, 0, 0);
-            tableLayoutPanel2.Controls.Add(tableLayoutPanel1, 0, 1);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            // 
-            // tableLayoutPanel3
-            // 
-            resources.ApplyResources(tableLayoutPanel3, "tableLayoutPanel3");
-            tableLayoutPanel3.Controls.Add(lbLogout, 1, 0);
-            tableLayoutPanel3.Controls.Add(pictureBox10, 0, 0);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            // 
-            // lbLogout
-            // 
-            resources.ApplyResources(lbLogout, "lbLogout");
-            lbLogout.Name = "lbLogout";
-            // 
-            // pictureBox10
-            // 
-            resources.ApplyResources(pictureBox10, "pictureBox10");
-            pictureBox10.Name = "pictureBox10";
-            pictureBox10.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            resources.ApplyResources(pictureBox6, "pictureBox6");
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.TabStop = false;
-            // 
-            // tableLayoutPanel1
-            // 
-            resources.ApplyResources(tableLayoutPanel1, "tableLayoutPanel1");
-            tableLayoutPanel1.Controls.Add(lbTicket, 1, 8);
-            tableLayoutPanel1.Controls.Add(lbBooking, 1, 1);
-            tableLayoutPanel1.Controls.Add(load_formPassenger, 1, 6);
-            tableLayoutPanel1.Controls.Add(pictureBox9, 0, 8);
-            tableLayoutPanel1.Controls.Add(pictureBox8, 0, 1);
-            tableLayoutPanel1.Controls.Add(pictureBox2, 0, 2);
-            tableLayoutPanel1.Controls.Add(lbVehicle, 1, 2);
-            tableLayoutPanel1.Controls.Add(lbStaff, 1, 7);
-            tableLayoutPanel1.Controls.Add(pictureBox1, 0, 7);
-            tableLayoutPanel1.Controls.Add(pictureBox3, 0, 3);
-            tableLayoutPanel1.Controls.Add(pictureBox5, 0, 5);
-            tableLayoutPanel1.Controls.Add(pictureBox7, 0, 6);
-            tableLayoutPanel1.Controls.Add(lbSeat, 1, 5);
-            tableLayoutPanel1.Controls.Add(lbTrip, 1, 3);
-            tableLayoutPanel1.Controls.Add(pictureBox4, 0, 4);
-            tableLayoutPanel1.Controls.Add(lbDelivery, 1, 4);
-            tableLayoutPanel1.Controls.Add(lbRoute, 1, 9);
-            tableLayoutPanel1.Controls.Add(pictureBox11, 0, 9);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            // 
-            // lbTicket
-            // 
-            resources.ApplyResources(lbTicket, "lbTicket");
-            lbTicket.Name = "lbTicket";
-            // 
-            // lbBooking
-            // 
-            resources.ApplyResources(lbBooking, "lbBooking");
-            lbBooking.Name = "lbBooking";
-            // 
-            // load_formPassenger
-            // 
-            resources.ApplyResources(load_formPassenger, "load_formPassenger");
-            load_formPassenger.Name = "load_formPassenger";
-            load_formPassenger.Click += load_formPassenger_Click;
-            // 
-            // pictureBox9
-            // 
-            resources.ApplyResources(pictureBox9, "pictureBox9");
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            resources.ApplyResources(pictureBox8, "pictureBox8");
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.TabStop = false;
+            headerPanel.BackColor = Color.FromArgb(22, 28, 36);
+            headerPanel.Controls.Add(pictureBox2);
+            headerPanel.Controls.Add(lbLogout);
+            resources.ApplyResources(headerPanel, "headerPanel");
+            headerPanel.Name = "headerPanel";
             // 
             // pictureBox2
             // 
@@ -169,135 +116,437 @@
             pictureBox2.Name = "pictureBox2";
             pictureBox2.TabStop = false;
             // 
-            // lbVehicle
+            // lbLogout
             // 
-            resources.ApplyResources(lbVehicle, "lbVehicle");
-            lbVehicle.Name = "lbVehicle";
+            resources.ApplyResources(lbLogout, "lbLogout");
+            lbLogout.Cursor = Cursors.Hand;
+            lbLogout.ForeColor = Color.FromArgb(239, 68, 68);
+            lbLogout.Name = "lbLogout";
+            // 
+            // dashboardCardsPanel
+            // 
+            resources.ApplyResources(dashboardCardsPanel, "dashboardCardsPanel");
+            dashboardCardsPanel.BackColor = Color.FromArgb(22, 28, 36);
+            dashboardCardsPanel.Controls.Add(panel1);
+            dashboardCardsPanel.Controls.Add(staffCard);
+            dashboardCardsPanel.Controls.Add(tripCard);
+            dashboardCardsPanel.Controls.Add(bookingCard);
+            dashboardCardsPanel.Controls.Add(deliveryCard);
+            dashboardCardsPanel.Controls.Add(activeTripsCard);
+            dashboardCardsPanel.Controls.Add(routeCard);
+            dashboardCardsPanel.Controls.Add(vehicleCard);
+            dashboardCardsPanel.Controls.Add(seatCard);
+            dashboardCardsPanel.Controls.Add(ticketCard);
+            dashboardCardsPanel.Controls.Add(revenueCard);
+            dashboardCardsPanel.Name = "dashboardCardsPanel";
+            // 
+            // staffCard
+            // 
+            staffCard.BackColor = Color.FromArgb(31, 41, 55);
+            staffCard.Controls.Add(iconStaff);
+            staffCard.Controls.Add(lbStaff);
+            staffCard.Cursor = Cursors.Hand;
+            resources.ApplyResources(staffCard, "staffCard");
+            staffCard.Name = "staffCard";
+            // 
+            // iconStaff
+            // 
+            iconStaff.BackColor = Color.Transparent;
+            iconStaff.Cursor = Cursors.Hand;
+            resources.ApplyResources(iconStaff, "iconStaff");
+            iconStaff.ForeColor = Color.FromArgb(59, 130, 246);
+            iconStaff.Name = "iconStaff";
             // 
             // lbStaff
             // 
             resources.ApplyResources(lbStaff, "lbStaff");
+            lbStaff.Cursor = Cursors.Hand;
+            lbStaff.ForeColor = Color.White;
             lbStaff.Name = "lbStaff";
             // 
-            // pictureBox1
+            // tripCard
             // 
-            pictureBox1.Image = Properties.Resources.staffIcon;
-            resources.ApplyResources(pictureBox1, "pictureBox1");
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.TabStop = false;
+            tripCard.BackColor = Color.FromArgb(31, 41, 55);
+            tripCard.Controls.Add(iconTrip);
+            tripCard.Controls.Add(lbTrip);
+            tripCard.Cursor = Cursors.Hand;
+            resources.ApplyResources(tripCard, "tripCard");
+            tripCard.Name = "tripCard";
             // 
-            // pictureBox3
+            // iconTrip
             // 
-            resources.ApplyResources(pictureBox3, "pictureBox3");
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            resources.ApplyResources(pictureBox5, "pictureBox5");
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            resources.ApplyResources(pictureBox7, "pictureBox7");
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.TabStop = false;
-            // 
-            // lbSeat
-            // 
-            resources.ApplyResources(lbSeat, "lbSeat");
-            lbSeat.Name = "lbSeat";
+            iconTrip.BackColor = Color.Transparent;
+            iconTrip.Cursor = Cursors.Hand;
+            resources.ApplyResources(iconTrip, "iconTrip");
+            iconTrip.ForeColor = Color.FromArgb(245, 158, 11);
+            iconTrip.Name = "iconTrip";
             // 
             // lbTrip
             // 
             resources.ApplyResources(lbTrip, "lbTrip");
+            lbTrip.Cursor = Cursors.Hand;
+            lbTrip.ForeColor = Color.White;
             lbTrip.Name = "lbTrip";
             // 
-            // pictureBox4
+            // bookingCard
             // 
-            resources.ApplyResources(pictureBox4, "pictureBox4");
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.TabStop = false;
+            bookingCard.BackColor = Color.FromArgb(31, 41, 55);
+            bookingCard.Controls.Add(iconBooking);
+            bookingCard.Controls.Add(lbBooking);
+            bookingCard.Cursor = Cursors.Hand;
+            resources.ApplyResources(bookingCard, "bookingCard");
+            bookingCard.Name = "bookingCard";
+            // 
+            // iconBooking
+            // 
+            iconBooking.BackColor = Color.Transparent;
+            iconBooking.Cursor = Cursors.Hand;
+            resources.ApplyResources(iconBooking, "iconBooking");
+            iconBooking.ForeColor = Color.FromArgb(34, 197, 94);
+            iconBooking.Name = "iconBooking";
+            // 
+            // lbBooking
+            // 
+            resources.ApplyResources(lbBooking, "lbBooking");
+            lbBooking.Cursor = Cursors.Hand;
+            lbBooking.ForeColor = Color.White;
+            lbBooking.Name = "lbBooking";
+            // 
+            // deliveryCard
+            // 
+            deliveryCard.BackColor = Color.FromArgb(31, 41, 55);
+            deliveryCard.Controls.Add(iconDelivery);
+            deliveryCard.Controls.Add(lbDelivery);
+            deliveryCard.Cursor = Cursors.Hand;
+            resources.ApplyResources(deliveryCard, "deliveryCard");
+            deliveryCard.Name = "deliveryCard";
+            // 
+            // iconDelivery
+            // 
+            iconDelivery.BackColor = Color.Transparent;
+            iconDelivery.Cursor = Cursors.Hand;
+            resources.ApplyResources(iconDelivery, "iconDelivery");
+            iconDelivery.ForeColor = Color.FromArgb(168, 85, 247);
+            iconDelivery.Name = "iconDelivery";
             // 
             // lbDelivery
             // 
             resources.ApplyResources(lbDelivery, "lbDelivery");
+            lbDelivery.Cursor = Cursors.Hand;
+            lbDelivery.ForeColor = Color.White;
             lbDelivery.Name = "lbDelivery";
             // 
-            // imageList1
+            // activeTripsCard
             // 
-            imageList1.ColorDepth = ColorDepth.Depth32Bit;
-            resources.ApplyResources(imageList1, "imageList1");
-            imageList1.TransparentColor = Color.Transparent;
+            resources.ApplyResources(activeTripsCard, "activeTripsCard");
+            activeTripsCard.Name = "activeTripsCard";
+            // 
+            // routeCard
+            // 
+            routeCard.BackColor = Color.FromArgb(31, 41, 55);
+            routeCard.Controls.Add(iconRoute);
+            routeCard.Controls.Add(lbRoute);
+            routeCard.Cursor = Cursors.Hand;
+            resources.ApplyResources(routeCard, "routeCard");
+            routeCard.Name = "routeCard";
+            // 
+            // iconRoute
+            // 
+            iconRoute.BackColor = Color.Transparent;
+            iconRoute.Cursor = Cursors.Hand;
+            resources.ApplyResources(iconRoute, "iconRoute");
+            iconRoute.ForeColor = Color.FromArgb(139, 92, 246);
+            iconRoute.Name = "iconRoute";
             // 
             // lbRoute
             // 
             resources.ApplyResources(lbRoute, "lbRoute");
+            lbRoute.Cursor = Cursors.Hand;
+            lbRoute.ForeColor = Color.White;
             lbRoute.Name = "lbRoute";
             // 
-            // pictureBox11
+            // vehicleCard
             // 
-            resources.ApplyResources(pictureBox11, "pictureBox11");
-            pictureBox11.Name = "pictureBox11";
-            pictureBox11.TabStop = false;
+            vehicleCard.BackColor = Color.FromArgb(31, 41, 55);
+            vehicleCard.Controls.Add(iconVehicle);
+            vehicleCard.Controls.Add(lbVehicle);
+            vehicleCard.Cursor = Cursors.Hand;
+            resources.ApplyResources(vehicleCard, "vehicleCard");
+            vehicleCard.Name = "vehicleCard";
+            // 
+            // iconVehicle
+            // 
+            iconVehicle.BackColor = Color.Transparent;
+            iconVehicle.Cursor = Cursors.Hand;
+            resources.ApplyResources(iconVehicle, "iconVehicle");
+            iconVehicle.ForeColor = Color.FromArgb(16, 185, 129);
+            iconVehicle.Name = "iconVehicle";
+            // 
+            // lbVehicle
+            // 
+            resources.ApplyResources(lbVehicle, "lbVehicle");
+            lbVehicle.Cursor = Cursors.Hand;
+            lbVehicle.ForeColor = Color.White;
+            lbVehicle.Name = "lbVehicle";
+            // 
+            // seatCard
+            // 
+            seatCard.BackColor = Color.FromArgb(31, 41, 55);
+            seatCard.Controls.Add(iconSeat);
+            seatCard.Controls.Add(lbSeat);
+            seatCard.Cursor = Cursors.Hand;
+            resources.ApplyResources(seatCard, "seatCard");
+            seatCard.Name = "seatCard";
+            // 
+            // iconSeat
+            // 
+            iconSeat.BackColor = Color.Transparent;
+            iconSeat.Cursor = Cursors.Hand;
+            resources.ApplyResources(iconSeat, "iconSeat");
+            iconSeat.ForeColor = Color.FromArgb(236, 72, 153);
+            iconSeat.Name = "iconSeat";
+            // 
+            // lbSeat
+            // 
+            resources.ApplyResources(lbSeat, "lbSeat");
+            lbSeat.Cursor = Cursors.Hand;
+            lbSeat.ForeColor = Color.White;
+            lbSeat.Name = "lbSeat";
+            // 
+            // ticketCard
+            // 
+            ticketCard.BackColor = Color.FromArgb(31, 41, 55);
+            ticketCard.Controls.Add(iconTicket);
+            ticketCard.Controls.Add(lbTicket);
+            ticketCard.Cursor = Cursors.Hand;
+            resources.ApplyResources(ticketCard, "ticketCard");
+            ticketCard.Name = "ticketCard";
+            // 
+            // iconTicket
+            // 
+            iconTicket.BackColor = Color.Transparent;
+            iconTicket.Cursor = Cursors.Hand;
+            resources.ApplyResources(iconTicket, "iconTicket");
+            iconTicket.ForeColor = Color.FromArgb(251, 146, 60);
+            iconTicket.Name = "iconTicket";
+            // 
+            // lbTicket
+            // 
+            resources.ApplyResources(lbTicket, "lbTicket");
+            lbTicket.Cursor = Cursors.Hand;
+            lbTicket.ForeColor = Color.White;
+            lbTicket.Name = "lbTicket";
+            // 
+            // revenueCard
+            // 
+            resources.ApplyResources(revenueCard, "revenueCard");
+            revenueCard.Name = "revenueCard";
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(pictureBox1, "pictureBox1");
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.TabStop = false;
+            // 
+            // mainPanel
+            // 
+            resources.ApplyResources(mainPanel, "mainPanel");
+            mainPanel.Name = "mainPanel";
+            // 
+            // sidebarPanel
+            // 
+            resources.ApplyResources(sidebarPanel, "sidebarPanel");
+            sidebarPanel.Name = "sidebarPanel";
+            // 
+            // contentPanel
+            // 
+            resources.ApplyResources(contentPanel, "contentPanel");
+            contentPanel.Name = "contentPanel";
+            // 
+            // passengerCard
+            // 
+            passengerCard.BackColor = Color.FromArgb(31, 41, 55);
+            passengerCard.Controls.Add(iconPassenger);
+            passengerCard.Controls.Add(load_formPassenger);
+            passengerCard.Cursor = Cursors.Hand;
+            resources.ApplyResources(passengerCard, "passengerCard");
+            passengerCard.Name = "passengerCard";
+            // 
+            // iconPassenger
+            // 
+            iconPassenger.BackColor = Color.Transparent;
+            iconPassenger.Cursor = Cursors.Hand;
+            resources.ApplyResources(iconPassenger, "iconPassenger");
+            iconPassenger.ForeColor = Color.FromArgb(14, 165, 233);
+            iconPassenger.Name = "iconPassenger";
+            // 
+            // load_formPassenger
+            // 
+            resources.ApplyResources(load_formPassenger, "load_formPassenger");
+            load_formPassenger.Cursor = Cursors.Hand;
+            load_formPassenger.ForeColor = Color.White;
+            load_formPassenger.Name = "load_formPassenger";
+            // 
+            // userProfilePanel
+            // 
+            resources.ApplyResources(userProfilePanel, "userProfilePanel");
+            userProfilePanel.Name = "userProfilePanel";
+            // 
+            // logoutButton
+            // 
+            resources.ApplyResources(logoutButton, "logoutButton");
+            logoutButton.Name = "logoutButton";
+            // 
+            // userNameLabel
+            // 
+            resources.ApplyResources(userNameLabel, "userNameLabel");
+            userNameLabel.Name = "userNameLabel";
+            // 
+            // statsPanel
+            // 
+            resources.ApplyResources(statsPanel, "statsPanel");
+            statsPanel.Name = "statsPanel";
+            // 
+            // totalVehiclesCard
+            // 
+            resources.ApplyResources(totalVehiclesCard, "totalVehiclesCard");
+            totalVehiclesCard.Name = "totalVehiclesCard";
+            // 
+            // totalBookingsCard
+            // 
+            resources.ApplyResources(totalBookingsCard, "totalBookingsCard");
+            totalBookingsCard.Name = "totalBookingsCard";
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.Transparent;
+            label1.Cursor = Cursors.Hand;
+            resources.ApplyResources(label1, "label1");
+            label1.ForeColor = Color.FromArgb(139, 92, 246);
+            label1.Name = "label1";
+            // 
+            // lbOrder
+            // 
+            resources.ApplyResources(lbOrder, "lbOrder");
+            lbOrder.Cursor = Cursors.Hand;
+            lbOrder.ForeColor = Color.White;
+            lbOrder.Name = "lbOrder";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(31, 41, 55);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(lbOrder);
+            panel1.Cursor = Cursors.Hand;
+            resources.ApplyResources(panel1, "panel1");
+            panel1.Name = "panel1";
             // 
             // FormMain
             // 
+            BackColor = Color.FromArgb(15, 15, 23);
             resources.ApplyResources(this, "$this");
             Controls.Add(splitContainer1);
             Name = "FormMain";
+            WindowState = FormWindowState.Maximized;
             splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel3.ResumeLayout(false);
-            tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            headerPanel.ResumeLayout(false);
+            headerPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            dashboardCardsPanel.ResumeLayout(false);
+            staffCard.ResumeLayout(false);
+            staffCard.PerformLayout();
+            tripCard.ResumeLayout(false);
+            tripCard.PerformLayout();
+            bookingCard.ResumeLayout(false);
+            bookingCard.PerformLayout();
+            deliveryCard.ResumeLayout(false);
+            deliveryCard.PerformLayout();
+            routeCard.ResumeLayout(false);
+            routeCard.PerformLayout();
+            vehicleCard.ResumeLayout(false);
+            vehicleCard.PerformLayout();
+            seatCard.ResumeLayout(false);
+            seatCard.PerformLayout();
+            ticketCard.ResumeLayout(false);
+            ticketCard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
+            passengerCard.ResumeLayout(false);
+            passengerCard.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-
         }
+
+
+        private void SetupStatsCards()
+        {
+            // This method can be called if you want to add stats cards later
+            // For now, keeping it simple to maintain compatibility
+        }
+
+        // Remove the old NavigationCard_Click method since your existing wire() method handles clicks
+
+ 
 
         #endregion
 
-        private SplitContainer splitContainer1;
-        private ImageList imageList1;
-        private PictureBox pictureBox1;
+        // Control declarations - matching your existing code structure
+        private SplitContainer splitContainer1; // Main container your code expects
+
+        private Label iconStaff;
+        private Label iconVehicle;
+        private Label iconTrip;
+        private Label iconDelivery;
+        private Label iconSeat;
+        private Label iconPassenger;
+        private Label iconBooking;
+        private Label iconTicket;
+        private Label iconRoute;
+
+        // Panel declarations
+        private Panel mainPanel;
+        private Panel sidebarPanel;
+        private Panel headerPanel;
+        private Panel contentPanel;
+        private Panel dashboardCardsPanel;
+        private Panel staffCard;
+        private Panel vehicleCard;
+        private Panel tripCard;
+
+        // Navigation Labels - exactly matching your existing code
         private Label lbStaff;
-        private PictureBox pictureBox2;
         private Label lbVehicle;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
-        private Label lbDelivery;
-        private PictureBox pictureBox5;
-        private Label lbSeat;
-        private PictureBox pictureBox6;
-        private Label load_formPassenger;
-        private PictureBox pictureBox7;
-        private Label lbBooking;
-        private PictureBox pictureBox8;
         private Label lbTrip;
-        private PictureBox pictureBox9;
+        private Label lbDelivery;
+        private Label lbSeat;
+        private Label load_formPassenger; // This matches your existing code
+        private Label lbBooking;
         private Label lbTicket;
-        private PictureBox pictureBox10;
-        private Microsoft.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
-        private TableLayoutPanel tableLayoutPanel1;
-        private TableLayoutPanel tableLayoutPanel2;
-        private TableLayoutPanel tableLayoutPanel3;
-        private Label lbLogout;
         private Label lbRoute;
-        private PictureBox pictureBox11;
+        private Label lbLogout; // This matches your existing code
+        private PictureBox pictureBox1;
+        private Panel userProfilePanel;
+        private Button logoutButton;
+        private Label userNameLabel;
+
+        // Stats elements
+        private Panel statsPanel;
+        private Panel totalVehiclesCard;
+        private Panel activeTripsCard;
+        private Panel totalBookingsCard;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Panel revenueCard;
+        private Panel deliveryCard;
+        private Panel seatCard;
+        private Panel passengerCard;
+        private Panel bookingCard;
+        private Panel ticketCard;
+        private Panel routeCard;
+        private PictureBox pictureBox2;
+        private Panel panel1;
+        private Label label1;
+        private Label lbOrder;
     }
 }

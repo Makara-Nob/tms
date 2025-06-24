@@ -25,7 +25,7 @@ namespace tms.Repository
                 .FirstOrDefault();
         }
 
-        public int Add(Booking booking)
+        public bool Add(Booking booking)
         {
             using var context = new AppDbContext();
 
@@ -36,7 +36,7 @@ namespace tms.Repository
                 Direction = System.Data.ParameterDirection.Output
             };
 
-            context.Database.ExecuteSqlRaw(
+            var result = context.Database.ExecuteSqlRaw(
                 "EXEC InsertBooking @BookingDate, @SeatNumber, @Status, @PassengerContact, @Gender, @StaffID, @TripID, @NewBookingID OUTPUT",
                 new SqlParameter("@BookingDate", booking.BookingDate),
                 new SqlParameter("@SeatNumber", booking.SeatNumber),
@@ -48,7 +48,7 @@ namespace tms.Repository
                 bookingIdParam
             );
 
-            return (int)bookingIdParam.Value;
+            return result > 0;
         }
 
 

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using tms.Data;
 using tms.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace tms.Repository
 {

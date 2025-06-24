@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             mainTableLayout = new TableLayoutPanel();
             staffInfoPanel = new Panel();
             grpStaffInfo = new GroupBox();
@@ -103,6 +103,7 @@
             // 
             // mainTableLayout
             // 
+            mainTableLayout.BackColor = Color.FromArgb(22, 28, 36);
             mainTableLayout.ColumnCount = 1;
             mainTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             mainTableLayout.Controls.Add(staffInfoPanel, 0, 0);
@@ -132,10 +133,11 @@
             // 
             // grpStaffInfo
             // 
+            grpStaffInfo.BackColor = Color.FromArgb(22, 28, 36);
             grpStaffInfo.Controls.Add(staffInfoTableLayout);
             grpStaffInfo.Dock = DockStyle.Fill;
             grpStaffInfo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            grpStaffInfo.ForeColor = Color.FromArgb(64, 64, 64);
+            grpStaffInfo.ForeColor = Color.FromArgb(224, 224, 224);
             grpStaffInfo.Location = new Point(0, 0);
             grpStaffInfo.Margin = new Padding(5);
             grpStaffInfo.Name = "grpStaffInfo";
@@ -148,11 +150,11 @@
             // staffInfoTableLayout
             // 
             staffInfoTableLayout.ColumnCount = 5;
-            staffInfoTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-            staffInfoTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            staffInfoTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            staffInfoTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-            staffInfoTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+            staffInfoTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.64706F));
+            staffInfoTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.5294113F));
+            staffInfoTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.5294113F));
+            staffInfoTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.6470585F));
+            staffInfoTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.6470585F));
             staffInfoTableLayout.Controls.Add(lblStaffId, 0, 0);
             staffInfoTableLayout.Controls.Add(txtStaffId, 1, 0);
             staffInfoTableLayout.Controls.Add(lblStaffName, 2, 0);
@@ -182,19 +184,21 @@
             staffInfoTableLayout.Margin = new Padding(4);
             staffInfoTableLayout.Name = "staffInfoTableLayout";
             staffInfoTableLayout.RowCount = 6;
-            staffInfoTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 16.67F));
-            staffInfoTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 16.67F));
-            staffInfoTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 16.67F));
-            staffInfoTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 16.67F));
-            staffInfoTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 16.67F));
+            staffInfoTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6711388F));
+            staffInfoTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6657734F));
+            staffInfoTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6657734F));
+            staffInfoTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6657734F));
+            staffInfoTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6657734F));
+            staffInfoTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6657734F));
             staffInfoTableLayout.Size = new Size(2190, 487);
             staffInfoTableLayout.TabIndex = 0;
             // 
             // lblStaffId
             // 
             lblStaffId.AutoSize = true;
+            lblStaffId.BackColor = Color.Transparent;
             lblStaffId.Font = new Font("Segoe UI", 9F);
-            lblStaffId.ForeColor = Color.FromArgb(64, 64, 64);
+            lblStaffId.ForeColor = Color.Gainsboro;
             lblStaffId.Location = new Point(4, 0);
             lblStaffId.Margin = new Padding(4, 0, 4, 0);
             lblStaffId.Name = "lblStaffId";
@@ -207,7 +211,7 @@
             // 
             txtStaffId.BackColor = Color.FromArgb(245, 245, 245);
             txtStaffId.Font = new Font("Segoe UI", 9F);
-            txtStaffId.Location = new Point(332, 4);
+            txtStaffId.Location = new Point(390, 4);
             txtStaffId.Margin = new Padding(4);
             txtStaffId.Name = "txtStaffId";
             txtStaffId.ReadOnly = true;
@@ -219,8 +223,8 @@
             // 
             lblStaffName.AutoSize = true;
             lblStaffName.Font = new Font("Segoe UI", 9F);
-            lblStaffName.ForeColor = Color.FromArgb(64, 64, 64);
-            lblStaffName.Location = new Point(770, 0);
+            lblStaffName.ForeColor = Color.FromArgb(224, 224, 224);
+            lblStaffName.Location = new Point(905, 0);
             lblStaffName.Margin = new Padding(4, 0, 4, 0);
             lblStaffName.Name = "lblStaffName";
             lblStaffName.Size = new Size(104, 25);
@@ -231,7 +235,7 @@
             // txtStaffName
             // 
             txtStaffName.Font = new Font("Segoe UI", 9F);
-            txtStaffName.Location = new Point(1098, 4);
+            txtStaffName.Location = new Point(1420, 4);
             txtStaffName.Margin = new Padding(4);
             txtStaffName.Name = "txtStaffName";
             txtStaffName.Size = new Size(249, 31);
@@ -244,7 +248,7 @@
             photoPanel.Controls.Add(picStaffPhoto);
             photoPanel.Controls.Add(btnBrowsePhoto);
             photoPanel.Controls.Add(btnRemovePhoto);
-            photoPanel.Location = new Point(1536, 4);
+            photoPanel.Location = new Point(1806, 4);
             photoPanel.Margin = new Padding(4);
             photoPanel.Name = "photoPanel";
             staffInfoTableLayout.SetRowSpan(photoPanel, 5);
@@ -292,7 +296,7 @@
             // 
             lblGender.AutoSize = true;
             lblGender.Font = new Font("Segoe UI", 9F);
-            lblGender.ForeColor = Color.FromArgb(64, 64, 64);
+            lblGender.ForeColor = Color.FromArgb(224, 224, 224);
             lblGender.Location = new Point(4, 81);
             lblGender.Margin = new Padding(4, 0, 4, 0);
             lblGender.Name = "lblGender";
@@ -305,7 +309,7 @@
             // 
             genderPanel.Controls.Add(rbMale);
             genderPanel.Controls.Add(rbFemale);
-            genderPanel.Location = new Point(332, 85);
+            genderPanel.Location = new Point(390, 85);
             genderPanel.Margin = new Padding(4);
             genderPanel.Name = "genderPanel";
             genderPanel.Size = new Size(250, 38);
@@ -339,8 +343,8 @@
             // 
             lblBirthDate.AutoSize = true;
             lblBirthDate.Font = new Font("Segoe UI", 9F);
-            lblBirthDate.ForeColor = Color.FromArgb(64, 64, 64);
-            lblBirthDate.Location = new Point(770, 81);
+            lblBirthDate.ForeColor = Color.FromArgb(224, 224, 224);
+            lblBirthDate.Location = new Point(905, 81);
             lblBirthDate.Margin = new Padding(4, 0, 4, 0);
             lblBirthDate.Name = "lblBirthDate";
             lblBirthDate.Size = new Size(94, 25);
@@ -352,7 +356,7 @@
             // 
             dtBirthDate.Font = new Font("Segoe UI", 9F);
             dtBirthDate.Format = DateTimePickerFormat.Short;
-            dtBirthDate.Location = new Point(1098, 85);
+            dtBirthDate.Location = new Point(1420, 85);
             dtBirthDate.Margin = new Padding(4);
             dtBirthDate.Name = "dtBirthDate";
             dtBirthDate.Size = new Size(249, 31);
@@ -362,7 +366,7 @@
             // 
             lblAddress.AutoSize = true;
             lblAddress.Font = new Font("Segoe UI", 9F);
-            lblAddress.ForeColor = Color.FromArgb(64, 64, 64);
+            lblAddress.ForeColor = Color.FromArgb(224, 224, 224);
             lblAddress.Location = new Point(4, 162);
             lblAddress.Margin = new Padding(4, 0, 4, 0);
             lblAddress.Name = "lblAddress";
@@ -374,7 +378,7 @@
             // txtAddress
             // 
             txtAddress.Font = new Font("Segoe UI", 9F);
-            txtAddress.Location = new Point(332, 166);
+            txtAddress.Location = new Point(390, 166);
             txtAddress.Margin = new Padding(4);
             txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
@@ -385,8 +389,8 @@
             // 
             lblContactNumber.AutoSize = true;
             lblContactNumber.Font = new Font("Segoe UI", 9F);
-            lblContactNumber.ForeColor = Color.FromArgb(64, 64, 64);
-            lblContactNumber.Location = new Point(770, 162);
+            lblContactNumber.ForeColor = Color.FromArgb(224, 224, 224);
+            lblContactNumber.Location = new Point(905, 162);
             lblContactNumber.Margin = new Padding(4, 0, 4, 0);
             lblContactNumber.Name = "lblContactNumber";
             lblContactNumber.Size = new Size(147, 25);
@@ -397,7 +401,7 @@
             // txtContactNumber
             // 
             txtContactNumber.Font = new Font("Segoe UI", 9F);
-            txtContactNumber.Location = new Point(1098, 166);
+            txtContactNumber.Location = new Point(1420, 166);
             txtContactNumber.Margin = new Padding(4);
             txtContactNumber.Name = "txtContactNumber";
             txtContactNumber.Size = new Size(249, 31);
@@ -408,7 +412,7 @@
             // 
             lblPersonalNumber.AutoSize = true;
             lblPersonalNumber.Font = new Font("Segoe UI", 9F);
-            lblPersonalNumber.ForeColor = Color.FromArgb(64, 64, 64);
+            lblPersonalNumber.ForeColor = Color.FromArgb(224, 224, 224);
             lblPersonalNumber.Location = new Point(4, 243);
             lblPersonalNumber.Margin = new Padding(4, 0, 4, 0);
             lblPersonalNumber.Name = "lblPersonalNumber";
@@ -420,7 +424,7 @@
             // txtPersonalNumber
             // 
             txtPersonalNumber.Font = new Font("Segoe UI", 9F);
-            txtPersonalNumber.Location = new Point(332, 247);
+            txtPersonalNumber.Location = new Point(390, 247);
             txtPersonalNumber.Margin = new Padding(4);
             txtPersonalNumber.Name = "txtPersonalNumber";
             txtPersonalNumber.Size = new Size(249, 31);
@@ -431,8 +435,8 @@
             // 
             lblPosition.AutoSize = true;
             lblPosition.Font = new Font("Segoe UI", 9F);
-            lblPosition.ForeColor = Color.FromArgb(64, 64, 64);
-            lblPosition.Location = new Point(770, 243);
+            lblPosition.ForeColor = Color.FromArgb(224, 224, 224);
+            lblPosition.Location = new Point(905, 243);
             lblPosition.Margin = new Padding(4, 0, 4, 0);
             lblPosition.Name = "lblPosition";
             lblPosition.Size = new Size(79, 25);
@@ -444,7 +448,7 @@
             // 
             cmbPosition.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPosition.Font = new Font("Segoe UI", 9F);
-            cmbPosition.Location = new Point(1098, 247);
+            cmbPosition.Location = new Point(1420, 247);
             cmbPosition.Margin = new Padding(4);
             cmbPosition.Name = "cmbPosition";
             cmbPosition.Size = new Size(249, 33);
@@ -455,7 +459,7 @@
             // 
             lblSalary.AutoSize = true;
             lblSalary.Font = new Font("Segoe UI", 9F);
-            lblSalary.ForeColor = Color.FromArgb(64, 64, 64);
+            lblSalary.ForeColor = Color.FromArgb(224, 224, 224);
             lblSalary.Location = new Point(4, 324);
             lblSalary.Margin = new Padding(4, 0, 4, 0);
             lblSalary.Name = "lblSalary";
@@ -467,20 +471,19 @@
             // txtSalary
             // 
             txtSalary.Font = new Font("Segoe UI", 9F);
-            txtSalary.Location = new Point(332, 328);
+            txtSalary.Location = new Point(390, 328);
             txtSalary.Margin = new Padding(4);
             txtSalary.Name = "txtSalary";
             txtSalary.Size = new Size(249, 31);
             txtSalary.TabIndex = 8;
-            txtSalary.TextAlign = HorizontalAlignment.Left;
             toolTip.SetToolTip(txtSalary, "Enter salary amount (numbers only)");
             // 
             // lblHiredDate
             // 
             lblHiredDate.AutoSize = true;
             lblHiredDate.Font = new Font("Segoe UI", 9F);
-            lblHiredDate.ForeColor = Color.FromArgb(64, 64, 64);
-            lblHiredDate.Location = new Point(770, 324);
+            lblHiredDate.ForeColor = Color.FromArgb(224, 224, 224);
+            lblHiredDate.Location = new Point(905, 324);
             lblHiredDate.Margin = new Padding(4, 0, 4, 0);
             lblHiredDate.Name = "lblHiredDate";
             lblHiredDate.Size = new Size(101, 25);
@@ -492,7 +495,7 @@
             // 
             dtHiredDate.Font = new Font("Segoe UI", 9F);
             dtHiredDate.Format = DateTimePickerFormat.Short;
-            dtHiredDate.Location = new Point(1098, 328);
+            dtHiredDate.Location = new Point(1420, 328);
             dtHiredDate.Margin = new Padding(4);
             dtHiredDate.Name = "dtHiredDate";
             dtHiredDate.Size = new Size(249, 31);
@@ -502,7 +505,7 @@
             // 
             lblStatus.AutoSize = true;
             lblStatus.Font = new Font("Segoe UI", 9F);
-            lblStatus.ForeColor = Color.FromArgb(64, 64, 64);
+            lblStatus.ForeColor = Color.Gainsboro;
             lblStatus.Location = new Point(4, 405);
             lblStatus.Margin = new Padding(4, 0, 4, 0);
             lblStatus.Name = "lblStatus";
@@ -515,10 +518,11 @@
             // 
             statusPanel.Controls.Add(rbActive);
             statusPanel.Controls.Add(rbInactive);
-            statusPanel.Location = new Point(332, 409);
+            statusPanel.Dock = DockStyle.Fill;
+            statusPanel.Location = new Point(390, 409);
             statusPanel.Margin = new Padding(4);
             statusPanel.Name = "statusPanel";
-            statusPanel.Size = new Size(250, 38);
+            statusPanel.Size = new Size(507, 74);
             statusPanel.TabIndex = 10;
             // 
             // rbActive
@@ -557,19 +561,19 @@
             actionButtonPanel.Controls.Add(btnClear);
             actionButtonPanel.Controls.Add(btnSave);
             actionButtonPanel.Controls.Add(btnCancel);
-            actionButtonPanel.Location = new Point(770, 409);
+            actionButtonPanel.Dock = DockStyle.Fill;
+            actionButtonPanel.Location = new Point(905, 409);
             actionButtonPanel.Margin = new Padding(4);
             actionButtonPanel.Name = "actionButtonPanel";
-            actionButtonPanel.Size = new Size(750, 50);
+            actionButtonPanel.Size = new Size(893, 74);
             actionButtonPanel.TabIndex = 12;
             // 
             // btnAdd
             // 
-            btnAdd.BackColor = Color.FromArgb(52, 152, 219);
+            btnAdd.BackColor = Color.White;
             btnAdd.FlatAppearance.BorderSize = 0;
-            btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnAdd.ForeColor = Color.White;
+            btnAdd.ForeColor = Color.Black;
             btnAdd.Location = new Point(6, 6);
             btnAdd.Margin = new Padding(4);
             btnAdd.Name = "btnAdd";
@@ -581,11 +585,10 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.BackColor = Color.FromArgb(241, 196, 15);
+            btnUpdate.BackColor = Color.White;
             btnUpdate.FlatAppearance.BorderSize = 0;
-            btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnUpdate.ForeColor = Color.White;
+            btnUpdate.ForeColor = Color.Black;
             btnUpdate.Location = new Point(131, 6);
             btnUpdate.Margin = new Padding(4);
             btnUpdate.Name = "btnUpdate";
@@ -597,12 +600,11 @@
             // 
             // btnClear
             // 
-            btnClear.BackColor = Color.FromArgb(149, 165, 166);
+            btnClear.BackColor = Color.White;
             btnClear.FlatAppearance.BorderSize = 0;
-            btnClear.FlatStyle = FlatStyle.Flat;
             btnClear.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnClear.ForeColor = Color.White;
-            btnClear.Location = new Point(381, 6);
+            btnClear.ForeColor = Color.Black;
+            btnClear.Location = new Point(251, 6);
             btnClear.Margin = new Padding(4);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(112, 44);
@@ -658,7 +660,7 @@
             grpSearch.Controls.Add(searchTableLayout);
             grpSearch.Dock = DockStyle.Fill;
             grpSearch.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            grpSearch.ForeColor = Color.FromArgb(64, 64, 64);
+            grpSearch.ForeColor = Color.FromArgb(224, 224, 224);
             grpSearch.Location = new Point(0, 0);
             grpSearch.Margin = new Padding(4);
             grpSearch.Name = "grpSearch";
@@ -692,7 +694,7 @@
             // 
             lblSearch.AutoSize = true;
             lblSearch.Font = new Font("Segoe UI", 9F);
-            lblSearch.ForeColor = Color.FromArgb(64, 64, 64);
+            lblSearch.ForeColor = Color.FromArgb(224, 224, 224);
             lblSearch.Location = new Point(4, 0);
             lblSearch.Margin = new Padding(4, 0, 4, 0);
             lblSearch.Name = "lblSearch";
@@ -721,7 +723,7 @@
             btnSearch.Location = new Point(1574, 4);
             btnSearch.Margin = new Padding(4);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(100, 35);
+            btnSearch.Size = new Size(140, 45);
             btnSearch.TabIndex = 1;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
@@ -736,7 +738,7 @@
             btnRefresh.Location = new Point(1883, 4);
             btnRefresh.Margin = new Padding(4);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(100, 35);
+            btnRefresh.Size = new Size(100, 45);
             btnRefresh.TabIndex = 2;
             btnRefresh.Text = "Refresh";
             btnRefresh.UseVisualStyleBackColor = false;
@@ -756,7 +758,7 @@
             grpStaffList.Controls.Add(dgvStaff);
             grpStaffList.Dock = DockStyle.Fill;
             grpStaffList.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            grpStaffList.ForeColor = Color.FromArgb(64, 64, 64);
+            grpStaffList.ForeColor = Color.FromArgb(224, 224, 224);
             grpStaffList.Location = new Point(0, 0);
             grpStaffList.Margin = new Padding(4);
             grpStaffList.Name = "grpStaffList";
@@ -775,24 +777,24 @@
             dgvStaff.BorderStyle = BorderStyle.None;
             dgvStaff.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvStaff.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(52, 152, 219);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(52, 152, 219);
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvStaff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(52, 152, 219);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(52, 152, 219);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvStaff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgvStaff.ColumnHeadersHeight = 40;
             dgvStaff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(221, 221, 221);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvStaff.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(221, 221, 221);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvStaff.DefaultCellStyle = dataGridViewCellStyle6;
             dgvStaff.Dock = DockStyle.Fill;
             dgvStaff.EnableHeadersVisualStyles = false;
             dgvStaff.GridColor = Color.FromArgb(221, 221, 221);

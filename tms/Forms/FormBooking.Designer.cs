@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel4 = new TableLayoutPanel();
             groupBox2 = new GroupBox();
@@ -46,10 +47,10 @@
             lblGender = new Label();
             chkMale = new CheckBox();
             txtBox_Passenger = new TextBox();
-            btnSelectSeat = new Button();
-            btnToSeat = new Button();
             btnUpdate = new Button();
             btnClear = new Button();
+            btnSelectSeat = new Button();
+            btnAdd = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -97,8 +98,10 @@
             // 
             groupBox2.Controls.Add(lsTrip);
             groupBox2.Dock = DockStyle.Fill;
+            groupBox2.ForeColor = Color.FromArgb(224, 224, 224);
             groupBox2.Location = new Point(3, 86);
             groupBox2.Name = "groupBox2";
+            groupBox2.Padding = new Padding(10);
             groupBox2.Size = new Size(325, 1015);
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
@@ -109,9 +112,9 @@
             lsTrip.Dock = DockStyle.Fill;
             lsTrip.FormattingEnabled = true;
             lsTrip.ItemHeight = 25;
-            lsTrip.Location = new Point(3, 27);
+            lsTrip.Location = new Point(10, 34);
             lsTrip.Name = "lsTrip";
-            lsTrip.Size = new Size(319, 985);
+            lsTrip.Size = new Size(305, 971);
             lsTrip.TabIndex = 3;
             // 
             // groupBox1
@@ -119,8 +122,10 @@
             groupBox1.AutoSize = true;
             groupBox1.Controls.Add(comboBoxTrip);
             groupBox1.Dock = DockStyle.Fill;
+            groupBox1.ForeColor = Color.FromArgb(224, 224, 224);
             groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(10);
             groupBox1.Size = new Size(325, 77);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
@@ -130,9 +135,9 @@
             // 
             comboBoxTrip.Dock = DockStyle.Fill;
             comboBoxTrip.FormattingEnabled = true;
-            comboBoxTrip.Location = new Point(3, 27);
+            comboBoxTrip.Location = new Point(10, 34);
             comboBoxTrip.Name = "comboBoxTrip";
-            comboBoxTrip.Size = new Size(319, 33);
+            comboBoxTrip.Size = new Size(305, 33);
             comboBoxTrip.TabIndex = 6;
             // 
             // tableLayoutPanel5
@@ -146,9 +151,9 @@
             tableLayoutPanel5.Location = new Point(340, 3);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 3;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 23.8487377F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 6.90618944F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 69.24507F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 23.3811188F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 8.731558F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 67.88733F));
             tableLayoutPanel5.Size = new Size(1089, 1104);
             tableLayoutPanel5.TabIndex = 8;
             // 
@@ -156,30 +161,44 @@
             // 
             gbBooking3.Controls.Add(dtgv_booking);
             gbBooking3.Dock = DockStyle.Fill;
-            gbBooking3.Location = new Point(3, 342);
+            gbBooking3.ForeColor = Color.FromArgb(224, 224, 224);
+            gbBooking3.Location = new Point(3, 357);
             gbBooking3.Name = "gbBooking3";
-            gbBooking3.Size = new Size(1083, 759);
+            gbBooking3.Padding = new Padding(10);
+            gbBooking3.Size = new Size(1083, 744);
             gbBooking3.TabIndex = 1;
             gbBooking3.TabStop = false;
             gbBooking3.Text = "Booking's Info";
             // 
             // dtgv_booking
             // 
+            dtgv_booking.BackgroundColor = Color.White;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 122, 204);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.Padding = new Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 122, 204);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dtgv_booking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtgv_booking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgv_booking.Dock = DockStyle.Fill;
-            dtgv_booking.Location = new Point(3, 27);
+            dtgv_booking.Location = new Point(10, 34);
             dtgv_booking.Name = "dtgv_booking";
-            dtgv_booking.RowHeadersWidth = 62;
-            dtgv_booking.Size = new Size(1077, 729);
+            dtgv_booking.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            dtgv_booking.Size = new Size(1063, 700);
             dtgv_booking.TabIndex = 0;
             // 
             // groupBox3
             // 
             groupBox3.Controls.Add(txtBookingSearch);
             groupBox3.Dock = DockStyle.Fill;
-            groupBox3.Location = new Point(3, 266);
+            groupBox3.ForeColor = Color.FromArgb(224, 224, 224);
+            groupBox3.Location = new Point(3, 261);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1083, 70);
+            groupBox3.Padding = new Padding(10);
+            groupBox3.Size = new Size(1083, 90);
             groupBox3.TabIndex = 8;
             groupBox3.TabStop = false;
             groupBox3.Text = "Search";
@@ -187,18 +206,20 @@
             // txtBookingSearch
             // 
             txtBookingSearch.Dock = DockStyle.Fill;
-            txtBookingSearch.Location = new Point(3, 27);
+            txtBookingSearch.Location = new Point(10, 34);
             txtBookingSearch.Name = "txtBookingSearch";
-            txtBookingSearch.Size = new Size(1077, 31);
+            txtBookingSearch.Size = new Size(1063, 31);
             txtBookingSearch.TabIndex = 1;
             // 
             // gbBooking1
             // 
             gbBooking1.Controls.Add(tableLayoutPanel2);
             gbBooking1.Dock = DockStyle.Fill;
+            gbBooking1.ForeColor = Color.FromArgb(224, 224, 224);
             gbBooking1.Location = new Point(3, 3);
             gbBooking1.Name = "gbBooking1";
-            gbBooking1.Size = new Size(1083, 257);
+            gbBooking1.Padding = new Padding(10);
+            gbBooking1.Size = new Size(1083, 252);
             gbBooking1.TabIndex = 2;
             gbBooking1.TabStop = false;
             gbBooking1.Text = "Form";
@@ -215,18 +236,18 @@
             tableLayoutPanel2.Controls.Add(lblGender, 0, 1);
             tableLayoutPanel2.Controls.Add(chkMale, 1, 1);
             tableLayoutPanel2.Controls.Add(txtBox_Passenger, 1, 0);
-            tableLayoutPanel2.Controls.Add(btnSelectSeat, 0, 2);
-            tableLayoutPanel2.Controls.Add(btnToSeat, 2, 0);
             tableLayoutPanel2.Controls.Add(btnUpdate, 1, 2);
             tableLayoutPanel2.Controls.Add(btnClear, 2, 2);
+            tableLayoutPanel2.Controls.Add(btnSelectSeat, 2, 0);
+            tableLayoutPanel2.Controls.Add(btnAdd, 0, 2);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(3, 27);
+            tableLayoutPanel2.Location = new Point(10, 34);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 3;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel2.Size = new Size(1077, 227);
+            tableLayoutPanel2.Size = new Size(1063, 208);
             tableLayoutPanel2.TabIndex = 13;
             // 
             // label1
@@ -241,7 +262,7 @@
             // chkFemale
             // 
             chkFemale.AutoSize = true;
-            chkFemale.Location = new Point(721, 78);
+            chkFemale.Location = new Point(711, 72);
             chkFemale.Name = "chkFemale";
             chkFemale.Size = new Size(94, 29);
             chkFemale.TabIndex = 7;
@@ -251,7 +272,7 @@
             // lblGender
             // 
             lblGender.AutoSize = true;
-            lblGender.Location = new Point(3, 75);
+            lblGender.Location = new Point(3, 69);
             lblGender.Name = "lblGender";
             lblGender.Size = new Size(69, 25);
             lblGender.TabIndex = 5;
@@ -260,7 +281,7 @@
             // chkMale
             // 
             chkMale.AutoSize = true;
-            chkMale.Location = new Point(362, 78);
+            chkMale.Location = new Point(357, 72);
             chkMale.Name = "chkMale";
             chkMale.Size = new Size(76, 29);
             chkMale.TabIndex = 6;
@@ -270,56 +291,69 @@
             // txtBox_Passenger
             // 
             txtBox_Passenger.Dock = DockStyle.Fill;
-            txtBox_Passenger.Location = new Point(362, 3);
+            txtBox_Passenger.Location = new Point(357, 3);
             txtBox_Passenger.Name = "txtBox_Passenger";
-            txtBox_Passenger.Size = new Size(353, 31);
+            txtBox_Passenger.Size = new Size(348, 31);
             txtBox_Passenger.TabIndex = 4;
-            // 
-            // btnSelectSeat
-            // 
-            btnSelectSeat.Location = new Point(3, 153);
-            btnSelectSeat.Name = "btnSelectSeat";
-            btnSelectSeat.Size = new Size(112, 34);
-            btnSelectSeat.TabIndex = 1;
-            btnSelectSeat.Text = "Select seat";
-            btnSelectSeat.UseVisualStyleBackColor = true;
-            // 
-            // btnToSeat
-            // 
-            btnToSeat.Location = new Point(721, 3);
-            btnToSeat.Name = "btnToSeat";
-            btnToSeat.Size = new Size(66, 1);
-            btnToSeat.TabIndex = 8;
-            btnToSeat.Text = "Choose Seat";
-            btnToSeat.UseVisualStyleBackColor = true;
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(362, 153);
+            btnUpdate.BackColor = Color.White;
+            btnUpdate.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdate.ForeColor = Color.Black;
+            btnUpdate.Location = new Point(357, 141);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(112, 34);
+            btnUpdate.Size = new Size(125, 45);
             btnUpdate.TabIndex = 9;
             btnUpdate.Text = "Update";
-            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.UseVisualStyleBackColor = false;
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(721, 153);
+            btnClear.BackColor = Color.White;
+            btnClear.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClear.ForeColor = Color.Black;
+            btnClear.Location = new Point(711, 141);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(112, 34);
+            btnClear.Size = new Size(125, 45);
             btnClear.TabIndex = 10;
             btnClear.Text = "Clear";
-            btnClear.UseVisualStyleBackColor = true;
+            btnClear.UseVisualStyleBackColor = false;
+            // 
+            // btnSelectSeat
+            // 
+            btnSelectSeat.BackColor = Color.White;
+            btnSelectSeat.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSelectSeat.ForeColor = Color.Black;
+            btnSelectSeat.Location = new Point(711, 3);
+            btnSelectSeat.Name = "btnSelectSeat";
+            btnSelectSeat.Size = new Size(125, 45);
+            btnSelectSeat.TabIndex = 1;
+            btnSelectSeat.Text = "Select seat";
+            btnSelectSeat.UseVisualStyleBackColor = false;
+            // 
+            // btnAdd
+            // 
+            btnAdd.BackColor = Color.White;
+            btnAdd.ForeColor = Color.Black;
+            btnAdd.Location = new Point(3, 141);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(125, 45);
+            btnAdd.TabIndex = 8;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = false;
             // 
             // FormBooking
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
+            BackColor = Color.FromArgb(22, 28, 36);
             ClientSize = new Size(1432, 1110);
             Controls.Add(tableLayoutPanel1);
             Name = "FormBooking";
             Text = "FormBooking";
+            WindowState = FormWindowState.Maximized;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
@@ -350,7 +384,7 @@
         private TextBox txtBookingSearch;
         private GroupBox gbBooking1;
         private TableLayoutPanel tableLayoutPanel2;
-        private Button btnToSeat;
+        private Button btnAdd;
         private Label label1;
         private CheckBox chkFemale;
         private Label lblGender;

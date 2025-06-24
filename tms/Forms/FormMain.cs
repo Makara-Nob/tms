@@ -22,6 +22,8 @@ namespace tms
             lbTicket.Click += btn_formTicket_Click;
             lbRoute.Click += btn_formRoute_Click;
             lbLogout.Click += BtnLogOut_Click;
+            lbOrder.Click += btn_formOrder_Click;
+            
         }
 
         private void loadFormIntoPanel(Form form)
@@ -31,7 +33,6 @@ namespace tms
             panel.Controls.Clear();
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
 
             panel.Controls.Add(form);
             form.Show();
@@ -47,6 +48,12 @@ namespace tms
         {
             loadFormIntoPanel(new FormTicket());
         }
+
+        private void btn_formOrder_Click(object sender, EventArgs e)
+        {
+            loadFormIntoPanel(new FormOrder());
+        }
+
 
         private void btn_formRoute_Click(object sender, EventArgs e)
         {
@@ -69,17 +76,17 @@ namespace tms
 
         private void btn_formSeat_Click(object sender, EventArgs e)
         {
-            loadFormIntoPanel(new FormSeat());
+            loadFormIntoPanel(new FormVehicleConfig());
         }
 
-        private void load_formPassenger_Click(object sender, EventArgs e)
+        private void btn_formSeatPicking_Click(object sender, EventArgs e)
         {
-            loadFormIntoPanel(new FormPassenger());
+            loadFormIntoPanel(new FormSeatPicking());
         }
 
         private void load_formBooking_Click(object sender, EventArgs e)
         {
-            loadFormIntoPanel(new FormBooking());
+            loadFormIntoPanel(new FormBooking(loadFormIntoPanel));
         }
 
         private void BtnLogOut_Click(object sender, EventArgs e)

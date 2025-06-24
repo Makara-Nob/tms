@@ -2,25 +2,19 @@
 using Microsoft.EntityFrameworkCore;
 using tms.Data;
 using tms.Model;
+using tms.projection;
 
 namespace tms.Repository
 {
     public class TripRepository
     {
-        public List<Trip> GetAll()
-        {
-            using var context = new AppDbContext();
-            return context.Trips
-                .FromSqlRaw("EXEC GetAllTrips")
-                .AsEnumerable()
-                   .Select(t => {
-                       t.Vehicle = context.Vehicles.Find(t.VehicleId);
-                       t.Driver = context.Staffs.Find(t.DriverId);
-                       t.Route = context.Routes.Find(t.RouteId);
-                       return t;
-                   })
-                .ToList();
-        }
+        public List<TripDetail> GetAll()
+            {
+                using var context = new AppDbContext();
+                return context.TripDetail
+                    .FromSqlRaw("EXEC GetTripsDetails")
+                    .ToList();
+         }
 
         public Trip? GetById(string tripId)
         {

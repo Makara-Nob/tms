@@ -28,14 +28,14 @@ namespace tms.Model
 
             // Foreign Keys
             public string StaffID { get; set; }
-            public int TripID { get; set; }
+            public string TripID { get; set; }
 
 
             [ForeignKey(nameof(StaffID))]
             public Staff Staff { get; set; }
 
-            //[ForeignKey(nameof(TripID))]
-            //public Trip Trip { get; set; }
-        }
+        [ForeignKey(nameof(TripID))]
+        public Trip Trip { get; set; }
+    }
 
 }

@@ -15,7 +15,12 @@
         {
             if (disposing && (components != null))
             {
-                components.Dispose();
+                    // Clean up repositories if they implement IDisposable
+                    (tripRepository as IDisposable)?.Dispose();
+                    (vehicleRepository as IDisposable)?.Dispose();
+                    (driverRepository as IDisposable)?.Dispose();
+                    (routeRepository as IDisposable)?.Dispose();
+             
             }
             base.Dispose(disposing);
         }
@@ -28,6 +33,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             txtTripId = new TextBox();
             cmbVehicle = new ComboBox();
             cmbDriver = new ComboBox();
@@ -65,96 +72,108 @@
             // 
             // txtTripId
             // 
-            txtTripId.BackColor = Color.LightGray;
-            txtTripId.Location = new Point(330, 6);
+            txtTripId.Dock = DockStyle.Fill;
+            txtTripId.Location = new Point(416, 6);
             txtTripId.Margin = new Padding(5, 6, 5, 6);
             txtTripId.Name = "txtTripId";
             txtTripId.ReadOnly = true;
-            txtTripId.Size = new Size(260, 31);
+            txtTripId.Size = new Size(401, 31);
             txtTripId.TabIndex = 1;
             txtTripId.TextChanged += txtTripId_TextChanged;
             // 
             // cmbVehicle
             // 
+            cmbVehicle.Dock = DockStyle.Fill;
             cmbVehicle.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbVehicle.FormattingEnabled = true;
-            cmbVehicle.Location = new Point(330, 53);
+            cmbVehicle.Location = new Point(416, 67);
             cmbVehicle.Margin = new Padding(5, 6, 5, 6);
             cmbVehicle.Name = "cmbVehicle";
-            cmbVehicle.Size = new Size(260, 33);
+            cmbVehicle.Size = new Size(401, 33);
             cmbVehicle.TabIndex = 2;
             // 
             // cmbDriver
             // 
+            cmbDriver.Dock = DockStyle.Fill;
             cmbDriver.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDriver.FormattingEnabled = true;
-            cmbDriver.Location = new Point(330, 100);
+            cmbDriver.Location = new Point(416, 128);
             cmbDriver.Margin = new Padding(5, 6, 5, 6);
             cmbDriver.Name = "cmbDriver";
-            cmbDriver.Size = new Size(260, 33);
+            cmbDriver.Size = new Size(401, 33);
             cmbDriver.TabIndex = 3;
             // 
             // cmbRoute
             // 
+            cmbRoute.Dock = DockStyle.Fill;
             cmbRoute.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbRoute.FormattingEnabled = true;
-            cmbRoute.Location = new Point(980, 100);
+            cmbRoute.Location = new Point(1238, 128);
             cmbRoute.Margin = new Padding(5, 6, 5, 6);
             cmbRoute.Name = "cmbRoute";
-            cmbRoute.Size = new Size(260, 33);
+            cmbRoute.Size = new Size(402, 33);
             cmbRoute.TabIndex = 4;
             // 
             // dtpDepatureTime
             // 
+            dtpDepatureTime.Dock = DockStyle.Fill;
             dtpDepatureTime.Format = DateTimePickerFormat.Short;
-            dtpDepatureTime.Location = new Point(980, 6);
+            dtpDepatureTime.Location = new Point(1238, 6);
             dtpDepatureTime.Margin = new Padding(5, 6, 5, 6);
             dtpDepatureTime.Name = "dtpDepatureTime";
-            dtpDepatureTime.Size = new Size(260, 31);
+            dtpDepatureTime.Size = new Size(402, 31);
             dtpDepatureTime.TabIndex = 5;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(5, 147);
+            btnAdd.BackColor = Color.White;
+            btnAdd.ForeColor = Color.Black;
+            btnAdd.Location = new Point(5, 189);
             btnAdd.Margin = new Padding(5, 6, 5, 6);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(125, 45);
             btnAdd.TabIndex = 7;
             btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += BtnAdd_Click;
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(330, 147);
+            btnUpdate.BackColor = Color.White;
+            btnUpdate.ForeColor = Color.Black;
+            btnUpdate.Location = new Point(416, 189);
             btnUpdate.Margin = new Padding(5, 6, 5, 6);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(125, 45);
             btnUpdate.TabIndex = 8;
             btnUpdate.Text = "Update";
-            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.UseVisualStyleBackColor = false;
             btnUpdate.Click += BtnUpdate_Click;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(980, 147);
+            btnDelete.BackColor = Color.White;
+            btnDelete.ForeColor = Color.Black;
+            btnDelete.Location = new Point(1238, 189);
             btnDelete.Margin = new Padding(5, 6, 5, 6);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(125, 45);
             btnDelete.TabIndex = 9;
             btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += BtnDelete_Click;
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(655, 147);
+            btnClear.BackColor = Color.White;
+            btnClear.ForeColor = Color.Black;
+            btnClear.Location = new Point(827, 189);
             btnClear.Margin = new Padding(5, 6, 5, 6);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(125, 45);
             btnClear.TabIndex = 10;
             btnClear.Text = "Clear";
-            btnClear.UseVisualStyleBackColor = true;
+            btnClear.UseVisualStyleBackColor = false;
             btnClear.Click += BtnClear_Click;
             // 
             // lblTripId
@@ -190,7 +209,7 @@
             // lblRoute
             // 
             lblRoute.AutoSize = true;
-            lblRoute.Location = new Point(655, 0);
+            lblRoute.Location = new Point(827, 0);
             lblRoute.Margin = new Padding(5, 0, 5, 0);
             lblRoute.Name = "lblRoute";
             lblRoute.Size = new Size(62, 25);
@@ -200,7 +219,7 @@
             // lblDepatureTime
             // 
             lblDepatureTime.AutoSize = true;
-            lblDepatureTime.Location = new Point(655, 47);
+            lblDepatureTime.Location = new Point(827, 61);
             lblDepatureTime.Margin = new Padding(5, 0, 5, 0);
             lblDepatureTime.Name = "lblDepatureTime";
             lblDepatureTime.Size = new Size(131, 25);
@@ -211,10 +230,11 @@
             // 
             panelInput.BorderStyle = BorderStyle.FixedSingle;
             panelInput.Controls.Add(groupBoxTrip);
+            panelInput.Dock = DockStyle.Fill;
             panelInput.Location = new Point(5, 6);
             panelInput.Margin = new Padding(5, 6, 5, 6);
             panelInput.Name = "panelInput";
-            panelInput.Size = new Size(1314, 236);
+            panelInput.Size = new Size(1657, 296);
             panelInput.TabIndex = 18;
             // 
             // groupBoxTrip
@@ -224,11 +244,12 @@
             groupBoxTrip.Controls.Add(lblDriver);
             groupBoxTrip.Controls.Add(tableLayoutPanel2);
             groupBoxTrip.Dock = DockStyle.Fill;
+            groupBoxTrip.ForeColor = Color.FromArgb(224, 224, 224);
             groupBoxTrip.Location = new Point(0, 0);
             groupBoxTrip.Margin = new Padding(5, 6, 5, 6);
             groupBoxTrip.Name = "groupBoxTrip";
             groupBoxTrip.Padding = new Padding(5, 6, 5, 6);
-            groupBoxTrip.Size = new Size(1312, 234);
+            groupBoxTrip.Size = new Size(1655, 294);
             groupBoxTrip.TabIndex = 0;
             groupBoxTrip.TabStop = false;
             groupBoxTrip.Text = "Trip Details";
@@ -261,23 +282,24 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 23.9327965F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 23.9327965F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 28.20161F));
-            tableLayoutPanel2.Size = new Size(1302, 198);
+            tableLayoutPanel2.Size = new Size(1645, 258);
             tableLayoutPanel2.TabIndex = 12;
             // 
             // cmbStatus
             // 
+            cmbStatus.Dock = DockStyle.Fill;
             cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbStatus.FormattingEnabled = true;
-            cmbStatus.Location = new Point(980, 53);
+            cmbStatus.Location = new Point(1238, 67);
             cmbStatus.Margin = new Padding(5, 6, 5, 6);
             cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(260, 33);
+            cmbStatus.Size = new Size(402, 33);
             cmbStatus.TabIndex = 17;
             // 
             // lbStatus
             // 
             lbStatus.AutoSize = true;
-            lbStatus.Location = new Point(655, 94);
+            lbStatus.Location = new Point(827, 122);
             lbStatus.Margin = new Padding(5, 0, 5, 0);
             lbStatus.Name = "lbStatus";
             lbStatus.Size = new Size(64, 25);
@@ -286,13 +308,15 @@
             // 
             // btnSearch
             // 
+            btnSearch.BackColor = Color.White;
+            btnSearch.ForeColor = Color.Black;
             btnSearch.Location = new Point(779, 41);
             btnSearch.Margin = new Padding(5, 6, 5, 6);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(100, 40);
             btnSearch.TabIndex = 11;
             btnSearch.Text = "Search";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.UseVisualStyleBackColor = false;
             btnSearch.Click += BtnSearch_Click;
             // 
             // txtSearch
@@ -309,7 +333,25 @@
             dgvTrips.AllowUserToAddRows = false;
             dgvTrips.AllowUserToDeleteRows = false;
             dgvTrips.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvTrips.BackgroundColor = Color.White;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.Padding = new Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvTrips.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvTrips.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvTrips.DefaultCellStyle = dataGridViewCellStyle2;
             dgvTrips.Dock = DockStyle.Fill;
             dgvTrips.Location = new Point(10, 34);
             dgvTrips.Margin = new Padding(5, 6, 5, 6);
@@ -318,12 +360,13 @@
             dgvTrips.ReadOnly = true;
             dgvTrips.RowHeadersWidth = 62;
             dgvTrips.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvTrips.Size = new Size(1641, 309);
+            dgvTrips.Size = new Size(1641, 393);
             dgvTrips.TabIndex = 0;
             dgvTrips.SelectionChanged += DgvTrips_SelectionChanged;
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.BackColor = Color.FromArgb(22, 28, 36);
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(gbSearch, 0, 1);
@@ -336,7 +379,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.0015945F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 19.6105728F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 47.3878326F));
-            tableLayoutPanel1.Size = new Size(1667, 754);
+            tableLayoutPanel1.Size = new Size(1667, 934);
             tableLayoutPanel1.TabIndex = 12;
             // 
             // gbSearch
@@ -344,9 +387,10 @@
             gbSearch.Controls.Add(txtSearch);
             gbSearch.Controls.Add(btnSearch);
             gbSearch.Dock = DockStyle.Fill;
-            gbSearch.Location = new Point(3, 251);
+            gbSearch.ForeColor = Color.FromArgb(224, 224, 224);
+            gbSearch.Location = new Point(3, 311);
             gbSearch.Name = "gbSearch";
-            gbSearch.Size = new Size(1661, 141);
+            gbSearch.Size = new Size(1661, 177);
             gbSearch.TabIndex = 19;
             gbSearch.TabStop = false;
             gbSearch.Text = "Search";
@@ -355,10 +399,11 @@
             // 
             gbTripList.Controls.Add(dgvTrips);
             gbTripList.Dock = DockStyle.Fill;
-            gbTripList.Location = new Point(3, 398);
+            gbTripList.ForeColor = Color.FromArgb(224, 224, 224);
+            gbTripList.Location = new Point(3, 494);
             gbTripList.Name = "gbTripList";
             gbTripList.Padding = new Padding(10);
-            gbTripList.Size = new Size(1661, 353);
+            gbTripList.Size = new Size(1661, 437);
             gbTripList.TabIndex = 20;
             gbTripList.TabStop = false;
             gbTripList.Text = "Trip's List";
@@ -367,12 +412,13 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1667, 754);
+            ClientSize = new Size(1667, 934);
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(5, 6, 5, 6);
             Name = "FormTrip";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Trip Management";
+            WindowState = FormWindowState.Maximized;
             panelInput.ResumeLayout(false);
             groupBoxTrip.ResumeLayout(false);
             groupBoxTrip.PerformLayout();
