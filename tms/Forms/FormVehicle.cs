@@ -256,10 +256,5 @@ namespace tms.Forms
                 Close();
             }
         }
-
-        private void FormVehicle_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

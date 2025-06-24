@@ -1,4 +1,6 @@
-﻿using tms.Data;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using tms.Data;
 using tms.Model;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +14,7 @@ namespace tms.Repository
             {
                 using var context = new AppDbContext();
                 return context.Tickets
-                    .OrderBy(t => t.TicketID)
+                    .FromSqlRaw("EXEC GetAllTickets")
                     .ToList();
             }
             catch (Exception ex)
@@ -26,14 +28,21 @@ namespace tms.Repository
             try
             {
                 using var context = new AppDbContext();
-                return context.Tickets
-                    .FirstOrDefault(t => t.TicketID == ticketId);
+
+                var ticket = context.Tickets
+                    .FromSqlRaw("EXEC GetTicketById @TicketID",
+                        new SqlParameter("@TicketID", ticketId))
+                    .AsEnumerable() 
+                    .FirstOrDefault();
+
+                return ticket;
             }
             catch (Exception ex)
             {
                 throw new Exception($"Error retrieving ticket with ID {ticketId}: {ex.Message}", ex);
             }
         }
+
 
         public List<Ticket> Search(string searchTerm)
         {
@@ -81,14 +90,26 @@ namespace tms.Repository
                 ticket.CreatedDate = DateTime.Now;
                 ticket.ModifiedDate = DateTime.Now;
 
-                context.Tickets.Add(ticket);
-                return context.SaveChanges() > 0;
+                var result = context.Database.ExecuteSqlRaw(
+                    "EXEC InsertTicket @TicketID, @SupplierID, @SupplierName, @SupplierDate, @CustomerPosition, @CustomerAddress, @CreatedDate, @ModifiedDate",
+                    new SqlParameter("@TicketID", ticket.TicketID),
+                    new SqlParameter("@SupplierID", ticket.SupplierID),
+                    new SqlParameter("@SupplierName", ticket.SupplierName),
+                    new SqlParameter("@SupplierDate", ticket.SupplierDate),
+                    new SqlParameter("@CustomerPosition", ticket.CustomerPosition ?? (object)DBNull.Value),
+                    new SqlParameter("@CustomerAddress", ticket.CustomerAddress ?? (object)DBNull.Value),
+                    new SqlParameter("@CreatedDate", ticket.CreatedDate),
+                    new SqlParameter("@ModifiedDate", ticket.ModifiedDate)
+                );
+
+                return result > 0;
             }
             catch (Exception ex)
             {
                 throw new Exception($"Error adding new ticket: {ex.Message}", ex);
             }
         }
+
 
         public bool Update(Ticket ticket)
         {
@@ -98,8 +119,18 @@ namespace tms.Repository
 
                 ticket.ModifiedDate = DateTime.Now;
 
-                context.Tickets.Update(ticket);
-                return context.SaveChanges() > 0;
+                var result = context.Database.ExecuteSqlRaw(
+                    "EXEC UpdateTicket @TicketID, @SupplierID, @SupplierName, @SupplierDate, @CustomerPosition, @CustomerAddress, @ModifiedDate",
+                    new SqlParameter("@TicketID", ticket.TicketID),
+                    new SqlParameter("@SupplierID", ticket.SupplierID),
+                    new SqlParameter("@SupplierName", ticket.SupplierName),
+                    new SqlParameter("@SupplierDate", ticket.SupplierDate),
+                    new SqlParameter("@CustomerPosition", ticket.CustomerPosition ?? (object)DBNull.Value),
+                    new SqlParameter("@CustomerAddress", ticket.CustomerAddress ?? (object)DBNull.Value),
+                    new SqlParameter("@ModifiedDate", ticket.ModifiedDate)
+                );
+
+                return result > 0;
             }
             catch (Exception ex)
             {
@@ -107,23 +138,25 @@ namespace tms.Repository
             }
         }
 
+
         public bool Delete(string ticketId)
         {
             try
             {
                 using var context = new AppDbContext();
-                var ticket = context.Tickets.FirstOrDefault(t => t.TicketID == ticketId);
-                if (ticket != null)
-                {
-                    context.Tickets.Remove(ticket);
-                    return context.SaveChanges() > 0;
-                }
-                return false;
+
+                var result = context.Database.ExecuteSqlRaw(
+                    "EXEC DeleteTicket @TicketID",
+                    new SqlParameter("@TicketID", ticketId)
+                );
+
+                return result > 0;
             }
             catch (Exception ex)
             {
                 throw new Exception($"Error deleting ticket with ID {ticketId}: {ex.Message}", ex);
             }
         }
+
     }
 }

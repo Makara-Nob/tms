@@ -163,68 +163,92 @@ namespace tms.DataSeed
         public static List<Staff> GetSampleStaff()
         {
             return new List<Staff>
-            {
-                new Staff
-                {
-                    Name = "John Doe",
-                    Gender = "Male",
-                    BirthDate = "1995-01-01",
-                    Address = "Phnom Penh",
-                    Personal_PhoneNumber = "012345678",
-                    Contact_PhoneNumber = "087654321",
-                    Hired_Date = "2024-06-13",
-                    Salary = 1200.50m,
-                    IsStopWorking = false
-                },
-                new Staff
-                {
-                    Name = "Sophea Chan",
-                    Gender = "Female",
-                    BirthDate = "1992-05-15",
-                    Address = "Siem Reap",
-                    Personal_PhoneNumber = "012987654",
-                    Contact_PhoneNumber = "087123456",
-                    Hired_Date = "2023-03-20",
-                    Salary = 1500.75m,
-                    IsStopWorking = false
-                },
-                new Staff
-                {
-                    Name = "Dara Kim",
-                    Gender = "Male",
-                    BirthDate = "1988-11-30",
-                    Address = "Battambang",
-                    Personal_PhoneNumber = "016555777",
-                    Contact_PhoneNumber = "085999111",
-                    Hired_Date = "2022-01-10",
-                    Salary = 1800.00m,
-                    IsStopWorking = false
-                },
-                new Staff
-                {
-                    Name = "Maly Ouch",
-                    Gender = "Female",
-                    BirthDate = "1990-08-22",
-                    Address = "Sihanoukville",
-                    Personal_PhoneNumber = "017444888",
-                    Contact_PhoneNumber = "086222333",
-                    Hired_Date = "2023-09-15",
-                    Salary = 1350.25m,
-                    IsStopWorking = false
-                },
-                new Staff
-                {
-                    Name = "Pisach Lim",
-                    Gender = "Male",
-                    BirthDate = "1985-12-10",
-                    Address = "Kampong Cham",
-                    Personal_PhoneNumber = "015777999",
-                    Contact_PhoneNumber = "084555666",
-                    Hired_Date = "2021-05-01",
-                    Salary = 2000.00m,
-                    IsStopWorking = false
-                }
-            };
+    {
+        new Staff
+        {
+            StaffId = "ST-012",
+            Name = "John Doe",
+            Gender = "Male",
+            BirthDate = new DateTime(1995, 1, 1),
+            Address = "Phnom Penh",
+            Personal_PhoneNumber = "012345678",
+            Contact_PhoneNumber = "087654321",
+            Hired_Date = new DateTime(2024, 6, 13),
+            Salary = 1200.50m,
+            IsStopWorking = false,
+            position = "Driver"
+        },
+        new Staff
+        {
+            StaffId = "ST-018",
+            Name = "Jake Sak",
+            Gender = "Male",
+            BirthDate = new DateTime(1995, 1, 1),
+            Address = "Siem Reap",
+            Personal_PhoneNumber = "012345678",
+            Contact_PhoneNumber = "087654321",
+            Hired_Date = new DateTime(2024, 6, 13),
+            Salary = 1200.50m,
+            IsStopWorking = false,
+            position = "Driver"
+        },
+        new Staff
+        {
+                        StaffId = "ST-013",
+            Name = "Sophea Chan",
+            Gender = "Female",
+            BirthDate = new DateTime(1992, 5, 15),
+            Address = "Siem Reap",
+            Personal_PhoneNumber = "012987654",
+            Contact_PhoneNumber = "087123456",
+            Hired_Date = new DateTime(2023, 3, 20),
+            Salary = 1500.75m,
+            IsStopWorking = false,
+            position = "Office Assistant"
+        },
+        new Staff
+        {StaffId = "ST-014",
+            Name = "Dara Kim",
+            Gender = "Male",
+            BirthDate = new DateTime(1988, 11, 30),
+            Address = "Battambang",
+            Personal_PhoneNumber = "016555777",
+            Contact_PhoneNumber = "085999111",
+            Hired_Date = new DateTime(2022, 1, 10),
+            Salary = 1800.00m,
+            IsStopWorking = false,
+            position = "Mechanic"
+        },
+        new Staff
+        {
+                        StaffId = "ST-015",
+
+            Name = "Maly Ouch",
+            Gender = "Female",
+            BirthDate = new DateTime(1990, 8, 22),
+            Address = "Sihanoukville",
+            Personal_PhoneNumber = "017444888",
+            Contact_PhoneNumber = "086222333",
+            Hired_Date = new DateTime(2023, 9, 15),
+            Salary = 1350.25m,
+            IsStopWorking = false,
+            position = "Receptionist"
+        },
+        new Staff
+        {
+                        StaffId = "ST-016",
+            Name = "Pisach Lim",
+            Gender = "Male",
+            BirthDate = new DateTime(1985, 12, 10),
+            Address = "Kampong Cham",
+            Personal_PhoneNumber = "015777999",
+            Contact_PhoneNumber = "084555666",
+            Hired_Date = new DateTime(2021, 5, 1),
+            Salary = 2000.00m,
+            IsStopWorking = false,
+            position = "Manager"
+        }
+    };
         }
 
         public static List<Ticket> GetSampleTickets()
@@ -343,6 +367,7 @@ namespace tms.DataSeed
                 }
             };
         }
+
 
         public static List<Route> GetAdditionalRoutes()
         {

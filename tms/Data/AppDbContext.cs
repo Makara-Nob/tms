@@ -3,6 +3,7 @@ using Delivery_info.Model;
 using Microsoft.EntityFrameworkCore;
 using Seat_info.Model;
 using tms.Model;
+using tms.projection;
 
 namespace tms.Data
 {
@@ -15,6 +16,15 @@ namespace tms.Data
         public DbSet<Delivery> Deliveries { get; set; }
         public DbSet<Seat> Seats { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<SeatTypeConfigurations> SeatTypeConfigurations { get; set; }
+        public DbSet<VehicleConfigurations> VehicleConfigurations { get; set; }
+        public DbSet<SeatExclusions> SeatExclusions { get; set; }
+
+        public DbSet<Trip> Trips { get; set; }
+        public DbSet<TripDetail> TripDetail { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -33,9 +43,22 @@ namespace tms.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Route>()
+          .Property(r => r.DistanceKm)
+          .HasPrecision(10, 2); // Adjust precision as needed
+
+            modelBuilder.Entity<Staff>()
+                .Property(s => s.Salary)
+                .HasPrecision(12, 2); // Adjust precision as needed
+
             modelBuilder.Entity<Staff>();
             modelBuilder.Entity<Route>();
             modelBuilder.Entity<Vehicle>();
+            modelBuilder.Entity<TripDetail>(entity =>
+            {
+                entity.HasNoKey();
+                entity.ToView(null);  // No table, used only for stored procedure results
+            });
             modelBuilder.Entity<Ticket>(
                 entity =>
                 {
@@ -83,7 +106,6 @@ namespace tms.Data
                         .HasDatabaseName("IX_Tickets_CreatedDate");
                 }
                 );
-
 
             Console.WriteLine("Entities tracked by EF:");
             foreach (var entity in modelBuilder.Model.GetEntityTypes())

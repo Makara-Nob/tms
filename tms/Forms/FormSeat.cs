@@ -216,33 +216,6 @@ namespace tms.Forms
             Application.Exit(); // or navigate back to login form
         }
 
-        private void vehicleId_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void seatId_TextChanged(object sender, EventArgs e)
-        {
-            seatId.ReadOnly = true;
-        }
-
-        private void seatNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void seatType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void seatStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
         // Helper function :
         private void ClearForm()
         {
@@ -285,6 +258,26 @@ namespace tms.Forms
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableSeat_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void FormSeat_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -1,5 +1,6 @@
 using tms.Model;
 using Staff_info.Repository;
+using tms.Data;
 
 namespace tms
 {
@@ -7,23 +8,66 @@ namespace tms
     {
         private readonly StaffRepository _staffRepository;
         private List<Staff> allStaffs;
-        private int selectedStaffId = -1;
+        private string selectedStaffId = null;
+        private bool imageChanged = false; // Add this flag
 
         public FormStaff()
         {
             InitializeComponent();
             _staffRepository = new StaffRepository();
 
+            RegisterCommonPositions();
             LoadStaff();
             WireEvents();
         }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            using OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                picStaffPhoto.Image = Image.FromFile(ofd.FileName);
+                imageChanged = true; // Mark that image was changed
+            }
+        }
+
+        private byte[]? ImageToByteArray(Image? image)
+        {
+            if (image == null) return null;
+
+            try
+            {
+                using MemoryStream ms = new MemoryStream();
+                image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Image conversion failed: " + ex.Message);
+                return null;
+            }
+        }
+
+
+
+        private Image? ByteArrayToImage(byte[]? data)
+        {
+            if (data == null || data.Length == 0) return null;
+            using MemoryStream ms = new MemoryStream(data);
+            return Image.FromStream(ms);
+        }
+
 
         private void LoadStaff()
         {
             try
             {
                 allStaffs = _staffRepository.GetAll();
-                Dgv_staff.DataSource = allStaffs;
+                dgvStaff.DataSource = allStaffs;
+                dgvStaff.Columns["Photo"].Visible = false;
+
             }
             catch (Exception ex)
             {
@@ -33,34 +77,100 @@ namespace tms
 
         private void WireEvents()
         {
-            chkIsWorking.CheckedChanged += (s, e) =>
+            rbInactive.CheckedChanged += (s, e) =>
             {
-                if (chkIsWorking.Checked) chkIsStopWorking.Checked = false;
+                if (rbActive.Checked) rbInactive.Checked = false;
             };
 
-            chkIsStopWorking.CheckedChanged += (s, e) =>
+            rbInactive.CheckedChanged += (s, e) =>
             {
-                if (chkIsStopWorking.Checked) chkIsWorking.Checked = false;
+                if (rbInactive.Checked) rbActive.Checked = false;
             };
 
-            textBox_searchStaff.TextChanged += TxtSearch_TextChanged;
+            rbMale.CheckedChanged += (s, e) =>
+            {
+                if (rbMale.Checked) rbFemale.Checked = false;
+            };
+
+            rbFemale.CheckedChanged += (s, e) =>
+            {
+                if (rbFemale.Checked) rbMale.Checked = false;
+            };
+
+            txtSearch.TextChanged += TxtSearch_TextChanged;
         }
 
-        private void btnAddStaff_Click(object sender, EventArgs e)
+        public string GenerateNextStaffId()
+        {
+            using (var context = new AppDbContext())
+            {
+                var lastStaff = context.Staffs
+                    .OrderByDescending(s => s.StaffId)
+                    .FirstOrDefault();
+
+                if (lastStaff == null)
+                    return "ST-001";
+
+                string lastId = lastStaff.StaffId; // e.g. ST-005
+                int num = int.Parse(lastId.Substring(3)); // get 005 as integer
+                num++; // increment
+
+                return $"ST-{num.ToString("D3")}"; // format as ST-006
+            }
+        }
+
+        private void RegisterCommonPositions()
+        {
+            cmbPosition.Items.Clear(); // Optional: avoids duplicates if called again
+
+            cmbPosition.Items.AddRange(new object[]
+                {
+                    "General Manager",
+                    "Operations Manager",
+                    "Fleet Supervisor",
+                    "Dispatcher",
+                    "Driver",
+                    "Driver Assistant",
+                    "Mechanic",
+                    "Maintenance Staff",
+                    "Logistics Coordinator",
+                    "Route Planner",
+                    "Safety Officer",
+                    "HR Officer",
+                    "Accountant",
+                    "Receptionist",
+                    "IT Support"
+                });
+
+            cmbPosition.DropDownStyle = ComboBoxStyle.DropDownList; // Optional: restrict to listed items
+        }
+
+
+
+        private void BtnRemovePhoto_Click(object sender, EventArgs e)
+        {
+            picStaffPhoto.Image = null;
+        }
+
+
+        private void BtnAddStaff_Click(object sender, EventArgs e)
         {
             try
             {
                 var staff = new Staff
                 {
-                    Name = textBox_staffName.Text,
-                    Gender = textBox_gender.Text,
-                    BirthDate = textBox_birthDate.Text,
-                    Address = textBox_address.Text,
-                    Personal_PhoneNumber = textBox_ps_phoneNumber.Text,
-                    Contact_PhoneNumber = textBox_ct_phoneNumber.Text,
-                    Hired_Date = textBox_hiredDate.Text,
-                    Salary = decimal.Parse(textBox_salary.Text),
-                    IsStopWorking = chkIsStopWorking.Checked
+                    StaffId = GenerateNextStaffId(),
+                    Name = txtStaffName.Text,
+                    Gender = rbMale.Checked ? "Male" : (rbFemale.Checked ? "Female" : ""),
+                    BirthDate = dtBirthDate.Value,
+                    Address = txtAddress.Text,
+                    Personal_PhoneNumber = txtPersonalNumber.Text,
+                    Contact_PhoneNumber = txtContactNumber.Text,
+                    Hired_Date = dtHiredDate.Value,
+                    Photo = ImageToByteArray(picStaffPhoto.Image),
+                    Salary = decimal.Parse(txtSalary.Text),
+                    IsStopWorking = rbInactive.Checked,
+                    position = cmbPosition.Text
                 };
 
                 _staffRepository.Add(staff);
@@ -78,16 +188,16 @@ namespace tms
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(textBox_searchStaff.Text))
+                if (string.IsNullOrWhiteSpace(txtSearch.Text))
                 {
                     allStaffs = _staffRepository.GetAll();
                 }
                 else
                 {
-                    allStaffs = _staffRepository.Search(textBox_searchStaff.Text.Trim());
+                    allStaffs = _staffRepository.Search(txtSearch.Text.Trim());
                 }
 
-                Dgv_staff.DataSource = allStaffs;
+                dgvStaff.DataSource = allStaffs;
             }
             catch (Exception ex)
             {
@@ -97,31 +207,41 @@ namespace tms
 
         private void Dgv_staff_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex >= 0)
             {
-                var staff = Dgv_staff.Rows[e.RowIndex].DataBoundItem as Staff;
+                var staff = dgvStaff.Rows[e.RowIndex].DataBoundItem as Staff;
 
                 if (staff != null)
                 {
                     selectedStaffId = staff.StaffId;
+                    imageChanged = false;
 
-                    textBox_staffName.Text = staff.Name;
-                    textBox_gender.Text = staff.Gender;
-                    textBox_birthDate.Text = staff.BirthDate;
-                    textBox_address.Text = staff.Address;
-                    textBox_ps_phoneNumber.Text = staff.Personal_PhoneNumber;
-                    textBox_ct_phoneNumber.Text = staff.Contact_PhoneNumber;
-                    textBox_hiredDate.Text = staff.Hired_Date;
-                    textBox_salary.Text = staff.Salary.ToString();
-                    chkIsStopWorking.Checked = staff.IsStopWorking;
-                    chkIsWorking.Checked = !staff.IsStopWorking;
+                    txtStaffName.Text = staff.Name;
+                    rbMale.Checked = staff.Gender == "Male";
+                    rbFemale.Checked = staff.Gender == "Female";
+
+                    txtPersonalNumber.Text = staff.Personal_PhoneNumber;
+                    txtContactNumber.Text = staff.Contact_PhoneNumber;
+                    txtAddress.Text = staff.Address;
+                    dtBirthDate.Value = staff.BirthDate;
+                    dtHiredDate.Value = staff.Hired_Date;
+                    cmbPosition.ValueMember = staff.position;
+                    picStaffPhoto.Image = ByteArrayToImage(staff.Photo);
+
+                    txtSalary.Text = staff.Salary.ToString();
+                    rbInactive.Checked = staff.IsStopWorking;
+                    rbActive.Checked = !staff.IsStopWorking;
+                    cmbPosition.Text = staff.position;
                 }
             }
         }
 
-        private void btnEditStaff_Click(object sender, EventArgs e)
+        private void BtnEditStaff_Click(object sender, EventArgs e)
         {
-            if (selectedStaffId == -1)
+           
+
+            if (selectedStaffId == null)
             {
                 MessageBox.Show("Please select a staff member to update.");
                 return;
@@ -129,18 +249,33 @@ namespace tms
 
             try
             {
+                byte[]? currentPhoto;
+
+                if (imageChanged)
+                {
+                    // Only convert if image was actually changed
+                    currentPhoto = ImageToByteArray(picStaffPhoto.Image);
+                }
+                else
+                {
+                    // Keep original photo data
+                    currentPhoto = allStaffs.FirstOrDefault(s => s.StaffId == selectedStaffId)?.Photo;
+                }
+
                 var updatedStaff = new Staff
                 {
                     StaffId = selectedStaffId,
-                    Name = textBox_staffName.Text,
-                    Gender = textBox_gender.Text,
-                    BirthDate = textBox_birthDate.Text,
-                    Address = textBox_address.Text,
-                    Personal_PhoneNumber = textBox_ps_phoneNumber.Text,
-                    Contact_PhoneNumber = textBox_ct_phoneNumber.Text,
-                    Hired_Date = textBox_hiredDate.Text,
-                    Salary = decimal.Parse(textBox_salary.Text),
-                    IsStopWorking = chkIsStopWorking.Checked
+                    Name = txtStaffName.Text,
+                    Gender = rbMale.Checked ? "Male" : (rbFemale.Checked ? "Female" : ""),
+                    BirthDate = dtBirthDate.Value,
+                    Address = txtAddress.Text,
+                    Personal_PhoneNumber = txtPersonalNumber.Text,
+                    Contact_PhoneNumber = txtContactNumber.Text,
+                    Hired_Date = dtHiredDate.Value,
+                    Photo = currentPhoto,
+                    Salary = decimal.Parse(txtSalary.Text),
+                    IsStopWorking = rbInactive.Checked,
+                    position = cmbPosition.Text
                 };
 
                 bool success = _staffRepository.Update(updatedStaff);
@@ -169,19 +304,24 @@ namespace tms
 
         private void ClearForm()
         {
-            textBox_staffName.Clear();
-            textBox_gender.Clear();
-            textBox_birthDate.Clear();
-            textBox_address.Clear();
-            textBox_ps_phoneNumber.Clear();
-            textBox_ct_phoneNumber.Clear();
-            textBox_hiredDate.Clear();
-            textBox_salary.Clear();
-            chkIsStopWorking.Checked = false;
-            chkIsWorking.Checked = false;
+            txtStaffName.Clear();
+            rbMale.Checked = false;
+            rbFemale.Checked = false;
+            dtBirthDate.Value = DateTime.Now;
+            txtAddress.Clear();
+            txtPersonalNumber.Clear();
+            txtContactNumber.Clear();
+            dtHiredDate.Value = DateTime.Now;
+            txtSalary.Clear();
+            rbInactive.Checked = false;
+            rbActive.Checked = false;
+            cmbPosition.SelectedIndex = -1;
+            picStaffPhoto.Image = null;
 
-            selectedStaffId = -1;
-            Dgv_staff.ClearSelection();
+            selectedStaffId = null;
+            imageChanged = false; // Reset flag
+            dgvStaff.ClearSelection();
         }
+
     }
 }
