@@ -88,10 +88,9 @@
             // 
             btnNew.BackColor = Color.White;
             btnNew.ForeColor = Color.Black;
-            btnNew.Location = new Point(4, 155);
-            btnNew.Margin = new Padding(4, 5, 4, 5);
+            btnNew.Location = new Point(3, 93);
             btnNew.Name = "btnNew";
-            btnNew.Size = new Size(112, 44);
+            btnNew.Size = new Size(78, 26);
             btnNew.TabIndex = 21;
             btnNew.Text = "New";
             btnNew.UseVisualStyleBackColor = false;
@@ -100,10 +99,9 @@
             // 
             btnUpdate.BackColor = Color.White;
             btnUpdate.ForeColor = Color.Black;
-            btnUpdate.Location = new Point(250, 155);
-            btnUpdate.Margin = new Padding(4, 5, 4, 5);
+            btnUpdate.Location = new Point(175, 93);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(112, 44);
+            btnUpdate.Size = new Size(78, 26);
             btnUpdate.TabIndex = 20;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -113,11 +111,10 @@
             gbRoute2.Controls.Add(tableLayoutPanel4);
             gbRoute2.Dock = DockStyle.Fill;
             gbRoute2.ForeColor = Color.FromArgb(224, 224, 224);
-            gbRoute2.Location = new Point(4, 5);
-            gbRoute2.Margin = new Padding(4, 5, 4, 5);
+            gbRoute2.Location = new Point(3, 3);
             gbRoute2.Name = "gbRoute2";
-            gbRoute2.Padding = new Padding(10);
-            gbRoute2.Size = new Size(1005, 263);
+            gbRoute2.Padding = new Padding(7, 6, 7, 6);
+            gbRoute2.Size = new Size(703, 157);
             gbRoute2.TabIndex = 27;
             gbRoute2.TabStop = false;
             gbRoute2.Text = "Form";
@@ -144,33 +141,32 @@
             tableLayoutPanel4.Controls.Add(dtSupplierDate, 1, 2);
             tableLayoutPanel4.Controls.Add(btnClear, 2, 3);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(10, 34);
+            tableLayoutPanel4.Location = new Point(7, 22);
+            tableLayoutPanel4.Margin = new Padding(2);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 4;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel4.Size = new Size(985, 219);
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel4.Size = new Size(689, 129);
             tableLayoutPanel4.TabIndex = 30;
             // 
             // txtSupplierID
             // 
             txtSupplierID.Dock = DockStyle.Fill;
-            txtSupplierID.Location = new Point(250, 5);
-            txtSupplierID.Margin = new Padding(4, 5, 4, 5);
+            txtSupplierID.Location = new Point(175, 3);
             txtSupplierID.Name = "txtSupplierID";
-            txtSupplierID.Size = new Size(238, 31);
+            txtSupplierID.Size = new Size(166, 23);
             txtSupplierID.TabIndex = 4;
             // 
             // lblCustomerPosition
             // 
             lblCustomerPosition.BackColor = Color.Transparent;
             lblCustomerPosition.ForeColor = Color.FromArgb(224, 224, 224);
-            lblCustomerPosition.Location = new Point(496, 0);
-            lblCustomerPosition.Margin = new Padding(4, 0, 4, 0);
+            lblCustomerPosition.Location = new Point(347, 0);
             lblCustomerPosition.Name = "lblCustomerPosition";
-            lblCustomerPosition.Size = new Size(171, 38);
+            lblCustomerPosition.Size = new Size(120, 23);
             lblCustomerPosition.TabIndex = 9;
             lblCustomerPosition.Text = "Customer Position";
             // 
@@ -178,10 +174,9 @@
             // 
             lblSupplierID.BackColor = Color.Transparent;
             lblSupplierID.ForeColor = Color.FromArgb(224, 224, 224);
-            lblSupplierID.Location = new Point(4, 0);
-            lblSupplierID.Margin = new Padding(4, 0, 4, 0);
+            lblSupplierID.Location = new Point(3, 0);
             lblSupplierID.Name = "lblSupplierID";
-            lblSupplierID.Size = new Size(137, 38);
+            lblSupplierID.Size = new Size(96, 23);
             lblSupplierID.TabIndex = 3;
             lblSupplierID.Text = "Supplier ID";
             lblSupplierID.Click += lblRouteID_Click;
@@ -189,29 +184,26 @@
             // txtCustomerPosition
             // 
             txtCustomerPosition.Dock = DockStyle.Fill;
-            txtCustomerPosition.Location = new Point(742, 5);
-            txtCustomerPosition.Margin = new Padding(4, 5, 4, 5);
+            txtCustomerPosition.Location = new Point(519, 3);
             txtCustomerPosition.Name = "txtCustomerPosition";
-            txtCustomerPosition.Size = new Size(239, 31);
+            txtCustomerPosition.Size = new Size(167, 23);
             txtCustomerPosition.TabIndex = 12;
             // 
             // txtSupplierName
             // 
             txtSupplierName.Dock = DockStyle.Fill;
-            txtSupplierName.Location = new Point(250, 55);
-            txtSupplierName.Margin = new Padding(4, 5, 4, 5);
+            txtSupplierName.Location = new Point(175, 33);
             txtSupplierName.Name = "txtSupplierName";
-            txtSupplierName.Size = new Size(238, 31);
+            txtSupplierName.Size = new Size(166, 23);
             txtSupplierName.TabIndex = 6;
             // 
             // lblSupplierName
             // 
             lblSupplierName.BackColor = Color.Transparent;
             lblSupplierName.ForeColor = Color.FromArgb(224, 224, 224);
-            lblSupplierName.Location = new Point(4, 50);
-            lblSupplierName.Margin = new Padding(4, 0, 4, 0);
+            lblSupplierName.Location = new Point(3, 30);
             lblSupplierName.Name = "lblSupplierName";
-            lblSupplierName.Size = new Size(137, 38);
+            lblSupplierName.Size = new Size(96, 23);
             lblSupplierName.TabIndex = 5;
             lblSupplierName.Text = "Supplier Name";
             // 
@@ -219,49 +211,46 @@
             // 
             lblCustomerAddress.BackColor = Color.Transparent;
             lblCustomerAddress.ForeColor = Color.FromArgb(224, 224, 224);
-            lblCustomerAddress.Location = new Point(496, 50);
-            lblCustomerAddress.Margin = new Padding(4, 0, 4, 0);
+            lblCustomerAddress.Location = new Point(347, 30);
             lblCustomerAddress.Name = "lblCustomerAddress";
-            lblCustomerAddress.Size = new Size(190, 38);
+            lblCustomerAddress.Size = new Size(133, 23);
             lblCustomerAddress.TabIndex = 11;
             lblCustomerAddress.Text = "Customer Address";
             // 
             // txtCustomerAddress
             // 
             txtCustomerAddress.Dock = DockStyle.Fill;
-            txtCustomerAddress.Location = new Point(742, 55);
-            txtCustomerAddress.Margin = new Padding(4, 5, 4, 5);
+            txtCustomerAddress.Location = new Point(519, 33);
             txtCustomerAddress.Name = "txtCustomerAddress";
-            txtCustomerAddress.Size = new Size(239, 31);
+            txtCustomerAddress.Size = new Size(167, 23);
             txtCustomerAddress.TabIndex = 10;
             // 
             // lblSupplierDate
             // 
             lblSupplierDate.BackColor = Color.Transparent;
             lblSupplierDate.ForeColor = Color.FromArgb(224, 224, 224);
-            lblSupplierDate.Location = new Point(4, 100);
-            lblSupplierDate.Margin = new Padding(4, 0, 4, 0);
+            lblSupplierDate.Location = new Point(3, 60);
             lblSupplierDate.Name = "lblSupplierDate";
-            lblSupplierDate.Size = new Size(154, 38);
+            lblSupplierDate.Size = new Size(108, 23);
             lblSupplierDate.TabIndex = 7;
             lblSupplierDate.Text = "Supplier Date";
             // 
             // dtSupplierDate
             // 
             dtSupplierDate.Dock = DockStyle.Fill;
-            dtSupplierDate.Location = new Point(249, 103);
+            dtSupplierDate.Location = new Point(174, 62);
+            dtSupplierDate.Margin = new Padding(2);
             dtSupplierDate.Name = "dtSupplierDate";
-            dtSupplierDate.Size = new Size(240, 31);
+            dtSupplierDate.Size = new Size(168, 23);
             dtSupplierDate.TabIndex = 22;
             // 
             // btnClear
             // 
             btnClear.BackColor = Color.White;
             btnClear.ForeColor = Color.Black;
-            btnClear.Location = new Point(496, 155);
-            btnClear.Margin = new Padding(4, 5, 4, 5);
+            btnClear.Location = new Point(347, 93);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(112, 44);
+            btnClear.Size = new Size(78, 26);
             btnClear.TabIndex = 23;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
@@ -271,11 +260,10 @@
             gbRoute1.Controls.Add(IsTicket);
             gbRoute1.Dock = DockStyle.Fill;
             gbRoute1.ForeColor = Color.FromArgb(224, 224, 224);
-            gbRoute1.Location = new Point(4, 100);
-            gbRoute1.Margin = new Padding(4, 5, 4, 5);
+            gbRoute1.Location = new Point(3, 60);
             gbRoute1.Name = "gbRoute1";
-            gbRoute1.Padding = new Padding(10);
-            gbRoute1.Size = new Size(421, 881);
+            gbRoute1.Padding = new Padding(7, 6, 7, 6);
+            gbRoute1.Size = new Size(295, 528);
             gbRoute1.TabIndex = 28;
             gbRoute1.TabStop = false;
             gbRoute1.Text = "Ticket's List";
@@ -284,20 +272,20 @@
             // IsTicket
             // 
             IsTicket.Dock = DockStyle.Fill;
-            IsTicket.ItemHeight = 25;
-            IsTicket.Location = new Point(10, 34);
-            IsTicket.Margin = new Padding(4, 5, 4, 5);
+            IsTicket.ItemHeight = 15;
+            IsTicket.Location = new Point(7, 22);
             IsTicket.Name = "IsTicket";
-            IsTicket.Size = new Size(401, 837);
+            IsTicket.Size = new Size(281, 500);
             IsTicket.TabIndex = 2;
             IsTicket.SelectedIndexChanged += lstRoutes_SelectedIndexChanged;
             // 
             // txtSearch
             // 
             txtSearch.Dock = DockStyle.Fill;
-            txtSearch.Location = new Point(10, 34);
+            txtSearch.Location = new Point(7, 22);
+            txtSearch.Margin = new Padding(2);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(403, 31);
+            txtSearch.Size = new Size(283, 23);
             txtSearch.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -309,10 +297,11 @@
             tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1454, 992);
+            tableLayoutPanel1.Size = new Size(1018, 595);
             tableLayoutPanel1.TabIndex = 29;
             // 
             // tableLayoutPanel5
@@ -321,12 +310,13 @@
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel5.Controls.Add(gbRoute2, 0, 0);
             tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(438, 3);
+            tableLayoutPanel5.Location = new Point(307, 2);
+            tableLayoutPanel5.Margin = new Padding(2);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 2;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 27.73429F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 72.26571F));
-            tableLayoutPanel5.Size = new Size(1013, 986);
+            tableLayoutPanel5.Size = new Size(709, 591);
             tableLayoutPanel5.TabIndex = 30;
             // 
             // tableLayoutPanel3
@@ -336,12 +326,13 @@
             tableLayoutPanel3.Controls.Add(groupBox1, 0, 0);
             tableLayoutPanel3.Controls.Add(gbRoute1, 0, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 3);
+            tableLayoutPanel3.Location = new Point(2, 2);
+            tableLayoutPanel3.Margin = new Padding(2);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 2;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 9.701504F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 90.2985F));
-            tableLayoutPanel3.Size = new Size(429, 986);
+            tableLayoutPanel3.Size = new Size(301, 591);
             tableLayoutPanel3.TabIndex = 3;
             // 
             // groupBox1
@@ -349,10 +340,11 @@
             groupBox1.Controls.Add(txtSearch);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.ForeColor = Color.FromArgb(224, 224, 224);
-            groupBox1.Location = new Point(3, 3);
+            groupBox1.Location = new Point(2, 2);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(10);
-            groupBox1.Size = new Size(423, 89);
+            groupBox1.Padding = new Padding(7, 6, 7, 6);
+            groupBox1.Size = new Size(297, 53);
             groupBox1.TabIndex = 22;
             groupBox1.TabStop = false;
             groupBox1.Text = "Search";
@@ -360,12 +352,11 @@
             // 
             // FormTicket
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(22, 28, 36);
-            ClientSize = new Size(1454, 992);
+            ClientSize = new Size(1018, 595);
             Controls.Add(tableLayoutPanel1);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "FormTicket";
             Text = "FormTicket";
             WindowState = FormWindowState.Maximized;

@@ -66,9 +66,9 @@
             // txtSearch
             // 
             txtSearch.Dock = DockStyle.Fill;
-            txtSearch.Location = new Point(3, 27);
+            txtSearch.Location = new Point(3, 19);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(516, 31);
+            txtSearch.Size = new Size(516, 23);
             txtSearch.TabIndex = 1;
             txtSearch.TextChanged += TxtSearch_TextChanged;
             // 
@@ -88,7 +88,7 @@
             txtRouteID.Location = new Point(133, 7);
             txtRouteID.Name = "txtRouteID";
             txtRouteID.ReadOnly = true;
-            txtRouteID.Size = new Size(212, 31);
+            txtRouteID.Size = new Size(212, 23);
             txtRouteID.TabIndex = 4;
             // 
             // lblStartPoint
@@ -106,7 +106,7 @@
             txtStartPoint.Dock = DockStyle.Fill;
             txtStartPoint.Location = new Point(477, 7);
             txtStartPoint.Name = "txtStartPoint";
-            txtStartPoint.Size = new Size(397, 31);
+            txtStartPoint.Size = new Size(397, 23);
             txtStartPoint.TabIndex = 6;
             // 
             // lblEndPoint
@@ -124,7 +124,7 @@
             txtEndPoint.Dock = DockStyle.Fill;
             txtEndPoint.Location = new Point(477, 57);
             txtEndPoint.Name = "txtEndPoint";
-            txtEndPoint.Size = new Size(397, 31);
+            txtEndPoint.Size = new Size(397, 23);
             txtEndPoint.TabIndex = 8;
             // 
             // txtDistance
@@ -132,7 +132,7 @@
             txtDistance.Dock = DockStyle.Fill;
             txtDistance.Location = new Point(477, 157);
             txtDistance.Name = "txtDistance";
-            txtDistance.Size = new Size(397, 31);
+            txtDistance.Size = new Size(397, 23);
             txtDistance.TabIndex = 10;
             // 
             // lblEstimatedTime
@@ -150,7 +150,7 @@
             txtEstimatedTime.Dock = DockStyle.Fill;
             txtEstimatedTime.Location = new Point(477, 107);
             txtEstimatedTime.Name = "txtEstimatedTime";
-            txtEstimatedTime.Size = new Size(397, 31);
+            txtEstimatedTime.Size = new Size(397, 23);
             txtEstimatedTime.TabIndex = 12;
             // 
             // lblVehicleAssigned
@@ -168,7 +168,7 @@
             cmbVehicleAssigned.Dock = DockStyle.Fill;
             cmbVehicleAssigned.Location = new Point(133, 57);
             cmbVehicleAssigned.Name = "cmbVehicleAssigned";
-            cmbVehicleAssigned.Size = new Size(212, 33);
+            cmbVehicleAssigned.Size = new Size(212, 23);
             cmbVehicleAssigned.TabIndex = 14;
             // 
             // lblPriority
@@ -187,7 +187,7 @@
             cmbPriority.Items.AddRange(new object[] { "Low", "Medium", "High", "Critical" });
             cmbPriority.Location = new Point(133, 107);
             cmbPriority.Name = "cmbPriority";
-            cmbPriority.Size = new Size(212, 33);
+            cmbPriority.Size = new Size(212, 23);
             cmbPriority.TabIndex = 16;
             // 
             // chkAvoidTolls
@@ -296,7 +296,7 @@
             tableLayoutPanel3.Controls.Add(txtEndPoint, 3, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.ForeColor = Color.FromArgb(224, 224, 224);
-            tableLayoutPanel3.Location = new Point(3, 27);
+            tableLayoutPanel3.Location = new Point(3, 19);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.Padding = new Padding(4);
             tableLayoutPanel3.RowCount = 5;
@@ -305,7 +305,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel3.Size = new Size(881, 960);
+            tableLayoutPanel3.Size = new Size(881, 968);
             tableLayoutPanel3.TabIndex = 27;
             tableLayoutPanel3.Paint += tableLayoutPanel3_Paint;
             // 
@@ -324,10 +324,10 @@
             // lstRoutes
             // 
             lstRoutes.Dock = DockStyle.Fill;
-            lstRoutes.ItemHeight = 25;
-            lstRoutes.Location = new Point(3, 27);
+            lstRoutes.ItemHeight = 15;
+            lstRoutes.Location = new Point(3, 19);
             lstRoutes.Name = "lstRoutes";
-            lstRoutes.Size = new Size(516, 833);
+            lstRoutes.Size = new Size(516, 841);
             lstRoutes.TabIndex = 2;
             lstRoutes.SelectedIndexChanged += lstRoutes_SelectedIndexChanged_1;
             // 

@@ -18,6 +18,8 @@ namespace tms.Data
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public virtual DbSet<SpResult> SpResults { get; set; }
 
         public DbSet<SeatTypeConfigurations> SeatTypeConfigurations { get; set; }
         public DbSet<VehicleConfigurations> VehicleConfigurations { get; set; }
@@ -34,7 +36,7 @@ namespace tms.Data
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(
-                                  "Server=ACER\\SQLEXPRESS01;Database=tms;Trusted_Connection=True;Encrypt=False;"
+                                  "Server=FURINA-SIMP\\SQLEXPRESS02;Database=tms;User ID=sa;Password=Chinsakda@3;Encrypt=False;"
                                   );
             }
         }
@@ -106,6 +108,17 @@ namespace tms.Data
                         .HasDatabaseName("IX_Tickets_CreatedDate");
                 }
                 );
+            modelBuilder.Entity<Invoice>(entity =>
+            {
+                entity.HasKey(i => i.InvoiceID);
+                entity.Property(i => i.TotalAmount).HasColumnType("decimal(18,2)");
+            });
+            modelBuilder.Entity<SpResult>(entity =>
+            {
+                entity.HasNoKey();
+                entity.Property(e => e.Result).HasColumnName("Result");
+                entity.Property(e => e.Message).HasColumnName("Message");
+            });
 
             Console.WriteLine("Entities tracked by EF:");
             foreach (var entity in modelBuilder.Model.GetEntityTypes())
