@@ -36,7 +36,7 @@ namespace tms.Data
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(
-                                  "ACER\\SQLEXPRESS01;Database=tms;Trusted_Connection=True;Encrypt=False;"
+                                  "Server=ACER\\SQLEXPRESS01;Database=tms;Trusted_Connection=True;Encrypt=False;"
                                   );
             }
         }
