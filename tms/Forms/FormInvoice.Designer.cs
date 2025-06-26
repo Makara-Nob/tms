@@ -23,7 +23,7 @@
             lblTotalAmount = new Label();
             txtInvoiceId = new TextBox();
             dtpInvoiceDate = new DateTimePicker();
-            cmbStaffId = new ComboBox(); // Changed from TextBox to ComboBox
+            cmbStaffId = new ComboBox();
             txtTotalAmount = new TextBox();
             btnAdd = new Button();
             btnUpdate = new Button();
@@ -41,6 +41,7 @@
             // 
             lblInvoiceId.AutoSize = true;
             lblInvoiceId.Font = new Font("Arial", 10F, FontStyle.Bold);
+            lblInvoiceId.ForeColor = SystemColors.ButtonHighlight;
             lblInvoiceId.Location = new Point(30, 30);
             lblInvoiceId.Name = "lblInvoiceId";
             lblInvoiceId.Size = new Size(81, 16);
@@ -51,6 +52,7 @@
             // 
             lblInvoiceDate.AutoSize = true;
             lblInvoiceDate.Font = new Font("Arial", 10F, FontStyle.Bold);
+            lblInvoiceDate.ForeColor = SystemColors.ButtonHighlight;
             lblInvoiceDate.Location = new Point(30, 70);
             lblInvoiceDate.Name = "lblInvoiceDate";
             lblInvoiceDate.Size = new Size(99, 16);
@@ -61,6 +63,7 @@
             // 
             lblStaffId.AutoSize = true;
             lblStaffId.Font = new Font("Arial", 10F, FontStyle.Bold);
+            lblStaffId.ForeColor = SystemColors.ButtonHighlight;
             lblStaffId.Location = new Point(30, 110);
             lblStaffId.Name = "lblStaffId";
             lblStaffId.Size = new Size(61, 16);
@@ -71,6 +74,7 @@
             // 
             lblTotalAmount.AutoSize = true;
             lblTotalAmount.Font = new Font("Arial", 10F, FontStyle.Bold);
+            lblTotalAmount.ForeColor = SystemColors.ButtonFace;
             lblTotalAmount.Location = new Point(30, 150);
             lblTotalAmount.Name = "lblTotalAmount";
             lblTotalAmount.Size = new Size(100, 16);
@@ -96,7 +100,7 @@
             // 
             // cmbStaffId
             // 
-            cmbStaffId.DropDownStyle = ComboBoxStyle.DropDownList; // Prevent typing
+            cmbStaffId.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbStaffId.Font = new Font("Arial", 10F);
             cmbStaffId.FormattingEnabled = true;
             cmbStaffId.Location = new Point(150, 107);
@@ -185,7 +189,7 @@
             dgvInvoices.Name = "dgvInvoices";
             dgvInvoices.ReadOnly = true;
             dgvInvoices.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvInvoices.Size = new Size(800, 400);
+            dgvInvoices.Size = new Size(800, 556);
             dgvInvoices.TabIndex = 12;
             dgvInvoices.CellClick += dgvInvoices_CellClick;
             // 
@@ -196,7 +200,7 @@
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Arial", 10F, FontStyle.Bold);
             btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(450, 250);
+            btnSearch.Location = new Point(1000, 7);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(100, 35);
             btnSearch.TabIndex = 14;
@@ -207,7 +211,7 @@
             // txtSearch
             // 
             txtSearch.Font = new Font("Arial", 10F);
-            txtSearch.Location = new Point(150, 255);
+            txtSearch.Location = new Point(700, 12);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(290, 23);
             txtSearch.TabIndex = 15;
@@ -216,7 +220,8 @@
             // 
             lblSearch.AutoSize = true;
             lblSearch.Font = new Font("Arial", 10F, FontStyle.Bold);
-            lblSearch.Location = new Point(30, 258);
+            lblSearch.ForeColor = SystemColors.ButtonHighlight;
+            lblSearch.Location = new Point(580, 15);
             lblSearch.Name = "lblSearch";
             lblSearch.Size = new Size(116, 16);
             lblSearch.TabIndex = 16;
@@ -229,7 +234,7 @@
             btnClear.FlatStyle = FlatStyle.Flat;
             btnClear.Font = new Font("Arial", 10F, FontStyle.Bold);
             btnClear.ForeColor = Color.White;
-            btnClear.Location = new Point(290, 300);
+            btnClear.Location = new Point(225, 304);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(100, 35);
             btnClear.TabIndex = 17;
@@ -241,8 +246,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightGray;
-            ClientSize = new Size(1400, 500);
+            BackColor = Color.Black;
+            ClientSize = new Size(1400, 656);
             Controls.Add(btnClear);
             Controls.Add(lblSearch);
             Controls.Add(txtSearch);
@@ -253,7 +258,7 @@
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
             Controls.Add(txtTotalAmount);
-            Controls.Add(cmbStaffId); // Changed from txtStaffId to cmbStaffId
+            Controls.Add(cmbStaffId);
             Controls.Add(dtpInvoiceDate);
             Controls.Add(txtInvoiceId);
             Controls.Add(lblTotalAmount);
