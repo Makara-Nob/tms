@@ -51,17 +51,18 @@
             // 
             txtSearch.Location = new Point(24, 46);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(369, 31);
+            txtSearch.Size = new Size(369, 23);
             txtSearch.TabIndex = 1;
             // 
             // lstVehicles
             // 
             lstVehicles.Dock = DockStyle.Fill;
-            lstVehicles.ItemHeight = 25;
-            lstVehicles.Location = new Point(3, 27);
+            lstVehicles.ItemHeight = 15;
+            lstVehicles.Location = new Point(3, 19);
             lstVehicles.Name = "lstVehicles";
-            lstVehicles.Size = new Size(485, 1214);
+            lstVehicles.Size = new Size(413, 1033);
             lstVehicles.TabIndex = 2;
+            lstVehicles.SelectedIndexChanged += lstVehicles_SelectedIndexChanged_1;
             // 
             // lblVehicleID
             // 
@@ -76,16 +77,16 @@
             // txtVehicleID
             // 
             txtVehicleID.Dock = DockStyle.Fill;
-            txtVehicleID.Location = new Point(438, 3);
+            txtVehicleID.Location = new Point(374, 3);
             txtVehicleID.Name = "txtVehicleID";
-            txtVehicleID.Size = new Size(429, 31);
+            txtVehicleID.Size = new Size(365, 23);
             txtVehicleID.TabIndex = 4;
             // 
             // lblType
             // 
             lblType.BackColor = Color.Transparent;
             lblType.ForeColor = Color.White;
-            lblType.Location = new Point(873, 0);
+            lblType.Location = new Point(745, 0);
             lblType.Name = "lblType";
             lblType.Size = new Size(100, 23);
             lblType.TabIndex = 5;
@@ -94,9 +95,9 @@
             // cmbType
             // 
             cmbType.Dock = DockStyle.Fill;
-            cmbType.Location = new Point(1308, 3);
+            cmbType.Location = new Point(1116, 3);
             cmbType.Name = "cmbType";
-            cmbType.Size = new Size(430, 33);
+            cmbType.Size = new Size(368, 23);
             cmbType.TabIndex = 6;
             // 
             // lblCapacity
@@ -112,16 +113,16 @@
             // txtCapacity
             // 
             txtCapacity.Dock = DockStyle.Fill;
-            txtCapacity.Location = new Point(438, 53);
+            txtCapacity.Location = new Point(374, 53);
             txtCapacity.Name = "txtCapacity";
-            txtCapacity.Size = new Size(429, 31);
+            txtCapacity.Size = new Size(365, 23);
             txtCapacity.TabIndex = 8;
             // 
             // lblLicensePlate
             // 
             lblLicensePlate.BackColor = Color.Transparent;
             lblLicensePlate.ForeColor = Color.White;
-            lblLicensePlate.Location = new Point(873, 50);
+            lblLicensePlate.Location = new Point(745, 50);
             lblLicensePlate.Name = "lblLicensePlate";
             lblLicensePlate.Size = new Size(100, 23);
             lblLicensePlate.TabIndex = 9;
@@ -130,9 +131,9 @@
             // txtLicensePlate
             // 
             txtLicensePlate.Dock = DockStyle.Fill;
-            txtLicensePlate.Location = new Point(1308, 53);
+            txtLicensePlate.Location = new Point(1116, 53);
             txtLicensePlate.Name = "txtLicensePlate";
-            txtLicensePlate.Size = new Size(430, 31);
+            txtLicensePlate.Size = new Size(368, 23);
             txtLicensePlate.TabIndex = 10;
             // 
             // lblRouteID
@@ -148,16 +149,16 @@
             // cmbRouteID
             // 
             cmbRouteID.Dock = DockStyle.Fill;
-            cmbRouteID.Location = new Point(438, 103);
+            cmbRouteID.Location = new Point(374, 103);
             cmbRouteID.Name = "cmbRouteID";
-            cmbRouteID.Size = new Size(429, 33);
+            cmbRouteID.Size = new Size(365, 23);
             cmbRouteID.TabIndex = 12;
             // 
             // lblStatus
             // 
             lblStatus.BackColor = Color.Transparent;
             lblStatus.ForeColor = Color.White;
-            lblStatus.Location = new Point(873, 100);
+            lblStatus.Location = new Point(745, 100);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(100, 23);
             lblStatus.TabIndex = 13;
@@ -166,9 +167,9 @@
             // cmbStatus
             // 
             cmbStatus.Dock = DockStyle.Fill;
-            cmbStatus.Location = new Point(1308, 103);
+            cmbStatus.Location = new Point(1116, 103);
             cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(430, 33);
+            cmbStatus.Size = new Size(368, 23);
             cmbStatus.TabIndex = 14;
             // 
             // lblMaintenanceDate
@@ -184,16 +185,16 @@
             // dtpMaintenanceDate
             // 
             dtpMaintenanceDate.Dock = DockStyle.Fill;
-            dtpMaintenanceDate.Location = new Point(438, 153);
+            dtpMaintenanceDate.Location = new Point(374, 153);
             dtpMaintenanceDate.Name = "dtpMaintenanceDate";
-            dtpMaintenanceDate.Size = new Size(429, 31);
+            dtpMaintenanceDate.Size = new Size(365, 23);
             dtpMaintenanceDate.TabIndex = 16;
             // 
             // btnInsert
             // 
             btnInsert.BackColor = Color.FromArgb(224, 224, 224);
             btnInsert.ForeColor = Color.Black;
-            btnInsert.Location = new Point(438, 203);
+            btnInsert.Location = new Point(374, 203);
             btnInsert.Name = "btnInsert";
             btnInsert.Size = new Size(132, 37);
             btnInsert.TabIndex = 17;
@@ -215,7 +216,7 @@
             // 
             btnClear.BackColor = Color.FromArgb(224, 224, 224);
             btnClear.ForeColor = Color.Black;
-            btnClear.Location = new Point(873, 203);
+            btnClear.Location = new Point(745, 203);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(132, 37);
             btnClear.TabIndex = 19;
@@ -227,7 +228,7 @@
             btnLogOut.BackColor = Color.FromArgb(224, 224, 224);
             btnLogOut.Font = new Font("Arial", 9F);
             btnLogOut.ForeColor = Color.Black;
-            btnLogOut.Location = new Point(1308, 203);
+            btnLogOut.Location = new Point(1116, 203);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Size = new Size(132, 37);
             btnLogOut.TabIndex = 20;
@@ -239,9 +240,9 @@
             gbVehicle1.Controls.Add(tableLayoutPanel3);
             gbVehicle1.Dock = DockStyle.Fill;
             gbVehicle1.ForeColor = Color.LightGray;
-            gbVehicle1.Location = new Point(500, 3);
+            gbVehicle1.Location = new Point(428, 3);
             gbVehicle1.Name = "gbVehicle1";
-            gbVehicle1.Size = new Size(1747, 1244);
+            gbVehicle1.Size = new Size(1493, 1055);
             gbVehicle1.TabIndex = 22;
             gbVehicle1.TabStop = false;
             gbVehicle1.Text = "Vehicle Form";
@@ -272,7 +273,7 @@
             tableLayoutPanel3.Controls.Add(lblLicensePlate, 2, 1);
             tableLayoutPanel3.Controls.Add(txtLicensePlate, 3, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 27);
+            tableLayoutPanel3.Location = new Point(3, 19);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 5;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
@@ -280,8 +281,9 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(1741, 1214);
+            tableLayoutPanel3.Size = new Size(1487, 1033);
             tableLayoutPanel3.TabIndex = 17;
+            tableLayoutPanel3.Paint += tableLayoutPanel3_Paint;
             // 
             // groupBoxVehicleInfo
             // 
@@ -292,7 +294,7 @@
             groupBoxVehicleInfo.ForeColor = Color.LightGray;
             groupBoxVehicleInfo.Location = new Point(3, 3);
             groupBoxVehicleInfo.Name = "groupBoxVehicleInfo";
-            groupBoxVehicleInfo.Size = new Size(491, 1244);
+            groupBoxVehicleInfo.Size = new Size(419, 1055);
             groupBoxVehicleInfo.TabIndex = 23;
             groupBoxVehicleInfo.TabStop = false;
             groupBoxVehicleInfo.Text = "Search";
@@ -310,14 +312,14 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(2250, 1250);
+            tableLayoutPanel1.Size = new Size(1924, 1061);
             tableLayoutPanel1.TabIndex = 3;
             // 
             // FormVehicle
             // 
             AutoSize = true;
             BackColor = Color.FromArgb(15, 15, 23);
-            ClientSize = new Size(2250, 1250);
+            ClientSize = new Size(1924, 1061);
             Controls.Add(tableLayoutPanel1);
             ForeColor = Color.White;
             Name = "FormVehicle";

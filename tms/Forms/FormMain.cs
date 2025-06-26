@@ -1,5 +1,6 @@
 ﻿
 using tms.Forms;
+using tms.Model;
 
 namespace tms
 {
@@ -23,7 +24,13 @@ namespace tms
             lbRoute.Click += btn_formRoute_Click;
             lbLogout.Click += BtnLogOut_Click;
             lbOrder.Click += btn_formOrder_Click;
-            
+            lbInvoice.Click += btn_formInvoice_Click;
+
+        }
+
+        private void btn_formInvoice_Click(object sender, EventArgs e)
+        {
+            loadFormIntoPanel(new InvoiceForm());
         }
 
         private void loadFormIntoPanel(Form form)
@@ -98,6 +105,26 @@ namespace tms
             {
                 this.Close();
             }
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dashboardCardsPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void activeTripsCard_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -239,7 +239,7 @@ namespace tms
 
         private void BtnEditStaff_Click(object sender, EventArgs e)
         {
-           
+
 
             if (selectedStaffId == null)
             {
@@ -323,5 +323,9 @@ namespace tms
             dgvStaff.ClearSelection();
         }
 
+        private void dgvStaff_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

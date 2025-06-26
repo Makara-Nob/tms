@@ -25,6 +25,9 @@ namespace tms
             pictureBox2 = new PictureBox();
             lbLogout = new Label();
             dashboardCardsPanel = new Panel();
+            panel1 = new Panel();
+            label1 = new Label();
+            lbOrder = new Label();
             staffCard = new Panel();
             iconStaff = new Label();
             lbStaff = new Label();
@@ -37,7 +40,6 @@ namespace tms
             deliveryCard = new Panel();
             iconDelivery = new Label();
             lbDelivery = new Label();
-            activeTripsCard = new Panel();
             routeCard = new Panel();
             iconRoute = new Label();
             lbRoute = new Label();
@@ -50,7 +52,6 @@ namespace tms
             ticketCard = new Panel();
             iconTicket = new Label();
             lbTicket = new Label();
-            revenueCard = new Panel();
             pictureBox1 = new PictureBox();
             mainPanel = new Panel();
             sidebarPanel = new Panel();
@@ -64,15 +65,17 @@ namespace tms
             statsPanel = new Panel();
             totalVehiclesCard = new Panel();
             totalBookingsCard = new Panel();
-            label1 = new Label();
-            lbOrder = new Label();
-            panel1 = new Panel();
+            label2 = new Label();
+            lbInvoice = new Label();
+            panel2 = new Panel();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.SuspendLayout();
             headerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             dashboardCardsPanel.SuspendLayout();
+            panel1.SuspendLayout();
             staffCard.SuspendLayout();
             tripCard.SuspendLayout();
             bookingCard.SuspendLayout();
@@ -83,7 +86,8 @@ namespace tms
             ticketCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             passengerCard.SuspendLayout();
-            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // splitContainer1
@@ -101,6 +105,7 @@ namespace tms
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = Color.FromArgb(15, 15, 23);
+            splitContainer1.Panel2.Paint += splitContainer1_Panel2_Paint;
             // 
             // headerPanel
             // 
@@ -127,18 +132,43 @@ namespace tms
             // 
             resources.ApplyResources(dashboardCardsPanel, "dashboardCardsPanel");
             dashboardCardsPanel.BackColor = Color.FromArgb(22, 28, 36);
+            dashboardCardsPanel.Controls.Add(pictureBox3);
+            dashboardCardsPanel.Controls.Add(panel2);
             dashboardCardsPanel.Controls.Add(panel1);
             dashboardCardsPanel.Controls.Add(staffCard);
             dashboardCardsPanel.Controls.Add(tripCard);
             dashboardCardsPanel.Controls.Add(bookingCard);
             dashboardCardsPanel.Controls.Add(deliveryCard);
-            dashboardCardsPanel.Controls.Add(activeTripsCard);
             dashboardCardsPanel.Controls.Add(routeCard);
             dashboardCardsPanel.Controls.Add(vehicleCard);
             dashboardCardsPanel.Controls.Add(seatCard);
             dashboardCardsPanel.Controls.Add(ticketCard);
-            dashboardCardsPanel.Controls.Add(revenueCard);
             dashboardCardsPanel.Name = "dashboardCardsPanel";
+            dashboardCardsPanel.Paint += dashboardCardsPanel_Paint;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(31, 41, 55);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(lbOrder);
+            panel1.Cursor = Cursors.Hand;
+            resources.ApplyResources(panel1, "panel1");
+            panel1.Name = "panel1";
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.Transparent;
+            label1.Cursor = Cursors.Hand;
+            resources.ApplyResources(label1, "label1");
+            label1.ForeColor = Color.FromArgb(139, 92, 246);
+            label1.Name = "label1";
+            // 
+            // lbOrder
+            // 
+            resources.ApplyResources(lbOrder, "lbOrder");
+            lbOrder.Cursor = Cursors.Hand;
+            lbOrder.ForeColor = Color.White;
+            lbOrder.Name = "lbOrder";
             // 
             // staffCard
             // 
@@ -236,11 +266,6 @@ namespace tms
             lbDelivery.ForeColor = Color.White;
             lbDelivery.Name = "lbDelivery";
             // 
-            // activeTripsCard
-            // 
-            resources.ApplyResources(activeTripsCard, "activeTripsCard");
-            activeTripsCard.Name = "activeTripsCard";
-            // 
             // routeCard
             // 
             routeCard.BackColor = Color.FromArgb(31, 41, 55);
@@ -337,11 +362,6 @@ namespace tms
             lbTicket.ForeColor = Color.White;
             lbTicket.Name = "lbTicket";
             // 
-            // revenueCard
-            // 
-            resources.ApplyResources(revenueCard, "revenueCard");
-            revenueCard.Name = "revenueCard";
-            // 
             // pictureBox1
             // 
             resources.ApplyResources(pictureBox1, "pictureBox1");
@@ -417,29 +437,36 @@ namespace tms
             resources.ApplyResources(totalBookingsCard, "totalBookingsCard");
             totalBookingsCard.Name = "totalBookingsCard";
             // 
-            // label1
+            // label2
             // 
-            label1.BackColor = Color.Transparent;
-            label1.Cursor = Cursors.Hand;
-            resources.ApplyResources(label1, "label1");
-            label1.ForeColor = Color.FromArgb(139, 92, 246);
-            label1.Name = "label1";
+            label2.BackColor = Color.Transparent;
+            label2.Cursor = Cursors.Hand;
+            resources.ApplyResources(label2, "label2");
+            label2.ForeColor = Color.FromArgb(59, 130, 246);
+            label2.Name = "label2";
             // 
-            // lbOrder
+            // lbInvoice
             // 
-            resources.ApplyResources(lbOrder, "lbOrder");
-            lbOrder.Cursor = Cursors.Hand;
-            lbOrder.ForeColor = Color.White;
-            lbOrder.Name = "lbOrder";
+            resources.ApplyResources(lbInvoice, "lbInvoice");
+            lbInvoice.Cursor = Cursors.Hand;
+            lbInvoice.ForeColor = Color.White;
+            lbInvoice.Name = "lbInvoice";
+            lbInvoice.Click += this.label3_Click;
             // 
-            // panel1
+            // panel2
             // 
-            panel1.BackColor = Color.FromArgb(31, 41, 55);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(lbOrder);
-            panel1.Cursor = Cursors.Hand;
-            resources.ApplyResources(panel1, "panel1");
-            panel1.Name = "panel1";
+            panel2.BackColor = Color.FromArgb(31, 41, 55);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(lbInvoice);
+            panel2.Cursor = Cursors.Hand;
+            resources.ApplyResources(panel2, "panel2");
+            panel2.Name = "panel2";
+            // 
+            // pictureBox3
+            // 
+            resources.ApplyResources(pictureBox3, "pictureBox3");
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.TabStop = false;
             // 
             // FormMain
             // 
@@ -455,6 +482,8 @@ namespace tms
             headerPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             dashboardCardsPanel.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             staffCard.ResumeLayout(false);
             staffCard.PerformLayout();
             tripCard.ResumeLayout(false);
@@ -474,8 +503,9 @@ namespace tms
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             passengerCard.ResumeLayout(false);
             passengerCard.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -534,10 +564,8 @@ namespace tms
         // Stats elements
         private Panel statsPanel;
         private Panel totalVehiclesCard;
-        private Panel activeTripsCard;
         private Panel totalBookingsCard;
         private TableLayoutPanel tableLayoutPanel1;
-        private Panel revenueCard;
         private Panel deliveryCard;
         private Panel seatCard;
         private Panel passengerCard;
@@ -548,5 +576,9 @@ namespace tms
         private Panel panel1;
         private Label label1;
         private Label lbOrder;
+        private Panel panel2;
+        private Label label2;
+        private Label lbInvoice;
+        private PictureBox pictureBox3;
     }
 }
