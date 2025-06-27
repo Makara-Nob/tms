@@ -25,13 +25,11 @@ namespace tms
             lbLogout.Click += BtnLogOut_Click;
             lbOrder.Click += btn_formOrder_Click;
             lbInvoice.Click += btn_formInvoice_Click;
+            lbPayment.Click += btn_formPayment_Click;
 
         }
 
-        private void btn_formInvoice_Click(object sender, EventArgs e)
-        {
-            loadFormIntoPanel(new InvoiceForm());
-        }
+
 
         private void loadFormIntoPanel(Form form)
         {
@@ -94,6 +92,16 @@ namespace tms
         private void load_formBooking_Click(object sender, EventArgs e)
         {
             loadFormIntoPanel(new FormBooking(loadFormIntoPanel));
+        }
+
+        private void btn_formInvoice_Click(object sender, EventArgs e)
+        {
+            loadFormIntoPanel(new InvoiceForm());
+        }
+
+        private void btn_formPayment_Click(object sender, EventArgs e)
+        {
+            loadFormIntoPanel(new PaymentForm());
         }
 
         private void BtnLogOut_Click(object sender, EventArgs e)

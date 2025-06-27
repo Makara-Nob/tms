@@ -25,6 +25,11 @@ namespace tms
             pictureBox2 = new PictureBox();
             lbLogout = new Label();
             dashboardCardsPanel = new Panel();
+            panel3 = new Panel();
+            lbPayment = new Label();
+            pictureBox3 = new PictureBox();
+            panel2 = new Panel();
+            lbInvoice = new Label();
             panel1 = new Panel();
             label1 = new Label();
             lbOrder = new Label();
@@ -65,16 +70,17 @@ namespace tms
             statsPanel = new Panel();
             totalVehiclesCard = new Panel();
             totalBookingsCard = new Panel();
-            label2 = new Label();
-            lbInvoice = new Label();
-            panel2 = new Panel();
-            pictureBox3 = new PictureBox();
+            paymentImg = new PictureBox();
+            invoiceImg = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.SuspendLayout();
             headerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             dashboardCardsPanel.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel2.SuspendLayout();
             panel1.SuspendLayout();
             staffCard.SuspendLayout();
             tripCard.SuspendLayout();
@@ -86,8 +92,8 @@ namespace tms
             ticketCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             passengerCard.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)paymentImg).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)invoiceImg).BeginInit();
             SuspendLayout();
             // 
             // splitContainer1
@@ -132,6 +138,7 @@ namespace tms
             // 
             resources.ApplyResources(dashboardCardsPanel, "dashboardCardsPanel");
             dashboardCardsPanel.BackColor = Color.FromArgb(22, 28, 36);
+            dashboardCardsPanel.Controls.Add(panel3);
             dashboardCardsPanel.Controls.Add(pictureBox3);
             dashboardCardsPanel.Controls.Add(panel2);
             dashboardCardsPanel.Controls.Add(panel1);
@@ -145,6 +152,45 @@ namespace tms
             dashboardCardsPanel.Controls.Add(ticketCard);
             dashboardCardsPanel.Name = "dashboardCardsPanel";
             dashboardCardsPanel.Paint += dashboardCardsPanel_Paint;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(31, 41, 55);
+            panel3.Controls.Add(paymentImg);
+            panel3.Controls.Add(lbPayment);
+            panel3.Cursor = Cursors.Hand;
+            resources.ApplyResources(panel3, "panel3");
+            panel3.Name = "panel3";
+            // 
+            // lbPayment
+            // 
+            resources.ApplyResources(lbPayment, "lbPayment");
+            lbPayment.Cursor = Cursors.Hand;
+            lbPayment.ForeColor = Color.White;
+            lbPayment.Name = "lbPayment";
+            // 
+            // pictureBox3
+            // 
+            resources.ApplyResources(pictureBox3, "pictureBox3");
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.TabStop = false;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(31, 41, 55);
+            panel2.Controls.Add(invoiceImg);
+            panel2.Controls.Add(lbInvoice);
+            panel2.Cursor = Cursors.Hand;
+            resources.ApplyResources(panel2, "panel2");
+            panel2.Name = "panel2";
+            // 
+            // lbInvoice
+            // 
+            resources.ApplyResources(lbInvoice, "lbInvoice");
+            lbInvoice.Cursor = Cursors.Hand;
+            lbInvoice.ForeColor = Color.White;
+            lbInvoice.Name = "lbInvoice";
+            lbInvoice.Click += label3_Click;
             // 
             // panel1
             // 
@@ -437,36 +483,19 @@ namespace tms
             resources.ApplyResources(totalBookingsCard, "totalBookingsCard");
             totalBookingsCard.Name = "totalBookingsCard";
             // 
-            // label2
+            // paymentImg
             // 
-            label2.BackColor = Color.Transparent;
-            label2.Cursor = Cursors.Hand;
-            resources.ApplyResources(label2, "label2");
-            label2.ForeColor = Color.FromArgb(59, 130, 246);
-            label2.Name = "label2";
+            paymentImg.BackColor = Color.Transparent;
+            resources.ApplyResources(paymentImg, "paymentImg");
+            paymentImg.Name = "paymentImg";
+            paymentImg.TabStop = false;
             // 
-            // lbInvoice
+            // invoiceImg
             // 
-            resources.ApplyResources(lbInvoice, "lbInvoice");
-            lbInvoice.Cursor = Cursors.Hand;
-            lbInvoice.ForeColor = Color.White;
-            lbInvoice.Name = "lbInvoice";
-            lbInvoice.Click += this.label3_Click;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(31, 41, 55);
-            panel2.Controls.Add(label2);
-            panel2.Controls.Add(lbInvoice);
-            panel2.Cursor = Cursors.Hand;
-            resources.ApplyResources(panel2, "panel2");
-            panel2.Name = "panel2";
-            // 
-            // pictureBox3
-            // 
-            resources.ApplyResources(pictureBox3, "pictureBox3");
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.TabStop = false;
+            invoiceImg.BackColor = Color.Transparent;
+            resources.ApplyResources(invoiceImg, "invoiceImg");
+            invoiceImg.Name = "invoiceImg";
+            invoiceImg.TabStop = false;
             // 
             // FormMain
             // 
@@ -482,6 +511,11 @@ namespace tms
             headerPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             dashboardCardsPanel.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             staffCard.ResumeLayout(false);
@@ -503,9 +537,8 @@ namespace tms
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             passengerCard.ResumeLayout(false);
             passengerCard.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)paymentImg).EndInit();
+            ((System.ComponentModel.ISupportInitialize)invoiceImg).EndInit();
             ResumeLayout(false);
         }
 
@@ -577,8 +610,11 @@ namespace tms
         private Label label1;
         private Label lbOrder;
         private Panel panel2;
-        private Label label2;
         private Label lbInvoice;
         private PictureBox pictureBox3;
+        private Panel panel3;
+        private Label lbPayment;
+        private PictureBox paymentImg;
+        private PictureBox invoiceImg;
     }
 }

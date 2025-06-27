@@ -20,6 +20,7 @@ namespace tms.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public virtual DbSet<SpResult> SpResults { get; set; }
+        public DbSet<Payment> Payments { get; set; }
 
         public DbSet<SeatTypeConfigurations> SeatTypeConfigurations { get; set; }
         public DbSet<VehicleConfigurations> VehicleConfigurations { get; set; }
@@ -118,6 +119,13 @@ namespace tms.Data
                 entity.HasNoKey();
                 entity.Property(e => e.Result).HasColumnName("Result");
                 entity.Property(e => e.Message).HasColumnName("Message");
+            });
+            modelBuilder.Entity<Payment>(entity =>
+            {
+                entity.Property(p => p.AmountPaid).HasColumnType("decimal(18,2)");
+                entity.HasIndex(p => p.InvoiceNo).HasDatabaseName("IX_Payments_InvoiceNo");
+                entity.HasIndex(p => p.StaffID).HasDatabaseName("IX_Payments_StaffID");
+                entity.HasIndex(p => p.PaymentDate).HasDatabaseName("IX_Payments_PaymentDate");
             });
 
             Console.WriteLine("Entities tracked by EF:");
