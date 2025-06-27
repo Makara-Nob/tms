@@ -125,270 +125,10 @@
   <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;pictureBox2.Name" xml:space="preserve">
-    <value>pictureBox2</value>
-  </data>
-  <data name="&gt;&gt;pictureBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox2.Parent" xml:space="preserve">
-    <value>headerPanel</value>
-  </data>
-  <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lbLogout.Name" xml:space="preserve">
-    <value>lbLogout</value>
-  </data>
-  <data name="&gt;&gt;lbLogout.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbLogout.Parent" xml:space="preserve">
-    <value>headerPanel</value>
-  </data>
-  <data name="&gt;&gt;lbLogout.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="headerPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="headerPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="headerPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>20, 20, 20, 10</value>
-  </data>
-  <data name="headerPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 100</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="headerPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;headerPanel.Name" xml:space="preserve">
-    <value>headerPanel</value>
-  </data>
-  <data name="&gt;&gt;headerPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;headerPanel.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
-  </data>
-  <data name="&gt;&gt;headerPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="dashboardCardsPanel.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;pictureBox3.Name" xml:space="preserve">
-    <value>pictureBox3</value>
-  </data>
-  <data name="&gt;&gt;pictureBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox3.Parent" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;pictureBox3.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;staffCard.Name" xml:space="preserve">
-    <value>staffCard</value>
-  </data>
-  <data name="&gt;&gt;staffCard.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;staffCard.Parent" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;staffCard.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;tripCard.Name" xml:space="preserve">
-    <value>tripCard</value>
-  </data>
-  <data name="&gt;&gt;tripCard.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tripCard.Parent" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;tripCard.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;bookingCard.Name" xml:space="preserve">
-    <value>bookingCard</value>
-  </data>
-  <data name="&gt;&gt;bookingCard.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bookingCard.Parent" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;bookingCard.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;deliveryCard.Name" xml:space="preserve">
-    <value>deliveryCard</value>
-  </data>
-  <data name="&gt;&gt;deliveryCard.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;deliveryCard.Parent" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;deliveryCard.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;routeCard.Name" xml:space="preserve">
-    <value>routeCard</value>
-  </data>
-  <data name="&gt;&gt;routeCard.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;routeCard.Parent" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;routeCard.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;vehicleCard.Name" xml:space="preserve">
-    <value>vehicleCard</value>
-  </data>
-  <data name="&gt;&gt;vehicleCard.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;vehicleCard.Parent" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;vehicleCard.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;seatCard.Name" xml:space="preserve">
-    <value>seatCard</value>
-  </data>
-  <data name="&gt;&gt;seatCard.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;seatCard.Parent" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;seatCard.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;ticketCard.Name" xml:space="preserve">
-    <value>ticketCard</value>
-  </data>
-  <data name="&gt;&gt;ticketCard.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ticketCard.Parent" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;ticketCard.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="dashboardCardsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="dashboardCardsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="dashboardCardsPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="dashboardCardsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 1003</value>
-  </data>
-  <data name="dashboardCardsPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;dashboardCardsPanel.Name" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;dashboardCardsPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dashboardCardsPanel.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
-  </data>
-  <data name="&gt;&gt;dashboardCardsPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.Name" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.Parent" xml:space="preserve">
-    <value>splitContainer1</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Name" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
-    <value>splitContainer1</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1423, 1003</value>
-  </data>
-  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>300</value>
-  </data>
-  <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Name" xml:space="preserve">
-    <value>splitContainer1</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAxgAAAGxCAYAAADh8RBrAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAA/7JJREFUeF7s/bGPfE2bnod9NgzjNWAYhGjAgAN5BQuEIAsbMGAgBV+ykLUfHGyy
+        DAAACwwBP0AiyAAA/7JJREFUeF7s/bGPfE2bnod9NgzjNWAYhGjAgAN5BQuEIAsbMGAgBV+ykLUfHGyy
         yW6woLHJFxB0IDDyBg42FBMSEEBF1D/gTAmTVwkZyICCZeCAgIKNxEBgYFOB1nyN6ulnfvdc536qnqpz
         TnfPzAkuPOdUn57pPqeq+r66umd+9X/+v/1ffnVxcXFxcXFxcXFxcXEEm4aLi4uLi4uLi4uLi4tVNg0X
         FxcXFxcXFxcXFxerbBouLi4uLi4uLi4uLi5W2TRcXFxcXFxcXFxcXFyssmm4uLi4uLi4uLi4uLhYZdNw
@@ -1555,6 +1295,7 @@
   <data name="pictureBox2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pictureBox2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -1600,49 +1341,240 @@
   <data name="&gt;&gt;lbLogout.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
+  <data name="headerPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="headerPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="headerPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 20, 20, 10</value>
   </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+  <data name="headerPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 100</value>
+  </data>
+  <data name="headerPanel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;lbOrder.Name" xml:space="preserve">
-    <value>lbOrder</value>
+  <data name="&gt;&gt;headerPanel.Name" xml:space="preserve">
+    <value>headerPanel</value>
   </data>
-  <data name="&gt;&gt;lbOrder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbOrder.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;lbOrder.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 106</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 65</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+  <data name="&gt;&gt;headerPanel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;headerPanel.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;headerPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="dashboardCardsPanel.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="paymentImg.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="paymentImg.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAIJJREFUSEvt
+        lTEKwCAMRaX2YD2CDr1PL1UcezRLAlm+7SAx6JAHf/mKD1E0BMfRcG/psgh6mBLzYxn0kbCWPR3Ya6E1
+        aW3s5wlN8is0DPom7XDGGWKvxYVrCuX2fXU4phbSY8xzY67yMJeYT+maMa2wl6WEzZcyMuhj8OMcFfQ4
+        Thcv5RpuYTjK4LoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="paymentImg.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 12</value>
+  </data>
+  <data name="paymentImg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 38</value>
+  </data>
+  <data name="paymentImg.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="paymentImg.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;paymentImg.Name" xml:space="preserve">
+    <value>paymentImg</value>
+  </data>
+  <data name="&gt;&gt;paymentImg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;paymentImg.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;paymentImg.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lbPayment.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbPayment.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt, style=Bold</value>
+  </data>
+  <data name="lbPayment.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbPayment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>60, 21</value>
+  </data>
+  <data name="lbPayment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 20</value>
+  </data>
+  <data name="lbPayment.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbPayment.Text" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="&gt;&gt;lbPayment.Name" xml:space="preserve">
+    <value>lbPayment</value>
+  </data>
+  <data name="&gt;&gt;lbPayment.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbPayment.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;lbPayment.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 817</value>
+  </data>
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 60</value>
+  </data>
+  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
     <value>dashboardCardsPanel</value>
   </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pictureBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pictureBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 50</value>
+  </data>
+  <data name="pictureBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;pictureBox3.Name" xml:space="preserve">
+    <value>pictureBox3</value>
+  </data>
+  <data name="&gt;&gt;pictureBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox3.Parent" xml:space="preserve">
+    <value>dashboardCardsPanel</value>
+  </data>
+  <data name="&gt;&gt;pictureBox3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="invoiceImg.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="invoiceImg.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAATpJREFUSEvt
+        lbFOwzAQhi0f7CwMbAxM7Oy8AT5LmTrAzMTCwsSbsLN0IueNF0Bi6d4HaKe+QNElcZRebAcnYqDKJ/2K
+        cnf2b8d2rNTMUUKAhYz9CaUqzj+0eSXAPT9LdXftc/w+VocuDaU2TwS4JcDPVhqfOUfKXB7E87SnE3Mr
+        /ZTT+F0CLmR8CmwUNaxHYx5kfAppQ05q/KoKaq0J8F7W5ZA09FRFlbl9JMANr18vl6Mhwy78mf0u46PS
+        mX2eQoZO2YvuViawbwS4k3Uh/Exi8aBhM4N2KzuwSz6Xsi7EKEMPH3an7YuMpxht2P2z5DDKkM1I40qa
+        EuB7bxPkKmQYGw2d2psqN6SmbU+BPuuOU8kBfNtYPNhnMjnA/zBkmkWW18tvFWvbG0iLU8WVvDynaqnM
+        mfSZmcniB/+ijxXdF0gvAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="invoiceImg.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="invoiceImg.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 11</value>
+  </data>
+  <data name="invoiceImg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 38</value>
+  </data>
+  <data name="invoiceImg.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="invoiceImg.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;invoiceImg.Name" xml:space="preserve">
+    <value>invoiceImg</value>
+  </data>
+  <data name="&gt;&gt;invoiceImg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;invoiceImg.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;invoiceImg.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lbInvoice.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbInvoice.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt, style=Bold</value>
+  </data>
+  <data name="lbInvoice.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbInvoice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>60, 21</value>
+  </data>
+  <data name="lbInvoice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 20</value>
+  </data>
+  <data name="lbInvoice.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbInvoice.Text" xml:space="preserve">
+    <value>Invoice</value>
+  </data>
+  <data name="&gt;&gt;lbInvoice.Name" xml:space="preserve">
+    <value>lbInvoice</value>
+  </data>
+  <data name="&gt;&gt;lbInvoice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbInvoice.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;lbInvoice.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 886</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 60</value>
+  </data>
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>dashboardCardsPanel</value>
+  </data>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
@@ -1711,49 +1643,25 @@
   <data name="&gt;&gt;lbOrder.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;iconStaff.Name" xml:space="preserve">
-    <value>iconStaff</value>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 106</value>
   </data>
-  <data name="&gt;&gt;iconStaff.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;iconStaff.Parent" xml:space="preserve">
-    <value>staffCard</value>
-  </data>
-  <data name="&gt;&gt;iconStaff.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lbStaff.Name" xml:space="preserve">
-    <value>lbStaff</value>
-  </data>
-  <data name="&gt;&gt;lbStaff.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbStaff.Parent" xml:space="preserve">
-    <value>staffCard</value>
-  </data>
-  <data name="&gt;&gt;lbStaff.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="staffCard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 740</value>
-  </data>
-  <data name="staffCard.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 65</value>
   </data>
-  <data name="staffCard.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
-  <data name="&gt;&gt;staffCard.Name" xml:space="preserve">
-    <value>staffCard</value>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="&gt;&gt;staffCard.Type" xml:space="preserve">
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;staffCard.Parent" xml:space="preserve">
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>dashboardCardsPanel</value>
   </data>
-  <data name="&gt;&gt;staffCard.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="iconStaff.Font" type="System.Drawing.Font, System.Drawing">
@@ -1816,49 +1724,25 @@
   <data name="&gt;&gt;lbStaff.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;iconTrip.Name" xml:space="preserve">
-    <value>iconTrip</value>
+  <data name="staffCard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 740</value>
   </data>
-  <data name="&gt;&gt;iconTrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;iconTrip.Parent" xml:space="preserve">
-    <value>tripCard</value>
-  </data>
-  <data name="&gt;&gt;iconTrip.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lbTrip.Name" xml:space="preserve">
-    <value>lbTrip</value>
-  </data>
-  <data name="&gt;&gt;lbTrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbTrip.Parent" xml:space="preserve">
-    <value>tripCard</value>
-  </data>
-  <data name="&gt;&gt;lbTrip.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tripCard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 276</value>
-  </data>
-  <data name="tripCard.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="staffCard.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 65</value>
   </data>
-  <data name="tripCard.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="staffCard.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;tripCard.Name" xml:space="preserve">
-    <value>tripCard</value>
+  <data name="&gt;&gt;staffCard.Name" xml:space="preserve">
+    <value>staffCard</value>
   </data>
-  <data name="&gt;&gt;tripCard.Type" xml:space="preserve">
+  <data name="&gt;&gt;staffCard.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tripCard.Parent" xml:space="preserve">
+  <data name="&gt;&gt;staffCard.Parent" xml:space="preserve">
     <value>dashboardCardsPanel</value>
   </data>
-  <data name="&gt;&gt;tripCard.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;staffCard.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="iconTrip.Font" type="System.Drawing.Font, System.Drawing">
@@ -1921,49 +1805,25 @@
   <data name="&gt;&gt;lbTrip.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;iconBooking.Name" xml:space="preserve">
-    <value>iconBooking</value>
+  <data name="tripCard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 276</value>
   </data>
-  <data name="&gt;&gt;iconBooking.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;iconBooking.Parent" xml:space="preserve">
-    <value>bookingCard</value>
-  </data>
-  <data name="&gt;&gt;iconBooking.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lbBooking.Name" xml:space="preserve">
-    <value>lbBooking</value>
-  </data>
-  <data name="&gt;&gt;lbBooking.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbBooking.Parent" xml:space="preserve">
-    <value>bookingCard</value>
-  </data>
-  <data name="&gt;&gt;lbBooking.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="bookingCard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 177</value>
-  </data>
-  <data name="bookingCard.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tripCard.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 65</value>
   </data>
-  <data name="bookingCard.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="tripCard.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;bookingCard.Name" xml:space="preserve">
-    <value>bookingCard</value>
+  <data name="&gt;&gt;tripCard.Name" xml:space="preserve">
+    <value>tripCard</value>
   </data>
-  <data name="&gt;&gt;bookingCard.Type" xml:space="preserve">
+  <data name="&gt;&gt;tripCard.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bookingCard.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tripCard.Parent" xml:space="preserve">
     <value>dashboardCardsPanel</value>
   </data>
-  <data name="&gt;&gt;bookingCard.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tripCard.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="iconBooking.Font" type="System.Drawing.Font, System.Drawing">
@@ -2026,49 +1886,25 @@
   <data name="&gt;&gt;lbBooking.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;iconDelivery.Name" xml:space="preserve">
-    <value>iconDelivery</value>
+  <data name="bookingCard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 177</value>
   </data>
-  <data name="&gt;&gt;iconDelivery.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;iconDelivery.Parent" xml:space="preserve">
-    <value>deliveryCard</value>
-  </data>
-  <data name="&gt;&gt;iconDelivery.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lbDelivery.Name" xml:space="preserve">
-    <value>lbDelivery</value>
-  </data>
-  <data name="&gt;&gt;lbDelivery.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbDelivery.Parent" xml:space="preserve">
-    <value>deliveryCard</value>
-  </data>
-  <data name="&gt;&gt;lbDelivery.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="deliveryCard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 347</value>
-  </data>
-  <data name="deliveryCard.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="bookingCard.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 65</value>
   </data>
-  <data name="deliveryCard.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="bookingCard.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="&gt;&gt;deliveryCard.Name" xml:space="preserve">
-    <value>deliveryCard</value>
+  <data name="&gt;&gt;bookingCard.Name" xml:space="preserve">
+    <value>bookingCard</value>
   </data>
-  <data name="&gt;&gt;deliveryCard.Type" xml:space="preserve">
+  <data name="&gt;&gt;bookingCard.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;deliveryCard.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bookingCard.Parent" xml:space="preserve">
     <value>dashboardCardsPanel</value>
   </data>
-  <data name="&gt;&gt;deliveryCard.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;bookingCard.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
   <data name="iconDelivery.Font" type="System.Drawing.Font, System.Drawing">
@@ -2131,49 +1967,25 @@
   <data name="&gt;&gt;lbDelivery.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;iconRoute.Name" xml:space="preserve">
-    <value>iconRoute</value>
+  <data name="deliveryCard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 347</value>
   </data>
-  <data name="&gt;&gt;iconRoute.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;iconRoute.Parent" xml:space="preserve">
-    <value>routeCard</value>
-  </data>
-  <data name="&gt;&gt;iconRoute.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lbRoute.Name" xml:space="preserve">
-    <value>lbRoute</value>
-  </data>
-  <data name="&gt;&gt;lbRoute.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbRoute.Parent" xml:space="preserve">
-    <value>routeCard</value>
-  </data>
-  <data name="&gt;&gt;lbRoute.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="routeCard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 418</value>
-  </data>
-  <data name="routeCard.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="deliveryCard.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 65</value>
   </data>
-  <data name="routeCard.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="deliveryCard.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;routeCard.Name" xml:space="preserve">
-    <value>routeCard</value>
+  <data name="&gt;&gt;deliveryCard.Name" xml:space="preserve">
+    <value>deliveryCard</value>
   </data>
-  <data name="&gt;&gt;routeCard.Type" xml:space="preserve">
+  <data name="&gt;&gt;deliveryCard.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;routeCard.Parent" xml:space="preserve">
+  <data name="&gt;&gt;deliveryCard.Parent" xml:space="preserve">
     <value>dashboardCardsPanel</value>
   </data>
-  <data name="&gt;&gt;routeCard.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;deliveryCard.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="iconRoute.Font" type="System.Drawing.Font, System.Drawing">
@@ -2236,49 +2048,25 @@
   <data name="&gt;&gt;lbRoute.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;iconVehicle.Name" xml:space="preserve">
-    <value>iconVehicle</value>
+  <data name="routeCard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 418</value>
   </data>
-  <data name="&gt;&gt;iconVehicle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;iconVehicle.Parent" xml:space="preserve">
-    <value>vehicleCard</value>
-  </data>
-  <data name="&gt;&gt;iconVehicle.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lbVehicle.Name" xml:space="preserve">
-    <value>lbVehicle</value>
-  </data>
-  <data name="&gt;&gt;lbVehicle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbVehicle.Parent" xml:space="preserve">
-    <value>vehicleCard</value>
-  </data>
-  <data name="&gt;&gt;lbVehicle.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="vehicleCard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 489</value>
-  </data>
-  <data name="vehicleCard.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="routeCard.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 65</value>
   </data>
-  <data name="vehicleCard.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="routeCard.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="&gt;&gt;vehicleCard.Name" xml:space="preserve">
-    <value>vehicleCard</value>
+  <data name="&gt;&gt;routeCard.Name" xml:space="preserve">
+    <value>routeCard</value>
   </data>
-  <data name="&gt;&gt;vehicleCard.Type" xml:space="preserve">
+  <data name="&gt;&gt;routeCard.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;vehicleCard.Parent" xml:space="preserve">
+  <data name="&gt;&gt;routeCard.Parent" xml:space="preserve">
     <value>dashboardCardsPanel</value>
   </data>
-  <data name="&gt;&gt;vehicleCard.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;routeCard.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
   <data name="iconVehicle.Font" type="System.Drawing.Font, System.Drawing">
@@ -2341,49 +2129,25 @@
   <data name="&gt;&gt;lbVehicle.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;iconSeat.Name" xml:space="preserve">
-    <value>iconSeat</value>
+  <data name="vehicleCard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 489</value>
   </data>
-  <data name="&gt;&gt;iconSeat.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;iconSeat.Parent" xml:space="preserve">
-    <value>seatCard</value>
-  </data>
-  <data name="&gt;&gt;iconSeat.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lbSeat.Name" xml:space="preserve">
-    <value>lbSeat</value>
-  </data>
-  <data name="&gt;&gt;lbSeat.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbSeat.Parent" xml:space="preserve">
-    <value>seatCard</value>
-  </data>
-  <data name="&gt;&gt;lbSeat.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="seatCard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 598</value>
-  </data>
-  <data name="seatCard.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="vehicleCard.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 65</value>
   </data>
-  <data name="seatCard.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="vehicleCard.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;seatCard.Name" xml:space="preserve">
-    <value>seatCard</value>
+  <data name="&gt;&gt;vehicleCard.Name" xml:space="preserve">
+    <value>vehicleCard</value>
   </data>
-  <data name="&gt;&gt;seatCard.Type" xml:space="preserve">
+  <data name="&gt;&gt;vehicleCard.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;seatCard.Parent" xml:space="preserve">
+  <data name="&gt;&gt;vehicleCard.Parent" xml:space="preserve">
     <value>dashboardCardsPanel</value>
   </data>
-  <data name="&gt;&gt;seatCard.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;vehicleCard.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
   <data name="iconSeat.Font" type="System.Drawing.Font, System.Drawing">
@@ -2446,49 +2210,25 @@
   <data name="&gt;&gt;lbSeat.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;iconTicket.Name" xml:space="preserve">
-    <value>iconTicket</value>
+  <data name="seatCard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 598</value>
   </data>
-  <data name="&gt;&gt;iconTicket.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;iconTicket.Parent" xml:space="preserve">
-    <value>ticketCard</value>
-  </data>
-  <data name="&gt;&gt;iconTicket.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lbTicket.Name" xml:space="preserve">
-    <value>lbTicket</value>
-  </data>
-  <data name="&gt;&gt;lbTicket.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbTicket.Parent" xml:space="preserve">
-    <value>ticketCard</value>
-  </data>
-  <data name="&gt;&gt;lbTicket.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="ticketCard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 669</value>
-  </data>
-  <data name="ticketCard.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="seatCard.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 65</value>
   </data>
-  <data name="ticketCard.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="seatCard.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="&gt;&gt;ticketCard.Name" xml:space="preserve">
-    <value>ticketCard</value>
+  <data name="&gt;&gt;seatCard.Name" xml:space="preserve">
+    <value>seatCard</value>
   </data>
-  <data name="&gt;&gt;ticketCard.Type" xml:space="preserve">
+  <data name="&gt;&gt;seatCard.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ticketCard.Parent" xml:space="preserve">
+  <data name="&gt;&gt;seatCard.Parent" xml:space="preserve">
     <value>dashboardCardsPanel</value>
   </data>
-  <data name="&gt;&gt;ticketCard.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;seatCard.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
   <data name="iconTicket.Font" type="System.Drawing.Font, System.Drawing">
@@ -2551,6 +2291,99 @@
   <data name="&gt;&gt;lbTicket.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="ticketCard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 669</value>
+  </data>
+  <data name="ticketCard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 65</value>
+  </data>
+  <data name="ticketCard.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;ticketCard.Name" xml:space="preserve">
+    <value>ticketCard</value>
+  </data>
+  <data name="&gt;&gt;ticketCard.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ticketCard.Parent" xml:space="preserve">
+    <value>dashboardCardsPanel</value>
+  </data>
+  <data name="&gt;&gt;ticketCard.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="dashboardCardsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="dashboardCardsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="dashboardCardsPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="dashboardCardsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 1003</value>
+  </data>
+  <data name="dashboardCardsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;dashboardCardsPanel.Name" xml:space="preserve">
+    <value>dashboardCardsPanel</value>
+  </data>
+  <data name="&gt;&gt;dashboardCardsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dashboardCardsPanel.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;dashboardCardsPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.Name" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.Parent" xml:space="preserve">
+    <value>splitContainer1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Name" xml:space="preserve">
+    <value>splitContainer1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
+    <value>splitContainer1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1423, 1003</value>
+  </data>
+  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
+    <value>300</value>
+  </data>
+  <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Name" xml:space="preserve">
+    <value>splitContainer1</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -2609,45 +2442,6 @@
     <value>contentPanel</value>
   </data>
   <data name="&gt;&gt;contentPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;iconPassenger.Name" xml:space="preserve">
-    <value>iconPassenger</value>
-  </data>
-  <data name="&gt;&gt;iconPassenger.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;iconPassenger.Parent" xml:space="preserve">
-    <value>passengerCard</value>
-  </data>
-  <data name="&gt;&gt;iconPassenger.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;load_formPassenger.Name" xml:space="preserve">
-    <value>load_formPassenger</value>
-  </data>
-  <data name="&gt;&gt;load_formPassenger.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;load_formPassenger.Parent" xml:space="preserve">
-    <value>passengerCard</value>
-  </data>
-  <data name="&gt;&gt;load_formPassenger.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="passengerCard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 420</value>
-  </data>
-  <data name="passengerCard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 65</value>
-  </data>
-  <data name="passengerCard.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;passengerCard.Name" xml:space="preserve">
-    <value>passengerCard</value>
-  </data>
-  <data name="&gt;&gt;passengerCard.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="iconPassenger.Font" type="System.Drawing.Font, System.Drawing">
@@ -2709,6 +2503,21 @@
   </data>
   <data name="&gt;&gt;load_formPassenger.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="passengerCard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 420</value>
+  </data>
+  <data name="passengerCard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 65</value>
+  </data>
+  <data name="passengerCard.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;passengerCard.Name" xml:space="preserve">
+    <value>passengerCard</value>
+  </data>
+  <data name="&gt;&gt;passengerCard.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="userProfilePanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -2799,138 +2608,6 @@
   </data>
   <data name="&gt;&gt;totalBookingsCard.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Emoji, 18pt</value>
-  </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 10</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 35</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>👥</value>
-  </data>
-  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lbInvoice.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbInvoice.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11pt, style=Bold</value>
-  </data>
-  <data name="lbInvoice.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbInvoice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>60, 21</value>
-  </data>
-  <data name="lbInvoice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 20</value>
-  </data>
-  <data name="lbInvoice.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lbInvoice.Text" xml:space="preserve">
-    <value>Invoice</value>
-  </data>
-  <data name="&gt;&gt;lbInvoice.Name" xml:space="preserve">
-    <value>lbInvoice</value>
-  </data>
-  <data name="&gt;&gt;lbInvoice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbInvoice.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;lbInvoice.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lbInvoice.Name" xml:space="preserve">
-    <value>lbInvoice</value>
-  </data>
-  <data name="&gt;&gt;lbInvoice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbInvoice.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;lbInvoice.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 886</value>
-  </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 60</value>
-  </data>
-  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="pictureBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="pictureBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 50</value>
-  </data>
-  <data name="pictureBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;pictureBox3.Name" xml:space="preserve">
-    <value>pictureBox3</value>
-  </data>
-  <data name="&gt;&gt;pictureBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox3.Parent" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;pictureBox3.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

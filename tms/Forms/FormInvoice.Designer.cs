@@ -234,7 +234,7 @@
             btnClear.FlatStyle = FlatStyle.Flat;
             btnClear.Font = new Font("Arial", 10F, FontStyle.Bold);
             btnClear.ForeColor = Color.White;
-            btnClear.Location = new Point(225, 304);
+            btnClear.Location = new Point(50, 264);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(100, 35);
             btnClear.TabIndex = 17;
