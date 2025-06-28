@@ -25,7 +25,7 @@ namespace tms.Data
         public DbSet<SeatTypeConfigurations> SeatTypeConfigurations { get; set; }
         public DbSet<VehicleConfigurations> VehicleConfigurations { get; set; }
         public DbSet<SeatExclusions> SeatExclusions { get; set; }
-
+        public DbSet<Driver> Drivers { get; set; }
         public DbSet<Trip> Trips { get; set; }
         public DbSet<TripDetail> TripDetail { get; set; }
 

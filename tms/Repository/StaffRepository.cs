@@ -96,6 +96,16 @@ namespace Staff_info.Repository
             }
         }
 
+        public Staff? GetById(string staffId)
+        {
+            using var context = new AppDbContext();
+            var param = new SqlParameter("@staffId", staffId);
+            return context.Staffs
+                .FromSqlRaw("EXEC GetStaffById @staffId", param)
+                .AsEnumerable()
+                .FirstOrDefault();
+        }
+
 
         public List<Staff> Search(string keyword)
         {

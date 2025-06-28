@@ -1321,7 +1321,7 @@
     <value>149, 795</value>
   </data>
   <data name="lbLogout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 19</value>
+    <value>112, 28</value>
   </data>
   <data name="lbLogout.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1371,116 +1371,6 @@
   </data>
   <data name="dashboardCardsPanel.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="paymentImg.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="paymentImg.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAIJJREFUSEvt
-        lTEKwCAMRaX2YD2CDr1PL1UcezRLAlm+7SAx6JAHf/mKD1E0BMfRcG/psgh6mBLzYxn0kbCWPR3Ya6E1
-        aW3s5wlN8is0DPom7XDGGWKvxYVrCuX2fXU4phbSY8xzY67yMJeYT+maMa2wl6WEzZcyMuhj8OMcFfQ4
-        Thcv5RpuYTjK4LoAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="paymentImg.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 12</value>
-  </data>
-  <data name="paymentImg.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 38</value>
-  </data>
-  <data name="paymentImg.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
-  </data>
-  <data name="paymentImg.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;paymentImg.Name" xml:space="preserve">
-    <value>paymentImg</value>
-  </data>
-  <data name="&gt;&gt;paymentImg.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;paymentImg.Parent" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;paymentImg.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lbPayment.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbPayment.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11pt, style=Bold</value>
-  </data>
-  <data name="lbPayment.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbPayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>60, 21</value>
-  </data>
-  <data name="lbPayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 20</value>
-  </data>
-  <data name="lbPayment.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lbPayment.Text" xml:space="preserve">
-    <value>Payment</value>
-  </data>
-  <data name="&gt;&gt;lbPayment.Name" xml:space="preserve">
-    <value>lbPayment</value>
-  </data>
-  <data name="&gt;&gt;lbPayment.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbPayment.Parent" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;lbPayment.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 817</value>
-  </data>
-  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 60</value>
-  </data>
-  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="pictureBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="pictureBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 50</value>
-  </data>
-  <data name="pictureBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;pictureBox3.Name" xml:space="preserve">
-    <value>pictureBox3</value>
-  </data>
-  <data name="&gt;&gt;pictureBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox3.Parent" xml:space="preserve">
-    <value>dashboardCardsPanel</value>
-  </data>
-  <data name="&gt;&gt;pictureBox3.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="invoiceImg.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -1533,10 +1423,10 @@
     <value>NoControl</value>
   </data>
   <data name="lbInvoice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>60, 21</value>
+    <value>60, 11</value>
   </data>
   <data name="lbInvoice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 20</value>
+    <value>87, 30</value>
   </data>
   <data name="lbInvoice.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1557,7 +1447,7 @@
     <value>1</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 886</value>
+    <value>10, 697</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 60</value>
@@ -1575,7 +1465,204 @@
     <value>dashboardCardsPanel</value>
   </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Emoji, 18pt</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 15</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 35</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>👥</value>
+  </data>
+  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lbDriver.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbDriver.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt, style=Bold</value>
+  </data>
+  <data name="lbDriver.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbDriver.Location" type="System.Drawing.Point, System.Drawing">
+    <value>60, 22</value>
+  </data>
+  <data name="lbDriver.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 30</value>
+  </data>
+  <data name="lbDriver.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbDriver.Text" xml:space="preserve">
+    <value>Driver</value>
+  </data>
+  <data name="&gt;&gt;lbDriver.Name" xml:space="preserve">
+    <value>lbDriver</value>
+  </data>
+  <data name="&gt;&gt;lbDriver.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbDriver.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;lbDriver.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 560</value>
+  </data>
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 65</value>
+  </data>
+  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
+    <value>dashboardCardsPanel</value>
+  </data>
+  <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="paymentImg.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="paymentImg.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAIJJREFUSEvt
+        lTEKwCAMRaX2YD2CDr1PL1UcezRLAlm+7SAx6JAHf/mKD1E0BMfRcG/psgh6mBLzYxn0kbCWPR3Ya6E1
+        aW3s5wlN8is0DPom7XDGGWKvxYVrCuX2fXU4phbSY8xzY67yMJeYT+maMa2wl6WEzZcyMuhj8OMcFfQ4
+        Thcv5RpuYTjK4LoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="paymentImg.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 12</value>
+  </data>
+  <data name="paymentImg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 38</value>
+  </data>
+  <data name="paymentImg.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="paymentImg.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;paymentImg.Name" xml:space="preserve">
+    <value>paymentImg</value>
+  </data>
+  <data name="&gt;&gt;paymentImg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;paymentImg.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;paymentImg.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lbPayment.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbPayment.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt, style=Bold</value>
+  </data>
+  <data name="lbPayment.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbPayment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>60, 12</value>
+  </data>
+  <data name="lbPayment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 30</value>
+  </data>
+  <data name="lbPayment.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbPayment.Text" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="&gt;&gt;lbPayment.Name" xml:space="preserve">
+    <value>lbPayment</value>
+  </data>
+  <data name="&gt;&gt;lbPayment.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbPayment.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;lbPayment.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 631</value>
+  </data>
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 60</value>
+  </data>
+  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
+    <value>dashboardCardsPanel</value>
+  </data>
+  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pictureBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pictureBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 50</value>
+  </data>
+  <data name="pictureBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;pictureBox3.Name" xml:space="preserve">
+    <value>pictureBox3</value>
+  </data>
+  <data name="&gt;&gt;pictureBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox3.Parent" xml:space="preserve">
+    <value>dashboardCardsPanel</value>
+  </data>
+  <data name="&gt;&gt;pictureBox3.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Emoji, 18pt</value>
@@ -1623,7 +1710,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbOrder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 20</value>
+    <value>168, 30</value>
   </data>
   <data name="lbOrder.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1662,7 +1749,7 @@
     <value>dashboardCardsPanel</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="iconStaff.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Emoji, 18pt</value>
@@ -1704,7 +1791,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbStaff.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 20</value>
+    <value>205, 30</value>
   </data>
   <data name="lbStaff.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1725,7 +1812,7 @@
     <value>1</value>
   </data>
   <data name="staffCard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 740</value>
+    <value>10, 959</value>
   </data>
   <data name="staffCard.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 65</value>
@@ -1743,7 +1830,7 @@
     <value>dashboardCardsPanel</value>
   </data>
   <data name="&gt;&gt;staffCard.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="iconTrip.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Emoji, 18pt</value>
@@ -1785,7 +1872,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbTrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 20</value>
+    <value>150, 30</value>
   </data>
   <data name="lbTrip.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1824,7 +1911,7 @@
     <value>dashboardCardsPanel</value>
   </data>
   <data name="&gt;&gt;tripCard.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="iconBooking.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Emoji, 18pt</value>
@@ -1866,7 +1953,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbBooking.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 20</value>
+    <value>178, 30</value>
   </data>
   <data name="lbBooking.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1905,7 +1992,7 @@
     <value>dashboardCardsPanel</value>
   </data>
   <data name="&gt;&gt;bookingCard.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="iconDelivery.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Emoji, 18pt</value>
@@ -1947,7 +2034,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbDelivery.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 20</value>
+    <value>193, 30</value>
   </data>
   <data name="lbDelivery.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1986,7 +2073,7 @@
     <value>dashboardCardsPanel</value>
   </data>
   <data name="&gt;&gt;deliveryCard.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="iconRoute.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Emoji, 18pt</value>
@@ -2028,7 +2115,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbRoute.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 20</value>
+    <value>170, 30</value>
   </data>
   <data name="lbRoute.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2067,7 +2154,7 @@
     <value>dashboardCardsPanel</value>
   </data>
   <data name="&gt;&gt;routeCard.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="iconVehicle.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Emoji, 18pt</value>
@@ -2109,7 +2196,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbVehicle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 20</value>
+    <value>143, 30</value>
   </data>
   <data name="lbVehicle.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2148,7 +2235,7 @@
     <value>dashboardCardsPanel</value>
   </data>
   <data name="&gt;&gt;vehicleCard.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="iconSeat.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Emoji, 18pt</value>
@@ -2190,7 +2277,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbSeat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 20</value>
+    <value>202, 30</value>
   </data>
   <data name="lbSeat.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2211,7 +2298,7 @@
     <value>1</value>
   </data>
   <data name="seatCard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 598</value>
+    <value>10, 817</value>
   </data>
   <data name="seatCard.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 65</value>
@@ -2229,7 +2316,7 @@
     <value>dashboardCardsPanel</value>
   </data>
   <data name="&gt;&gt;seatCard.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="iconTicket.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Emoji, 18pt</value>
@@ -2271,7 +2358,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbTicket.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 20</value>
+    <value>220, 30</value>
   </data>
   <data name="lbTicket.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2292,7 +2379,7 @@
     <value>1</value>
   </data>
   <data name="ticketCard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 669</value>
+    <value>10, 888</value>
   </data>
   <data name="ticketCard.Size" type="System.Drawing.Size, System.Drawing">
     <value>280, 65</value>
@@ -2310,7 +2397,7 @@
     <value>dashboardCardsPanel</value>
   </data>
   <data name="&gt;&gt;ticketCard.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="dashboardCardsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -2322,7 +2409,7 @@
     <value>10, 10, 10, 10</value>
   </data>
   <data name="dashboardCardsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 1003</value>
+    <value>300, 1082</value>
   </data>
   <data name="dashboardCardsPanel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2364,7 +2451,7 @@
     <value>1</value>
   </data>
   <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1423, 1003</value>
+    <value>1423, 1082</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
     <value>300</value>
@@ -2484,7 +2571,7 @@
     <value>60, 22</value>
   </data>
   <data name="load_formPassenger.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 20</value>
+    <value>206, 30</value>
   </data>
   <data name="load_formPassenger.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2616,7 +2703,7 @@
     <value>25</value>
   </metadata>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1423, 1003</value>
+    <value>1423, 1082</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormMain</value>

@@ -51,16 +51,16 @@
             // 
             txtSearch.Location = new Point(24, 46);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(369, 23);
+            txtSearch.Size = new Size(369, 31);
             txtSearch.TabIndex = 1;
             // 
             // lstVehicles
             // 
             lstVehicles.Dock = DockStyle.Fill;
-            lstVehicles.ItemHeight = 15;
-            lstVehicles.Location = new Point(3, 19);
+            lstVehicles.ItemHeight = 25;
+            lstVehicles.Location = new Point(3, 27);
             lstVehicles.Name = "lstVehicles";
-            lstVehicles.Size = new Size(413, 1033);
+            lstVehicles.Size = new Size(413, 1025);
             lstVehicles.TabIndex = 2;
             lstVehicles.SelectedIndexChanged += lstVehicles_SelectedIndexChanged_1;
             // 
@@ -79,7 +79,7 @@
             txtVehicleID.Dock = DockStyle.Fill;
             txtVehicleID.Location = new Point(374, 3);
             txtVehicleID.Name = "txtVehicleID";
-            txtVehicleID.Size = new Size(365, 23);
+            txtVehicleID.Size = new Size(365, 31);
             txtVehicleID.TabIndex = 4;
             // 
             // lblType
@@ -97,7 +97,7 @@
             cmbType.Dock = DockStyle.Fill;
             cmbType.Location = new Point(1116, 3);
             cmbType.Name = "cmbType";
-            cmbType.Size = new Size(368, 23);
+            cmbType.Size = new Size(368, 33);
             cmbType.TabIndex = 6;
             // 
             // lblCapacity
@@ -115,7 +115,7 @@
             txtCapacity.Dock = DockStyle.Fill;
             txtCapacity.Location = new Point(374, 53);
             txtCapacity.Name = "txtCapacity";
-            txtCapacity.Size = new Size(365, 23);
+            txtCapacity.Size = new Size(365, 31);
             txtCapacity.TabIndex = 8;
             // 
             // lblLicensePlate
@@ -133,7 +133,7 @@
             txtLicensePlate.Dock = DockStyle.Fill;
             txtLicensePlate.Location = new Point(1116, 53);
             txtLicensePlate.Name = "txtLicensePlate";
-            txtLicensePlate.Size = new Size(368, 23);
+            txtLicensePlate.Size = new Size(368, 31);
             txtLicensePlate.TabIndex = 10;
             // 
             // lblRouteID
@@ -151,7 +151,7 @@
             cmbRouteID.Dock = DockStyle.Fill;
             cmbRouteID.Location = new Point(374, 103);
             cmbRouteID.Name = "cmbRouteID";
-            cmbRouteID.Size = new Size(365, 23);
+            cmbRouteID.Size = new Size(365, 33);
             cmbRouteID.TabIndex = 12;
             // 
             // lblStatus
@@ -169,7 +169,7 @@
             cmbStatus.Dock = DockStyle.Fill;
             cmbStatus.Location = new Point(1116, 103);
             cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(368, 23);
+            cmbStatus.Size = new Size(368, 33);
             cmbStatus.TabIndex = 14;
             // 
             // lblMaintenanceDate
@@ -187,7 +187,7 @@
             dtpMaintenanceDate.Dock = DockStyle.Fill;
             dtpMaintenanceDate.Location = new Point(374, 153);
             dtpMaintenanceDate.Name = "dtpMaintenanceDate";
-            dtpMaintenanceDate.Size = new Size(365, 23);
+            dtpMaintenanceDate.Size = new Size(365, 31);
             dtpMaintenanceDate.TabIndex = 16;
             // 
             // btnInsert
@@ -273,7 +273,7 @@
             tableLayoutPanel3.Controls.Add(lblLicensePlate, 2, 1);
             tableLayoutPanel3.Controls.Add(txtLicensePlate, 3, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 19);
+            tableLayoutPanel3.Location = new Point(3, 27);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 5;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
@@ -281,7 +281,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(1487, 1033);
+            tableLayoutPanel3.Size = new Size(1487, 1025);
             tableLayoutPanel3.TabIndex = 17;
             tableLayoutPanel3.Paint += tableLayoutPanel3_Paint;
             // 

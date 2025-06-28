@@ -26,7 +26,7 @@ namespace tms
             lbOrder.Click += btn_formOrder_Click;
             lbInvoice.Click += btn_formInvoice_Click;
             lbPayment.Click += btn_formPayment_Click;
-
+            lbDriver.Click += btn_formDriver_Click;
         }
 
 
@@ -47,6 +47,11 @@ namespace tms
         private void btn_formStaff_Click(object sender, EventArgs e)
         {
             loadFormIntoPanel(new FormStaff());
+        }
+
+        private void btn_formDriver_Click(object sender, EventArgs e)
+        {
+            loadFormIntoPanel(new FormDriver());
         }
 
         private void btn_formTicket_Click(object sender, EventArgs e)
