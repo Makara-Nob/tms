@@ -12,8 +12,8 @@ using tms.Data;
 namespace tms.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250622174211_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250628134521_OrderANDDelivery")]
+    partial class OrderANDDelivery
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,16 +33,20 @@ namespace tms.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DeliveryId"));
 
-                    b.Property<DateTime>("DeliveryDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("DeliveryStatus")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
 
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
+                    b.Property<string>("OrderId")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("OrderId");
 
                     b.HasKey("DeliveryId");
+
+                    b.HasIndex("OrderId")
+                        .IsUnique();
 
                     b.ToTable("Deliveries");
                 });
@@ -102,145 +106,6 @@ namespace tms.Migrations
                     b.ToTable("Seats");
                 });
 
-            modelBuilder.Entity("tms.Config.SeatExclusion", b =>
-                {
-                    b.Property<int>("ExclusionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExclusionId"));
-
-                    b.Property<DateTime?>("ExclusionEnd")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("ExclusionStart")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsTemporary")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Reason")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RowNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SeatPosition")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("VehicleConfigurationConfigId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("VehicleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ExclusionId");
-
-                    b.HasIndex("VehicleConfigurationConfigId");
-
-                    b.ToTable("SeatExclusions");
-                });
-
-            modelBuilder.Entity("tms.Config.SeatTypeConfiguration", b =>
-                {
-                    b.Property<int>("ConfigId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ConfigId"));
-
-                    b.Property<decimal>("BasePrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Features")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("FromRow")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SeatType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.PrimitiveCollection<string>("SpecificSeats")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ToRow")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("VehicleConfigurationConfigId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("VehicleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ConfigId");
-
-                    b.HasIndex("VehicleConfigurationConfigId");
-
-                    b.ToTable("SeatTypeConfigurations");
-                });
-
-            modelBuilder.Entity("tms.Config.VehicleConfiguration", b =>
-                {
-                    b.Property<int>("ConfigId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ConfigId"));
-
-                    b.PrimitiveCollection<string>("AislePositions")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("HasUpperDeck")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("LastModified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SeatLayout")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SeatsPerRow")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TotalRows")
-                        .HasColumnType("int");
-
-                    b.Property<string>("VehicleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VehicleName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VehicleType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ConfigId");
-
-                    b.ToTable("VehicleConfigurations");
-                });
-
             modelBuilder.Entity("tms.Model.Booking", b =>
                 {
                     b.Property<int>("BookingID")
@@ -293,12 +158,8 @@ namespace tms.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int?>("DeliveryId")
+                    b.Property<int>("IsAssigned")
                         .HasColumnType("int");
-
-                    b.Property<string>("DeliveryStatus")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
@@ -310,20 +171,18 @@ namespace tms.Migrations
 
                     b.Property<string>("Reciever")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Sender")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<decimal?>("TotalAmount")
-                        .HasColumnType("decimal(10,2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("OrderID");
-
-                    b.HasIndex("DeliveryId");
 
                     b.ToTable("Orders");
                 });
@@ -371,6 +230,89 @@ namespace tms.Migrations
                     b.HasKey("RouteID");
 
                     b.ToTable("Routes");
+                });
+
+            modelBuilder.Entity("tms.Model.SeatExclusions", b =>
+                {
+                    b.Property<int>("ExclusionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExclusionId"));
+
+                    b.Property<int>("ConfigId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ExclusionEnd")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ExclusionStart")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsTemporary")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RowNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SeatPosition")
+                        .HasColumnType("int");
+
+                    b.HasKey("ExclusionId");
+
+                    b.HasIndex("ConfigId");
+
+                    b.ToTable("SeatExclusions");
+                });
+
+            modelBuilder.Entity("tms.Model.SeatTypeConfigurations", b =>
+                {
+                    b.Property<int>("SeatTypeConfigId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SeatTypeConfigId"));
+
+                    b.Property<decimal>("BasePrice")
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<int>("ConfigId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Features")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FromRow")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SeatType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SpecificSeatsString")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ToRow")
+                        .HasColumnType("int");
+
+                    b.HasKey("SeatTypeConfigId");
+
+                    b.HasIndex("ConfigId");
+
+                    b.ToTable("SeatTypeConfigurations");
                 });
 
             modelBuilder.Entity("tms.Model.Staff", b =>
@@ -552,6 +494,101 @@ namespace tms.Migrations
                     b.ToTable("Vehicles");
                 });
 
+            modelBuilder.Entity("tms.Model.VehicleConfigurations", b =>
+                {
+                    b.Property<int>("ConfigId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ConfigId"));
+
+                    b.Property<string>("AislePositionsString")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("HasUpperDeck")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SeatLayout")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SeatsPerRow")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalRows")
+                        .HasColumnType("int");
+
+                    b.Property<string>("VehicleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VehicleName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VehicleType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ConfigId");
+
+                    b.ToTable("VehicleConfigurations");
+                });
+
+            modelBuilder.Entity("tms.Models.DeliveryViewModel", b =>
+                {
+                    b.Property<int>("DeliveryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DeliveryStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IsAssigned")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("OrderID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OrderId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OrderType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Reciever")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.ToTable((string)null);
+
+                    b.ToView(null, (string)null);
+                });
+
             modelBuilder.Entity("tms.projection.TripDetail", b =>
                 {
                     b.Property<DateTime>("DepartureTime")
@@ -582,6 +619,17 @@ namespace tms.Migrations
                     b.ToView(null, (string)null);
                 });
 
+            modelBuilder.Entity("Delivery_info.Model.Delivery", b =>
+                {
+                    b.HasOne("tms.Model.Order", "Order")
+                        .WithOne("Delivery")
+                        .HasForeignKey("Delivery_info.Model.Delivery", "OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("Seat_info.Model.Seat", b =>
                 {
                     b.HasOne("tms.Model.Vehicle", "Vehicle")
@@ -589,24 +637,6 @@ namespace tms.Migrations
                         .HasForeignKey("VehicleID");
 
                     b.Navigation("Vehicle");
-                });
-
-            modelBuilder.Entity("tms.Config.SeatExclusion", b =>
-                {
-                    b.HasOne("tms.Config.VehicleConfiguration", "VehicleConfiguration")
-                        .WithMany("SeatExclusions")
-                        .HasForeignKey("VehicleConfigurationConfigId");
-
-                    b.Navigation("VehicleConfiguration");
-                });
-
-            modelBuilder.Entity("tms.Config.SeatTypeConfiguration", b =>
-                {
-                    b.HasOne("tms.Config.VehicleConfiguration", "VehicleConfiguration")
-                        .WithMany("SeatTypeConfigurations")
-                        .HasForeignKey("VehicleConfigurationConfigId");
-
-                    b.Navigation("VehicleConfiguration");
                 });
 
             modelBuilder.Entity("tms.Model.Booking", b =>
@@ -628,13 +658,26 @@ namespace tms.Migrations
                     b.Navigation("Trip");
                 });
 
-            modelBuilder.Entity("tms.Model.Order", b =>
+            modelBuilder.Entity("tms.Model.SeatExclusions", b =>
                 {
-                    b.HasOne("Delivery_info.Model.Delivery", "Delivery")
-                        .WithMany()
-                        .HasForeignKey("DeliveryId");
+                    b.HasOne("tms.Model.VehicleConfigurations", "VehicleConfigurations")
+                        .WithMany("SeatExclusions")
+                        .HasForeignKey("ConfigId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Delivery");
+                    b.Navigation("VehicleConfigurations");
+                });
+
+            modelBuilder.Entity("tms.Model.SeatTypeConfigurations", b =>
+                {
+                    b.HasOne("tms.Model.VehicleConfigurations", "VehicleConfigurations")
+                        .WithMany("SeatTypeConfigurations")
+                        .HasForeignKey("ConfigId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("VehicleConfigurations");
                 });
 
             modelBuilder.Entity("tms.Model.Trip", b =>
@@ -669,7 +712,13 @@ namespace tms.Migrations
                     b.Navigation("Route");
                 });
 
-            modelBuilder.Entity("tms.Config.VehicleConfiguration", b =>
+            modelBuilder.Entity("tms.Model.Order", b =>
+                {
+                    b.Navigation("Delivery")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("tms.Model.VehicleConfigurations", b =>
                 {
                     b.Navigation("SeatExclusions");
 

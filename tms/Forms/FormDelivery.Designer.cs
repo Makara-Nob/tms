@@ -31,39 +31,39 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
-            deliveryId = new TextBox();
+            Delivery_Id = new TextBox();
             label2 = new Label();
-            orderId = new TextBox();
-            label3 = new Label();
-            customerId = new TextBox();
+            Order_Id = new TextBox();
             label4 = new Label();
-            orderType = new TextBox();
+            Order_Date = new TextBox();
             label5 = new Label();
-            orderDate = new TextBox();
             label6 = new Label();
-            deliveryStatus = new ComboBox();
-            updateBtn = new Button();
-            tableDelivery = new DataGridView();
+            Update_Button = new Button();
+            Order_Table = new DataGridView();
             panelForm = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             groupBox5 = new GroupBox();
-            textBox1 = new TextBox();
+            Search_Delivery = new TextBox();
             groupBox4 = new GroupBox();
-            dataGridView1 = new DataGridView();
+            Delivery_Table = new DataGridView();
             groupBox1 = new GroupBox();
             tableLayoutPanel2 = new TableLayoutPanel();
+            Delivery_Trip = new ComboBox();
+            Delivery_Status = new ComboBox();
+            Order_Type = new TextBox();
+            label7 = new Label();
             tableLayoutPanel4 = new TableLayoutPanel();
             groupBox2 = new GroupBox();
             groupBox3 = new GroupBox();
-            txtSearch = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)tableDelivery).BeginInit();
+            Search_Order = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)Order_Table).BeginInit();
             panelForm.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             groupBox5.SuspendLayout();
             groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Delivery_Table).BeginInit();
             groupBox1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -78,20 +78,20 @@
             label1.ForeColor = Color.FromArgb(224, 224, 224);
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(112, 28);
+            label1.Size = new Size(74, 17);
             label1.TabIndex = 0;
             label1.Text = "Delivery ID";
             // 
-            // deliveryId
+            // Delivery_Id
             // 
-            deliveryId.BorderStyle = BorderStyle.FixedSingle;
-            deliveryId.Dock = DockStyle.Fill;
-            deliveryId.Font = new Font("Segoe UI", 11F);
-            deliveryId.Location = new Point(225, 3);
-            deliveryId.Name = "deliveryId";
-            deliveryId.Size = new Size(216, 37);
-            deliveryId.TabIndex = 1;
-            deliveryId.TextChanged += deliveryId_TextChanged;
+            Delivery_Id.BorderStyle = BorderStyle.FixedSingle;
+            Delivery_Id.Dock = DockStyle.Fill;
+            Delivery_Id.Font = new Font("Segoe UI", 11F);
+            Delivery_Id.Location = new Point(225, 3);
+            Delivery_Id.Name = "Delivery_Id";
+            Delivery_Id.Size = new Size(216, 27);
+            Delivery_Id.TabIndex = 1;
+            Delivery_Id.TextChanged += Delivery_Id_TextChanged;
             // 
             // label2
             // 
@@ -100,134 +100,89 @@
             label2.ForeColor = Color.FromArgb(224, 224, 224);
             label2.Location = new Point(447, 0);
             label2.Name = "label2";
-            label2.Size = new Size(90, 28);
+            label2.Size = new Size(60, 17);
             label2.TabIndex = 0;
             label2.Text = "Order ID";
             // 
-            // orderId
+            // Order_Id
             // 
-            orderId.BorderStyle = BorderStyle.FixedSingle;
-            orderId.Dock = DockStyle.Fill;
-            orderId.Font = new Font("Segoe UI", 11F);
-            orderId.Location = new Point(669, 3);
-            orderId.Name = "orderId";
-            orderId.Size = new Size(218, 37);
-            orderId.TabIndex = 1;
-            orderId.TextChanged += orderId_TextChanged;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.FromArgb(224, 224, 224);
-            label3.Location = new Point(3, 107);
-            label3.Name = "label3";
-            label3.Size = new Size(126, 28);
-            label3.TabIndex = 0;
-            label3.Text = "Customer ID";
-            // 
-            // customerId
-            // 
-            customerId.BorderStyle = BorderStyle.FixedSingle;
-            customerId.Dock = DockStyle.Fill;
-            customerId.Font = new Font("Segoe UI", 11F);
-            customerId.Location = new Point(225, 110);
-            customerId.Name = "customerId";
-            customerId.Size = new Size(216, 37);
-            customerId.TabIndex = 1;
-            customerId.TextChanged += customerId_TextChanged;
+            Order_Id.BorderStyle = BorderStyle.FixedSingle;
+            Order_Id.Dock = DockStyle.Fill;
+            Order_Id.Font = new Font("Segoe UI", 11F);
+            Order_Id.Location = new Point(669, 3);
+            Order_Id.Name = "Order_Id";
+            Order_Id.Size = new Size(218, 27);
+            Order_Id.TabIndex = 1;
+            Order_Id.TextChanged += Order_Id_TextChanged;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(224, 224, 224);
-            label4.Location = new Point(447, 107);
+            label4.Location = new Point(3, 109);
             label4.Name = "label4";
-            label4.Size = new Size(113, 28);
+            label4.Size = new Size(75, 17);
             label4.TabIndex = 0;
             label4.Text = "Order Type";
             // 
-            // orderType
+            // Order_Date
             // 
-            orderType.BorderStyle = BorderStyle.FixedSingle;
-            orderType.Dock = DockStyle.Fill;
-            orderType.Font = new Font("Segoe UI", 11F);
-            orderType.Location = new Point(669, 110);
-            orderType.Name = "orderType";
-            orderType.Size = new Size(218, 37);
-            orderType.TabIndex = 1;
-            orderType.TextChanged += orderType_TextChanged;
+            Order_Date.BorderStyle = BorderStyle.FixedSingle;
+            Order_Date.Dock = DockStyle.Fill;
+            Order_Date.Font = new Font("Segoe UI", 11F);
+            Order_Date.Location = new Point(669, 112);
+            Order_Date.Name = "Order_Date";
+            Order_Date.Size = new Size(218, 27);
+            Order_Date.TabIndex = 1;
+            Order_Date.TextChanged += Order_Date_TextChanged;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(224, 224, 224);
-            label5.Location = new Point(3, 214);
+            label5.Location = new Point(447, 109);
             label5.Name = "label5";
-            label5.Size = new Size(112, 28);
+            label5.Size = new Size(75, 17);
             label5.TabIndex = 0;
             label5.Text = "Order Date";
-            // 
-            // orderDate
-            // 
-            orderDate.BorderStyle = BorderStyle.FixedSingle;
-            orderDate.Dock = DockStyle.Fill;
-            orderDate.Font = new Font("Segoe UI", 11F);
-            orderDate.Location = new Point(225, 217);
-            orderDate.Name = "orderDate";
-            orderDate.Size = new Size(216, 37);
-            orderDate.TabIndex = 1;
-            orderDate.TextChanged += orderDate_TextChanged;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(224, 224, 224);
-            label6.Location = new Point(447, 214);
+            label6.Location = new Point(3, 218);
             label6.Name = "label6";
-            label6.Size = new Size(147, 28);
+            label6.Size = new Size(99, 17);
             label6.TabIndex = 0;
             label6.Text = "Delivery Status";
             // 
-            // deliveryStatus
+            // Update_Button
             // 
-            deliveryStatus.Dock = DockStyle.Fill;
-            deliveryStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-            deliveryStatus.Font = new Font("Segoe UI", 11F);
-            deliveryStatus.FormattingEnabled = true;
-            deliveryStatus.Location = new Point(669, 217);
-            deliveryStatus.Name = "deliveryStatus";
-            deliveryStatus.Size = new Size(218, 38);
-            deliveryStatus.TabIndex = 2;
-            deliveryStatus.SelectedIndexChanged += deliveryStatus_SelectedIndexChanged;
+            Update_Button.BackColor = Color.White;
+            Update_Button.FlatAppearance.BorderSize = 0;
+            Update_Button.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Update_Button.ForeColor = Color.Black;
+            Update_Button.Location = new Point(3, 330);
+            Update_Button.Name = "Update_Button";
+            Update_Button.Size = new Size(125, 45);
+            Update_Button.TabIndex = 3;
+            Update_Button.Text = "Update";
+            Update_Button.UseVisualStyleBackColor = false;
+            Update_Button.Click += Update_Button_Click;
             // 
-            // updateBtn
+            // Order_Table
             // 
-            updateBtn.BackColor = Color.White;
-            updateBtn.FlatAppearance.BorderSize = 0;
-            updateBtn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            updateBtn.ForeColor = Color.Black;
-            updateBtn.Location = new Point(3, 324);
-            updateBtn.Name = "updateBtn";
-            updateBtn.Size = new Size(125, 45);
-            updateBtn.TabIndex = 3;
-            updateBtn.Text = "Update";
-            updateBtn.UseVisualStyleBackColor = false;
-            updateBtn.Click += updateBtn_Click;
-            // 
-            // tableDelivery
-            // 
-            tableDelivery.AllowUserToAddRows = false;
-            tableDelivery.AllowUserToDeleteRows = false;
-            tableDelivery.AllowUserToResizeRows = false;
-            tableDelivery.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            tableDelivery.BackgroundColor = Color.White;
-            tableDelivery.BorderStyle = BorderStyle.Fixed3D;
-            tableDelivery.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            tableDelivery.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            Order_Table.AllowUserToAddRows = false;
+            Order_Table.AllowUserToDeleteRows = false;
+            Order_Table.AllowUserToResizeRows = false;
+            Order_Table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            Order_Table.BackgroundColor = Color.White;
+            Order_Table.BorderStyle = BorderStyle.Fixed3D;
+            Order_Table.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            Order_Table.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 122, 204);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -236,8 +191,8 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 122, 204);
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            tableDelivery.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            tableDelivery.ColumnHeadersHeight = 40;
+            Order_Table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            Order_Table.ColumnHeadersHeight = 40;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -246,20 +201,20 @@
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(224, 224, 224);
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            tableDelivery.DefaultCellStyle = dataGridViewCellStyle2;
-            tableDelivery.Dock = DockStyle.Fill;
-            tableDelivery.EnableHeadersVisualStyles = false;
-            tableDelivery.GridColor = Color.FromArgb(224, 224, 224);
-            tableDelivery.Location = new Point(10, 34);
-            tableDelivery.Name = "tableDelivery";
-            tableDelivery.ReadOnly = true;
-            tableDelivery.RowHeadersVisible = false;
-            tableDelivery.RowHeadersWidth = 62;
-            tableDelivery.RowTemplate.Height = 35;
-            tableDelivery.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tableDelivery.Size = new Size(429, 820);
-            tableDelivery.TabIndex = 4;
-            tableDelivery.CellClick += tableDelivery_CellClick;
+            Order_Table.DefaultCellStyle = dataGridViewCellStyle2;
+            Order_Table.Dock = DockStyle.Fill;
+            Order_Table.EnableHeadersVisualStyles = false;
+            Order_Table.GridColor = Color.FromArgb(224, 224, 224);
+            Order_Table.Location = new Point(10, 26);
+            Order_Table.Name = "Order_Table";
+            Order_Table.ReadOnly = true;
+            Order_Table.RowHeadersVisible = false;
+            Order_Table.RowHeadersWidth = 62;
+            Order_Table.RowTemplate.Height = 35;
+            Order_Table.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Order_Table.Size = new Size(429, 828);
+            Order_Table.TabIndex = 4;
+            Order_Table.CellContentClick += Order_Table_CellContentClick;
             // 
             // panelForm
             // 
@@ -306,7 +261,7 @@
             // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(textBox1);
+            groupBox5.Controls.Add(Search_Delivery);
             groupBox5.Dock = DockStyle.Fill;
             groupBox5.ForeColor = Color.FromArgb(224, 224, 224);
             groupBox5.Location = new Point(3, 483);
@@ -317,17 +272,17 @@
             groupBox5.TabStop = false;
             groupBox5.Text = "Search";
             // 
-            // textBox1
+            // Search_Delivery
             // 
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Location = new Point(10, 34);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(890, 31);
-            textBox1.TabIndex = 10;
+            Search_Delivery.Dock = DockStyle.Fill;
+            Search_Delivery.Location = new Point(10, 26);
+            Search_Delivery.Name = "Search_Delivery";
+            Search_Delivery.Size = new Size(890, 23);
+            Search_Delivery.TabIndex = 10;
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(dataGridView1);
+            groupBox4.Controls.Add(Delivery_Table);
             groupBox4.Dock = DockStyle.Fill;
             groupBox4.ForeColor = Color.FromArgb(224, 224, 224);
             groupBox4.Location = new Point(3, 569);
@@ -338,16 +293,17 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Delivery's List";
             // 
-            // dataGridView1
+            // Delivery_Table
             // 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(10, 34);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(890, 336);
-            dataGridView1.TabIndex = 0;
+            Delivery_Table.BackgroundColor = Color.White;
+            Delivery_Table.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Delivery_Table.Dock = DockStyle.Fill;
+            Delivery_Table.Location = new Point(10, 26);
+            Delivery_Table.Name = "Delivery_Table";
+            Delivery_Table.RowHeadersWidth = 62;
+            Delivery_Table.Size = new Size(890, 344);
+            Delivery_Table.TabIndex = 0;
+            Delivery_Table.CellContentClick += Delivery_Table_CellContentClick;
             // 
             // groupBox1
             // 
@@ -369,29 +325,76 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel2.Controls.Add(Delivery_Trip, 3, 2);
+            tableLayoutPanel2.Controls.Add(Delivery_Status, 1, 2);
+            tableLayoutPanel2.Controls.Add(Order_Type, 1, 1);
             tableLayoutPanel2.Controls.Add(label1, 0, 0);
-            tableLayoutPanel2.Controls.Add(deliveryId, 1, 0);
-            tableLayoutPanel2.Controls.Add(updateBtn, 0, 3);
-            tableLayoutPanel2.Controls.Add(deliveryStatus, 3, 2);
-            tableLayoutPanel2.Controls.Add(label6, 2, 2);
-            tableLayoutPanel2.Controls.Add(orderDate, 1, 2);
-            tableLayoutPanel2.Controls.Add(label5, 0, 2);
-            tableLayoutPanel2.Controls.Add(orderType, 3, 1);
-            tableLayoutPanel2.Controls.Add(label4, 2, 1);
-            tableLayoutPanel2.Controls.Add(customerId, 1, 1);
-            tableLayoutPanel2.Controls.Add(label3, 0, 1);
-            tableLayoutPanel2.Controls.Add(orderId, 3, 0);
+            tableLayoutPanel2.Controls.Add(Delivery_Id, 1, 0);
+            tableLayoutPanel2.Controls.Add(Order_Date, 3, 1);
+            tableLayoutPanel2.Controls.Add(Order_Id, 3, 0);
             tableLayoutPanel2.Controls.Add(label2, 2, 0);
+            tableLayoutPanel2.Controls.Add(label4, 0, 1);
+            tableLayoutPanel2.Controls.Add(label5, 2, 1);
+            tableLayoutPanel2.Controls.Add(label6, 0, 2);
+            tableLayoutPanel2.Controls.Add(label7, 2, 2);
+            tableLayoutPanel2.Controls.Add(Update_Button, 0, 3);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(10, 34);
+            tableLayoutPanel2.Location = new Point(10, 26);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 4;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.Size = new Size(890, 430);
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Size = new Size(890, 438);
             tableLayoutPanel2.TabIndex = 6;
+            // 
+            // Delivery_Trip
+            // 
+            Delivery_Trip.Dock = DockStyle.Fill;
+            Delivery_Trip.DropDownStyle = ComboBoxStyle.DropDownList;
+            Delivery_Trip.Font = new Font("Segoe UI", 11F);
+            Delivery_Trip.FormattingEnabled = true;
+            Delivery_Trip.Location = new Point(669, 221);
+            Delivery_Trip.Name = "Delivery_Trip";
+            Delivery_Trip.Size = new Size(218, 28);
+            Delivery_Trip.TabIndex = 8;
+            Delivery_Trip.SelectedIndexChanged += Delivery_Trip_SelectedIndexChanged;
+            // 
+            // Delivery_Status
+            // 
+            Delivery_Status.Dock = DockStyle.Fill;
+            Delivery_Status.DropDownStyle = ComboBoxStyle.DropDownList;
+            Delivery_Status.Font = new Font("Segoe UI", 11F);
+            Delivery_Status.FormattingEnabled = true;
+            Delivery_Status.Location = new Point(225, 221);
+            Delivery_Status.Name = "Delivery_Status";
+            Delivery_Status.Size = new Size(216, 28);
+            Delivery_Status.TabIndex = 7;
+            Delivery_Status.SelectedIndexChanged += Delivery_Status_SelectedIndexChanged;
+            // 
+            // Order_Type
+            // 
+            Order_Type.BorderStyle = BorderStyle.FixedSingle;
+            Order_Type.Dock = DockStyle.Fill;
+            Order_Type.Font = new Font("Segoe UI", 11F);
+            Order_Type.Location = new Point(225, 112);
+            Order_Type.Name = "Order_Type";
+            Order_Type.Size = new Size(216, 27);
+            Order_Type.TabIndex = 6;
+            Order_Type.TextChanged += Order_Type_TextChanged;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.FromArgb(224, 224, 224);
+            label7.Location = new Point(447, 218);
+            label7.Name = "label7";
+            label7.Size = new Size(79, 17);
+            label7.TabIndex = 5;
+            label7.Text = "Choose Trip";
             // 
             // tableLayoutPanel4
             // 
@@ -410,7 +413,7 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(tableDelivery);
+            groupBox2.Controls.Add(Order_Table);
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.ForeColor = Color.FromArgb(224, 224, 224);
             groupBox2.Location = new Point(3, 85);
@@ -424,7 +427,7 @@
             // groupBox3
             // 
             groupBox3.BackColor = Color.Transparent;
-            groupBox3.Controls.Add(txtSearch);
+            groupBox3.Controls.Add(Search_Order);
             groupBox3.Dock = DockStyle.Fill;
             groupBox3.ForeColor = Color.FromArgb(224, 224, 224);
             groupBox3.Location = new Point(3, 3);
@@ -435,17 +438,17 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Search";
             // 
-            // txtSearch
+            // Search_Order
             // 
-            txtSearch.Dock = DockStyle.Fill;
-            txtSearch.Location = new Point(10, 34);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(429, 31);
-            txtSearch.TabIndex = 10;
+            Search_Order.Dock = DockStyle.Fill;
+            Search_Order.Location = new Point(10, 26);
+            Search_Order.Name = "Search_Order";
+            Search_Order.Size = new Size(429, 23);
+            Search_Order.TabIndex = 10;
             // 
             // FormDelivery
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(240, 240, 240);
             ClientSize = new Size(1423, 998);
@@ -455,14 +458,14 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Delivery Management System";
             WindowState = FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)tableDelivery).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Order_Table).EndInit();
             panelForm.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
             groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Delivery_Table).EndInit();
             groupBox1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
@@ -477,19 +480,18 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox deliveryId;
+        private System.Windows.Forms.TextBox Delivery_Id;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox orderId;
+        private System.Windows.Forms.TextBox Order_Id;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox customerId;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox orderType;
+        private System.Windows.Forms.TextBox Order_Date;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox orderDate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox deliveryStatus;
-        private System.Windows.Forms.Button updateBtn;
-        private System.Windows.Forms.DataGridView tableDelivery;
+        private System.Windows.Forms.Button Update_Button;
+        private System.Windows.Forms.DataGridView Order_Table;
         private System.Windows.Forms.Panel panelForm;
         private TableLayoutPanel tableLayoutPanel1;
         private GroupBox groupBox2;
@@ -498,10 +500,14 @@
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel4;
         private GroupBox groupBox3;
-        private TextBox txtSearch;
+        private TextBox Search_Order;
         private GroupBox groupBox5;
-        private TextBox textBox1;
+        private TextBox Search_Delivery;
         private GroupBox groupBox4;
-        private DataGridView dataGridView1;
+        private DataGridView Delivery_Table;
+        private Label label7;
+        private ComboBox Delivery_Trip;
+        private ComboBox Delivery_Status;
+        private TextBox Order_Type;
     }
 }

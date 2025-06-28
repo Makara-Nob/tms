@@ -30,8 +30,6 @@ namespace tms.Repository
                     Reciever = reader["Reciever"].ToString(),
                     OrderType = reader["OrderType"].ToString(),
                     OrderDate = Convert.ToDateTime(reader["OrderDate"]),
-                    DeliveryId = reader["DeliveryId"] == DBNull.Value ? null : Convert.ToInt32(reader["DeliveryId"]),
-                    DeliveryStatus = reader["DeliveryStatus"].ToString(),
                     TotalAmount = reader["TotalAmount"] == DBNull.Value ? null : Convert.ToDecimal(reader["TotalAmount"])
                 });
             }
@@ -57,8 +55,6 @@ namespace tms.Repository
                     Reciever = reader["Reciever"].ToString(),
                     OrderType = reader["OrderType"].ToString(),
                     OrderDate = Convert.ToDateTime(reader["OrderDate"]),
-                    DeliveryId = reader["DeliveryId"] == DBNull.Value ? null : Convert.ToInt32(reader["DeliveryId"]),
-                    DeliveryStatus = reader["DeliveryStatus"].ToString(),
                     TotalAmount = reader["TotalAmount"] == DBNull.Value ? null : Convert.ToDecimal(reader["TotalAmount"])
                 };
             }
@@ -77,8 +73,6 @@ namespace tms.Repository
             cmd.Parameters.AddWithValue("@Reciever", order.Reciever);
             cmd.Parameters.AddWithValue("@OrderType", order.OrderType);
             cmd.Parameters.AddWithValue("@OrderDate", order.OrderDate);
-            cmd.Parameters.AddWithValue("@DeliveryId", (object?)order.DeliveryId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@DeliveryStatus", (object?)order.DeliveryStatus ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@TotalAmount", (object?)order.TotalAmount ?? DBNull.Value);
 
             conn.Open();
@@ -96,8 +90,6 @@ namespace tms.Repository
             cmd.Parameters.AddWithValue("@Reciever", order.Reciever);
             cmd.Parameters.AddWithValue("@OrderType", order.OrderType);
             cmd.Parameters.AddWithValue("@OrderDate", order.OrderDate);
-            cmd.Parameters.AddWithValue("@DeliveryId", (object?)order.DeliveryId ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@DeliveryStatus", (object?)order.DeliveryStatus ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@TotalAmount", (object?)order.TotalAmount ?? DBNull.Value);
 
             conn.Open();

@@ -6,24 +6,26 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace tms.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class OrderANDDelivery : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Deliveries",
+                name: "Orders",
                 columns: table => new
                 {
-                    DeliveryId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderId = table.Column<int>(type: "int", nullable: false),
-                    DeliveryDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeliveryStatus = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    OrderID = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Sender = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Reciever = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    OrderType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsAssigned = table.Column<int>(type: "int", nullable: false),
+                    TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Deliveries", x => x.DeliveryId);
+                    table.PrimaryKey("PK_Orders", x => x.OrderID);
                 });
 
             migrationBuilder.CreateTable(
@@ -99,7 +101,7 @@ namespace tms.Migrations
                     TotalRows = table.Column<int>(type: "int", nullable: false),
                     SeatsPerRow = table.Column<int>(type: "int", nullable: false),
                     SeatLayout = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AislePositions = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AislePositionsString = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HasUpperDeck = table.Column<bool>(type: "bit", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -111,26 +113,23 @@ namespace tms.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Orders",
+                name: "Deliveries",
                 columns: table => new
                 {
-                    OrderID = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    Sender = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    Reciever = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    OrderType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeliveryId = table.Column<int>(type: "int", nullable: true),
-                    DeliveryStatus = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    TotalAmount = table.Column<decimal>(type: "decimal(10,2)", nullable: true)
+                    DeliveryId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    OrderId = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    DeliveryStatus = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Orders", x => x.OrderID);
+                    table.PrimaryKey("PK_Deliveries", x => x.DeliveryId);
                     table.ForeignKey(
-                        name: "FK_Orders_Deliveries_DeliveryId",
-                        column: x => x.DeliveryId,
-                        principalTable: "Deliveries",
-                        principalColumn: "DeliveryId");
+                        name: "FK_Deliveries_Orders_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Orders",
+                        principalColumn: "OrderID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -164,50 +163,50 @@ namespace tms.Migrations
                 {
                     ExclusionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    VehicleId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ConfigId = table.Column<int>(type: "int", nullable: false),
                     RowNumber = table.Column<int>(type: "int", nullable: false),
                     SeatPosition = table.Column<int>(type: "int", nullable: true),
                     Reason = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsTemporary = table.Column<bool>(type: "bit", nullable: false),
                     ExclusionStart = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ExclusionEnd = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    VehicleConfigurationConfigId = table.Column<int>(type: "int", nullable: true)
+                    ExclusionEnd = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SeatExclusions", x => x.ExclusionId);
                     table.ForeignKey(
-                        name: "FK_SeatExclusions_VehicleConfigurations_VehicleConfigurationConfigId",
-                        column: x => x.VehicleConfigurationConfigId,
+                        name: "FK_SeatExclusions_VehicleConfigurations_ConfigId",
+                        column: x => x.ConfigId,
                         principalTable: "VehicleConfigurations",
-                        principalColumn: "ConfigId");
+                        principalColumn: "ConfigId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "SeatTypeConfigurations",
                 columns: table => new
                 {
-                    ConfigId = table.Column<int>(type: "int", nullable: false)
+                    SeatTypeConfigId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    VehicleId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ConfigId = table.Column<int>(type: "int", nullable: false),
                     SeatType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FromRow = table.Column<int>(type: "int", nullable: false),
                     ToRow = table.Column<int>(type: "int", nullable: false),
-                    SpecificSeats = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BasePrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Features = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    VehicleConfigurationConfigId = table.Column<int>(type: "int", nullable: true)
+                    SpecificSeatsString = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BasePrice = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Features = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SeatTypeConfigurations", x => x.ConfigId);
+                    table.PrimaryKey("PK_SeatTypeConfigurations", x => x.SeatTypeConfigId);
                     table.ForeignKey(
-                        name: "FK_SeatTypeConfigurations_VehicleConfigurations_VehicleConfigurationConfigId",
-                        column: x => x.VehicleConfigurationConfigId,
+                        name: "FK_SeatTypeConfigurations_VehicleConfigurations_ConfigId",
+                        column: x => x.ConfigId,
                         principalTable: "VehicleConfigurations",
-                        principalColumn: "ConfigId");
+                        principalColumn: "ConfigId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -313,14 +312,15 @@ namespace tms.Migrations
                 column: "TripID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_DeliveryId",
-                table: "Orders",
-                column: "DeliveryId");
+                name: "IX_Deliveries_OrderId",
+                table: "Deliveries",
+                column: "OrderId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_SeatExclusions_VehicleConfigurationConfigId",
+                name: "IX_SeatExclusions_ConfigId",
                 table: "SeatExclusions",
-                column: "VehicleConfigurationConfigId");
+                column: "ConfigId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Seats_VehicleID",
@@ -328,9 +328,9 @@ namespace tms.Migrations
                 column: "VehicleID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SeatTypeConfigurations_VehicleConfigurationConfigId",
+                name: "IX_SeatTypeConfigurations_ConfigId",
                 table: "SeatTypeConfigurations",
-                column: "VehicleConfigurationConfigId");
+                column: "ConfigId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tickets_CreatedDate",
@@ -375,7 +375,7 @@ namespace tms.Migrations
                 name: "Bookings");
 
             migrationBuilder.DropTable(
-                name: "Orders");
+                name: "Deliveries");
 
             migrationBuilder.DropTable(
                 name: "SeatExclusions");
@@ -393,7 +393,7 @@ namespace tms.Migrations
                 name: "Trips");
 
             migrationBuilder.DropTable(
-                name: "Deliveries");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "VehicleConfigurations");

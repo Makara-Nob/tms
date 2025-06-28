@@ -1,127 +1,291 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+using Delivery_info.Repository;
 using tms.Data;
+using tms.Models;
 
 namespace tms.Forms
 {
     public partial class FormDelivery : Form
     {
+        private readonly DeliveryRepository _deliveryRepository;
+        private List<DeliveryViewModel> _unassignedDeliveries;
+        private List<DeliveryViewModel> _assignedDeliveries;
+        private DeliveryViewModel _selectedDelivery;
+
         public FormDelivery()
         {
             InitializeComponent();
-            LoadDeliveryData();
-            Load_Status();
+
+            // Initialize repository (it will create its own DbContext)
+            _deliveryRepository = new DeliveryRepository();
+
+            InitializeForm();
+            LoadData();
         }
 
-        private void LoadDeliveryData()
+        private void InitializeForm()
         {
-            using var context = new AppDbContext();
-            var deliveries = context.Deliveries.ToList();
-            tableDelivery.DataSource = deliveries;
-            tableDelivery.Columns["DeliveryId"].HeaderText = "Delivery ID";
-            tableDelivery.Columns["OrderId"].HeaderText = "Order ID";
-            tableDelivery.Columns["DeliveryDate"].HeaderText = "Delivery Date";
-            tableDelivery.Columns["DeliveryStatus"].HeaderText = "Delivery Status";
-
-        }
-
-        private void updateBtn_Click(object sender, EventArgs e)
-        {
-            using var context = new AppDbContext();
-
-            if (string.IsNullOrWhiteSpace(deliveryId.Text) || deliveryStatus.SelectedItem == null)
+            // Setup delivery status combo box
+            Delivery_Status.Items.AddRange(new string[]
             {
-                MessageBox.Show("Please select a delivery and a valid status to update.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                "Pending",
+                "In Transit",
+                "Delivered",
+                "Cancelled",
+                "Returned"
+            });
+
+            // Setup trip combo box - assuming you have trips in your database
+            // You can modify this to load from your Trips table
+            Delivery_Trip.Items.AddRange(new string[]
+            {
+                "Trip 1",
+                "Trip 2",
+                "Trip 3",
+                "Trip 4",
+                "Trip 5"
+            });
+
+            // You could also load trips dynamically from your database:
+            // LoadTripsFromDatabase();
+
+            // Setup event handlers
+            this.FormClosed += FormDelivery_FormClosed;
+        }
+
+        private void LoadTripsFromDatabase()
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    var trips = context.Trips.Select(t => t.TripId.ToString()).ToList();
+                    Delivery_Trip.Items.Clear();
+                    Delivery_Trip.Items.AddRange(trips.ToArray());
+                }
+            }
+            catch (Exception ex)
+            {
+                // If trips can't be loaded, use default values
+                Console.WriteLine($"Could not load trips: {ex.Message}");
+            }
+        }
+
+        private void LoadData()
+        {
+            try
+            {
+                // Load unassigned deliveries (top grid)
+                _unassignedDeliveries = _deliveryRepository.GetUnassignedDeliveries();
+                Order_Table.DataSource = _unassignedDeliveries;
+
+                // Load assigned deliveries (bottom grid)
+                _assignedDeliveries = _deliveryRepository.GetAssignedDeliveries();
+                Delivery_Table.DataSource = _assignedDeliveries;
+
+                FormatDataGridViews();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading data: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FormatDataGridViews()
+        {
+            FormatGrid(Order_Table);
+            FormatGrid(Delivery_Table);
+        }
+
+        private void FormatGrid(DataGridView grid)
+        {
+            if (grid.Columns.Count > 0)
+            {
+                // Set column headers
+                SetColumnHeader(grid, "DeliveryId", "Delivery ID");
+                SetColumnHeader(grid, "OrderId", "Order ID");
+                SetColumnHeader(grid, "OrderType", "Order Type");
+                SetColumnHeader(grid, "OrderDate", "Order Date");
+                SetColumnHeader(grid, "DeliveryStatus", "Status");
+                SetColumnHeader(grid, "Sender", "Sender");
+                SetColumnHeader(grid, "Reciever", "Receiver");
+
+                // Format date column
+                if (grid.Columns["OrderDate"] != null)
+                {
+                    grid.Columns["OrderDate"].DefaultCellStyle.Format = "yyyy-MM-dd";
+                }
+
+                // Hide unnecessary columns
+                HideColumn(grid, "IsAssigned");
+                HideColumn(grid, "TotalAmount");
+                HideColumn(grid, "OrderID");
+            }
+        }
+
+        private void SetColumnHeader(DataGridView grid, string columnName, string headerText)
+        {
+            if (grid.Columns[columnName] != null)
+            {
+                grid.Columns[columnName].HeaderText = headerText;
+            }
+        }
+
+        private void HideColumn(DataGridView grid, string columnName)
+        {
+            if (grid.Columns[columnName] != null)
+                grid.Columns[columnName].Visible = false;
+        }
+
+        private void Order_Table_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            HandleGridCellClick(Order_Table, e);
+        }
+
+        private void Delivery_Table_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            HandleGridCellClick(Delivery_Table, e);
+        }
+
+        private void HandleGridCellClick(DataGridView grid, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < grid.Rows.Count)
+            {
+                var selectedRow = grid.Rows[e.RowIndex];
+                _selectedDelivery = (DeliveryViewModel)selectedRow.DataBoundItem;
+                PopulateFormFields(_selectedDelivery);
+            }
+        }
+
+        private void PopulateFormFields(DeliveryViewModel delivery)
+        {
+            if (delivery != null)
+            {
+                Delivery_Id.Text = delivery.DeliveryId.ToString();
+                Order_Id.Text = delivery.OrderId;
+                Order_Type.Text = delivery.OrderType;
+                Order_Date.Text = delivery.OrderDate.ToString("yyyy-MM-dd");
+
+                // Set delivery status
+                if (!string.IsNullOrEmpty(delivery.DeliveryStatus) &&
+                    Delivery_Status.Items.Contains(delivery.DeliveryStatus))
+                {
+                    Delivery_Status.SelectedItem = delivery.DeliveryStatus;
+                }
+                else
+                {
+                    Delivery_Status.SelectedIndex = -1;
+                }
+            }
+        }
+
+        private void Update_Button_Click(object sender, EventArgs e)
+        {
+            if (_selectedDelivery == null)
+            {
+                MessageBox.Show("Please select a delivery to update.", "No Selection",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            int deliveryIdValue = int.Parse(deliveryId.Text);
-            var delivery = context.Deliveries.FirstOrDefault(d => d.DeliveryId == deliveryIdValue);
-
-            if (delivery == null)
+            if (string.IsNullOrEmpty(Delivery_Status.Text))
             {
-                MessageBox.Show("Delivery not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a delivery status.", "Missing Information",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            delivery.DeliveryStatus = deliveryStatus.SelectedItem.ToString();
-            context.SaveChanges();
-
-            MessageBox.Show("Delivery status updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Refresh the delivery data in the table
-            LoadDeliveryData();
-        }
-
-        private void logoutBtn_Click(object sender, EventArgs e)
-        {
-            Application.Exit(); // you can change when click on this button show login form
-        }
-        private void deliveryId_TextChanged(object sender, EventArgs e)
-        {
-            deliveryId.ReadOnly = true;
-        }
-
-        private void orderId_TextChanged(object sender, EventArgs e)
-        {
-            orderId.ReadOnly = true;
-        }
-
-        private void customerId_TextChanged(object sender, EventArgs e)
-        {
-            customerId.ReadOnly = true;
-        }
-
-        private void orderType_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void orderDate_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void deliveryStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void tableDelivery_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0) // Ensure the clicked row is valid
+            try
             {
-                DataGridViewRow row = tableDelivery.Rows[e.RowIndex];
+                bool updateSuccess = _deliveryRepository.UpdateDeliveryStatus(
+                    _selectedDelivery.DeliveryId.ToString(),
+                    Delivery_Status.Text);
 
-                // Populate the fields with the selected row's data
-                deliveryId.Text = row.Cells["DeliveryId"].Value?.ToString();
-                orderId.Text = row.Cells["OrderId"].Value?.ToString();
-                orderDate.Text = row.Cells["DeliveryDate"].Value?.ToString();
-                deliveryStatus.SelectedItem = row.Cells["DeliveryStatus"].Value?.ToString();
+                if (updateSuccess)
+                {
+                    // If assigning a trip and order is unassigned, update assignment status
+                    if (!string.IsNullOrEmpty(Delivery_Trip.Text) && _selectedDelivery.IsAssigned == 0)
+                    {
+                        _deliveryRepository.AssignTripToOrder(_selectedDelivery.OrderId);
+                    }
+
+                    MessageBox.Show("Delivery updated successfully!", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LoadData(); // Refresh the data
+                    ClearFormFields();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update delivery status.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating delivery: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void Load_Status()
+        private void ClearFormFields()
         {
-            deliveryStatus.Items.Add("Processing");
-            deliveryStatus.Items.Add("Delivered");
-            deliveryStatus.Items.Add("In Transit");
-            deliveryStatus.Items.Add("Pending");
-            deliveryStatus.Items.Add("Cancelled");
-            deliveryStatus.Items.Add("Delivered");
-            deliveryStatus.Items.Add("In Transit");
-            deliveryStatus.SelectedIndex = -1;
+            Delivery_Id.Clear();
+            Order_Id.Clear();
+            Order_Type.Clear();
+            Order_Date.Clear();
+            Delivery_Status.SelectedIndex = -1;
+            Delivery_Trip.SelectedIndex = -1;
+            _selectedDelivery = null;
         }
 
-        private void resetForm()
+        private void FormDelivery_FormClosed(object sender, FormClosedEventArgs e)
         {
-            deliveryId.Clear();
-            orderId.Clear();
-            customerId.Clear();
-            orderDate.Clear();
-            orderType.Clear();
-            deliveryStatus.SelectedIndex = -1;
+            _deliveryRepository?.Dispose();
         }
 
+        // Implement search functionality if you have a search textbox
+        private void Search_TextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (sender is TextBox searchBox)
+            {
+                if (string.IsNullOrWhiteSpace(searchBox.Text))
+                {
+                    LoadData();
+                }
+                else
+                {
+                    try
+                    {
+                        var searchResults = _deliveryRepository.SearchDeliveries(searchBox.Text);
+
+                        var unassignedResults = searchResults.Where(d => d.IsAssigned == 0).ToList();
+                        var assignedResults = searchResults.Where(d => d.IsAssigned == 1).ToList();
+
+                        Order_Table.DataSource = unassignedResults;
+                        Delivery_Table.DataSource = assignedResults;
+
+                        FormatDataGridViews();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error searching: {ex.Message}", "Search Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        // Other event handlers (keeping them empty as per your original code)
+        private void Delivery_Id_TextChanged(object sender, EventArgs e) { }
+        private void Order_Id_TextChanged(object sender, EventArgs e) { }
+        private void Order_Type_TextChanged(object sender, EventArgs e) { }
+        private void Order_Date_TextChanged(object sender, EventArgs e) { }
+        private void Delivery_Status_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void Delivery_Trip_SelectedIndexChanged(object sender, EventArgs e) { }
     }
 }
