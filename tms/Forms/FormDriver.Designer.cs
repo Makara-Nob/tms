@@ -71,11 +71,11 @@
             // 
             txtDriverID.Dock = DockStyle.Fill;
             txtDriverID.Font = new Font("Segoe UI", 14F);
-            txtDriverID.Location = new Point(416, 7);
-            txtDriverID.Margin = new Padding(6, 7, 6, 7);
+            txtDriverID.Location = new Point(333, 6);
+            txtDriverID.Margin = new Padding(5, 6, 5, 6);
             txtDriverID.Name = "txtDriverID";
             txtDriverID.ReadOnly = true;
-            txtDriverID.Size = new Size(398, 45);
+            txtDriverID.Size = new Size(318, 39);
             txtDriverID.TabIndex = 1;
             // 
             // cmbStaff
@@ -84,10 +84,10 @@
             cmbStaff.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbStaff.Font = new Font("Segoe UI", 12F);
             cmbStaff.FormattingEnabled = true;
-            cmbStaff.Location = new Point(416, 75);
-            cmbStaff.Margin = new Padding(6, 7, 6, 7);
+            cmbStaff.Location = new Point(333, 60);
+            cmbStaff.Margin = new Padding(5, 6, 5, 6);
             cmbStaff.Name = "cmbStaff";
-            cmbStaff.Size = new Size(398, 40);
+            cmbStaff.Size = new Size(318, 36);
             cmbStaff.TabIndex = 2;
             // 
             // cmbAvailability
@@ -96,10 +96,10 @@
             cmbAvailability.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAvailability.Font = new Font("Segoe UI", 12F);
             cmbAvailability.FormattingEnabled = true;
-            cmbAvailability.Location = new Point(416, 143);
-            cmbAvailability.Margin = new Padding(6, 7, 6, 7);
+            cmbAvailability.Location = new Point(333, 114);
+            cmbAvailability.Margin = new Padding(5, 6, 5, 6);
             cmbAvailability.Name = "cmbAvailability";
-            cmbAvailability.Size = new Size(398, 40);
+            cmbAvailability.Size = new Size(318, 36);
             cmbAvailability.TabIndex = 3;
             // 
             // dtpLicenseExpiryDate
@@ -107,20 +107,20 @@
             dtpLicenseExpiryDate.Dock = DockStyle.Fill;
             dtpLicenseExpiryDate.Font = new Font("Segoe UI", 11F);
             dtpLicenseExpiryDate.Format = DateTimePickerFormat.Short;
-            dtpLicenseExpiryDate.Location = new Point(1236, 143);
-            dtpLicenseExpiryDate.Margin = new Padding(6, 7, 6, 7);
+            dtpLicenseExpiryDate.Location = new Point(989, 114);
+            dtpLicenseExpiryDate.Margin = new Padding(5, 6, 5, 6);
             dtpLicenseExpiryDate.Name = "dtpLicenseExpiryDate";
-            dtpLicenseExpiryDate.Size = new Size(399, 37);
+            dtpLicenseExpiryDate.Size = new Size(318, 32);
             dtpLicenseExpiryDate.TabIndex = 5;
             // 
             // btnAdd
             // 
             btnAdd.BackColor = Color.White;
             btnAdd.ForeColor = Color.Black;
-            btnAdd.Location = new Point(6, 211);
-            btnAdd.Margin = new Padding(6, 7, 6, 7);
+            btnAdd.Location = new Point(5, 168);
+            btnAdd.Margin = new Padding(5, 6, 5, 6);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(126, 45);
+            btnAdd.Size = new Size(101, 36);
             btnAdd.TabIndex = 7;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
@@ -130,10 +130,10 @@
             // 
             btnUpdate.BackColor = Color.White;
             btnUpdate.ForeColor = Color.Black;
-            btnUpdate.Location = new Point(416, 211);
-            btnUpdate.Margin = new Padding(6, 7, 6, 7);
+            btnUpdate.Location = new Point(333, 168);
+            btnUpdate.Margin = new Padding(5, 6, 5, 6);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(126, 45);
+            btnUpdate.Size = new Size(101, 36);
             btnUpdate.TabIndex = 8;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -143,10 +143,10 @@
             // 
             btnClear.BackColor = Color.White;
             btnClear.ForeColor = Color.Black;
-            btnClear.Location = new Point(826, 211);
-            btnClear.Margin = new Padding(6, 7, 6, 7);
+            btnClear.Location = new Point(661, 168);
+            btnClear.Margin = new Padding(5, 6, 5, 6);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(126, 45);
+            btnClear.Size = new Size(101, 36);
             btnClear.TabIndex = 10;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
@@ -155,50 +155,50 @@
             // lblTripId
             // 
             lblTripId.AutoSize = true;
-            lblTripId.Location = new Point(6, 0);
-            lblTripId.Margin = new Padding(6, 0, 6, 0);
+            lblTripId.Location = new Point(5, 0);
+            lblTripId.Margin = new Padding(5, 0, 5, 0);
             lblTripId.Name = "lblTripId";
-            lblTripId.Size = new Size(86, 25);
+            lblTripId.Size = new Size(71, 20);
             lblTripId.TabIndex = 12;
             lblTripId.Text = "Driver ID:";
             // 
             // lblVehicle
             // 
             lblVehicle.AutoSize = true;
-            lblVehicle.Location = new Point(6, 68);
-            lblVehicle.Margin = new Padding(6, 0, 6, 0);
+            lblVehicle.Location = new Point(5, 54);
+            lblVehicle.Margin = new Padding(5, 0, 5, 0);
             lblVehicle.Name = "lblVehicle";
-            lblVehicle.Size = new Size(52, 25);
+            lblVehicle.Size = new Size(43, 20);
             lblVehicle.TabIndex = 13;
             lblVehicle.Text = "Staff:";
             // 
             // lblStatus
             // 
             lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(6, 136);
-            lblStatus.Margin = new Padding(6, 0, 6, 0);
+            lblStatus.Location = new Point(5, 108);
+            lblStatus.Margin = new Padding(5, 0, 5, 0);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(64, 25);
+            lblStatus.Size = new Size(52, 20);
             lblStatus.TabIndex = 14;
             lblStatus.Text = "Status:";
             // 
             // lblRoute
             // 
             lblRoute.AutoSize = true;
-            lblRoute.Location = new Point(826, 136);
-            lblRoute.Margin = new Padding(6, 0, 6, 0);
+            lblRoute.Location = new Point(661, 108);
+            lblRoute.Margin = new Padding(5, 0, 5, 0);
             lblRoute.Name = "lblRoute";
-            lblRoute.Size = new Size(166, 25);
+            lblRoute.Size = new Size(141, 20);
             lblRoute.TabIndex = 15;
             lblRoute.Text = "License Expire Date:";
             // 
             // lblDepatureTime
             // 
             lblDepatureTime.AutoSize = true;
-            lblDepatureTime.Location = new Point(826, 68);
-            lblDepatureTime.Margin = new Padding(6, 0, 6, 0);
+            lblDepatureTime.Location = new Point(661, 54);
+            lblDepatureTime.Margin = new Padding(5, 0, 5, 0);
             lblDepatureTime.Name = "lblDepatureTime";
-            lblDepatureTime.Size = new Size(142, 25);
+            lblDepatureTime.Size = new Size(118, 20);
             lblDepatureTime.TabIndex = 16;
             lblDepatureTime.Text = "License Number:";
             // 
@@ -207,10 +207,10 @@
             panelInput.BorderStyle = BorderStyle.FixedSingle;
             panelInput.Controls.Add(groupBoxTrip);
             panelInput.Dock = DockStyle.Fill;
-            panelInput.Location = new Point(6, 7);
-            panelInput.Margin = new Padding(6, 7, 6, 7);
+            panelInput.Location = new Point(5, 6);
+            panelInput.Margin = new Padding(5, 6, 5, 6);
             panelInput.Name = "panelInput";
-            panelInput.Size = new Size(1655, 328);
+            panelInput.Size = new Size(1324, 261);
             panelInput.TabIndex = 18;
             // 
             // groupBoxTrip
@@ -219,10 +219,10 @@
             groupBoxTrip.Dock = DockStyle.Fill;
             groupBoxTrip.ForeColor = Color.FromArgb(224, 224, 224);
             groupBoxTrip.Location = new Point(0, 0);
-            groupBoxTrip.Margin = new Padding(6, 7, 6, 7);
+            groupBoxTrip.Margin = new Padding(5, 6, 5, 6);
             groupBoxTrip.Name = "groupBoxTrip";
-            groupBoxTrip.Padding = new Padding(6, 7, 6, 7);
-            groupBoxTrip.Size = new Size(1653, 326);
+            groupBoxTrip.Padding = new Padding(5, 6, 5, 6);
+            groupBoxTrip.Size = new Size(1322, 259);
             groupBoxTrip.TabIndex = 0;
             groupBoxTrip.TabStop = false;
             groupBoxTrip.Text = "Driver Form";
@@ -250,51 +250,54 @@
             tableLayoutPanel2.Controls.Add(lbLicenseType, 2, 0);
             tableLayoutPanel2.Controls.Add(lblDepatureTime, 2, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(6, 31);
+            tableLayoutPanel2.Location = new Point(5, 26);
+            tableLayoutPanel2.Margin = new Padding(2);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 4;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 23.9328F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 23.9327965F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 23.9327965F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 28.20161F));
-            tableLayoutPanel2.Size = new Size(1641, 288);
+            tableLayoutPanel2.Size = new Size(1312, 227);
             tableLayoutPanel2.TabIndex = 12;
             // 
             // txtLicenseType
             // 
             txtLicenseType.Dock = DockStyle.Fill;
             txtLicenseType.Font = new Font("Segoe UI", 14F);
-            txtLicenseType.Location = new Point(1233, 3);
+            txtLicenseType.Location = new Point(986, 2);
+            txtLicenseType.Margin = new Padding(2);
             txtLicenseType.Name = "txtLicenseType";
-            txtLicenseType.Size = new Size(405, 45);
+            txtLicenseType.Size = new Size(324, 39);
             txtLicenseType.TabIndex = 20;
             // 
             // txtLicenseNumber
             // 
             txtLicenseNumber.Dock = DockStyle.Fill;
             txtLicenseNumber.Font = new Font("Segoe UI", 14F);
-            txtLicenseNumber.Location = new Point(1233, 71);
+            txtLicenseNumber.Location = new Point(986, 56);
+            txtLicenseNumber.Margin = new Padding(2);
             txtLicenseNumber.Name = "txtLicenseNumber";
-            txtLicenseNumber.Size = new Size(405, 45);
+            txtLicenseNumber.Size = new Size(324, 39);
             txtLicenseNumber.TabIndex = 19;
             // 
             // lbLicenseType
             // 
             lbLicenseType.AutoSize = true;
-            lbLicenseType.Location = new Point(826, 0);
-            lbLicenseType.Margin = new Padding(6, 0, 6, 0);
+            lbLicenseType.Location = new Point(661, 0);
+            lbLicenseType.Margin = new Padding(5, 0, 5, 0);
             lbLicenseType.Name = "lbLicenseType";
-            lbLicenseType.Size = new Size(109, 25);
+            lbLicenseType.Size = new Size(91, 20);
             lbLicenseType.TabIndex = 18;
             lbLicenseType.Text = "LicenseType:";
             // 
             // txtSearch
             // 
             txtSearch.Dock = DockStyle.Fill;
-            txtSearch.Location = new Point(10, 34);
-            txtSearch.Margin = new Padding(6, 7, 6, 7);
+            txtSearch.Location = new Point(8, 28);
+            txtSearch.Margin = new Padding(5, 6, 5, 6);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(1641, 31);
+            txtSearch.Size = new Size(1314, 27);
             txtSearch.TabIndex = 6;
             txtSearch.TextChanged += PerformSearch;
             // 
@@ -323,8 +326,8 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvDrivers.DefaultCellStyle = dataGridViewCellStyle2;
             dgvDrivers.Dock = DockStyle.Fill;
-            dgvDrivers.Location = new Point(10, 34);
-            dgvDrivers.Margin = new Padding(6, 7, 6, 7);
+            dgvDrivers.Location = new Point(8, 28);
+            dgvDrivers.Margin = new Padding(5, 6, 5, 6);
             dgvDrivers.MultiSelect = false;
             dgvDrivers.Name = "dgvDrivers";
             dgvDrivers.ReadOnly = true;
@@ -334,7 +337,7 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.White;
             dgvDrivers.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dgvDrivers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDrivers.Size = new Size(1641, 442);
+            dgvDrivers.Size = new Size(1314, 354);
             dgvDrivers.TabIndex = 0;
             dgvDrivers.SelectionChanged += DgvDrivers_SelectionChanged;
             // 
@@ -348,12 +351,13 @@
             tableLayoutPanel1.Controls.Add(gbTripList, 0, 2);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 36.66867F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.677846F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 52.6534843F));
-            tableLayoutPanel1.Size = new Size(1667, 933);
+            tableLayoutPanel1.Size = new Size(1334, 746);
             tableLayoutPanel1.TabIndex = 12;
             // 
             // gbSearch
@@ -361,35 +365,36 @@
             gbSearch.Controls.Add(txtSearch);
             gbSearch.Dock = DockStyle.Fill;
             gbSearch.ForeColor = Color.FromArgb(224, 224, 224);
-            gbSearch.Location = new Point(3, 345);
+            gbSearch.Location = new Point(2, 275);
+            gbSearch.Margin = new Padding(2);
             gbSearch.Name = "gbSearch";
-            gbSearch.Padding = new Padding(10);
-            gbSearch.Size = new Size(1661, 93);
+            gbSearch.Padding = new Padding(8);
+            gbSearch.Size = new Size(1330, 75);
             gbSearch.TabIndex = 19;
             gbSearch.TabStop = false;
             gbSearch.Text = "Search";
-            // 4
-
+            // 
             // gbTripList
             // 
             gbTripList.Controls.Add(dgvDrivers);
             gbTripList.Dock = DockStyle.Fill;
             gbTripList.ForeColor = Color.FromArgb(224, 224, 224);
-            gbTripList.Location = new Point(3, 444);
+            gbTripList.Location = new Point(2, 354);
+            gbTripList.Margin = new Padding(2);
             gbTripList.Name = "gbTripList";
-            gbTripList.Padding = new Padding(10);
-            gbTripList.Size = new Size(1661, 486);
+            gbTripList.Padding = new Padding(8);
+            gbTripList.Size = new Size(1330, 390);
             gbTripList.TabIndex = 20;
             gbTripList.TabStop = false;
             gbTripList.Text = "Driver's List";
             // 
             // FormDriver
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1667, 933);
+            ClientSize = new Size(1334, 746);
             Controls.Add(tableLayoutPanel1);
-            Margin = new Padding(6, 7, 6, 7);
+            Margin = new Padding(5, 6, 5, 6);
             Name = "FormDriver";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Trip Management";

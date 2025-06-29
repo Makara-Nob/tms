@@ -1,41 +1,60 @@
 using Microsoft.EntityFrameworkCore;
-using System.Configuration;
+using System.Text.Json;
 using tms.Data;
 using tms.DataSeed;
-using tms.Forms;
-using tms.Model;
+using Login;
 
 namespace tms
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
+        public static MySqlConnection Connection;
+        public static Confi Confi;
 
+        [STAThread]
         static void Main()
         {
-            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["AppDbContext"].ConnectionString);
+            ApplicationConfiguration.Initialize();
 
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            using (var dbContext = new AppDbContext(optionsBuilder.Options))
+            if (!ReadConfig())
+                return;
+
+            var connectionString = Confi.GetConnectionString(); // ✅ Use the actual connection string
+
+
+            MessageBox.Show("✅ MySQL database initialization complete.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            Application.Run(new LoginFrm());
+        }
+
+        private static bool ReadConfig()
+        {
+            try
             {
-                // Seed the database with sample data
-                DatabaseSeeder.SeedDatabase(dbContext);
-
-                // Optional: Uncomment below to clear and reseed data
-                // DatabaseSeeder.ReseedDatabase(dbContext);
+                var jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "appsetting.json");
+                var json = File.ReadAllText(jsonPath);
+                Confi = JsonSerializer.Deserialize<Confi>(json) ?? new Confi();
+                return true;
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to read configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+    }
 
-            Console.WriteLine("\n✅ Database initialization complete. Press any key to continue...");
-            Console.ReadLine();
+    public class Confi
+    {
+        public string server { get; set; }
+        public string database { get; set; }
+        public string uid { get; set; }
+        public string password { get; set; }
+        public int port { get; set; }
 
-            Console.WriteLine("✅ Test complete.");
-            Console.ReadLine();
-            Application.Run(new FormMain());
+        public string GetConnectionString()
+        {
+            return $"server={server};port={port};database={database};uid={uid};pwd={password};";
         }
     }
 }
