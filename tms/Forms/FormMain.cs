@@ -2,6 +2,7 @@
 using tms.Forms;
 using tms.Model;
 
+
 namespace tms
 {
     public partial class FormMain : Form
@@ -11,6 +12,12 @@ namespace tms
             InitializeComponent();
             wire();
             this.Size = new Size(1400, 730);
+
+            if (LoginForm.CurrentUser != null)
+            {
+                lblWelcome.Text = $"Welcome, {LoginForm.CurrentUser.Name}";
+                lblRole.Text = $"Role: {LoginForm.CurrentUser.Role}";
+            }
         }
         private void wire()
         {

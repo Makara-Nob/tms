@@ -29,9 +29,13 @@ namespace tms.Model
             // Foreign Keys
             public string StaffID { get; set; }
             public string TripID { get; set; }
+            public string TrackingNumber { get; set; }
+            public string InvoiceID { get; set; }
+            public string PaymentID { get; set; }
+            public decimal Amount { get; set; }
 
 
-            [ForeignKey(nameof(StaffID))]
+        [ForeignKey(nameof(StaffID))]
             public Staff Staff { get; set; }
 
         [ForeignKey(nameof(TripID))]

@@ -821,6 +821,10 @@ namespace tms.Forms
         {
             // Empty implementation - kept for compatibility
         }
-       
+
+        private void dgvTrips_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

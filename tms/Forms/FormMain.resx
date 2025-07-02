@@ -1321,7 +1321,7 @@
     <value>149, 795</value>
   </data>
   <data name="lbLogout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 28</value>
+    <value>80, 19</value>
   </data>
   <data name="lbLogout.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1426,7 +1426,7 @@
     <value>60, 11</value>
   </data>
   <data name="lbInvoice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 30</value>
+    <value>59, 20</value>
   </data>
   <data name="lbInvoice.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1513,7 +1513,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbDriver.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 30</value>
+    <value>52, 20</value>
   </data>
   <data name="lbDriver.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1602,7 +1602,7 @@
     <value>60, 12</value>
   </data>
   <data name="lbPayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 30</value>
+    <value>71, 20</value>
   </data>
   <data name="lbPayment.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1710,7 +1710,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbOrder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 30</value>
+    <value>112, 20</value>
   </data>
   <data name="lbOrder.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1791,7 +1791,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbStaff.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 30</value>
+    <value>140, 20</value>
   </data>
   <data name="lbStaff.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1872,7 +1872,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbTrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 30</value>
+    <value>101, 20</value>
   </data>
   <data name="lbTrip.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1953,7 +1953,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbBooking.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 30</value>
+    <value>122, 20</value>
   </data>
   <data name="lbBooking.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2034,7 +2034,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbDelivery.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 30</value>
+    <value>130, 20</value>
   </data>
   <data name="lbDelivery.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2115,7 +2115,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbRoute.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 30</value>
+    <value>116, 20</value>
   </data>
   <data name="lbRoute.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2196,7 +2196,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbVehicle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 30</value>
+    <value>96, 20</value>
   </data>
   <data name="lbVehicle.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2277,7 +2277,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbSeat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 30</value>
+    <value>136, 20</value>
   </data>
   <data name="lbSeat.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2358,7 +2358,7 @@
     <value>60, 22</value>
   </data>
   <data name="lbTicket.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 30</value>
+    <value>148, 20</value>
   </data>
   <data name="lbTicket.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2409,7 +2409,7 @@
     <value>10, 10, 10, 10</value>
   </data>
   <data name="dashboardCardsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>300, 1082</value>
+    <value>300, 1061</value>
   </data>
   <data name="dashboardCardsPanel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2451,7 +2451,7 @@
     <value>1</value>
   </data>
   <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1423, 1082</value>
+    <value>1423, 1061</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
     <value>300</value>
@@ -2469,7 +2469,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -2571,7 +2571,7 @@
     <value>60, 22</value>
   </data>
   <data name="load_formPassenger.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 30</value>
+    <value>140, 20</value>
   </data>
   <data name="load_formPassenger.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2696,6 +2696,63 @@
   <data name="&gt;&gt;totalBookingsCard.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="lblWelcome.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblWelcome.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt, style=Bold</value>
+  </data>
+  <data name="lblWelcome.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="lblWelcome.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 19</value>
+  </data>
+  <data name="lblWelcome.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblWelcome.Text" xml:space="preserve">
+    <value>Welcome, User</value>
+  </data>
+  <data name="&gt;&gt;lblWelcome.Name" xml:space="preserve">
+    <value>lblWelcome</value>
+  </data>
+  <data name="&gt;&gt;lblWelcome.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblWelcome.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblWelcome.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblRole.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblRole.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 45</value>
+  </data>
+  <data name="lblRole.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 15</value>
+  </data>
+  <data name="lblRole.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblRole.Text" xml:space="preserve">
+    <value>Role: </value>
+  </data>
+  <data name="&gt;&gt;lblRole.Name" xml:space="preserve">
+    <value>lblRole</value>
+  </data>
+  <data name="&gt;&gt;lblRole.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblRole.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblRole.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -2703,7 +2760,7 @@
     <value>25</value>
   </metadata>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1423, 1082</value>
+    <value>1423, 1061</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormMain</value>

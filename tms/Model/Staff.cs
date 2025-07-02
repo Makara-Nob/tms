@@ -9,6 +9,9 @@ namespace tms.Model
         [Key]
         public string StaffId { get; set; }
         public string Name { get; set; }
+        public string Username { get; set; }
+        public string PasswordHash { get; set; }
+        public string Role { get; set; }
         public string Gender { get; set; }
         public DateTime BirthDate { get; set; }
         public byte[]? Photo { get; set; }

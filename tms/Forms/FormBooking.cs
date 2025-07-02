@@ -17,7 +17,7 @@ namespace tms.Forms
             LoadTrips();
             WireGenderEvents();
             LoadBooking();
-            _loadFormCallback = loadFormCallback;   
+            _loadFormCallback = loadFormCallback;
         }
 
         private void LoadBooking()
@@ -33,7 +33,7 @@ namespace tms.Forms
             }
         }
 
-     
+
 
 
         private void WireGenderEvents()
@@ -66,7 +66,7 @@ namespace tms.Forms
         {
             var tripRepo = new TripRepository();
             comboBoxTrip.DataSource = tripRepo.GetAll();
-            comboBoxTrip.DisplayMember = "RouteName"; 
+            comboBoxTrip.DisplayMember = "RouteName";
             comboBoxTrip.ValueMember = "TripID";
         }
 
@@ -127,9 +127,9 @@ namespace tms.Forms
                 }
 
                 selectedBooking.Status = "Updated";
-                selectedBooking.StaffID = "S001"; 
+                selectedBooking.StaffID = "S001";
                 selectedBooking.TripID = (string)comboBoxTrip.SelectedValue;
-                selectedBooking.SeatNumber = 1; 
+                selectedBooking.SeatNumber = 1;
                 selectedBooking.BookingDate = DateTime.Now;
 
                 _bookingRepository.Update(selectedBooking);
@@ -232,6 +232,8 @@ namespace tms.Forms
         }
 
 
+
+
         private void ClearForm()
         {
             txtBox_Passenger.Clear();
@@ -241,5 +243,9 @@ namespace tms.Forms
             txtBookingSearch.Clear();
         }
 
+        private void dtgv_booking_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -341,5 +341,10 @@ namespace tms.Forms
                 this.Close();
             }
         }
+
+        private void dgvInvoices_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

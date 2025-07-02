@@ -72,11 +72,12 @@
             tableLayoutPanel1.Controls.Add(tableLayoutPanel5, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1432, 1110);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 12F));
+            tableLayoutPanel1.Size = new Size(1002, 637);
             tableLayoutPanel1.TabIndex = 7;
             // 
             // tableLayoutPanel4
@@ -86,12 +87,13 @@
             tableLayoutPanel4.Controls.Add(groupBox2, 0, 1);
             tableLayoutPanel4.Controls.Add(groupBox1, 0, 0);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(3, 3);
+            tableLayoutPanel4.Location = new Point(2, 2);
+            tableLayoutPanel4.Margin = new Padding(2);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 2;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 7.53098536F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 92.46901F));
-            tableLayoutPanel4.Size = new Size(331, 1104);
+            tableLayoutPanel4.Size = new Size(232, 633);
             tableLayoutPanel4.TabIndex = 7;
             // 
             // groupBox2
@@ -99,10 +101,11 @@
             groupBox2.Controls.Add(lsTrip);
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.ForeColor = Color.FromArgb(224, 224, 224);
-            groupBox2.Location = new Point(3, 86);
+            groupBox2.Location = new Point(2, 49);
+            groupBox2.Margin = new Padding(2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(10);
-            groupBox2.Size = new Size(325, 1015);
+            groupBox2.Padding = new Padding(7, 6, 7, 6);
+            groupBox2.Size = new Size(228, 582);
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "Trip's list";
@@ -111,10 +114,11 @@
             // 
             lsTrip.Dock = DockStyle.Fill;
             lsTrip.FormattingEnabled = true;
-            lsTrip.ItemHeight = 25;
-            lsTrip.Location = new Point(10, 34);
+            lsTrip.ItemHeight = 15;
+            lsTrip.Location = new Point(7, 22);
+            lsTrip.Margin = new Padding(2);
             lsTrip.Name = "lsTrip";
-            lsTrip.Size = new Size(305, 971);
+            lsTrip.Size = new Size(214, 554);
             lsTrip.TabIndex = 3;
             // 
             // groupBox1
@@ -123,10 +127,11 @@
             groupBox1.Controls.Add(comboBoxTrip);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.ForeColor = Color.FromArgb(224, 224, 224);
-            groupBox1.Location = new Point(3, 3);
+            groupBox1.Location = new Point(2, 2);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(10);
-            groupBox1.Size = new Size(325, 77);
+            groupBox1.Padding = new Padding(7, 6, 7, 6);
+            groupBox1.Size = new Size(228, 43);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Search Trip";
@@ -135,9 +140,10 @@
             // 
             comboBoxTrip.Dock = DockStyle.Fill;
             comboBoxTrip.FormattingEnabled = true;
-            comboBoxTrip.Location = new Point(10, 34);
+            comboBoxTrip.Location = new Point(7, 22);
+            comboBoxTrip.Margin = new Padding(2);
             comboBoxTrip.Name = "comboBoxTrip";
-            comboBoxTrip.Size = new Size(305, 33);
+            comboBoxTrip.Size = new Size(214, 23);
             comboBoxTrip.TabIndex = 6;
             // 
             // tableLayoutPanel5
@@ -148,13 +154,14 @@
             tableLayoutPanel5.Controls.Add(groupBox3, 0, 1);
             tableLayoutPanel5.Controls.Add(gbBooking1, 0, 0);
             tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(340, 3);
+            tableLayoutPanel5.Location = new Point(238, 2);
+            tableLayoutPanel5.Margin = new Padding(2);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 3;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 23.3811188F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 8.731558F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 67.88733F));
-            tableLayoutPanel5.Size = new Size(1089, 1104);
+            tableLayoutPanel5.Size = new Size(762, 633);
             tableLayoutPanel5.TabIndex = 8;
             // 
             // gbBooking3
@@ -162,10 +169,11 @@
             gbBooking3.Controls.Add(dtgv_booking);
             gbBooking3.Dock = DockStyle.Fill;
             gbBooking3.ForeColor = Color.FromArgb(224, 224, 224);
-            gbBooking3.Location = new Point(3, 357);
+            gbBooking3.Location = new Point(2, 205);
+            gbBooking3.Margin = new Padding(2);
             gbBooking3.Name = "gbBooking3";
-            gbBooking3.Padding = new Padding(10);
-            gbBooking3.Size = new Size(1083, 744);
+            gbBooking3.Padding = new Padding(7, 6, 7, 6);
+            gbBooking3.Size = new Size(758, 426);
             gbBooking3.TabIndex = 1;
             gbBooking3.TabStop = false;
             gbBooking3.Text = "Booking's Info";
@@ -184,21 +192,24 @@
             dtgv_booking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtgv_booking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgv_booking.Dock = DockStyle.Fill;
-            dtgv_booking.Location = new Point(10, 34);
+            dtgv_booking.Location = new Point(7, 22);
+            dtgv_booking.Margin = new Padding(2);
             dtgv_booking.Name = "dtgv_booking";
             dtgv_booking.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dtgv_booking.Size = new Size(1063, 700);
+            dtgv_booking.Size = new Size(744, 398);
             dtgv_booking.TabIndex = 0;
+            dtgv_booking.CellContentClick += dtgv_booking_CellContentClick;
             // 
             // groupBox3
             // 
             groupBox3.Controls.Add(txtBookingSearch);
             groupBox3.Dock = DockStyle.Fill;
             groupBox3.ForeColor = Color.FromArgb(224, 224, 224);
-            groupBox3.Location = new Point(3, 261);
+            groupBox3.Location = new Point(2, 150);
+            groupBox3.Margin = new Padding(2);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(10);
-            groupBox3.Size = new Size(1083, 90);
+            groupBox3.Padding = new Padding(7, 6, 7, 6);
+            groupBox3.Size = new Size(758, 51);
             groupBox3.TabIndex = 8;
             groupBox3.TabStop = false;
             groupBox3.Text = "Search";
@@ -206,9 +217,10 @@
             // txtBookingSearch
             // 
             txtBookingSearch.Dock = DockStyle.Fill;
-            txtBookingSearch.Location = new Point(10, 34);
+            txtBookingSearch.Location = new Point(7, 22);
+            txtBookingSearch.Margin = new Padding(2);
             txtBookingSearch.Name = "txtBookingSearch";
-            txtBookingSearch.Size = new Size(1063, 31);
+            txtBookingSearch.Size = new Size(744, 23);
             txtBookingSearch.TabIndex = 1;
             // 
             // gbBooking1
@@ -216,10 +228,11 @@
             gbBooking1.Controls.Add(tableLayoutPanel2);
             gbBooking1.Dock = DockStyle.Fill;
             gbBooking1.ForeColor = Color.FromArgb(224, 224, 224);
-            gbBooking1.Location = new Point(3, 3);
+            gbBooking1.Location = new Point(2, 2);
+            gbBooking1.Margin = new Padding(2);
             gbBooking1.Name = "gbBooking1";
-            gbBooking1.Padding = new Padding(10);
-            gbBooking1.Size = new Size(1083, 252);
+            gbBooking1.Padding = new Padding(7, 6, 7, 6);
+            gbBooking1.Size = new Size(758, 144);
             gbBooking1.TabIndex = 2;
             gbBooking1.TabStop = false;
             gbBooking1.Text = "Form";
@@ -230,7 +243,7 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 14F));
             tableLayoutPanel2.Controls.Add(label1, 0, 0);
             tableLayoutPanel2.Controls.Add(chkFemale, 2, 1);
             tableLayoutPanel2.Controls.Add(lblGender, 0, 1);
@@ -241,30 +254,33 @@
             tableLayoutPanel2.Controls.Add(btnSelectSeat, 2, 0);
             tableLayoutPanel2.Controls.Add(btnAdd, 0, 2);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(10, 34);
+            tableLayoutPanel2.Location = new Point(7, 22);
+            tableLayoutPanel2.Margin = new Padding(2);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 3;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel2.Size = new Size(1063, 208);
+            tableLayoutPanel2.Size = new Size(744, 116);
             tableLayoutPanel2.TabIndex = 13;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(3, 0);
+            label1.Location = new Point(2, 0);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(157, 25);
+            label1.Size = new Size(105, 15);
             label1.TabIndex = 3;
             label1.Text = "Passenger Contact";
             // 
             // chkFemale
             // 
             chkFemale.AutoSize = true;
-            chkFemale.Location = new Point(711, 72);
+            chkFemale.Location = new Point(498, 40);
+            chkFemale.Margin = new Padding(2);
             chkFemale.Name = "chkFemale";
-            chkFemale.Size = new Size(94, 29);
+            chkFemale.Size = new Size(64, 19);
             chkFemale.TabIndex = 7;
             chkFemale.Text = "Female";
             chkFemale.UseVisualStyleBackColor = true;
@@ -272,18 +288,20 @@
             // lblGender
             // 
             lblGender.AutoSize = true;
-            lblGender.Location = new Point(3, 69);
+            lblGender.Location = new Point(2, 38);
+            lblGender.Margin = new Padding(2, 0, 2, 0);
             lblGender.Name = "lblGender";
-            lblGender.Size = new Size(69, 25);
+            lblGender.Size = new Size(45, 15);
             lblGender.TabIndex = 5;
             lblGender.Text = "Gender";
             // 
             // chkMale
             // 
             chkMale.AutoSize = true;
-            chkMale.Location = new Point(357, 72);
+            chkMale.Location = new Point(250, 40);
+            chkMale.Margin = new Padding(2);
             chkMale.Name = "chkMale";
-            chkMale.Size = new Size(76, 29);
+            chkMale.Size = new Size(52, 19);
             chkMale.TabIndex = 6;
             chkMale.Text = "Male";
             chkMale.UseVisualStyleBackColor = true;
@@ -291,9 +309,10 @@
             // txtBox_Passenger
             // 
             txtBox_Passenger.Dock = DockStyle.Fill;
-            txtBox_Passenger.Location = new Point(357, 3);
+            txtBox_Passenger.Location = new Point(250, 2);
+            txtBox_Passenger.Margin = new Padding(2);
             txtBox_Passenger.Name = "txtBox_Passenger";
-            txtBox_Passenger.Size = new Size(348, 31);
+            txtBox_Passenger.Size = new Size(244, 23);
             txtBox_Passenger.TabIndex = 4;
             // 
             // btnUpdate
@@ -301,9 +320,10 @@
             btnUpdate.BackColor = Color.White;
             btnUpdate.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUpdate.ForeColor = Color.Black;
-            btnUpdate.Location = new Point(357, 141);
+            btnUpdate.Location = new Point(250, 78);
+            btnUpdate.Margin = new Padding(2);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(125, 45);
+            btnUpdate.Size = new Size(88, 27);
             btnUpdate.TabIndex = 9;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -313,9 +333,10 @@
             btnClear.BackColor = Color.White;
             btnClear.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClear.ForeColor = Color.Black;
-            btnClear.Location = new Point(711, 141);
+            btnClear.Location = new Point(498, 78);
+            btnClear.Margin = new Padding(2);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(125, 45);
+            btnClear.Size = new Size(88, 27);
             btnClear.TabIndex = 10;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
@@ -325,9 +346,10 @@
             btnSelectSeat.BackColor = Color.White;
             btnSelectSeat.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSelectSeat.ForeColor = Color.Black;
-            btnSelectSeat.Location = new Point(711, 3);
+            btnSelectSeat.Location = new Point(498, 2);
+            btnSelectSeat.Margin = new Padding(2);
             btnSelectSeat.Name = "btnSelectSeat";
-            btnSelectSeat.Size = new Size(125, 45);
+            btnSelectSeat.Size = new Size(88, 27);
             btnSelectSeat.TabIndex = 1;
             btnSelectSeat.Text = "Select seat";
             btnSelectSeat.UseVisualStyleBackColor = false;
@@ -336,21 +358,23 @@
             // 
             btnAdd.BackColor = Color.White;
             btnAdd.ForeColor = Color.Black;
-            btnAdd.Location = new Point(3, 141);
+            btnAdd.Location = new Point(2, 78);
+            btnAdd.Margin = new Padding(2);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(125, 45);
+            btnAdd.Size = new Size(88, 27);
             btnAdd.TabIndex = 8;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
             // 
             // FormBooking
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.FromArgb(22, 28, 36);
-            ClientSize = new Size(1432, 1110);
+            ClientSize = new Size(1002, 637);
             Controls.Add(tableLayoutPanel1);
+            Margin = new Padding(2);
             Name = "FormBooking";
             Text = "FormBooking";
             WindowState = FormWindowState.Maximized;

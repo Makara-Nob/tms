@@ -37,7 +37,7 @@ namespace tms.Data
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(
-                                  "Server=ACER\\SQLEXPRESS01;Database=tms;Trusted_Connection=True;Encrypt=False;"
+                                  "Server=FURINA-SIMP\\SQLEXPRESS02;Database=tms;User Id=sa;Password=Chinsakda@3;Encrypt=False;"
                                   );
             }
         }

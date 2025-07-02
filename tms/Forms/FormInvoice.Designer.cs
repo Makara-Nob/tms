@@ -192,6 +192,7 @@
             dgvInvoices.Size = new Size(800, 556);
             dgvInvoices.TabIndex = 12;
             dgvInvoices.CellClick += dgvInvoices_CellClick;
+            dgvInvoices.CellContentClick += dgvInvoices_CellContentClick;
             // 
             // btnSearch
             // 

@@ -35,7 +35,23 @@ namespace tms
 
             Console.WriteLine("✅ Test complete.");
             Console.ReadLine();
-            Application.Run(new FormMain());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            // Show login form first
+            using (LoginForm loginForm = new LoginForm())
+            {
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Only show main form if login was successful
+                    Application.Run(new FormMain());
+                }
+                else
+                {
+                    // Exit application if login was canceled or failed
+                    Application.Exit();
+                }
+            }
         }
     }
 }
