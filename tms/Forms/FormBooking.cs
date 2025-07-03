@@ -26,7 +26,7 @@ namespace tms.Forms
         {
             try
             {
-                allBookings = _bookingRepository.GetAll();
+                allBookings = _bookingRepository?.GetAll() ?? new List<Booking>();
                 dtgv_booking.DataSource = allBookings;
             }
             catch (Exception ex)
@@ -37,11 +37,8 @@ namespace tms.Forms
 
         private void WireGenderEvents()
         {
-            chkMale.CheckedChanged += (s, e) =>
-            {
-                if (chkMale.Checked)
-                    chkFemale.Checked = false;
-            };
+            chkMale.CheckedChanged += (s, e) => { if (chkMale.Checked) chkFemale.Checked = false; };
+            chkFemale.CheckedChanged += (s, e) => { if (chkFemale.Checked) chkMale.Checked = false; };
 
             chkFemale.CheckedChanged += (s, e) =>
             {
@@ -83,7 +80,7 @@ namespace tms.Forms
             }
         }
 
-        private void BtnAddBooking_Click(object sender, EventArgs e)
+        private bool ValidateBookingInput()
         {
             try
             {
@@ -93,11 +90,21 @@ namespace tms.Forms
                     return;
                 }
 
-                if (comboBoxTrip.SelectedValue == null)
-                {
-                    MessageBox.Show("Please select a trip.");
-                    return;
-                }
+            if (comboBoxTrip.SelectedValue == null)
+            {
+                MessageBox.Show("Please select a trip.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBoxTrip.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void BtnAddBooking_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!ValidateBookingInput()) return;
 
                 string gender = chkMale.Checked ? "Male" : (chkFemale.Checked ? "Female" : null);
 

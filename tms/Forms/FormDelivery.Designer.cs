@@ -78,7 +78,7 @@
             label1.ForeColor = Color.FromArgb(224, 224, 224);
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(74, 17);
+            label1.Size = new Size(95, 23);
             label1.TabIndex = 0;
             label1.Text = "Delivery ID";
             // 
@@ -89,7 +89,7 @@
             deliveryId.Font = new Font("Segoe UI", 11F);
             deliveryId.Location = new Point(225, 3);
             deliveryId.Name = "deliveryId";
-            deliveryId.Size = new Size(216, 27);
+            deliveryId.Size = new Size(216, 32);
             deliveryId.TabIndex = 1;
             deliveryId.TextChanged += deliveryId_TextChanged;
             // 
@@ -100,7 +100,7 @@
             label2.ForeColor = Color.FromArgb(224, 224, 224);
             label2.Location = new Point(447, 0);
             label2.Name = "label2";
-            label2.Size = new Size(60, 17);
+            label2.Size = new Size(76, 23);
             label2.TabIndex = 0;
             label2.Text = "Order ID";
             // 
@@ -111,7 +111,7 @@
             orderId.Font = new Font("Segoe UI", 11F);
             orderId.Location = new Point(669, 3);
             orderId.Name = "orderId";
-            orderId.Size = new Size(218, 27);
+            orderId.Size = new Size(218, 32);
             orderId.TabIndex = 1;
             orderId.TextChanged += orderId_TextChanged;
             // 
@@ -120,9 +120,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(224, 224, 224);
-            label3.Location = new Point(3, 109);
+            label3.Location = new Point(3, 108);
             label3.Name = "label3";
-            label3.Size = new Size(84, 17);
+            label3.Size = new Size(106, 23);
             label3.TabIndex = 0;
             label3.Text = "Customer ID";
             // 
@@ -131,9 +131,9 @@
             customerId.BorderStyle = BorderStyle.FixedSingle;
             customerId.Dock = DockStyle.Fill;
             customerId.Font = new Font("Segoe UI", 11F);
-            customerId.Location = new Point(225, 112);
+            customerId.Location = new Point(225, 111);
             customerId.Name = "customerId";
-            customerId.Size = new Size(216, 27);
+            customerId.Size = new Size(216, 32);
             customerId.TabIndex = 1;
             customerId.TextChanged += customerId_TextChanged;
             // 
@@ -142,9 +142,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(224, 224, 224);
-            label4.Location = new Point(447, 109);
+            label4.Location = new Point(447, 108);
             label4.Name = "label4";
-            label4.Size = new Size(75, 17);
+            label4.Size = new Size(95, 23);
             label4.TabIndex = 0;
             label4.Text = "Order Type";
             // 
@@ -153,9 +153,9 @@
             orderType.BorderStyle = BorderStyle.FixedSingle;
             orderType.Dock = DockStyle.Fill;
             orderType.Font = new Font("Segoe UI", 11F);
-            orderType.Location = new Point(669, 112);
+            orderType.Location = new Point(669, 111);
             orderType.Name = "orderType";
-            orderType.Size = new Size(218, 27);
+            orderType.Size = new Size(218, 32);
             orderType.TabIndex = 1;
             orderType.TextChanged += orderType_TextChanged;
             // 
@@ -164,9 +164,9 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(224, 224, 224);
-            label5.Location = new Point(3, 218);
+            label5.Location = new Point(3, 216);
             label5.Name = "label5";
-            label5.Size = new Size(75, 17);
+            label5.Size = new Size(95, 23);
             label5.TabIndex = 0;
             label5.Text = "Order Date";
             // 
@@ -175,9 +175,9 @@
             orderDate.BorderStyle = BorderStyle.FixedSingle;
             orderDate.Dock = DockStyle.Fill;
             orderDate.Font = new Font("Segoe UI", 11F);
-            orderDate.Location = new Point(225, 221);
+            orderDate.Location = new Point(225, 219);
             orderDate.Name = "orderDate";
-            orderDate.Size = new Size(216, 27);
+            orderDate.Size = new Size(216, 32);
             orderDate.TabIndex = 1;
             orderDate.TextChanged += orderDate_TextChanged;
             // 
@@ -186,9 +186,9 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(224, 224, 224);
-            label6.Location = new Point(447, 218);
+            label6.Location = new Point(447, 216);
             label6.Name = "label6";
-            label6.Size = new Size(99, 17);
+            label6.Size = new Size(125, 23);
             label6.TabIndex = 0;
             label6.Text = "Delivery Status";
             // 
@@ -198,9 +198,9 @@
             deliveryStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             deliveryStatus.Font = new Font("Segoe UI", 11F);
             deliveryStatus.FormattingEnabled = true;
-            deliveryStatus.Location = new Point(669, 221);
+            deliveryStatus.Location = new Point(669, 219);
             deliveryStatus.Name = "deliveryStatus";
-            deliveryStatus.Size = new Size(218, 28);
+            deliveryStatus.Size = new Size(218, 33);
             deliveryStatus.TabIndex = 2;
             deliveryStatus.SelectedIndexChanged += deliveryStatus_SelectedIndexChanged;
             // 
@@ -210,7 +210,7 @@
             updateBtn.FlatAppearance.BorderSize = 0;
             updateBtn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             updateBtn.ForeColor = Color.Black;
-            updateBtn.Location = new Point(3, 330);
+            updateBtn.Location = new Point(3, 327);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(125, 45);
             updateBtn.TabIndex = 3;
@@ -250,14 +250,14 @@
             tableDelivery.Dock = DockStyle.Fill;
             tableDelivery.EnableHeadersVisualStyles = false;
             tableDelivery.GridColor = Color.FromArgb(224, 224, 224);
-            tableDelivery.Location = new Point(10, 26);
+            tableDelivery.Location = new Point(10, 30);
             tableDelivery.Name = "tableDelivery";
             tableDelivery.ReadOnly = true;
             tableDelivery.RowHeadersVisible = false;
             tableDelivery.RowHeadersWidth = 62;
             tableDelivery.RowTemplate.Height = 35;
             tableDelivery.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tableDelivery.Size = new Size(429, 828);
+            tableDelivery.Size = new Size(429, 824);
             tableDelivery.TabIndex = 4;
             tableDelivery.CellClick += tableDelivery_CellClick;
             // 
@@ -320,9 +320,9 @@
             // textBox1
             // 
             textBox1.Dock = DockStyle.Fill;
-            textBox1.Location = new Point(10, 26);
+            textBox1.Location = new Point(10, 30);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(890, 23);
+            textBox1.Size = new Size(890, 27);
             textBox1.TabIndex = 10;
             // 
             // groupBox4
@@ -343,10 +343,10 @@
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(10, 26);
+            dataGridView1.Location = new Point(10, 30);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(890, 344);
+            dataGridView1.Size = new Size(890, 340);
             dataGridView1.TabIndex = 0;
             // 
             // groupBox1
@@ -383,14 +383,14 @@
             tableLayoutPanel2.Controls.Add(orderId, 3, 0);
             tableLayoutPanel2.Controls.Add(label2, 2, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(10, 26);
+            tableLayoutPanel2.Location = new Point(10, 30);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 4;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.Size = new Size(890, 438);
+            tableLayoutPanel2.Size = new Size(890, 434);
             tableLayoutPanel2.TabIndex = 6;
             tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
             // 
@@ -439,14 +439,14 @@
             // txtSearch
             // 
             txtSearch.Dock = DockStyle.Fill;
-            txtSearch.Location = new Point(10, 26);
+            txtSearch.Location = new Point(10, 30);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(429, 23);
+            txtSearch.Size = new Size(429, 27);
             txtSearch.TabIndex = 10;
             // 
             // FormDelivery
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(240, 240, 240);
             ClientSize = new Size(1423, 998);
