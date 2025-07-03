@@ -29,7 +29,7 @@ namespace tms.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             lblOrderID = new Label();
             txtOrderID = new TextBox();
             lblCustomerID = new Label();
@@ -43,6 +43,8 @@ namespace tms.Forms
             btnDelete = new Button();
             dataGridViewOrders = new DataGridView();
             tableLayoutPanel1 = new TableLayoutPanel();
+            txtReceiver = new TextBox();
+            btnCreateDelivery = new Button();
             txtReciever = new TextBox();
             label1 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -72,7 +74,7 @@ namespace tms.Forms
             // 
             txtOrderID.Dock = DockStyle.Fill;
             txtOrderID.Location = new Point(249, 4);
-            txtOrderID.Margin = new Padding(4, 4, 4, 4);
+            txtOrderID.Margin = new Padding(4);
             txtOrderID.Name = "txtOrderID";
             txtOrderID.Size = new Size(237, 23);
             txtOrderID.TabIndex = 1;
@@ -91,7 +93,7 @@ namespace tms.Forms
             // 
             txtSender.Dock = DockStyle.Fill;
             txtSender.Location = new Point(739, 4);
-            txtSender.Margin = new Padding(4, 4, 4, 4);
+            txtSender.Margin = new Padding(4);
             txtSender.Name = "txtSender";
             txtSender.Size = new Size(239, 23);
             txtSender.TabIndex = 3;
@@ -110,7 +112,7 @@ namespace tms.Forms
             // 
             txtOrderType.Dock = DockStyle.Fill;
             txtOrderType.Location = new Point(249, 34);
-            txtOrderType.Margin = new Padding(4, 4, 4, 4);
+            txtOrderType.Margin = new Padding(4);
             txtOrderType.Name = "txtOrderType";
             txtOrderType.Size = new Size(237, 23);
             txtOrderType.TabIndex = 5;
@@ -118,7 +120,7 @@ namespace tms.Forms
             // lblOrderDate
             // 
             lblOrderDate.AutoSize = true;
-            lblOrderDate.Location = new Point(4, 60);
+            lblOrderDate.Location = new Point(249, 60);
             lblOrderDate.Margin = new Padding(4, 0, 4, 0);
             lblOrderDate.Name = "lblOrderDate";
             lblOrderDate.Size = new Size(67, 15);
@@ -129,8 +131,8 @@ namespace tms.Forms
             // 
             dtpOrderDate.Dock = DockStyle.Fill;
             dtpOrderDate.Format = DateTimePickerFormat.Short;
-            dtpOrderDate.Location = new Point(249, 64);
-            dtpOrderDate.Margin = new Padding(4, 4, 4, 4);
+            dtpOrderDate.Location = new Point(494, 64);
+            dtpOrderDate.Margin = new Padding(4);
             dtpOrderDate.Name = "dtpOrderDate";
             dtpOrderDate.Size = new Size(237, 23);
             dtpOrderDate.TabIndex = 7;
@@ -140,7 +142,7 @@ namespace tms.Forms
             btnSave.BackColor = Color.White;
             btnSave.ForeColor = Color.Black;
             btnSave.Location = new Point(4, 94);
-            btnSave.Margin = new Padding(4, 4, 4, 4);
+            btnSave.Margin = new Padding(4);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(88, 26);
             btnSave.TabIndex = 8;
@@ -153,7 +155,7 @@ namespace tms.Forms
             btnUpdate.BackColor = Color.White;
             btnUpdate.ForeColor = Color.Black;
             btnUpdate.Location = new Point(249, 94);
-            btnUpdate.Margin = new Padding(4, 4, 4, 4);
+            btnUpdate.Margin = new Padding(4);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(88, 26);
             btnUpdate.TabIndex = 9;
@@ -166,7 +168,7 @@ namespace tms.Forms
             btnDelete.BackColor = Color.White;
             btnDelete.ForeColor = Color.Black;
             btnDelete.Location = new Point(494, 94);
-            btnDelete.Margin = new Padding(4, 4, 4, 4);
+            btnDelete.Margin = new Padding(4);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(88, 26);
             btnDelete.TabIndex = 10;
@@ -179,19 +181,19 @@ namespace tms.Forms
             dataGridViewOrders.AllowUserToAddRows = false;
             dataGridViewOrders.AllowUserToDeleteRows = false;
             dataGridViewOrders.BackgroundColor = Color.White;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle2.Padding = new Padding(5);
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridViewOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.Padding = new Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewOrders.Dock = DockStyle.Fill;
             dataGridViewOrders.Location = new Point(7, 22);
-            dataGridViewOrders.Margin = new Padding(4, 4, 4, 4);
+            dataGridViewOrders.Margin = new Padding(4);
             dataGridViewOrders.Name = "dataGridViewOrders";
             dataGridViewOrders.ReadOnly = true;
             dataGridViewOrders.RowHeadersWidth = 62;
@@ -207,6 +209,8 @@ namespace tms.Forms
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.Controls.Add(txtReceiver, 3, 1);
+            tableLayoutPanel1.Controls.Add(btnCreateDelivery, 3, 3);
             tableLayoutPanel1.Controls.Add(txtReciever, 3, 1);
             tableLayoutPanel1.Controls.Add(lblOrderID, 0, 0);
             tableLayoutPanel1.Controls.Add(txtOrderID, 1, 0);
@@ -233,13 +237,31 @@ namespace tms.Forms
             tableLayoutPanel1.TabIndex = 12;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
+            // txtReceiver
+            // 
+            txtReceiver.Location = new Point(738, 33);
+            txtReceiver.Name = "txtReceiver";
+            txtReceiver.Size = new Size(100, 23);
+            txtReceiver.TabIndex = 0;
+            // 
+            // btnCreateDelivery
+            // 
+            btnCreateDelivery.ForeColor = Color.Black;
+            btnCreateDelivery.Location = new Point(738, 93);
+            btnCreateDelivery.Name = "btnCreateDelivery";
+            btnCreateDelivery.Size = new Size(120, 30);
+            btnCreateDelivery.TabIndex = 10;
+            btnCreateDelivery.Text = "Create Delivery";
+            btnCreateDelivery.UseVisualStyleBackColor = true;
+            btnCreateDelivery.Click += btnCreateDelivery_Click;
+            // 
             // txtReciever
             // 
             txtReciever.Dock = DockStyle.Fill;
-            txtReciever.Location = new Point(739, 34);
-            txtReciever.Margin = new Padding(4, 4, 4, 4);
+            txtReciever.Location = new Point(4, 64);
+            txtReciever.Margin = new Padding(4);
             txtReciever.Name = "txtReciever";
-            txtReciever.Size = new Size(239, 23);
+            txtReciever.Size = new Size(237, 23);
             txtReciever.TabIndex = 12;
             // 
             // label1
@@ -328,7 +350,7 @@ namespace tms.Forms
             BackColor = Color.FromArgb(22, 28, 36);
             ClientSize = new Size(1000, 604);
             Controls.Add(tableLayoutPanel2);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "FormOrder";
             Text = "Order Management";
             WindowState = FormWindowState.Maximized;
@@ -367,5 +389,7 @@ namespace tms.Forms
         private GroupBox groupBox2;
         private GroupBox groupBox3;
         private TextBox textBox1;
+        private TextBox txtReceiver;
+        private System.Windows.Forms.Button btnCreateDelivery;
     }
 }

@@ -48,43 +48,56 @@ namespace tms.Forms
         {
             txtOrderID.Clear();
             txtSender.Clear();
+            txtReceiver.Clear();
             txtOrderType.Clear();
-            dtpOrderDate.Value = DateTime.Now; // Reset to current date/time
-            txtOrderID.ReadOnly = false; // Make OrderID editable for new entries
+            dtpOrderDate.Value = DateTime.Now;
         }
+
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                // Basic validation
-                if (string.IsNullOrWhiteSpace(txtOrderID.Text) || string.IsNullOrWhiteSpace(txtSender.Text))
+                // Add validation for receiver field
+                if (string.IsNullOrWhiteSpace(txtOrderID.Text) ||
+                    string.IsNullOrWhiteSpace(txtSender.Text) ||
+                    string.IsNullOrWhiteSpace(txtReceiver.Text))
                 {
-                    MessageBox.Show("Order ID and Customer ID cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Order ID, Sender and Receiver are required");
                     return;
                 }
 
                 Order newOrder = new Order
                 {
                     OrderID = txtOrderID.Text.Trim(),
+                    Sender = txtSender.Text.Trim(),
+                    Reciever = txtReceiver.Text.Trim(),
                     OrderType = txtOrderType.Text.Trim(),
                     OrderDate = dtpOrderDate.Value
                 };
 
                 _orderRepository.AddOrder(newOrder);
-                MessageBox.Show("Order saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ClearFormFields();
-                LoadOrdersToGrid(); // Refresh the DataGridView
-            }
-            catch (ArgumentException aex) // Catch specific validation errors from repository
-            {
-                MessageBox.Show(aex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoadOrdersToGrid();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while saving the order: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error: {ex.Message}");
             }
         }
+
+        private void btnCreateDelivery_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtOrderID.Text))
+            {
+                MessageBox.Show("Please select an order first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var deliveryForm = new FormDelivery(txtOrderID.Text);
+            deliveryForm.Show();
+            this.Hide(); // or keep both forms open: deliveryForm.ShowDialog();
+        }
+
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -149,25 +162,15 @@ namespace tms.Forms
 
         private void dataGridViewOrders_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // Ensure a valid row is clicked
+            if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = this.dataGridViewOrders.Rows[e.RowIndex];
+                DataGridViewRow row = dataGridViewOrders.Rows[e.RowIndex];
 
-                // Populate textboxes from the selected row
                 txtOrderID.Text = row.Cells["OrderID"].Value?.ToString();
-                txtSender.Text = row.Cells["CustomerID"].Value?.ToString();
+                txtSender.Text = row.Cells["Sender"].Value?.ToString();
+                txtReceiver.Text = row.Cells["Reciever"].Value?.ToString();
                 txtOrderType.Text = row.Cells["OrderType"].Value?.ToString();
-
-                if (DateTime.TryParse(row.Cells["OrderDate"].Value?.ToString(), out DateTime orderDate))
-                {
-                    dtpOrderDate.Value = orderDate;
-                }
-                else
-                {
-                    dtpOrderDate.Value = DateTime.Now; // Default if parsing fails
-                }
-
-                txtOrderID.ReadOnly = true; // Make OrderID non-editable when updating
+                dtpOrderDate.Value = Convert.ToDateTime(row.Cells["OrderDate"].Value);
             }
         }
 
