@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel4 = new TableLayoutPanel();
             groupBox2 = new GroupBox();
@@ -37,12 +37,12 @@
             comboBoxTrip = new ComboBox();
             tableLayoutPanel5 = new TableLayoutPanel();
             gbBooking3 = new GroupBox();
-            btnNavigateToInvoice = new Button();
             dtgv_booking = new DataGridView();
             groupBox3 = new GroupBox();
             txtBookingSearch = new TextBox();
             gbBooking1 = new GroupBox();
             tableLayoutPanel2 = new TableLayoutPanel();
+            btnNavigateToInvoice = new Button();
             label1 = new Label();
             chkFemale = new CheckBox();
             lblGender = new Label();
@@ -94,7 +94,7 @@
             tableLayoutPanel4.RowCount = 2;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 7.53098536F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 92.46901F));
-            tableLayoutPanel4.Size = new Size(331, 1104);
+            tableLayoutPanel4.Size = new Size(336, 851);
             tableLayoutPanel4.TabIndex = 7;
             // 
             // groupBox2
@@ -179,28 +179,18 @@
             gbBooking3.TabStop = false;
             gbBooking3.Text = "Booking's Info";
             // 
-            // btnNavigateToInvoice
-            // 
-            btnNavigateToInvoice.ForeColor = Color.Black;
-            btnNavigateToInvoice.Location = new Point(3, 135);
-            btnNavigateToInvoice.Name = "btnNavigateToInvoice";
-            btnNavigateToInvoice.Size = new Size(150, 28);
-            btnNavigateToInvoice.TabIndex = 20;
-            btnNavigateToInvoice.Text = "Create Invoice";
-            btnNavigateToInvoice.UseVisualStyleBackColor = true;
-            // 
             // dtgv_booking
             // 
             dtgv_booking.BackgroundColor = Color.White;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(0, 122, 204);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle2.Padding = new Padding(5);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 122, 204);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dtgv_booking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 122, 204);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.Padding = new Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 122, 204);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dtgv_booking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtgv_booking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgv_booking.Dock = DockStyle.Fill;
             dtgv_booking.Location = new Point(7, 22);
@@ -277,6 +267,16 @@
             tableLayoutPanel2.Size = new Size(1081, 166);
             tableLayoutPanel2.TabIndex = 13;
             tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
+            // 
+            // btnNavigateToInvoice
+            // 
+            btnNavigateToInvoice.ForeColor = Color.Black;
+            btnNavigateToInvoice.Location = new Point(3, 135);
+            btnNavigateToInvoice.Name = "btnNavigateToInvoice";
+            btnNavigateToInvoice.Size = new Size(150, 28);
+            btnNavigateToInvoice.TabIndex = 20;
+            btnNavigateToInvoice.Text = "Create Invoice";
+            btnNavigateToInvoice.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
