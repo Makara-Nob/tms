@@ -21,6 +21,8 @@ namespace tms.Forms
         public PaymentForm()
         {
             InitializeComponent();
+            this.Load += PaymentForm_Load;
+            btnNavigateToTicket.Click += BtnNavigateToTicket_Click;
         }
 
         private void PaymentForm_Load(object sender, EventArgs e)
@@ -29,6 +31,12 @@ namespace tms.Forms
             LoadStaffComboBox();
             LoadInvoiceComboBox(); // Load invoice data into combobox
             RefreshPaymentList();
+        }
+
+        private void BtnNavigateToTicket_Click(object sender, EventArgs e)
+        {
+            var ticketForm = new FormTicket();
+            ticketForm.Show();
         }
 
         private void InitializeForm()
@@ -337,6 +345,11 @@ namespace tms.Forms
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
             // Existing code
+        }
+
+        private void cmbInvoiceNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -278,19 +278,10 @@ namespace tms.Forms
                 return;
             }
 
-            string message = $"Confirm selection of {selectedSeats.Count} seat(s):\n" +
-                           $"{string.Join(", ", selectedSeats.Select(s => s.SeatNumber))}";
-
-            var result = MessageBox.Show(message, "Confirm Seat Selection",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                SeatSelectionConfirmed = true;
-                SelectedSeats = new List<Seat>(selectedSeats);
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
+            SeatSelectionConfirmed = true;
+            SelectedSeats = new List<Seat>(selectedSeats);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void SeatTypeFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -348,16 +339,20 @@ namespace tms.Forms
 
         public static SeatSelectionResult ShowSeatPicker(string vehicleId = null, List<string> occupiedSeats = null)
         {
-            using (var form = new FormSeatPicking(vehicleId, occupiedSeats))
-            {
-                var result = form.ShowDialog();
+                var form = new FormSeatPicking(vehicleId, occupiedSeats);
+                form.ShowDialog(); 
                 return new SeatSelectionResult
                 {
-                    Success = result == DialogResult.OK && form.SeatSelectionConfirmed,
+                    Success = form.SeatSelectionConfirmed,
                     SelectedSeats = form.SelectedSeats,
                     VehicleId = form.vehicleComboBox.SelectedItem?.ToString()
                 };
-            }
+            
+        }
+
+        private void seatPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 

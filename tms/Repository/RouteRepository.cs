@@ -5,14 +5,30 @@ using Microsoft.Data.SqlClient;
 
 namespace tms.Repository
 {
-    public class RouteRepository
+    public class RouteRepository : IDisposable
     {
+        private readonly AppDbContext _context;
+        private bool _disposed = false;
+
+        // Constructor that optionally takes a context (for dependency injection)
+        public RouteRepository(AppDbContext context = null)
+        {
+            _context = context ?? new AppDbContext();
+        }
         public List<Route> GetAll()
         {
-            using var context = new AppDbContext();
-            return context.Routes
-                .FromSqlRaw("EXEC GetAllRoutes")
-                .ToList();
+            try
+            {
+                return _context.Routes
+                    .AsNoTracking()
+                    .OrderBy(r => r.StartPoint)
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting routes: {ex.Message}");
+                return new List<Route>();
+            }
         }
 
         public Route? GetById(string routeId)
@@ -74,6 +90,25 @@ namespace tms.Repository
             };
 
             return context.Database.ExecuteSqlRaw("EXEC UpdateRoute @RouteID, @StartPoint, @EndPoint, @DistanceKm, @EstimatedTimeMinutes, @VehicleAssigned, @Priority, @AvoidTolls, @EnableWeatherAlerts, @ModifiedDate", parameters) > 0;
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    // Dispose managed resources
+                    _context.Dispose();
+                }
+                _disposed = true;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
     }

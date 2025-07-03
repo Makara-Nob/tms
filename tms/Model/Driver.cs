@@ -4,15 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace tms.Model
 {
-    public class Driver 
+    public class Driver
     {
         [Key]
-        public int DriverID { get; set; }
-
-        [Required]
-        [MaxLength(450)]
-        public string StaffId { get; set; }
-
+        public string StaffId { get; set; } // Primary Key and Foreign Key to Staff
+        public int DriverID { get; set; } // This is likely an identity column in the DB, not the PK for EF Core here.
+                                          // If it's an identity, you might need [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
         [MaxLength(100)]
         public string LicenseNumber { get; set; }
@@ -25,10 +22,9 @@ namespace tms.Model
         [MaxLength(100)]
         public string? Availability { get; set; }
 
-        // Navigation property
-        [ForeignKey("StaffId")]
-        public virtual Staff Staff { get; set; } = null!;
+        // Navigation property to Staff (one-to-one)
+        [ForeignKey("StaffId")] // Explicitly define foreign key
+        public virtual Staff Staff { get; set; }
 
-      
     }
 }

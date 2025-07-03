@@ -2,156 +2,63 @@
 using System.Data;
 using tms.Model;
 using tms.Repository;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace tms.Forms
 {
     public partial class FormTrip : Form
     {
-        private TripRepository tripRepository;
-        private VehicleRepository vehicleRepository;
-        private StaffRepository driverRepository;
-        private RouteRepository routeRepository;
-
-        // Add flag to prevent multiple simultaneous operations
+        private readonly VehicleRepository vehicleRepository = new();
+        private readonly RouteRepository routeRepository = new();
+        private readonly DriverRepository driverRepository = new();
+        private readonly TripRepository tripRepository = new();
         private bool isLoading = false;
 
         public FormTrip()
         {
-            InitializeComponent(); // Initialize the form components first
-
-            // Initialize repositories with null checks
-            InitializeRepositories();
-
-            // Initialize form components safely
+            InitializeComponent();
             InitializeFormComponents();
-        }
-
-        private void InitializeRepositories()
-        {
-            try
-            {
-                tripRepository = new TripRepository();
-                vehicleRepository = new VehicleRepository();
-                driverRepository = new StaffRepository();
-                routeRepository = new RouteRepository();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error initializing repositories: {ex.Message}", "Initialization Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // Initialize with null to prevent further errors
-                tripRepository = null;
-                vehicleRepository = null;
-                driverRepository = null;
-                routeRepository = null;
-            }
         }
 
         private void InitializeFormComponents()
         {
             try
             {
-                // Initialize controls with null checks
                 LoadData();
                 InitializeStatusComboBox();
                 LoadComboBoxes();
                 AttachEventHandlers();
-
-                // Generate initial trip ID
                 GenerateNewTripId();
-
-                // Set default values
                 SetDefaultValues();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error initializing form components: {ex.Message}", "Initialization Error",
+                MessageBox.Show($"Error initializing form: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void SetDefaultValues()
         {
-            try
-            {
-                // Set default departure time
-                if (dtpDepatureTime != null)
-                {
-                    dtpDepatureTime.Value = DateTime.Now.AddHours(1);
-                }
-
-                // Clear search text
-                if (txtSearch != null)
-                {
-                    txtSearch.Text = string.Empty;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error setting default values: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        // Recursive method to get all controls inside a container (including nested ones)
-        public IEnumerable<Control> GetAllControls(Control parent)
-        {
-            if (parent?.Controls == null) yield break;
-
-            foreach (Control c in parent.Controls)
-            {
-                if (c != null)
-                {
-                    yield return c;
-                    foreach (var child in GetAllControls(c))
-                        yield return child;
-                }
-            }
+            dtpDepatureTime.Value = DateTime.Now.AddHours(1);
+            txtSearch.Text = string.Empty;
         }
 
         private void AttachEventHandlers()
         {
-            try
-            {
-                // Attach button event handlers with null checks
-                if (btnAdd != null)
-                    btnAdd.Click += BtnAdd_Click;
+            btnAdd.Click += BtnAdd_Click;
+            btnUpdate.Click += BtnUpdate_Click;
+            btnDelete.Click += BtnDelete_Click;
+            btnClear.Click += BtnClear_Click;
+            btnSearch.Click += BtnSearch_Click;
 
-                if (btnUpdate != null)
-                    btnUpdate.Click += BtnUpdate_Click;
+            dgvTrips.SelectionChanged += DgvTrips_SelectionChanged;
+            cmbStatus.SelectedIndexChanged += CmbTripStatus_SelectedIndexChanged;
 
-                if (btnDelete != null)
-                    btnDelete.Click += BtnDelete_Click;
-
-                if (btnClear != null)
-                    btnClear.Click += BtnClear_Click;
-
-                if (btnSearch != null)
-                    btnSearch.Click += BtnSearch_Click;
-
-                if (dgvTrips != null)
-                    dgvTrips.SelectionChanged += DgvTrips_SelectionChanged;
-
-                if (cmbStatus != null)
-                    cmbStatus.SelectedIndexChanged += CmbTripStatus_SelectedIndexChanged;
-
-                // Enter key search with null check
-                if (txtSearch != null)
-                {
-                    txtSearch.KeyPress += (s, e) =>
-                    {
-                        if (e.KeyChar == (char)Keys.Enter)
-                        {
-                            BtnSearch_Click(s, e);
-                        }
-                    };
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error attaching event handlers: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            txtSearch.KeyPress += (s, e) => {
+                if (e.KeyChar == (char)Keys.Enter) BtnSearch_Click(s, e);
+            };
         }
 
         private async void LoadComboBoxes()
@@ -161,15 +68,11 @@ namespace tms.Forms
             try
             {
                 isLoading = true;
-
-                // Load Vehicle ComboBox
-                await LoadVehicleComboBoxAsync();
-
-                // Load Driver ComboBox
-                await LoadDriverComboBoxAsync();
-
-                // Load Route ComboBox
-                await LoadRouteComboBoxAsync();
+                await Task.WhenAll(
+                    LoadVehicleComboBoxAsync(),
+                    LoadDriverComboBoxAsync(),
+                    LoadRouteComboBoxAsync()
+                );
             }
             catch (Exception ex)
             {
@@ -186,193 +89,218 @@ namespace tms.Forms
         {
             try
             {
-                if (cmbVehicle == null || vehicleRepository == null) return;
+                var vehicles = await Task.Run(() => vehicleRepository.GetAll());
 
-                // Run database operation on background thread
-                var vehicles = await Task.Run(() => vehicleRepository.GetAll()?.ToList() ?? new List<Vehicle>());
-
-                // Update UI on main thread
-                if (InvokeRequired)
+                if (vehicles == null)
                 {
-                    Invoke(new Action(() => UpdateVehicleComboBox(vehicles)));
+                    vehicles = new List<Vehicle>();
+                }
+
+                // Add default empty item
+                vehicles.Insert(0, new Vehicle { VehicleID = "", Type = "-- Select Vehicle --" });
+
+                if (cmbVehicle.InvokeRequired)
+                {
+                    cmbVehicle.Invoke((MethodInvoker)(() =>
+                    {
+                        cmbVehicle.DisplayMember = "Type";
+                        cmbVehicle.ValueMember = "VehicleID";
+                        cmbVehicle.DataSource = vehicles;
+                    }));
                 }
                 else
                 {
-                    UpdateVehicleComboBox(vehicles);
+                    cmbVehicle.DisplayMember = "Type";
+                    cmbVehicle.ValueMember = "VehicleID";
+                    cmbVehicle.DataSource = vehicles;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error loading vehicles: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                // Set empty data source on error
-                if (cmbVehicle != null)
+                var errorData = new List<object>
+        {
+            new { VehicleID = "", Type = "-- Error Loading Vehicles --" }
+        };
+
+                if (cmbVehicle.InvokeRequired)
                 {
-                    cmbVehicle.DataSource = new List<object> { new { VehicleID = "", Type = "-- No Vehicles Available --" } };
+                    cmbVehicle.Invoke((MethodInvoker)(() =>
+                    {
+                        cmbVehicle.DataSource = errorData;
+                        cmbVehicle.DisplayMember = "Type";
+                        cmbVehicle.ValueMember = "VehicleID";
+                    }));
+                }
+                else
+                {
+                    cmbVehicle.DataSource = errorData;
                     cmbVehicle.DisplayMember = "Type";
                     cmbVehicle.ValueMember = "VehicleID";
                 }
             }
         }
 
-        private void UpdateVehicleComboBox(List<Vehicle> vehicles)
-        {
-            // Insert placeholder
-            vehicles.Insert(0, new Vehicle
-            {
-                VehicleID = "",
-                Type = "-- Select Vehicle --"
-            });
-
-            cmbVehicle.DisplayMember = "Type";
-            cmbVehicle.ValueMember = "VehicleID";
-            cmbVehicle.DataSource = vehicles;
-            cmbVehicle.SelectedIndex = 0;
-        }
-
         private async Task LoadDriverComboBoxAsync()
         {
             try
             {
-                if (cmbDriver == null || driverRepository == null) return;
+                var drivers = await Task.Run(() => driverRepository.GetAllDrivers());
 
-                // Run database operation on background thread
-                var drivers = await Task.Run(() => driverRepository.GetDriverStaff()?.ToList() ?? new List<Staff>());
-
-                // Update UI on main thread
-                if (InvokeRequired)
+                if (drivers == null)
                 {
-                    Invoke(new Action(() => UpdateDriverComboBox(drivers)));
+                    drivers = new List<DriverRepository.DriverWithName>();
+                }
+
+                // Add default empty item
+                drivers.Insert(0, new DriverRepository.DriverWithName
+                {
+                    StaffId = "",
+                    Name = "-- Select Driver --"
+                });
+
+                if (cmbDriver.InvokeRequired)
+                {
+                    cmbDriver.Invoke((MethodInvoker)(() =>
+                    {
+                        cmbDriver.DisplayMember = "Name";
+                        cmbDriver.ValueMember = "StaffId";
+                        cmbDriver.DataSource = drivers;
+                    }));
                 }
                 else
                 {
-                    UpdateDriverComboBox(drivers);
+                    cmbDriver.DisplayMember = "Name";
+                    cmbDriver.ValueMember = "StaffId";
+                    cmbDriver.DataSource = drivers;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error loading drivers: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                // Set empty data source on error
-                if (cmbDriver != null)
+                var errorData = new List<object>
+        {
+            new { StaffId = "", Name = "-- Error Loading Drivers --" }
+        };
+
+                if (cmbDriver.InvokeRequired)
                 {
-                    cmbDriver.DataSource = new List<object> { new { StaffId = "", Name = "-- No Drivers Available --" } };
+                    cmbDriver.Invoke((MethodInvoker)(() =>
+                    {
+                        cmbDriver.DataSource = errorData;
+                        cmbDriver.DisplayMember = "Name";
+                        cmbDriver.ValueMember = "StaffId";
+                    }));
+                }
+                else
+                {
+                    cmbDriver.DataSource = errorData;
                     cmbDriver.DisplayMember = "Name";
                     cmbDriver.ValueMember = "StaffId";
                 }
             }
         }
 
-        private void UpdateDriverComboBox(List<Staff> drivers)
-        {
-            // Insert placeholder
-            drivers.Insert(0, new Staff { StaffId = "", Name = "-- Select Driver --" });
-
-            cmbDriver.DisplayMember = "Name";
-            cmbDriver.ValueMember = "StaffId";
-            cmbDriver.DataSource = drivers;
-            cmbDriver.SelectedIndex = 0;
-        }
-
         private async Task LoadRouteComboBoxAsync()
         {
             try
             {
-                if (cmbRoute == null || routeRepository == null) return;
+                var routes = await Task.Run(() => routeRepository.GetAll());
 
-                // Run database operation on background thread
-                var routes = await Task.Run(() => routeRepository.GetAll()?.ToList() ?? new List<Route>());
-
-                // Update UI on main thread
-                if (InvokeRequired)
+                if (routes == null)
                 {
-                    Invoke(new Action(() => UpdateRouteComboBox(routes)));
+                    routes = new List<Route>();
+                }
+
+                // Add default empty item
+                routes.Insert(0, new Route { RouteID = "", StartPoint = "-- Select Route --" });
+
+                if (cmbRoute.InvokeRequired)
+                {
+                    cmbRoute.Invoke((MethodInvoker)(() =>
+                    {
+                        cmbRoute.DisplayMember = "StartPoint";
+                        cmbRoute.ValueMember = "RouteID";
+                        cmbRoute.DataSource = routes;
+                    }));
                 }
                 else
                 {
-                    UpdateRouteComboBox(routes);
+                    cmbRoute.DisplayMember = "StartPoint";
+                    cmbRoute.ValueMember = "RouteID";
+                    cmbRoute.DataSource = routes;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error loading routes: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                // Set empty data source on error
-                if (cmbRoute != null)
+                var errorData = new List<object>
+        {
+            new { RouteID = "", StartPoint = "-- Error Loading Routes --" }
+        };
+
+                if (cmbRoute.InvokeRequired)
                 {
-                    cmbRoute.DataSource = new List<object> { new { RouteID = "", StartPoint = "-- No Routes Available --" } };
+                    cmbRoute.Invoke((MethodInvoker)(() =>
+                    {
+                        cmbRoute.DataSource = errorData;
+                        cmbRoute.DisplayMember = "StartPoint";
+                        cmbRoute.ValueMember = "RouteID";
+                    }));
+                }
+                else
+                {
+                    cmbRoute.DataSource = errorData;
                     cmbRoute.DisplayMember = "StartPoint";
                     cmbRoute.ValueMember = "RouteID";
                 }
             }
         }
 
-        private void UpdateRouteComboBox(List<Route> routes)
-        {
-            // Insert placeholder
-            routes.Insert(0, new Route { RouteID = "", StartPoint = "-- Select Route --" });
-
-            cmbRoute.DisplayMember = "StartPoint";
-            cmbRoute.ValueMember = "RouteID";
-            cmbRoute.DataSource = routes;
-            cmbRoute.SelectedIndex = 0;
-        }
-
         private void InitializeStatusComboBox()
         {
-            try
+            var statusItems = new List<object>
             {
-                if (cmbStatus == null) return;
+                new { Value = "", Text = "-- Select Status --" },
+                new { Value = "Scheduled", Text = "Scheduled" },
+                new { Value = "Active", Text = "Active" },
+                new { Value = "In Progress", Text = "In Progress" },
+                new { Value = "Completed", Text = "Completed" },
+                new { Value = "Cancelled", Text = "Cancelled" },
+                new { Value = "Delayed", Text = "Delayed" }
+            };
 
-                var statusItems = new List<object>
-                {
-                    new { Value = "", Text = "-- Select Status --" },
-                    new { Value = "Scheduled", Text = "Scheduled" },
-                    new { Value = "Active", Text = "Active" },
-                    new { Value = "In Progress", Text = "In Progress" },
-                    new { Value = "Completed", Text = "Completed" },
-                    new { Value = "Cancelled", Text = "Cancelled" },
-                    new { Value = "Delayed", Text = "Delayed" }
-                };
-
-                cmbStatus.DisplayMember = "Text";
-                cmbStatus.ValueMember = "Value";
-                cmbStatus.DataSource = statusItems;
-                cmbStatus.SelectedIndex = 1; // Default to "Scheduled"
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error initializing status combo box: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            cmbStatus.DisplayMember = "Text";
+            cmbStatus.ValueMember = "Value";
+            cmbStatus.DataSource = statusItems;
+            cmbStatus.SelectedIndex = 1;
         }
 
         private void CmbTripStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                // Auto-set departure time based on status
-                if (cmbStatus?.SelectedValue != null && dtpDepatureTime != null)
+                if (cmbStatus.SelectedValue == null) return;
+
+                string selectedStatus = cmbStatus.SelectedValue.ToString();
+                switch (selectedStatus)
                 {
-                    string selectedStatus = cmbStatus.SelectedValue.ToString();
-                    switch (selectedStatus)
-                    {
-                        case "Scheduled":
-                            // Set future time (default behavior)
-                            if (dtpDepatureTime.Value <= DateTime.Now)
-                            {
-                                dtpDepatureTime.Value = DateTime.Now.AddHours(1);
-                            }
-                            break;
-                        case "Active":
-                        case "In Progress":
-                            // Set current time
-                            dtpDepatureTime.Value = DateTime.Now;
-                            break;
-                    }
+                    case "Scheduled":
+                        if (dtpDepatureTime.Value <= DateTime.Now)
+                        {
+                            dtpDepatureTime.Value = DateTime.Now.AddHours(1);
+                        }
+                        break;
+                    case "Active":
+                    case "In Progress":
+                        dtpDepatureTime.Value = DateTime.Now;
+                        break;
                 }
             }
             catch (Exception ex)
@@ -390,31 +318,29 @@ namespace tms.Forms
             {
                 isLoading = true;
 
-                if (dgvTrips == null || tripRepository == null) return;
+                var trips = await Task.Run(() => tripRepository.GetAllAsync());
 
-                // Run database operation on background thread
-                var trips = await Task.Run(() => tripRepository.GetAll());
 
-                if (trips == null)
+                if (dgvTrips.InvokeRequired)
                 {
-                    dgvTrips.DataSource = null;
-                    return;
+                    dgvTrips.Invoke((MethodInvoker)(() => {
+                        dgvTrips.DataSource = trips?.ToList() ?? new List<Trip>();
+                        if (dgvTrips.Columns.Count == 0)
+                        {
+                            dgvTrips.AutoGenerateColumns = false;
+                        }
+                    }));
                 }
-
-
-                dgvTrips.DataSource = trips;
-
+                else
+                {
+                    dgvTrips.DataSource = trips?.ToList() ?? new List<Trip>();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading data: {ex.Message}", "Error",
+                MessageBox.Show($"Error loading trips: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                // Set empty data source on error
-                if (dgvTrips != null)
-                {
-                    dgvTrips.DataSource = null;
-                }
+                dgvTrips.DataSource = new List<Trip>();
             }
             finally
             {
@@ -424,48 +350,37 @@ namespace tms.Forms
 
         private async void BtnAdd_Click(object sender, EventArgs e)
         {
-            if (isLoading) return;
+            if (isLoading || !ValidateInput()) return;
 
             try
             {
                 isLoading = true;
-                btnAdd.Enabled = false; // Prevent multiple clicks
+                btnAdd.Enabled = false;
 
-                if (tripRepository == null)
+                var trip = new Trip
                 {
-                    MessageBox.Show("Trip repository is not initialized.", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    TripID = txtTripId.Text,
+                    VehicleID = cmbVehicle.SelectedValue?.ToString(),
+                    DriverID = cmbDriver.SelectedValue?.ToString(),
+                    RouteID = cmbRoute.SelectedValue?.ToString(),
+                    DepatureTime = dtpDepatureTime.Value,
+                    status = cmbStatus.SelectedValue?.ToString()
+                };
+
+                bool success = await Task.Run(() => tripRepository.AddAsync(trip));
+
+                if (success)
+                {
+                    MessageBox.Show("Trip added successfully!", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                    ClearForm();
+                    GenerateNewTripId();
                 }
-
-                if (ValidateInput())
+                else
                 {
-                    var trip = new Trip
-                    {
-                        TripId = txtTripId?.Text ?? string.Empty,
-                        VehicleId = cmbVehicle?.SelectedValue?.ToString() ?? string.Empty,
-                        DriverId = cmbDriver?.SelectedValue?.ToString() ?? string.Empty,
-                        RouteId = cmbRoute?.SelectedValue?.ToString() ?? string.Empty,
-                        DepatureTime = dtpDepatureTime?.Value ?? DateTime.Now,
-                        Status = cmbStatus?.SelectedValue?.ToString() ?? string.Empty
-                    };
-
-                    // Run database operation on background thread
-                    bool result = await Task.Run(() => tripRepository.Add(trip));
-
-                    if (result)
-                    {
-                        MessageBox.Show("Trip added successfully!", "Success",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadData();
-                        ClearForm();
-                        GenerateNewTripId(); // Generate new ID for next entry
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to add trip.", "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Failed to add trip.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -480,102 +395,38 @@ namespace tms.Forms
             }
         }
 
-        private void GenerateNewTripId()
-        {
-            try
-            {
-                if (txtTripId == null) return;
-
-                string newId = GenerateTripId();
-                txtTripId.Text = newId;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error generating Trip ID: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private string GenerateTripId()
-        {
-            // Generate ID format: TR-YYYYMMDD-XXXX
-            // Where XXXX is a sequential number for the day
-            try
-            {
-                string dateStr = DateTime.Now.ToString("yyyyMMdd");
-                string prefix = $"TR-{dateStr}-";
-
-                if (tripRepository != null)
-                {
-                    var existingTrips = tripRepository.GetAll();
-                    if (existingTrips != null)
-                    {
-                        var todayTrips = existingTrips.Where(t => t?.TripID?.StartsWith(prefix) == true).ToList();
-                        int nextNumber = todayTrips.Count + 1;
-                        return $"{prefix}{nextNumber:D4}";
-                    }
-                }
-
-                // Fallback method if repository fails or is null
-                return $"TR-{DateTime.Now:yyyyMMddHHmmss}";
-            }
-            catch
-            {
-                // Fallback method if any error occurs
-                return $"TR-{DateTime.Now:yyyyMMddHHmmss}";
-            }
-        }
-
         private async void BtnUpdate_Click(object sender, EventArgs e)
         {
-            if (isLoading) return;
+            if (isLoading || string.IsNullOrEmpty(txtTripId.Text) || !ValidateInput()) return;
 
             try
             {
                 isLoading = true;
-                btnUpdate.Enabled = false; // Prevent multiple clicks
+                btnUpdate.Enabled = false;
 
-                if (tripRepository == null)
+                var trip = new Trip
                 {
-                    MessageBox.Show("Trip repository is not initialized.", "Error",
+                    TripID = txtTripId.Text,
+                    VehicleID = cmbVehicle.SelectedValue?.ToString(),
+                    DriverID = cmbDriver.SelectedValue?.ToString(),
+                    RouteID = cmbRoute.SelectedValue?.ToString(),
+                    DepatureTime = dtpDepatureTime.Value,
+                    status = cmbStatus.SelectedValue?.ToString()
+                };
+
+                bool success = await Task.Run(() => tripRepository.UpdateAsync(trip));
+
+                if (success)
+                {
+                    MessageBox.Show("Trip updated successfully!", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                    ClearForm();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update trip.", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (string.IsNullOrEmpty(txtTripId?.Text))
-                {
-                    MessageBox.Show("Please select a trip to update.", "Warning",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (ValidateInput())
-                {
-                    var trip = new Trip
-                    {
-                        TripId = txtTripId?.Text ?? string.Empty,
-                        VehicleId = cmbVehicle?.SelectedValue?.ToString() ?? string.Empty,
-                        DriverId = cmbDriver?.SelectedValue?.ToString() ?? string.Empty,
-                        RouteId = cmbRoute?.SelectedValue?.ToString() ?? string.Empty,
-                        DepatureTime = dtpDepatureTime?.Value ?? DateTime.Now,
-                        Status = cmbStatus?.SelectedValue?.ToString() ?? string.Empty
-                    };
-
-                    // Run database operation on background thread
-                    bool result = await Task.Run(() => tripRepository.Update(trip));
-
-                    if (result)
-                    {
-                        MessageBox.Show("Trip updated successfully!", "Success",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadData();
-                        ClearForm();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to update trip.", "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                 }
             }
             catch (Exception ex)
@@ -592,39 +443,31 @@ namespace tms.Forms
 
         private async void BtnDelete_Click(object sender, EventArgs e)
         {
-            if (isLoading) return;
+            if (isLoading || string.IsNullOrEmpty(txtTripId.Text)) return;
 
             try
             {
-                if (tripRepository == null)
-                {
-                    MessageBox.Show("Trip repository is not initialized.", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (string.IsNullOrEmpty(txtTripId?.Text))
-                {
-                    MessageBox.Show("Please select a trip to delete.", "Warning",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 var result = MessageBox.Show("Are you sure you want to delete this trip?", "Confirm Delete",
-                                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (result == DialogResult.Yes)
+                if (result == DialogResult.No) return;
+
+                isLoading = true;
+                btnDelete.Enabled = false;
+
+                bool success = await Task.Run(() => tripRepository.DeleteAsync(txtTripId.Text));
+
+                if (success)
                 {
-                    isLoading = true;
-                    btnDelete.Enabled = false; // Prevent multiple clicks
-
-                    // Run database operation on background thread
-                    await Task.Run(() => tripRepository.Delete(txtTripId.Text));
-
                     MessageBox.Show("Trip deleted successfully!", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadData();
                     ClearForm();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to delete trip.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -652,57 +495,40 @@ namespace tms.Forms
             {
                 isLoading = true;
 
-                if (tripRepository == null || dgvTrips == null)
+                if (string.IsNullOrWhiteSpace(txtSearch.Text))
                 {
-                    MessageBox.Show("Form components are not properly initialized.", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LoadData();
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(txtSearch?.Text))
+                var trips = await Task.Run(() => tripRepository.SearchAsync(txtSearch.Text.Trim()));
+
+                if (dgvTrips.InvokeRequired)
                 {
-                    LoadData();
+                    dgvTrips.Invoke((MethodInvoker)(() => {
+                        dgvTrips.DataSource = trips?.ToList() ?? new List<Trip>();
+                    }));
                 }
                 else
                 {
-                    // Run database operation on background thread
-                    var searchResults = await Task.Run(() => tripRepository.Search(txtSearch.Text.Trim()));
-
-                    if (searchResults != null)
-                    {
-                        var searchData = searchResults.Select(t => new
-                        {
-                            TripId = t?.TripId ?? string.Empty,
-                            VehicleId = t?.VehicleId ?? string.Empty,
-                            DriverId = t?.DriverId ?? string.Empty,
-                            RouteId = t?.RouteId ?? string.Empty,
-                            DepatureTime = t?.DepatureTime ?? DateTime.MinValue,
-                            Status = t?.Status ?? string.Empty,
-                            VehicleName = t?.Vehicle?.Type ?? "N/A",
-                            DriverName = t?.Driver?.Name ?? "N/A",
-                            RouteName = t?.Route?.RouteID ?? "N/A"
-                        }).ToList();
-
-                        // Update UI on main thread
-                        if (InvokeRequired)
-                        {
-                            Invoke(new Action(() => dgvTrips.DataSource = searchData));
-                        }
-                        else
-                        {
-                            dgvTrips.DataSource = searchData;
-                        }
-                    }
-                    else
-                    {
-                        dgvTrips.DataSource = null;
-                    }
+                    dgvTrips.DataSource = trips?.ToList() ?? new List<Trip>();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error searching: {ex.Message}", "Error",
+                MessageBox.Show($"Error searching trips: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                if (dgvTrips.InvokeRequired)
+                {
+                    dgvTrips.Invoke((MethodInvoker)(() => {
+                        dgvTrips.DataSource = new List<Trip>();
+                    }));
+                }
+                else
+                {
+                    dgvTrips.DataSource = new List<Trip>();
+                }
             }
             finally
             {
@@ -712,72 +538,64 @@ namespace tms.Forms
 
         private void DgvTrips_SelectionChanged(object sender, EventArgs e)
         {
-            if (isLoading) return; // Skip during loading operations
+            if (isLoading || dgvTrips.SelectedRows.Count == 0) return;
 
             try
             {
-                if (dgvTrips?.SelectedRows?.Count > 0)
-                {
-                    var row = dgvTrips.SelectedRows[0];
+                var row = dgvTrips.SelectedRows[0];
+                var trip = row.DataBoundItem as Trip;
 
-                    // Safely get cell values with null checks
-                    if (txtTripId != null)
-                        txtTripId.Text = row.Cells["TripId"]?.Value?.ToString() ?? string.Empty;
+                if (trip == null) return;
 
-                    if (cmbStatus != null)
-                        cmbStatus.SelectedValue = row.Cells["Status"]?.Value?.ToString() ?? string.Empty;
-
-                    if (dtpDepatureTime != null &&
-                        DateTime.TryParse(row.Cells["DepartureTime"]?.Value?.ToString(), out DateTime departureTime))
-                    {
-                        dtpDepatureTime.Value = departureTime;
-                    }
-                }
+                txtTripId.Text = trip.TripID;
+                cmbVehicle.SelectedValue = trip.VehicleID;
+                cmbDriver.SelectedValue = trip.DriverID;
+                cmbRoute.SelectedValue = trip.RouteID;
+                dtpDepatureTime.Value = trip.DepatureTime;
+                cmbStatus.SelectedValue = trip.status;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Selection error: {ex.Message}", "Error",
+                MessageBox.Show($"Error loading trip details: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private bool ValidateInput()
         {
-            if (cmbVehicle?.SelectedValue == null || string.IsNullOrEmpty(cmbVehicle.SelectedValue.ToString()))
+            if (string.IsNullOrEmpty(cmbVehicle.SelectedValue?.ToString()))
             {
                 MessageBox.Show("Please select a vehicle.", "Validation Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cmbVehicle?.Focus();
+                cmbVehicle.Focus();
                 return false;
             }
 
-            if (cmbDriver?.SelectedValue == null || string.IsNullOrEmpty(cmbDriver.SelectedValue.ToString()))
+            if (string.IsNullOrEmpty(cmbDriver.SelectedValue?.ToString()))
             {
                 MessageBox.Show("Please select a driver.", "Validation Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cmbDriver?.Focus();
+                cmbDriver.Focus();
                 return false;
             }
 
-            if (cmbRoute?.SelectedValue == null || string.IsNullOrEmpty(cmbRoute.SelectedValue.ToString()))
+            if (string.IsNullOrEmpty(cmbRoute.SelectedValue?.ToString()))
             {
                 MessageBox.Show("Please select a route.", "Validation Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cmbRoute?.Focus();
+                cmbRoute.Focus();
                 return false;
             }
 
-            if (cmbStatus?.SelectedValue == null || string.IsNullOrEmpty(cmbStatus.SelectedValue.ToString()))
+            if (string.IsNullOrEmpty(cmbStatus.SelectedValue?.ToString()))
             {
                 MessageBox.Show("Please select a status.", "Validation Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cmbStatus?.Focus();
+                cmbStatus.Focus();
                 return false;
             }
 
-            // Validate departure time for scheduled trips
-            if (cmbStatus?.SelectedValue?.ToString() == "Scheduled" &&
-                dtpDepatureTime != null && dtpDepatureTime.Value <= DateTime.Now)
+            if (cmbStatus.SelectedValue?.ToString() == "Scheduled" && dtpDepatureTime.Value <= DateTime.Now)
             {
                 MessageBox.Show("Scheduled trips must have a future departure time.", "Validation Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -788,43 +606,51 @@ namespace tms.Forms
             return true;
         }
 
-        private void ClearForm(bool clearTripId = true)
+        private async void GenerateNewTripId()
         {
             try
             {
-                if (clearTripId && txtTripId != null)
-                    txtTripId.Clear();
+                string dateStr = DateTime.Now.ToString("yyyyMMdd");
+                string prefix = $"TR-{dateStr}-";
 
-                if (cmbVehicle != null)
-                    cmbVehicle.SelectedIndex = 0;
+                var existingTrips = await tripRepository.GetAllAsync();
 
-                if (cmbDriver != null)
-                    cmbDriver.SelectedIndex = 0;
+                var tripsList = existingTrips ?? new List<Trip>();
 
-                if (cmbRoute != null)
-                    cmbRoute.SelectedIndex = 0;
+                var todayTrips = tripsList.Where(t => t.TripID?.StartsWith(prefix) == true).ToList();
+                int nextNumber = todayTrips.Count + 1;
 
-                if (cmbStatus != null)
-                    cmbStatus.SelectedIndex = 1; // Default to "Scheduled"
-
-                if (dtpDepatureTime != null)
-                    dtpDepatureTime.Value = DateTime.Now.AddHours(1);
+                txtTripId.Text = $"{prefix}{nextNumber:D4}";
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show($"Error clearing form: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTripId.Text = $"TR-{DateTime.Now:yyyyMMddHHmmss}";
             }
+        }
+
+        private void ClearForm(bool clearTripId = true)
+        {
+            if (clearTripId) txtTripId.Clear();
+            cmbVehicle.SelectedIndex = 0;
+            cmbDriver.SelectedIndex = 0;
+            cmbRoute.SelectedIndex = 0;
+            cmbStatus.SelectedIndex = 1;
+            dtpDepatureTime.Value = DateTime.Now.AddHours(1);
         }
 
         private void txtTripId_TextChanged(object sender, EventArgs e)
         {
-            // Empty implementation - kept for compatibility
+            // Empty implementation
         }
 
         private void dgvTrips_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Empty implementation
+        }
 
+        private void gbSearch_Enter(object sender, EventArgs e)
+        {
+            // Empty implementation
         }
     }
 }

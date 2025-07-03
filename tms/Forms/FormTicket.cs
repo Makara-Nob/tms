@@ -25,6 +25,8 @@ namespace tms.Forms
             InitializeEventHandlers();
         }
 
+
+
         private void InitializeEventHandlers()
         {
             btnNew.Click += BtnNew_Click;
@@ -32,7 +34,6 @@ namespace tms.Forms
             btnClear.Click += btnClear_Click;
             txtSearch.TextChanged += TxtSearch_TextChanged;
             IsTicket.SelectedIndexChanged += lstRoutes_SelectedIndexChanged;
-
         }
 
         private void FormTicket_Load(object sender, EventArgs e)
@@ -51,7 +52,6 @@ namespace tms.Forms
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
-            // Otherwise, validate and create a new ticket
             if (!ValidateForm())
                 return;
 
@@ -65,7 +65,6 @@ namespace tms.Forms
             currentTicketId = string.Empty;
             txtSupplierID.Focus();
         }
-
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
@@ -97,17 +96,6 @@ namespace tms.Forms
             }
         }
 
-        private void BtnLogOut_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
             try
@@ -127,16 +115,16 @@ namespace tms.Forms
             {
                 if (IsTicket.SelectedIndex >= 0)
                 {
-                    string selectedItem = IsTicket.SelectedItem.ToString();
+                    string selectedItem = IsTicket.SelectedItem?.ToString() ?? "";
                     string[] parts = selectedItem.Split('-');
                     if (parts.Length > 0)
                     {
                         string ticketId = parts[0].Trim();
-                        var ticket = ticketRepository.GetById(ticketId);
-                        if (ticket != null)
+                        if (!string.IsNullOrEmpty(ticketId))
                         {
+                            var ticket = ticketRepository.GetById(ticketId);
                             LoadTicketToForm(ticket);
-                            currentTicketId = ticket.TicketID;
+                            currentTicketId = ticketId;
                             isEditMode = true;
                         }
                     }
@@ -151,6 +139,8 @@ namespace tms.Forms
 
         private void LoadTicketToForm(Ticket ticket)
         {
+            if (ticket == null) return;
+
             txtSupplierID.Text = ticket.SupplierID;
             txtSupplierName.Text = ticket.SupplierName;
             dtSupplierDate.Value = ticket.SupplierDate;
@@ -161,7 +151,6 @@ namespace tms.Forms
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearForm();
-
         }
 
         private void ClearForm()
@@ -175,10 +164,9 @@ namespace tms.Forms
             isEditMode = false;
         }
 
-
-
         private bool ValidateForm()
         {
+            // Validate Supplier ID
             if (string.IsNullOrWhiteSpace(txtSupplierID.Text))
             {
                 MessageBox.Show("Supplier ID is required!", "Validation Error",
@@ -187,6 +175,7 @@ namespace tms.Forms
                 return false;
             }
 
+            // Validate Supplier Name
             if (string.IsNullOrWhiteSpace(txtSupplierName.Text))
             {
                 MessageBox.Show("Supplier Name is required!", "Validation Error",
@@ -195,30 +184,24 @@ namespace tms.Forms
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtSupplierDate.Text))
-            {
-                MessageBox.Show("Supplier Date is required!", "Validation Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtSupplierDate.Focus();
-                return false;
-            }
-
-            if (!DateTime.TryParse(txtSupplierDate.Text, out _))
-            {
-                MessageBox.Show("Please enter a valid date format (YYYY-MM-DD)!", "Validation Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtSupplierDate.Focus();
-                return false;
-            }
-
+            // Check for duplicate Supplier ID (only when creating new ticket)
             if (!isEditMode)
             {
-                var existingTicket = ticketRepository.GetBySupplierID(txtSupplierID.Text.Trim());
-                if (existingTicket.Count > 0)
+                try
                 {
-                    MessageBox.Show("A ticket with this Supplier ID already exists!", "Validation Error",
+                    var existingTicket = ticketRepository.GetBySupplierID(txtSupplierID.Text.Trim());
+                    if (existingTicket != null && existingTicket.Count > 0)
+                    {
+                        MessageBox.Show("A ticket with this Supplier ID already exists!", "Validation Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtSupplierID.Focus();
+                        return false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error checking existing tickets: {ex.Message}", "Validation Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtSupplierID.Focus();
                     return false;
                 }
             }
@@ -273,23 +256,38 @@ namespace tms.Forms
 
         private void RefreshTicketList()
         {
+            if (IsTicket == null) return;
+
             IsTicket.Items.Clear();
 
             List<Ticket> tickets;
-            string searchText = txtSearch.Text.Trim();
+            string searchText = txtSearch?.Text?.Trim() ?? "";
 
-            if (string.IsNullOrEmpty(searchText))
+            try
             {
-                tickets = ticketRepository.GetAll();
-            }
-            else
-            {
-                tickets = ticketRepository.Search(searchText);
-            }
+                if (string.IsNullOrEmpty(searchText))
+                {
+                    tickets = ticketRepository.GetAll();
+                }
+                else
+                {
+                    tickets = ticketRepository.Search(searchText);
+                }
 
-            foreach (var ticket in tickets)
+                if (tickets == null) return;
+
+                foreach (var ticket in tickets)
+                {
+                    if (ticket != null)
+                    {
+                        IsTicket.Items.Add($"{ticket.TicketID} - {ticket.SupplierName}");
+                    }
+                }
+            }
+            catch (Exception ex)
             {
-                IsTicket.Items.Add($"{ticket.TicketID} - {ticket.SupplierName}");
+                MessageBox.Show($"Error loading tickets: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -298,22 +296,11 @@ namespace tms.Forms
             return "TKT" + DateTime.Now.ToString("yyyyMMddHHmmss");
         }
 
-        private void lblRouteID_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void gbRoute2_Enter(object sender, EventArgs e)
-        {
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void gbRoute1_Enter(object sender, EventArgs e)
-        {
-
-        }
+        // Remaining event handlers and methods...
     }
 }

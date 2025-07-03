@@ -170,6 +170,7 @@
             cmbVehicleAssigned.Name = "cmbVehicleAssigned";
             cmbVehicleAssigned.Size = new Size(212, 23);
             cmbVehicleAssigned.TabIndex = 14;
+            cmbVehicleAssigned.SelectedIndexChanged += cmbVehicleAssigned_SelectedIndexChanged;
             // 
             // lblPriority
             // 

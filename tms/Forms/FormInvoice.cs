@@ -22,6 +22,12 @@ namespace tms.Forms
         {
             InitializeComponent();
             this.Load += InvoiceForm_Load;
+            btnNavigateToPayment.Click += BtnNavigateToPayment_Click;
+        }
+        private void BtnNavigateToPayment_Click(object sender, EventArgs e)
+        {
+            var paymentForm = new PaymentForm();
+            paymentForm.Show();
         }
 
         private void InvoiceForm_Load(object sender, EventArgs e)

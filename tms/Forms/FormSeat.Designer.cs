@@ -106,10 +106,10 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             tableSeat.DefaultCellStyle = dataGridViewCellStyle1;
             tableSeat.Dock = DockStyle.Fill;
-            tableSeat.Location = new Point(10, 34);
+            tableSeat.Location = new Point(10, 26);
             tableSeat.Name = "tableSeat";
             tableSeat.RowHeadersWidth = 62;
-            tableSeat.Size = new Size(1409, 328);
+            tableSeat.Size = new Size(1409, 336);
             tableSeat.TabIndex = 7;
             // 
             // groupBox2
@@ -128,9 +128,9 @@
             // txtSearch
             // 
             txtSearch.Dock = DockStyle.Fill;
-            txtSearch.Location = new Point(10, 34);
+            txtSearch.Location = new Point(10, 26);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(1409, 31);
+            txtSearch.Size = new Size(1409, 23);
             txtSearch.TabIndex = 7;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
@@ -167,7 +167,7 @@
             tableLayoutPanel1.Controls.Add(seatId, 3, 0);
             tableLayoutPanel1.Controls.Add(seatNumber, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(3, 27);
+            tableLayoutPanel1.Location = new Point(3, 19);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.Padding = new Padding(10);
             tableLayoutPanel1.RowCount = 4;
@@ -175,7 +175,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 22.2222233F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 22.2222233F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333359F));
-            tableLayoutPanel1.Size = new Size(1423, 434);
+            tableLayoutPanel1.Size = new Size(1423, 442);
             tableLayoutPanel1.TabIndex = 7;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
@@ -186,7 +186,7 @@
             label1.ForeColor = Color.FromArgb(224, 224, 224);
             label1.Location = new Point(13, 10);
             label1.Name = "label1";
-            label1.Size = new Size(173, 30);
+            label1.Size = new Size(119, 20);
             label1.TabIndex = 0;
             label1.Text = "Vehicle Number";
             // 
@@ -198,7 +198,7 @@
             vehicleId.FormattingEnabled = true;
             vehicleId.Location = new Point(363, 13);
             vehicleId.Name = "vehicleId";
-            vehicleId.Size = new Size(344, 38);
+            vehicleId.Size = new Size(344, 28);
             vehicleId.TabIndex = 5;
             // 
             // deleteBtn
@@ -208,7 +208,7 @@
             deleteBtn.FlatStyle = FlatStyle.Flat;
             deleteBtn.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
             deleteBtn.ForeColor = Color.White;
-            deleteBtn.Location = new Point(713, 289);
+            deleteBtn.Location = new Point(713, 292);
             deleteBtn.Name = "deleteBtn";
             deleteBtn.Size = new Size(109, 46);
             deleteBtn.TabIndex = 3;
@@ -223,7 +223,7 @@
             updateBtn.FlatStyle = FlatStyle.Flat;
             updateBtn.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
             updateBtn.ForeColor = Color.White;
-            updateBtn.Location = new Point(363, 289);
+            updateBtn.Location = new Point(363, 292);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(117, 46);
             updateBtn.TabIndex = 3;
@@ -238,7 +238,7 @@
             addBtn.FlatStyle = FlatStyle.Flat;
             addBtn.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
             addBtn.ForeColor = Color.White;
-            addBtn.Location = new Point(13, 289);
+            addBtn.Location = new Point(13, 292);
             addBtn.Name = "addBtn";
             addBtn.Size = new Size(122, 46);
             addBtn.TabIndex = 3;
@@ -252,9 +252,9 @@
             seatStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             seatStatus.Font = new Font("Segoe UI", 11F);
             seatStatus.FormattingEnabled = true;
-            seatStatus.Location = new Point(363, 197);
+            seatStatus.Location = new Point(363, 199);
             seatStatus.Name = "seatStatus";
-            seatStatus.Size = new Size(344, 38);
+            seatStatus.Size = new Size(344, 28);
             seatStatus.TabIndex = 2;
             // 
             // label4
@@ -262,9 +262,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(224, 224, 224);
-            label4.Location = new Point(13, 194);
+            label4.Location = new Point(13, 196);
             label4.Name = "label4";
-            label4.Size = new Size(122, 30);
+            label4.Size = new Size(83, 20);
             label4.TabIndex = 0;
             label4.Text = "Seat Status";
             // 
@@ -274,9 +274,9 @@
             seatType.DropDownStyle = ComboBoxStyle.DropDownList;
             seatType.Font = new Font("Segoe UI", 11F);
             seatType.FormattingEnabled = true;
-            seatType.Location = new Point(1063, 105);
+            seatType.Location = new Point(1063, 106);
             seatType.Name = "seatType";
-            seatType.Size = new Size(347, 38);
+            seatType.Size = new Size(347, 28);
             seatType.TabIndex = 5;
             // 
             // label5
@@ -286,7 +286,7 @@
             label5.ForeColor = Color.FromArgb(224, 224, 224);
             label5.Location = new Point(713, 10);
             label5.Name = "label5";
-            label5.Size = new Size(84, 30);
+            label5.Size = new Size(57, 20);
             label5.TabIndex = 0;
             label5.Text = "Seat ID";
             // 
@@ -295,9 +295,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(224, 224, 224);
-            label3.Location = new Point(713, 102);
+            label3.Location = new Point(713, 103);
             label3.Name = "label3";
-            label3.Size = new Size(109, 30);
+            label3.Size = new Size(74, 20);
             label3.TabIndex = 0;
             label3.Text = "Seat Type";
             // 
@@ -306,9 +306,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(224, 224, 224);
-            label2.Location = new Point(13, 102);
+            label2.Location = new Point(13, 103);
             label2.Name = "label2";
-            label2.Size = new Size(144, 30);
+            label2.Size = new Size(99, 20);
             label2.TabIndex = 0;
             label2.Text = "Seat Number";
             // 
@@ -319,7 +319,7 @@
             seatId.Font = new Font("Segoe UI", 11F);
             seatId.Location = new Point(1063, 13);
             seatId.Name = "seatId";
-            seatId.Size = new Size(347, 37);
+            seatId.Size = new Size(347, 27);
             seatId.TabIndex = 1;
             // 
             // seatNumber
@@ -327,9 +327,9 @@
             seatNumber.BorderStyle = BorderStyle.FixedSingle;
             seatNumber.Dock = DockStyle.Fill;
             seatNumber.Font = new Font("Segoe UI", 11F);
-            seatNumber.Location = new Point(363, 105);
+            seatNumber.Location = new Point(363, 106);
             seatNumber.Name = "seatNumber";
-            seatNumber.Size = new Size(344, 37);
+            seatNumber.Size = new Size(344, 27);
             seatNumber.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -363,7 +363,7 @@
             // 
             // FormSeat
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(22, 28, 36);
             ClientSize = new Size(1441, 987);

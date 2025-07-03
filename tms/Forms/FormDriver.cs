@@ -10,7 +10,7 @@ namespace tms.Forms
     {
         private readonly DriverRepository driverRepository;
         private readonly StaffRepository staffRepository;
-        private List<Driver> drivers;
+        private List<DriverRepository.DriverWithName> drivers;
         private List<Staff> staffMembers;
 
         public FormDriver()
@@ -45,7 +45,7 @@ namespace tms.Forms
 
                 cmbStaff.DataSource = null;
                 cmbStaff.DataSource = staffMembers;
-                cmbStaff.DisplayMember = "Name"; // Use FullName or whatever property contains the staff name
+                cmbStaff.DisplayMember = "Name";
                 cmbStaff.ValueMember = "StaffId";
                 cmbStaff.SelectedIndex = -1;
             }
@@ -75,20 +75,16 @@ namespace tms.Forms
             try
             {
                 drivers = driverRepository.GetAllDrivers();
-
-                // Create a list with staff names for display
-                var driversWithStaffNames = drivers.Select(d => new
+                dgvDrivers.DataSource = drivers.Select(d => new
                 {
                     d.DriverID,
                     d.StaffId,
-                    StaffName = GetStaffName(d.StaffId),
+                    d.Name,
                     d.LicenseNumber,
                     d.LicenseExpiryDate,
                     d.LicenseType,
                     d.Availability
                 }).ToList();
-
-                dgvDrivers.DataSource = driversWithStaffNames;
             }
             catch (Exception ex)
             {
@@ -97,40 +93,25 @@ namespace tms.Forms
             }
         }
 
-        private string GetStaffName(string staffId)
-        {
-            var staff = staffMembers?.FirstOrDefault(s => s.StaffId == staffId);
-            return staff?.Name ?? "Unknown Staff"; // Use FullName or whatever property contains the staff name
-        }
-
         private void SetupDataGridView()
         {
             if (dgvDrivers.Columns.Count > 0)
             {
-                // Hide or rename columns as needed
                 dgvDrivers.Columns["DriverID"].HeaderText = "Driver ID";
-
-                // Hide StaffId column and show StaffName instead
-                if (dgvDrivers.Columns["StaffId"] != null)
-                    dgvDrivers.Columns["StaffId"].Visible = false;
-
-                if (dgvDrivers.Columns["StaffName"] != null)
-                    dgvDrivers.Columns["StaffName"].HeaderText = "Staff Name";
-
+                dgvDrivers.Columns["StaffId"].Visible = false;
+                dgvDrivers.Columns["Name"].HeaderText = "Staff Name";
                 dgvDrivers.Columns["LicenseNumber"].HeaderText = "License Number";
                 dgvDrivers.Columns["LicenseExpiryDate"].HeaderText = "License Expiry";
                 dgvDrivers.Columns["LicenseType"].HeaderText = "License Type";
                 dgvDrivers.Columns["Availability"].HeaderText = "Status";
 
-                // Format date column if it exists
                 if (dgvDrivers.Columns["LicenseExpiryDate"] != null)
                 {
                     dgvDrivers.Columns["LicenseExpiryDate"].DefaultCellStyle.Format = "dd/MM/yyyy";
                 }
 
-                // Set column order
-                if (dgvDrivers.Columns["StaffName"] != null)
-                    dgvDrivers.Columns["StaffName"].DisplayIndex = 1;
+                if (dgvDrivers.Columns["Name"] != null)
+                    dgvDrivers.Columns["Name"].DisplayIndex = 1;
             }
         }
 
@@ -143,7 +124,7 @@ namespace tms.Forms
 
                 var driver = new Driver
                 {
-                    StaffId = (string)cmbStaff.SelectedValue,
+                    StaffId = cmbStaff.SelectedValue?.ToString() ?? string.Empty,
                     LicenseNumber = txtLicenseNumber.Text.Trim(),
                     LicenseExpiryDate = dtpLicenseExpiryDate.Value,
                     LicenseType = txtLicenseType.Text.Trim(),
@@ -187,7 +168,7 @@ namespace tms.Forms
                 var driver = new Driver
                 {
                     DriverID = int.Parse(txtDriverID.Text),
-                    StaffId = (string)cmbStaff.SelectedValue,
+                    StaffId = cmbStaff.SelectedValue?.ToString() ?? string.Empty,
                     LicenseNumber = txtLicenseNumber.Text.Trim(),
                     LicenseExpiryDate = dtpLicenseExpiryDate.Value,
                     LicenseType = txtLicenseType.Text.Trim(),
@@ -227,8 +208,6 @@ namespace tms.Forms
             txtLicenseType.Clear();
             cmbAvailability.SelectedIndex = -1;
             dtpLicenseExpiryDate.Value = DateTime.Now;
-
-            // Clear selection in DataGridView
             dgvDrivers.ClearSelection();
         }
 
@@ -285,7 +264,6 @@ namespace tms.Forms
 
                 txtDriverID.Text = selectedRow.Cells["DriverID"].Value?.ToString();
 
-                // Set staff selection
                 var staffId = selectedRow.Cells["StaffId"].Value;
                 if (staffId != null)
                 {
@@ -295,14 +273,12 @@ namespace tms.Forms
                 txtLicenseNumber.Text = selectedRow.Cells["LicenseNumber"].Value?.ToString();
                 txtLicenseType.Text = selectedRow.Cells["LicenseType"].Value?.ToString();
 
-                // Set availability selection
                 var availability = selectedRow.Cells["Availability"].Value?.ToString();
                 if (!string.IsNullOrEmpty(availability))
                 {
                     cmbAvailability.SelectedItem = availability;
                 }
 
-                // Set license expiry date
                 var expiryDate = selectedRow.Cells["LicenseExpiryDate"].Value;
                 if (expiryDate != null && DateTime.TryParse(expiryDate.ToString(), out DateTime date))
                 {
@@ -319,25 +295,21 @@ namespace tms.Forms
 
                 if (string.IsNullOrEmpty(searchTerm))
                 {
-                    LoadDrivers(); // Show all drivers if search is empty
+                    LoadDrivers();
                 }
                 else
                 {
                     var searchResults = driverRepository.SearchDrivers(searchTerm);
-
-                    // Create a list with staff names for display
-                    var searchResultsWithStaffNames = searchResults.Select(d => new
+                    dgvDrivers.DataSource = searchResults.Select(d => new
                     {
                         d.DriverID,
                         d.StaffId,
-                        StaffName = GetStaffName(d.StaffId),
+                        d.Name,
                         d.LicenseNumber,
                         d.LicenseExpiryDate,
                         d.LicenseType,
                         d.Availability
                     }).ToList();
-
-                    dgvDrivers.DataSource = searchResultsWithStaffNames;
                 }
             }
             catch (Exception ex)
@@ -346,6 +318,20 @@ namespace tms.Forms
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
+
+        private void dgvDrivers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Implementation if needed
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+            // Implementation if needed
+        }
+
+        private void gbTripList_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -45,22 +45,48 @@ namespace tms.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Trip>().HasKey(t => t.TripID);
+            modelBuilder.Entity<Vehicle>().HasKey(v => v.VehicleID);
+            modelBuilder.Entity<Driver>().HasKey(d => d.StaffId);
+            modelBuilder.Entity<Route>().HasKey(r => r.RouteID);
+
+
 
             modelBuilder.Entity<Route>()
           .Property(r => r.DistanceKm)
-          .HasPrecision(10, 2); // Adjust precision as needed
+          .HasPrecision(10, 2);
 
             modelBuilder.Entity<Staff>()
                 .Property(s => s.Salary)
-                .HasPrecision(12, 2); // Adjust precision as needed
+                .HasPrecision(12, 2);
 
             modelBuilder.Entity<Staff>();
             modelBuilder.Entity<Route>();
             modelBuilder.Entity<Vehicle>();
+            modelBuilder.Entity<Driver>()
+        .HasOne(d => d.Staff)
+        .WithOne()
+        .HasForeignKey<Driver>(d => d.StaffId);
+
+            modelBuilder.Entity<Trip>()
+                .HasOne(t => t.Vehicle)
+                .WithMany()
+                .HasForeignKey(t => t.VehicleID);
+
+            modelBuilder.Entity<Trip>()
+                .HasOne(t => t.Driver)
+                .WithMany()
+                .HasForeignKey(t => t.DriverID);
+
+            modelBuilder.Entity<Trip>()
+                .HasOne(t => t.Route)
+                .WithMany()
+                .HasForeignKey(t => t.RouteID);
+
             modelBuilder.Entity<TripDetail>(entity =>
             {
                 entity.HasNoKey();
-                entity.ToView(null);  // No table, used only for stored procedure results
+                entity.ToView(null);  
             });
             modelBuilder.Entity<Ticket>(
                 entity =>

@@ -34,6 +34,7 @@
             txtSearch = new TextBox();
             lblSearch = new Label();
             btnClear = new Button();
+            btnNavigateToPayment = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvInvoices).BeginInit();
             SuspendLayout();
             // 
@@ -243,12 +244,22 @@
             btnClear.UseVisualStyleBackColor = false;
             btnClear.Click += btnClear_Click;
             // 
+            // btnNavigateToPayment
+            // 
+            btnNavigateToPayment.Location = new Point(50, 337);
+            btnNavigateToPayment.Name = "btnNavigateToPayment";
+            btnNavigateToPayment.Size = new Size(150, 30);
+            btnNavigateToPayment.TabIndex = 20;
+            btnNavigateToPayment.Text = "Create Payment";
+            btnNavigateToPayment.UseVisualStyleBackColor = true;
+            // 
             // InvoiceForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(1400, 656);
+            Controls.Add(btnNavigateToPayment);
             Controls.Add(btnClear);
             Controls.Add(lblSearch);
             Controls.Add(txtSearch);
@@ -275,9 +286,11 @@
             ((System.ComponentModel.ISupportInitialize)dgvInvoices).EndInit();
             ResumeLayout(false);
             PerformLayout();
+
         }
 
         #endregion
+
 
         private System.Windows.Forms.Label lblInvoiceId;
         private System.Windows.Forms.Label lblInvoiceDate;
@@ -296,5 +309,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnNavigateToPayment;
     }
 }

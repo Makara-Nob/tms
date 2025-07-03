@@ -79,6 +79,7 @@ namespace tms
             lblRole = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             headerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -117,6 +118,8 @@ namespace tms
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = Color.FromArgb(15, 15, 23);
+            splitContainer1.Panel2.Controls.Add(lblRole);
+            splitContainer1.Panel2.Controls.Add(lblWelcome);
             splitContainer1.Panel2.Paint += splitContainer1_Panel2_Paint;
             // 
             // headerPanel
@@ -544,12 +547,12 @@ namespace tms
             // 
             BackColor = Color.FromArgb(15, 15, 23);
             resources.ApplyResources(this, "$this");
-            Controls.Add(lblRole);
-            Controls.Add(lblWelcome);
             Controls.Add(splitContainer1);
             Name = "FormMain";
             WindowState = FormWindowState.Maximized;
             splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             headerPanel.ResumeLayout(false);
@@ -587,7 +590,6 @@ namespace tms
             passengerCard.ResumeLayout(false);
             passengerCard.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
 

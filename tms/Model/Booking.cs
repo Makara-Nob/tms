@@ -21,18 +21,15 @@ namespace tms.Model
 
             [MaxLength(10)]
             public string Gender { get; set; }
-            public int SeatNumber { get; set; }
+            public string SeatNumber { get; set; }
 
-            [MaxLength(50)]
+        [MaxLength(50)]
             public string Status { get; set; }
 
             // Foreign Keys
             public string StaffID { get; set; }
             public string TripID { get; set; }
-            public string TrackingNumber { get; set; }
-            public string InvoiceID { get; set; }
-            public string PaymentID { get; set; }
-            public decimal Amount { get; set; }
+
 
 
         [ForeignKey(nameof(StaffID))]

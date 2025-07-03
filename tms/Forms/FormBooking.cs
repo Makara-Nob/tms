@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
+using Microsoft.IdentityModel.Tokens;
 using tms.Model;
 using tms.Repository;
 
@@ -9,15 +11,15 @@ namespace tms.Forms
         private readonly Action<Form> _loadFormCallback;
         private BookingRepository _bookingRepository;
         private List<Booking> allBookings;
+
         public FormBooking(Action<Form> loadFormCallback)
         {
             InitializeComponent();
             _bookingRepository = new BookingRepository();
+            _loadFormCallback = loadFormCallback;
             LoadBooking();
             LoadTrips();
             WireGenderEvents();
-            LoadBooking();
-            _loadFormCallback = loadFormCallback;
         }
 
         private void LoadBooking()
@@ -33,9 +35,6 @@ namespace tms.Forms
             }
         }
 
-
-
-
         private void WireGenderEvents()
         {
             chkMale.CheckedChanged += (s, e) =>
@@ -49,12 +48,18 @@ namespace tms.Forms
                 if (chkFemale.Checked)
                     chkMale.Checked = false;
             };
+
             btnClear.Click += BtnClear_Click;
             btnUpdate.Click += BtnUpdate_Click;
             btnSelectSeat.Click += OpenSeatSelect;
             btnAdd.Click += BtnAddBooking_Click;
             txtBookingSearch.TextChanged += TxtSearch_TextChanged;
+            btnNavigateToInvoice.Click += BtnNavigateToInvoice_Click;
+        }
 
+        private void BtnNavigateToInvoice_Click(object sender, EventArgs e)
+        {
+            _loadFormCallback?.Invoke(new InvoiceForm());
         }
 
         private void OpenSeatSelect(object sender, EventArgs e)
@@ -62,19 +67,26 @@ namespace tms.Forms
             _loadFormCallback?.Invoke(new FormSeatPicking());
         }
 
-        private void LoadTrips()
+        private async void LoadTrips()
         {
-            var tripRepo = new TripRepository();
-            comboBoxTrip.DataSource = tripRepo.GetAll();
-            comboBoxTrip.DisplayMember = "RouteName";
-            comboBoxTrip.ValueMember = "TripID";
+            try
+            {
+                var tripRepo = new TripRepository();
+                var trips = await tripRepo.GetAllAsync();
+                comboBoxTrip.DataSource = trips;
+                comboBoxTrip.DisplayMember = "RouteName"; // Make sure Trip has a RouteName property
+                comboBoxTrip.ValueMember = "TripID";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading trips: {ex.Message}");
+            }
         }
 
         private void BtnAddBooking_Click(object sender, EventArgs e)
         {
             try
             {
-                // Validate required fields here, for example:
                 if (string.IsNullOrWhiteSpace(txtBox_Passenger.Text))
                 {
                     MessageBox.Show("Please enter passenger contact.");
@@ -91,20 +103,18 @@ namespace tms.Forms
 
                 var book = new Booking
                 {
-                    BookingID = 1,  // This will be set by SP output
-                    BookingDate = DateTime.Now,  // or from a date picker
-                    SeatNumber = 0,  // initially 0 or null until seat is picked
-                    Status = "Pending",  // or any default status
+                    BookingDate = DateTime.Now,
+                    SeatNumber = "",
+                    Status = "Pending",
                     PassengerContact = txtBox_Passenger.Text.Trim(),
                     Gender = gender,
-                    StaffID = "S001",  // or current logged-in staff
+                    StaffID = "S001",
                     TripID = comboBoxTrip.SelectedValue.ToString()
                 };
 
                 var newBookingId = _bookingRepository.Add(book);
 
-                MessageBox.Show($"Booking added successfully!");
-
+                MessageBox.Show($"Booking added successfully with ID: {newBookingId}");
                 LoadBooking();
                 ClearForm();
             }
@@ -114,6 +124,10 @@ namespace tms.Forms
             }
         }
 
+        private string GenerateBookingId()
+        {
+            return "BK-" + DateTime.Now.ToString("yyyyMMddHHmmss");
+        }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
@@ -129,7 +143,7 @@ namespace tms.Forms
                 selectedBooking.Status = "Updated";
                 selectedBooking.StaffID = "S001";
                 selectedBooking.TripID = (string)comboBoxTrip.SelectedValue;
-                selectedBooking.SeatNumber = 1;
+                selectedBooking.SeatNumber = "01A";
                 selectedBooking.BookingDate = DateTime.Now;
 
                 _bookingRepository.Update(selectedBooking);
@@ -141,11 +155,11 @@ namespace tms.Forms
                 MessageBox.Show($"Update failed: {ex.Message}");
             }
         }
-        private void BtnSelectSeat_Click(object sender, EventArgs e)
+
+        private async void BtnSelectSeat_Click(object sender, EventArgs e)
         {
             try
             {
-                // Get the selected booking to determine vehicle/trip
                 var selectedBooking = GetSelectedBooking();
                 if (selectedBooking == null)
                 {
@@ -154,53 +168,63 @@ namespace tms.Forms
                     return;
                 }
 
-                string vehicleId = selectedBooking.TripID.ToString();
-
-                // Get already occupied seats for this trip
-                var occupiedSeats = GetOccupiedSeatsForTrip(vehicleId);
-
-                // Show seat picker dialog
-                var seatResult = FormSeatPicking.ShowSeatPicker(vehicleId, occupiedSeats);
-
-                if (seatResult.Success && seatResult.SelectedSeats.Any())
+                // Get the trip to get the vehicle ID
+                var tripRepo = new TripRepository();
+                var trip = await tripRepo.GetByIdAsync(selectedBooking.TripID);
+                if (trip == null)
                 {
-                    // Update the booking with selected seat information
-                    var firstSeat = seatResult.SelectedSeats.First();
-                    selectedBooking.SeatNumber = int.Parse(firstSeat.SeatNumber.Substring(0, 2)); // Extract row number
+                    MessageBox.Show("Associated trip not found.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                    // Update the booking in database
-                    _bookingRepository.Update(selectedBooking);
-                    LoadBooking();
+                // Get occupied seats for this trip
+                var occupiedSeats = GetOccupiedSeatsForTrip(selectedBooking.TripID);
 
-                    // Show confirmation
-                    string message = $"Selected seats: {string.Join(", ", seatResult.SelectedSeats.Select(s => s.SeatNumber))}\n" +
-                                   $"Vehicle: {seatResult.VehicleId}";
-                    MessageBox.Show(message, "Seats Selected Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Show seat picker form as a dialog
+                using (var seatForm = new FormSeatPicking(trip.VehicleID, occupiedSeats))
+                {
+                    var result = seatForm.ShowDialog();
+
+                    if (result == DialogResult.OK && seatForm.SelectedSeats.Any())
+                    {
+                        // Update booking with selected seat
+                        var firstSeat = seatForm.SelectedSeats.First();
+                        selectedBooking.SeatNumber = firstSeat.SeatNumber;
+                        selectedBooking.Status = "Confirmed";
+
+                        // Update the booking in database
+                        _bookingRepository.Update(selectedBooking);
+
+                        // Refresh the grid
+                        LoadBooking();
+
+                        MessageBox.Show($"Seat {firstSeat.SeatNumber} selected successfully!",
+                            "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error opening seat selection: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error selecting seat: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private List<string> GetOccupiedSeatsForTrip(string vehicleId)
+        private List<string> GetOccupiedSeatsForTrip(string tripId)
         {
             try
             {
                 var occupiedSeats = new List<string>();
                 var bookingsForTrip = _bookingRepository.GetAll()
-                    .Where(b => b.TripID.ToString() == vehicleId && b.Status != "Cancelled")
+                    .Where(b => b.TripID == tripId && b.Status != "Cancelled")
                     .ToList();
 
-                // Convert seat numbers back to seat format
                 foreach (var booking in bookingsForTrip)
                 {
-                    if (booking.SeatNumber > 0)
+                    if (!string.IsNullOrEmpty(booking.SeatNumber))
                     {
-                        // Adjust this conversion based on your seat numbering system
-                        string seatNumber = $"{booking.SeatNumber:D2}A";
-                        occupiedSeats.Add(seatNumber);
+                        occupiedSeats.Add(booking.SeatNumber);
                     }
                 }
 
@@ -212,6 +236,7 @@ namespace tms.Forms
                 return new List<string>();
             }
         }
+
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
@@ -226,13 +251,11 @@ namespace tms.Forms
                 return booking;
             return null;
         }
+
         private void BtnClear_Click(object sender, EventArgs e)
         {
             ClearForm();
         }
-
-
-
 
         private void ClearForm()
         {
@@ -244,6 +267,16 @@ namespace tms.Forms
         }
 
         private void dtgv_booking_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

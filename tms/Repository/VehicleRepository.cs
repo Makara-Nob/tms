@@ -5,14 +5,32 @@ using Microsoft.Data.SqlClient;
 
 namespace tms.Repository
 {
-    public class VehicleRepository
+    public class VehicleRepository : IDisposable
     {
+
+        private readonly AppDbContext _context;
+        private bool _disposed = false;
+
+        // Constructor that optionally takes a context (for dependency injection)
+        public VehicleRepository(AppDbContext context = null)
+        {
+            _context = context ?? new AppDbContext();
+        }
+
         public List<Vehicle> GetAll()
         {
-            using var context = new AppDbContext();
-            return context.Vehicles
-                .FromSqlRaw("EXEC GetAllVehicles")
-                .ToList();
+            try
+            {
+                return _context.Vehicles
+                    .AsNoTracking()
+                    .OrderBy(v => v.Type)
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting vehicles: {ex.Message}");
+                return new List<Vehicle>();
+            }
         }
 
         public Vehicle? GetById(string vehicleId)
@@ -87,5 +105,24 @@ namespace tms.Repository
 
         public List<string> GetVehiclestatuses() =>
             new() { "Active", "Inactive", "Maintenance", "Retired" };
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    // Dispose managed resources
+                    _context.Dispose();
+                }
+                _disposed = true;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
     }
 }

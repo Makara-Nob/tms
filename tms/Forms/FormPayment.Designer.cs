@@ -46,11 +46,12 @@
             lblStaffID = new Label();
             cmbPaymentMethod = new ComboBox();
             lblPaymentMethod = new Label();
-            cmbInvoiceNo = new ComboBox(); // Changed from TextBox to ComboBox
+            cmbInvoiceNo = new ComboBox();
             lblInvoiceNo = new Label();
             txtPaymentID = new TextBox();
             lblPaymentID = new Label();
             lblPaymentForm = new Label();
+            btnNavigateToTicket = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -107,6 +108,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(45, 45, 48);
+            panel2.Controls.Add(btnNavigateToTicket);
             panel2.Controls.Add(btnClear);
             panel2.Controls.Add(btnInsert);
             panel2.Controls.Add(btnUpdate);
@@ -120,7 +122,7 @@
             panel2.Controls.Add(lblStaffID);
             panel2.Controls.Add(cmbPaymentMethod);
             panel2.Controls.Add(lblPaymentMethod);
-            panel2.Controls.Add(cmbInvoiceNo); // Changed from txtInvoiceNo
+            panel2.Controls.Add(cmbInvoiceNo);
             panel2.Controls.Add(lblInvoiceNo);
             panel2.Controls.Add(txtPaymentID);
             panel2.Controls.Add(lblPaymentID);
@@ -297,7 +299,7 @@
             // 
             // cmbInvoiceNo
             // 
-            cmbInvoiceNo.DropDownStyle = ComboBoxStyle.DropDownList; // New ComboBox for Invoice No
+            cmbInvoiceNo.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbInvoiceNo.Font = new Font("Microsoft Sans Serif", 9F);
             cmbInvoiceNo.FormattingEnabled = true;
             cmbInvoiceNo.Location = new Point(23, 162);
@@ -305,6 +307,7 @@
             cmbInvoiceNo.Name = "cmbInvoiceNo";
             cmbInvoiceNo.Size = new Size(291, 23);
             cmbInvoiceNo.TabIndex = 4;
+            cmbInvoiceNo.SelectedIndexChanged += cmbInvoiceNo_SelectedIndexChanged;
             // 
             // lblInvoiceNo
             // 
@@ -350,6 +353,15 @@
             lblPaymentForm.Size = new Size(124, 20);
             lblPaymentForm.TabIndex = 0;
             lblPaymentForm.Text = "Payment Form";
+            // 
+            // btnNavigateToTicket
+            // 
+            btnNavigateToTicket.Location = new Point(489, 659);
+            btnNavigateToTicket.Name = "btnNavigateToTicket";
+            btnNavigateToTicket.Size = new Size(150, 30);
+            btnNavigateToTicket.TabIndex = 20;
+            btnNavigateToTicket.Text = "Create Ticket";
+            btnNavigateToTicket.UseVisualStyleBackColor = true;
             // 
             // PaymentForm
             // 
@@ -398,5 +410,6 @@
         private TextBox txtPaymentID;
         private Label lblPaymentID;
         private Label lblPaymentForm;
+        private System.Windows.Forms.Button btnNavigateToTicket;
     }
 }
