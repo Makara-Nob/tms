@@ -14,6 +14,7 @@ namespace tms.Model
         [Required]
         [StringLength(50)]
         public string SupplierID { get; set; }
+        public string? InvoiceNo { get; set; }
 
         [Required]
         [StringLength(200)]
@@ -24,10 +25,10 @@ namespace tms.Model
         public DateTime SupplierDate { get; set; }
 
         [StringLength(200)]
-        public string CustomerPosition { get; set; }
+        public string? CustomerPosition { get; set; }
 
         [StringLength(500)]
-        public string CustomerAddress { get; set; }
+        public string? CustomerAddress { get; set; }
 
         [Required]
         [Column(TypeName = "datetime2")]

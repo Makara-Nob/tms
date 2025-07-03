@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using tms.Repository;
+using Microsoft.Data.SqlClient;
+using tms.Data;
 using tms.Model;
+using tms.Repository;
 
 namespace tms.Forms
 {
     public partial class FormTicket : Form
     {
         private readonly TicketRepository ticketRepository;
+        private readonly PaymentRepository paymentRepository;
         private string currentTicketId = string.Empty;
         private bool isEditMode = false;
 
@@ -22,10 +25,10 @@ namespace tms.Forms
         {
             InitializeComponent();
             ticketRepository = new TicketRepository();
+            paymentRepository = new PaymentRepository();
             InitializeEventHandlers();
+            LoadPaymentStatuses();
         }
-
-
 
         private void InitializeEventHandlers()
         {
@@ -34,6 +37,32 @@ namespace tms.Forms
             btnClear.Click += btnClear_Click;
             txtSearch.TextChanged += TxtSearch_TextChanged;
             IsTicket.SelectedIndexChanged += lstRoutes_SelectedIndexChanged;
+            txtInvoiceNo.SelectedIndexChanged += TxtInvoiceNo_SelectedIndexChanged;
+        }
+
+        private void LoadPaymentStatuses()
+        {
+            txtInvoiceNo.Items.Clear();
+            txtInvoiceNo.Items.Add(""); // Empty option
+            txtInvoiceNo.Items.AddRange(paymentRepository.GetAll()
+                .Where(p => p.Status == "Completed")
+                .Select(p => p.InvoiceNo)
+                .Distinct()
+                .ToArray());
+        }
+
+        private void TxtInvoiceNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedInvoice = txtInvoiceNo.Text;
+            if (!string.IsNullOrEmpty(selectedInvoice))
+            {
+                var payment = paymentRepository.GetByInvoiceNo(selectedInvoice);
+                lblPaymentStatus.Text = payment != null ? $"Status: {payment.Status}" : "Status: Not Found";
+            }
+            else
+            {
+                lblPaymentStatus.Text = "Status:";
+            }
         }
 
         private void FormTicket_Load(object sender, EventArgs e)
@@ -55,6 +84,9 @@ namespace tms.Forms
             if (!ValidateForm())
                 return;
 
+            if (!ValidatePaymentStatus())
+                return;
+
             CreateNewTicket();
             MessageBox.Show("New ticket created successfully!", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -72,6 +104,9 @@ namespace tms.Forms
             {
                 if (ValidateForm())
                 {
+                    if (!ValidatePaymentStatus())
+                        return;
+
                     if (isEditMode && !string.IsNullOrEmpty(currentTicketId))
                     {
                         UpdateExistingTicket();
@@ -146,6 +181,16 @@ namespace tms.Forms
             dtSupplierDate.Value = ticket.SupplierDate;
             txtCustomerPosition.Text = ticket.CustomerPosition;
             txtCustomerAddress.Text = ticket.CustomerAddress;
+
+            // Set invoice number if exists
+            if (!string.IsNullOrEmpty(ticket.InvoiceNo))
+            {
+                txtInvoiceNo.SelectedItem = ticket.InvoiceNo;
+            }
+            else
+            {
+                txtInvoiceNo.SelectedIndex = -1;
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -160,6 +205,8 @@ namespace tms.Forms
             dtSupplierDate.Value = DateTime.Now;
             txtCustomerPosition.Clear();
             txtCustomerAddress.Clear();
+            txtInvoiceNo.SelectedIndex = -1;
+            lblPaymentStatus.Text = "Status:";
             currentTicketId = string.Empty;
             isEditMode = false;
         }
@@ -209,6 +256,31 @@ namespace tms.Forms
             return true;
         }
 
+        private bool ValidatePaymentStatus()
+        {
+            string selectedInvoice = txtInvoiceNo.Text;
+            if (string.IsNullOrEmpty(selectedInvoice))
+                return true; // Allow if no invoice is selected
+
+            var payment = paymentRepository.GetByInvoiceNo(selectedInvoice);
+
+            if (payment == null)
+            {
+                MessageBox.Show("Payment not found for this invoice number!",
+                    "Payment Status", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (payment.Status != "Completed")
+            {
+                MessageBox.Show($"Payment status is '{payment.Status}'. Only 'Completed' payments can create tickets.",
+                    "Payment Status", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
         private void CreateNewTicket()
         {
             var newTicket = new Ticket
@@ -220,7 +292,8 @@ namespace tms.Forms
                 CustomerPosition = txtCustomerPosition.Text.Trim(),
                 CustomerAddress = txtCustomerAddress.Text.Trim(),
                 CreatedDate = DateTime.Now,
-                ModifiedDate = DateTime.Now
+                ModifiedDate = DateTime.Now,
+                InvoiceNo = txtInvoiceNo.Text // Set invoice number
             };
 
             bool success = ticketRepository.Add(newTicket);
@@ -241,6 +314,7 @@ namespace tms.Forms
                 existingTicket.CustomerPosition = txtCustomerPosition.Text.Trim();
                 existingTicket.CustomerAddress = txtCustomerAddress.Text.Trim();
                 existingTicket.ModifiedDate = DateTime.Now;
+                existingTicket.InvoiceNo = txtInvoiceNo.Text;
 
                 bool success = ticketRepository.Update(existingTicket);
                 if (!success)
@@ -298,9 +372,12 @@ namespace tms.Forms
 
         private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
         {
-
+            // Painting logic
         }
 
-        // Remaining event handlers and methods...
+        private void gbRoute2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

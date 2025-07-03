@@ -170,5 +170,10 @@ namespace tms.Forms
                 txtOrderID.ReadOnly = true; // Make OrderID non-editable when updating
             }
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

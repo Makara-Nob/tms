@@ -16,6 +16,12 @@ namespace tms.Repository
                 .FromSqlRaw("EXEC GetAllPayments")
                 .ToList();
         }
+        public Payment GetByInvoiceNo(string invoiceNo)
+        {
+            using var context = new AppDbContext();
+            return context.Payments
+                .FirstOrDefault(p => p.InvoiceNo == invoiceNo);
+        }
 
         public Payment GetById(string paymentId)
         {

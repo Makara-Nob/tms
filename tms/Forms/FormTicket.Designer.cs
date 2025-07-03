@@ -34,6 +34,7 @@
             btnUpdate = new Button();
             gbRoute2 = new GroupBox();
             tableLayoutPanel4 = new TableLayoutPanel();
+            lblPaymentStatus = new Label();
             txtSupplierID = new TextBox();
             lblCustomerPosition = new Label();
             lblSupplierID = new Label();
@@ -45,6 +46,8 @@
             lblSupplierDate = new Label();
             dtSupplierDate = new DateTimePicker();
             btnClear = new Button();
+            txtInvoiceNo = new ComboBox();
+            label1 = new Label();
             gbRoute1 = new GroupBox();
             IsTicket = new ListBox();
             txtSearch = new TextBox();
@@ -118,6 +121,7 @@
             gbRoute2.TabIndex = 27;
             gbRoute2.TabStop = false;
             gbRoute2.Text = "Form";
+            gbRoute2.Enter += gbRoute2_Enter;
             // 
             // tableLayoutPanel4
             // 
@@ -126,6 +130,7 @@
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel4.Controls.Add(lblPaymentStatus, 3, 3);
             tableLayoutPanel4.Controls.Add(btnNew, 0, 3);
             tableLayoutPanel4.Controls.Add(txtSupplierID, 1, 0);
             tableLayoutPanel4.Controls.Add(lblCustomerPosition, 2, 0);
@@ -139,6 +144,8 @@
             tableLayoutPanel4.Controls.Add(btnUpdate, 1, 3);
             tableLayoutPanel4.Controls.Add(dtSupplierDate, 1, 2);
             tableLayoutPanel4.Controls.Add(btnClear, 2, 3);
+            tableLayoutPanel4.Controls.Add(txtInvoiceNo, 3, 2);
+            tableLayoutPanel4.Controls.Add(label1, 2, 2);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(7, 22);
             tableLayoutPanel4.Margin = new Padding(2);
@@ -150,6 +157,17 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             tableLayoutPanel4.Size = new Size(689, 129);
             tableLayoutPanel4.TabIndex = 30;
+            // 
+            // lblPaymentStatus
+            // 
+            lblPaymentStatus.Dock = DockStyle.Fill;
+            lblPaymentStatus.ForeColor = Color.White;
+            lblPaymentStatus.Location = new Point(519, 90);
+            lblPaymentStatus.Name = "lblPaymentStatus";
+            lblPaymentStatus.Size = new Size(167, 39);
+            lblPaymentStatus.TabIndex = 0;
+            lblPaymentStatus.Text = "Status:";
+            lblPaymentStatus.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtSupplierID
             // 
@@ -252,6 +270,24 @@
             btnClear.TabIndex = 23;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
+            // 
+            // txtInvoiceNo
+            // 
+            txtInvoiceNo.FormattingEnabled = true;
+            txtInvoiceNo.Location = new Point(519, 63);
+            txtInvoiceNo.Name = "txtInvoiceNo";
+            txtInvoiceNo.Size = new Size(167, 23);
+            txtInvoiceNo.TabIndex = 24;
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.Transparent;
+            label1.ForeColor = Color.FromArgb(224, 224, 224);
+            label1.Location = new Point(347, 60);
+            label1.Name = "label1";
+            label1.Size = new Size(133, 23);
+            label1.TabIndex = 11;
+            label1.Text = "Payment Status";
             // 
             // gbRoute1
             // 
@@ -398,5 +434,8 @@
         private TextBox txtSearch;
         private DateTimePicker dtSupplierDate;
         private Button btnClear;
+        private ComboBox txtInvoiceNo;
+        private Label label1;
+        private Label lblPaymentStatus;
     }
 }
