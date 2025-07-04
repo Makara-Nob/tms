@@ -375,6 +375,7 @@
             gbSearch.TabIndex = 19;
             gbSearch.TabStop = false;
             gbSearch.Text = "Search";
+            gbSearch.Enter += gbSearch_Enter;
             // 
             // gbTripList
             // 

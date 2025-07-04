@@ -258,32 +258,30 @@ namespace tms.Forms
 
         private void DgvDrivers_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvDrivers.SelectedRows.Count > 0)
+            if (dgvDrivers.SelectedRows.Count == 0) return;
+
+            var selectedRow = dgvDrivers.SelectedRows[0];
+
+            txtDriverID.Text = selectedRow.Cells["DriverID"].Value?.ToString() ?? "";
+
+            var staffId = selectedRow.Cells["StaffId"].Value?.ToString();
+            if (!string.IsNullOrEmpty(staffId))
             {
-                var selectedRow = dgvDrivers.SelectedRows[0];
+                cmbStaff.SelectedValue = staffId;
+            }
 
-                txtDriverID.Text = selectedRow.Cells["DriverID"].Value?.ToString();
+            txtLicenseNumber.Text = selectedRow.Cells["LicenseNumber"].Value?.ToString() ?? "";
+            txtLicenseType.Text = selectedRow.Cells["LicenseType"].Value?.ToString() ?? "";
 
-                var staffId = selectedRow.Cells["StaffId"].Value;
-                if (staffId != null)
-                {
-                    cmbStaff.SelectedValue = staffId;
-                }
+            var availability = selectedRow.Cells["Availability"].Value?.ToString();
+            if (!string.IsNullOrEmpty(availability))
+            {
+                cmbAvailability.SelectedItem = availability;
+            }
 
-                txtLicenseNumber.Text = selectedRow.Cells["LicenseNumber"].Value?.ToString();
-                txtLicenseType.Text = selectedRow.Cells["LicenseType"].Value?.ToString();
-
-                var availability = selectedRow.Cells["Availability"].Value?.ToString();
-                if (!string.IsNullOrEmpty(availability))
-                {
-                    cmbAvailability.SelectedItem = availability;
-                }
-
-                var expiryDate = selectedRow.Cells["LicenseExpiryDate"].Value;
-                if (expiryDate != null && DateTime.TryParse(expiryDate.ToString(), out DateTime date))
-                {
-                    dtpLicenseExpiryDate.Value = date;
-                }
+            if (selectedRow.Cells["LicenseExpiryDate"].Value is DateTime expiryDate)
+            {
+                dtpLicenseExpiryDate.Value = expiryDate;
             }
         }
 
@@ -330,6 +328,11 @@ namespace tms.Forms
         }
 
         private void gbTripList_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbSearch_Enter(object sender, EventArgs e)
         {
 
         }

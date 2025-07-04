@@ -63,6 +63,26 @@ namespace tms.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _360_F_441313663_kzZRhUTXX8L2JU1hibyNt9VCVVuvtZ76 {
+            get {
+                object obj = ResourceManager.GetObject("360_F_441313663_kzZRhUTXX8L2JU1hibyNt9VCVVuvtZ76", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _360_F_810898439_M7GxeIoecPFWfUaIekY0Qw3q4Kh2l0yO {
+            get {
+                object obj = ResourceManager.GetObject("360_F_810898439_M7GxeIoecPFWfUaIekY0Qw3q4Kh2l0yO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap invoice {
             get {
                 object obj = ResourceManager.GetObject("invoice", resourceCulture);
@@ -83,9 +103,39 @@ namespace tms.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap reset_password {
+            get {
+                object obj = ResourceManager.GetObject("reset-password", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap staffIcon {
             get {
                 object obj = ResourceManager.GetObject("staffIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap typing {
+            get {
+                object obj = ResourceManager.GetObject("typing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user__2_ {
+            get {
+                object obj = ResourceManager.GetObject("user (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

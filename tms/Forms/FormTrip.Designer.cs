@@ -421,6 +421,7 @@
             gbTripList.TabIndex = 20;
             gbTripList.TabStop = false;
             gbTripList.Text = "Trip's List";
+            gbTripList.Enter += gbTripList_Enter;
             // 
             // FormTrip
             // 
@@ -433,6 +434,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Trip Management";
             WindowState = FormWindowState.Maximized;
+            Load += FormTrip_Load;
             panelInput.ResumeLayout(false);
             groupBoxTrip.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);

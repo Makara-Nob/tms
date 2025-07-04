@@ -11,12 +11,10 @@ namespace tms.Repository
         private readonly AppDbContext _context;
         private bool _disposed = false;
 
-        // Constructor that optionally takes a context (for dependency injection)
         public DriverRepository(AppDbContext context = null)
         {
             _context = context ?? new AppDbContext();
         }
-        // Get all drivers with names (assuming SP returns data mappable to DriverWithName)
         public List<DriverWithName> GetAllDrivers()
         {
             try
@@ -26,8 +24,13 @@ namespace tms.Repository
                     .AsNoTracking()
                     .Select(d => new DriverWithName
                     {
+                        DriverID = d.DriverID,
                         StaffId = d.StaffId,
-                        Name = d.Staff.Name
+                        Name = d.Staff.Name,
+                        LicenseNumber = d.LicenseNumber,
+                        LicenseExpiryDate = d.LicenseExpiryDate,
+                        LicenseType = d.LicenseType,
+                        Availability = d.Availability
                     })
                     .OrderBy(d => d.Name)
                     .ToList();
@@ -69,6 +72,8 @@ namespace tms.Repository
         }
 
         // Create driver
+        // In DriverRepository.cs
+
         public bool AddDriver(Driver driver)
         {
             using var context = new AppDbContext();
@@ -76,24 +81,26 @@ namespace tms.Repository
             {
                 var parameters = new[]
                 {
-                    new SqlParameter("@StaffId", driver.StaffId),
-                    new SqlParameter("@LicenseNumber", driver.LicenseNumber),
-                    new SqlParameter("@LicenseExpiryDate", driver.LicenseExpiryDate ?? (object)DBNull.Value),
-                    new SqlParameter("@LicenseType", driver.LicenseType ?? (object)DBNull.Value),
-                    new SqlParameter("@Availability", driver.Availability ?? (object)DBNull.Value)
-                };
+            // Removed DriverID parameter
+            new SqlParameter("@StaffId", driver.StaffId),
+            new SqlParameter("@LicenseNumber", driver.LicenseNumber),
+            new SqlParameter("@LicenseExpiryDate", driver.LicenseExpiryDate ?? (object)DBNull.Value),
+            new SqlParameter("@LicenseType", driver.LicenseType ?? (object)DBNull.Value),
+            new SqlParameter("@Availability", driver.Availability ?? (object)DBNull.Value)
+        };
 
                 return context.Database.ExecuteSqlRaw(
-                    "EXEC CreateDriver @StaffId, @LicenseNumber, @LicenseExpiryDate, @LicenseType, @Availability", parameters) > 0;
+                    "EXEC CreateDriver @StaffId, @LicenseNumber, @LicenseExpiryDate, @LicenseType, @Availability",
+                    parameters) > 0;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error adding driver: {ex.Message}");
+                MessageBox.Show($"Error adding driver: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
 
-        // Update driver
         public bool UpdateDriver(Driver driver)
         {
             using var context = new AppDbContext();
@@ -101,13 +108,13 @@ namespace tms.Repository
             {
                 var parameters = new[]
                 {
-                    new SqlParameter("@DriverID", driver.DriverID), // Assuming DriverID is used in SP
-                    new SqlParameter("@StaffId", driver.StaffId),
-                    new SqlParameter("@LicenseNumber", driver.LicenseNumber),
-                    new SqlParameter("@LicenseExpiryDate", driver.LicenseExpiryDate ?? (object)DBNull.Value),
-                    new SqlParameter("@LicenseType", driver.LicenseType ?? (object)DBNull.Value),
-                    new SqlParameter("@Availability", driver.Availability ?? (object)DBNull.Value)
-                };
+            new SqlParameter("@DriverID", driver.DriverID),
+            new SqlParameter("@StaffId", driver.StaffId),
+            new SqlParameter("@LicenseNumber", driver.LicenseNumber),
+            new SqlParameter("@LicenseExpiryDate", driver.LicenseExpiryDate ?? (object)DBNull.Value),
+            new SqlParameter("@LicenseType", driver.LicenseType ?? (object)DBNull.Value),
+            new SqlParameter("@Availability", driver.Availability ?? (object)DBNull.Value)
+        };
 
                 return context.Database.ExecuteSqlRaw(
                     "EXEC UpdateDriver @DriverID, @StaffId, @LicenseNumber, @LicenseExpiryDate, @LicenseType, @Availability",
@@ -115,7 +122,8 @@ namespace tms.Repository
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error updating driver: {ex.Message}");
+                MessageBox.Show($"Error updating driver: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

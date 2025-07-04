@@ -19,6 +19,19 @@ namespace tms.Forms
         {
             InitializeComponent();
             InitializeFormComponents();
+            LoadComboBoxes();
+            InitializeStatusComboBox();
+            SetDefaultValues();
+            GenerateNewTripId();
+            this.Load += FormTrip_Load;
+        }
+
+        private void FormTrip_Load(object sender, EventArgs e)
+        {
+            LoadComboBoxes();
+            InitializeStatusComboBox();
+            SetDefaultValues();
+            GenerateNewTripId();
         }
 
         private void InitializeFormComponents()
@@ -26,11 +39,7 @@ namespace tms.Forms
             try
             {
                 LoadData();
-                InitializeStatusComboBox();
-                LoadComboBoxes();
                 AttachEventHandlers();
-                GenerateNewTripId();
-                SetDefaultValues();
             }
             catch (Exception ex)
             {
@@ -56,23 +65,22 @@ namespace tms.Forms
             dgvTrips.SelectionChanged += DgvTrips_SelectionChanged;
             cmbStatus.SelectedIndexChanged += CmbTripStatus_SelectedIndexChanged;
 
-            txtSearch.KeyPress += (s, e) => {
+            txtSearch.KeyPress += (s, e) =>
+            {
                 if (e.KeyChar == (char)Keys.Enter) BtnSearch_Click(s, e);
             };
         }
 
-        private async void LoadComboBoxes()
+        private void LoadComboBoxes()
         {
             if (isLoading) return;
 
             try
             {
                 isLoading = true;
-                await Task.WhenAll(
-                    LoadVehicleComboBoxAsync(),
-                    LoadDriverComboBoxAsync(),
-                    LoadRouteComboBoxAsync()
-                );
+                LoadVehicleComboBox();
+                LoadDriverComboBox();
+                LoadRouteComboBox();
             }
             catch (Exception ex)
             {
@@ -85,23 +93,16 @@ namespace tms.Forms
             }
         }
 
-        private async Task LoadVehicleComboBoxAsync()
+        private void LoadVehicleComboBox()
         {
             try
             {
-                var vehicles = await Task.Run(() => vehicleRepository.GetAll());
-
-                if (vehicles == null)
-                {
-                    vehicles = new List<Vehicle>();
-                }
-
-                // Add default empty item
+                var vehicles = vehicleRepository.GetAll();
                 vehicles.Insert(0, new Vehicle { VehicleID = "", Type = "-- Select Vehicle --" });
 
                 if (cmbVehicle.InvokeRequired)
                 {
-                    cmbVehicle.Invoke((MethodInvoker)(() =>
+                    cmbVehicle.Invoke(new Action(() =>
                     {
                         cmbVehicle.DisplayMember = "Type";
                         cmbVehicle.ValueMember = "VehicleID";
@@ -119,42 +120,14 @@ namespace tms.Forms
             {
                 MessageBox.Show($"Error loading vehicles: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                var errorData = new List<object>
-        {
-            new { VehicleID = "", Type = "-- Error Loading Vehicles --" }
-        };
-
-                if (cmbVehicle.InvokeRequired)
-                {
-                    cmbVehicle.Invoke((MethodInvoker)(() =>
-                    {
-                        cmbVehicle.DataSource = errorData;
-                        cmbVehicle.DisplayMember = "Type";
-                        cmbVehicle.ValueMember = "VehicleID";
-                    }));
-                }
-                else
-                {
-                    cmbVehicle.DataSource = errorData;
-                    cmbVehicle.DisplayMember = "Type";
-                    cmbVehicle.ValueMember = "VehicleID";
-                }
             }
         }
 
-        private async Task LoadDriverComboBoxAsync()
+        private void LoadDriverComboBox()
         {
             try
             {
-                var drivers = await Task.Run(() => driverRepository.GetAllDrivers());
-
-                if (drivers == null)
-                {
-                    drivers = new List<DriverRepository.DriverWithName>();
-                }
-
-                // Add default empty item
+                var drivers = driverRepository.GetAllDrivers();
                 drivers.Insert(0, new DriverRepository.DriverWithName
                 {
                     StaffId = "",
@@ -163,7 +136,7 @@ namespace tms.Forms
 
                 if (cmbDriver.InvokeRequired)
                 {
-                    cmbDriver.Invoke((MethodInvoker)(() =>
+                    cmbDriver.Invoke(new Action(() =>
                     {
                         cmbDriver.DisplayMember = "Name";
                         cmbDriver.ValueMember = "StaffId";
@@ -181,47 +154,19 @@ namespace tms.Forms
             {
                 MessageBox.Show($"Error loading drivers: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                var errorData = new List<object>
-        {
-            new { StaffId = "", Name = "-- Error Loading Drivers --" }
-        };
-
-                if (cmbDriver.InvokeRequired)
-                {
-                    cmbDriver.Invoke((MethodInvoker)(() =>
-                    {
-                        cmbDriver.DataSource = errorData;
-                        cmbDriver.DisplayMember = "Name";
-                        cmbDriver.ValueMember = "StaffId";
-                    }));
-                }
-                else
-                {
-                    cmbDriver.DataSource = errorData;
-                    cmbDriver.DisplayMember = "Name";
-                    cmbDriver.ValueMember = "StaffId";
-                }
             }
         }
 
-        private async Task LoadRouteComboBoxAsync()
+        private void LoadRouteComboBox()
         {
             try
             {
-                var routes = await Task.Run(() => routeRepository.GetAll());
-
-                if (routes == null)
-                {
-                    routes = new List<Route>();
-                }
-
-                // Add default empty item
+                var routes = routeRepository.GetAll();
                 routes.Insert(0, new Route { RouteID = "", StartPoint = "-- Select Route --" });
 
                 if (cmbRoute.InvokeRequired)
                 {
-                    cmbRoute.Invoke((MethodInvoker)(() =>
+                    cmbRoute.Invoke(new Action(() =>
                     {
                         cmbRoute.DisplayMember = "StartPoint";
                         cmbRoute.ValueMember = "RouteID";
@@ -239,27 +184,6 @@ namespace tms.Forms
             {
                 MessageBox.Show($"Error loading routes: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                var errorData = new List<object>
-        {
-            new { RouteID = "", StartPoint = "-- Error Loading Routes --" }
-        };
-
-                if (cmbRoute.InvokeRequired)
-                {
-                    cmbRoute.Invoke((MethodInvoker)(() =>
-                    {
-                        cmbRoute.DataSource = errorData;
-                        cmbRoute.DisplayMember = "StartPoint";
-                        cmbRoute.ValueMember = "RouteID";
-                    }));
-                }
-                else
-                {
-                    cmbRoute.DataSource = errorData;
-                    cmbRoute.DisplayMember = "StartPoint";
-                    cmbRoute.ValueMember = "RouteID";
-                }
             }
         }
 
@@ -323,7 +247,8 @@ namespace tms.Forms
 
                 if (dgvTrips.InvokeRequired)
                 {
-                    dgvTrips.Invoke((MethodInvoker)(() => {
+                    dgvTrips.Invoke((MethodInvoker)(() =>
+                    {
                         dgvTrips.DataSource = trips?.ToList() ?? new List<Trip>();
                         if (dgvTrips.Columns.Count == 0)
                         {
@@ -505,7 +430,8 @@ namespace tms.Forms
 
                 if (dgvTrips.InvokeRequired)
                 {
-                    dgvTrips.Invoke((MethodInvoker)(() => {
+                    dgvTrips.Invoke((MethodInvoker)(() =>
+                    {
                         dgvTrips.DataSource = trips?.ToList() ?? new List<Trip>();
                     }));
                 }
@@ -521,7 +447,8 @@ namespace tms.Forms
 
                 if (dgvTrips.InvokeRequired)
                 {
-                    dgvTrips.Invoke((MethodInvoker)(() => {
+                    dgvTrips.Invoke((MethodInvoker)(() =>
+                    {
                         dgvTrips.DataSource = new List<Trip>();
                     }));
                 }
@@ -651,6 +578,11 @@ namespace tms.Forms
         private void gbSearch_Enter(object sender, EventArgs e)
         {
             // Empty implementation
+        }
+
+        private void gbTripList_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
